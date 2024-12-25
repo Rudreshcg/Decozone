@@ -1,105 +1,120 @@
-import React from "react";
-import { Box, Grid, Typography, Button, Card } from "@mui/material";
+import React, { useState } from 'react';
+import {
+  Container,
+  Grid,
+  Card,
+  CardContent,
+  Typography,
+  Button,
+  Collapse,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Box,
+  Avatar,
+} from '@mui/material';
+import { ExpandLess, ExpandMore, FiberManualRecord as BulletIcon } from '@mui/icons-material';
 import { motion } from "framer-motion";
-import { SlideUp } from "../../animation/animate";
+import { SlideLeft, SlideUp } from "../../animation/animate";
+import ServicesIcon from "../../assets/services.png";
+import WarrantyIcon from "../../assets/warranty.png";
+import TechnologyIcon from "../../assets/technology.png";
+import PriceIcon from "../../assets/price.png";
 
-
-const servicesData = [
-  {
-    icon: "🛋️",
-    title: "Living/Dining Room",
-    description: "TV Unit, TV Back Panelling, Crockery Unit, Bar Unit, Bookshelf",
-  },
-  {
-    icon: "🗄️",
-    title: "Innovative Storage",
-    description:
-      "Janitor Unit, Skirting Drawer, Pantry Pull Out, Appliance Garage, Hidden Bar Cabinet, Magic Corner",
-  },
-  {
-    icon: "🛏️",
-    title: "Bedroom",
-    description: "Wardrobes, TV Unit, Bed with Storage, Dressing Unit, Study Unit",
-  },
-  {
-    icon: "🪑",
-    title: "Interior Design Services",
-    description:
-      "False Ceiling, Wall Panelling, Decor Accents, Lighting, Furnishing, Appliances",
-  },
-  {
-    icon: "🍳",
-    title: "Kitchen",
-    description: "Countertops, Backsplashes, Accessories, Shutters, Storage",
-  },
-  {
-    icon: "🛁",
-    title: "Home Improvement Services",
-    description:
-      "Painting, Bathroom Remodelling, Tiling, Plumbing, Electrical, Civil Work, Deep Cleaning",
-  },
+const offerings = [
+  { title: 'Our Services', icon: ServicesIcon, details: ['Modular kitchens', 'Modular wardrobes', 'Lighting', 'Flooring', 'Electrical work', 'Civil work', 'False ceiling', 'Wall design & painting'] },
+  { title: 'Warranty', icon: WarrantyIcon, details: ['FLAT 10-year warranty - Stay worry-free with our warranty policy on modular products.', 'Up to 1-year on-site service warranty - Warranty on on-site services such as painting, electrical, plumbing and more.'] },
+  { title: 'Technology & Science', icon: TechnologyIcon, details: ['AquaBloc® Technology - Hermetically sealed edges that ensure no moisture enters the panels of your modular cabinets.', 'AntiBubble® Technology - Super seamless panels without air bubbles for your modular cabinets.', 'DuraBuild™ Technology - Robust structure for modular cabinets, making them strong and long-lasting.', 'Design Science - Modular kitchens with improved accessibility that makes daily tasks more efficient and reduces stress on the body.'] },
+  { title: 'Price Benefits', icon: PriceIcon, details: ['Price-match guarantee - Price match to a valid quote in comparison with a branded player and for exact scope.', 'Flexible payment options - EMI solutions and payment schemes from leading financial partners.', 'No hidden costs - Transparent costing without last-minute additions.'] },
 ];
 
-const cardVariants = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
 const Services = () => {
-  return (
-    <Box sx={{ padding: 4 }}>
-      <Typography variant="h4" sx={{ marginBottom: 4, fontWeight: "bold", textAlign: "center" }}>
-        What You Get
-      </Typography>
-      <Grid container spacing={4}>
-        {servicesData.map((service, index) => (
-          <Grid item xs={12} md={4} key={index}>
-            <motion.div
-              variants={SlideUp(0.6)}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: false, amount: 0.2 }} // Re-triggers animation when in view
-            >
-              <Card
-                sx={{
-                  padding: 2,
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  boxShadow: 3,
-                  borderRadius: 2,
-                  minHeight: "190px"
-                }}
-              >
-                {/* Icon */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "80px",
-                    height: "80px",
-                    marginRight: 2,
-                    fontSize: "48px",
-                  }}
-                >
-                  {service.icon}
-                </Box>
+  const [expandedSections, setExpandedSections] = useState({});
 
-                {/* Content */}
-                <Box>
-                  <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
-                    {service.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    {service.description}
-                  </Typography>
-                </Box>
-              </Card>
-            </motion.div>
-          </Grid>
-        ))}
-      </Grid>
+  const handleExpandClick = (index) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
+  return (
+    <Box sx={{ backgroundColor: "#f2f2f2" }}>
+      <Container sx={{ py: 5 }}>
+        <Typography
+          variant="h4"
+          sx={{
+            my: 4,
+            fontWeight: "bold",
+            fontFamily: "Arial, sans-serif",
+            color: "#333",
+            textAlign: "center",
+          }}
+        >
+          What we offer
+        </Typography>
+        <Grid container spacing={3} direction="column">
+          {offerings.map((offering, index) => (
+            <Grid item xs={12} key={index}>
+              <motion.div variants={SlideUp(1.6)} initial="hidden" animate="visible">
+                <Card sx={{ boxShadow: 3 }}>
+                  <CardContent sx={{ "&:last-child": { paddingBottom: "16px" } }}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                      <Box display="flex" alignItems="center">
+                        <Avatar
+                          src={offering.icon}
+                          alt={`${offering.title} Icon`}
+                          sx={{ width: 32, height: 32, marginRight: 2 }}
+                        />
+                        <Typography fontSize="18px" fontWeight={600}>
+                          {offering.title}
+                        </Typography>
+                      </Box>
+                      <Button onClick={() => handleExpandClick(index)} color="black">
+                        {expandedSections[index] ? <ExpandLess /> : <ExpandMore />}
+                      </Button>
+                    </Box>
+                    <Collapse in={expandedSections[index]} timeout="auto" unmountOnExit>
+                      <List>
+                        {offering.details.map((detail, detailIndex) => (
+                          <ListItem key={detailIndex}>
+                            <ListItemIcon sx={{ minWidth: "28px" }}>
+                              <BulletIcon sx={{ fontSize: "10px", fill: "black" }} />
+                            </ListItemIcon>
+                            <ListItemText primary={detail} />
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Collapse>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+        <motion.Box
+          variants={SlideUp(1.6)}
+          style={{
+            display: "flex",
+            justifyContent: "center"
+          }}
+        >
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: "#FF5A5F",
+              my: 4,
+              fontWeight: "bold",
+              p: "10px 16px",
+              borderRadius: "10px",
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+            }}
+          >
+            GET FREE QUOTE
+          </Button>
+        </motion.Box>
+      </Container>
     </Box>
   );
 };

@@ -21,7 +21,7 @@ const FloatingWhatsAppButton = () => {
                 '&:hover': {
                     bgcolor: "#f0f0f0",
                 },
-                p: 0, // Remove padding to ensure background starts from the corner
+                p: 0,
             }}
             onClick={handleClick}
         >
@@ -31,10 +31,10 @@ const FloatingWhatsAppButton = () => {
                     color: "#25D366",
                     borderRadius: "20%",
                     p: "12px 20px 12px 12px"
-                    
+
                 }}
             >
-                <WhatsAppIcon  sx={{background: "currentColor", fill: "white", borderRadius: "20%", p:"5px", fontSize: "40px"}}/>
+                <WhatsAppIcon sx={{ background: "currentColor", fill: "white", borderRadius: "20%", p: "5px", fontSize: "40px" }} />
             </IconButton>
         </Box>
     );
