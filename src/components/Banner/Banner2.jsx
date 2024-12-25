@@ -35,19 +35,19 @@ const Banner2 = () => {
               className="flex gap-3"
             >
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">15</p>
+                <p className="text-3xl font-bold font-serif">5</p>
                 <p className="text-gray-500 text-sm">Years of Experience</p>
               </div>
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">350</p>
+                <p className="text-3xl font-bold font-serif">50</p>
                 <p className="text-gray-500 text-sm">Happy Clients</p>
               </div>
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">34</p>
+                <p className="text-3xl font-bold font-serif">4</p>
                 <p className="text-gray-500 text-sm">Award Gained</p>
               </div>
             </motion.div>
-            <div>
+            {/* <div>
               <motion.button
                 variants={SlideUp(0.6)}
                 initial="initial"
@@ -56,7 +56,7 @@ const Banner2 = () => {
               >
                 Contact Us
               </motion.button>
-            </div>
+            </div> */}
           </div>
           {/* image section */}
           <div className="flex flex-col justify-center  ">

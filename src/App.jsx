@@ -8,6 +8,8 @@ import Banner2 from "./components/Banner/Banner2";
 import Testimonial from "./components/Testimonial/Testimonial";
 import Newsletter from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
+import FloatingWhatsAppButton from "./components/WhatsAppIcon/WhatsAppIcon";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
 
 const App = () => {
   return (
@@ -18,9 +20,11 @@ const App = () => {
       <Services />
       <Banner />
       <Banner2 />
+<ImageGallery/>
       <Testimonial />
       {/* <Newsletter /> */}
       <Footer />
+      <FloatingWhatsAppButton />
     </main>
   );
 };

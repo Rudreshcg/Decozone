@@ -38,7 +38,7 @@ const Banner = () => {
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
               earum accusantium tempore nam aliquid{" "}
             </motion.p>
-            <div>
+            {/* <div>
               <motion.button
                 variants={SlideUp(0.6)}
                 initial="initial"
@@ -47,7 +47,7 @@ const Banner = () => {
               >
                 Discover Now
               </motion.button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
