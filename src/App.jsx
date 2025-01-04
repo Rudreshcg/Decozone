@@ -10,6 +10,7 @@ import Newsletter from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
 import FloatingWhatsAppButton from "./components/WhatsAppIcon/WhatsAppIcon";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
+import HowItWorks from "./components/HowItWorks/HowItWorks"
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Hero />
       {/* <Brands /> */}
       <Services />
+      <HowItWorks/>
       <Banner />
       <Banner2 />
 <ImageGallery/>

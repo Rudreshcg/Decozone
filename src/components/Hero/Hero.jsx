@@ -2,14 +2,14 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
-import landingPageImage from "../../assets/landing_page_Image.avif";
+import landingPageImage from "../../assets/landing-image.jpeg";
 
 const HomePage = () => {
   return (
     <Box
       sx={{
         position: "relative",
-        height: { xs: "70vh", sm: "85vh", md: "100vh" }, // Adjust height based on screen size
+        height: { xs: "100vh", sm: "100vh", md: "100vh" }, // Adjust height based on screen size
         backgroundImage: `url(${landingPageImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",

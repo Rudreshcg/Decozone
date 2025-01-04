@@ -16,11 +16,13 @@ import {
 } from '@mui/material';
 import { ExpandLess, ExpandMore, FiberManualRecord as BulletIcon } from '@mui/icons-material';
 import { motion } from "framer-motion";
-import { SlideLeft, SlideUp } from "../../animation/animate";
+import { SlideUp } from "../../animation/animate";
 import ServicesIcon from "../../assets/services.png";
 import WarrantyIcon from "../../assets/warranty.png";
 import TechnologyIcon from "../../assets/technology.png";
 import PriceIcon from "../../assets/price.png";
+import ContactModal from "../ContactModal/ContactModal"
+
 
 const offerings = [
   { title: 'Our Services', icon: ServicesIcon, details: ['Modular kitchens', 'Modular wardrobes', 'Lighting', 'Flooring', 'Electrical work', 'Civil work', 'False ceiling', 'Wall design & painting'] },
@@ -31,6 +33,11 @@ const offerings = [
 
 const Services = () => {
   const [expandedSections, setExpandedSections] = useState({});
+  const [open, setOpen] = useState(false); 
+  
+    const handleOpen = () => {
+      setOpen(true);
+    };
 
   const handleExpandClick = (index) => {
     setExpandedSections((prev) => ({
@@ -110,11 +117,13 @@ const Services = () => {
               borderRadius: "10px",
               fontSize: { xs: "0.875rem", sm: "1rem" },
             }}
+            onClick={handleOpen}
           >
             GET FREE QUOTE
           </Button>
         </motion.Box>
       </Container>
+      <ContactModal open={open} setOpen={setOpen} />
     </Box>
   );
 };
