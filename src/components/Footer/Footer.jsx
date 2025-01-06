@@ -17,7 +17,7 @@ const Footer = () => {
                 <img src={Logo} alt="Decozone Logo" className="w-6" />
                 <Typography variant="h6" fontWeight="bold" ml={2}>Decozone</Typography>
               </Box>
-              <Typography variant="h6" textAlign="center">Your dream home is just a click away</Typography>
+              <Typography variant="h6" textAlign="center">Where design meets your dream lifestyle.</Typography>
               <Box mt={2}>
                 <IconButton color="inherit" href="#"><Facebook /></IconButton>
                 <IconButton color="inherit" href="#"><Twitter /></IconButton>

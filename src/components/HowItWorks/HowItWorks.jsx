@@ -9,7 +9,6 @@ import {
     useTheme,
 } from "@mui/material";
 
-// Example icons for the steps (replace with your own images if needed)
 import HomeIcon from "@mui/icons-material/Home";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
@@ -29,6 +28,11 @@ import MeetDesigner from "../../assets/meet-designer.png";
 import MoveEnjoy from "../../assets/move-enjoy.png";
 
 
+const MotionTypography = motion(Typography);
+const MotionBox = motion(Box)
+const MotionGrid = motion(Grid)
+
+
 
 const HowItWorksMobile = () => {
 
@@ -42,11 +46,16 @@ const HowItWorksMobile = () => {
 
     return (
         <Box sx={{ padding: 4 }}>
-            <Typography variant="h5" sx={{ fontWeight: "bold", marginBottom: 4 }}>
+            <MotionTypography
+                variant="h4"
+                variants={SlideUp(0.3)}
+                initial="initial"
+                whileInView="animate" sx={{ fontWeight: "bold", marginBottom: 4, textAlign: "center" }}>
                 How it works
-            </Typography>
-            <Grid container direction="column" spacing={3} sx={{ position: "relative" }}>
-                {/* Vertical Line */}
+            </MotionTypography>
+            <MotionGrid variants={SlideUp(0.5)}
+                initial="initial"
+                whileInView="animate" container direction="column" spacing={3} sx={{ position: "relative" }}>
                 <Box
                     sx={{
                         position: "absolute",
@@ -68,47 +77,36 @@ const HowItWorksMobile = () => {
                         sx={{ zIndex: 2, position: "relative" }}
                     >
                         <Grid item>
-                            {/* <Avatar
+                            <Avatar
                                 sx={{
                                     backgroundColor: "#ffffff",
                                     border: "2px solid #e0e0e0",
                                     color: "primary.main",
-                                    width: 60,
-                                    height: 60,
+                                    width: 60, // Outer avatar size
+                                    height: 60, // Outer avatar size
+                                    margin: "0 auto",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
                                 }}
                             >
-                                {step.icon}
-                            </Avatar> */}
-                            <Avatar
-  sx={{
-    backgroundColor: "#ffffff",
-    border: "2px solid #e0e0e0",
-    color: "primary.main",
-    width:  60 , // Outer avatar size
-    height: 60, // Outer avatar size
-    margin: "0 auto",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }}
->
-  <Box
-    component="img"
-    src={step.icon}
-    alt={step.label}
-    sx={{
-      width: 40, // Icon size
-      height: 40, // Icon size
-    }}
-  />
-</Avatar>
+                                <Box
+                                    component="img"
+                                    src={step.icon}
+                                    alt={step.label}
+                                    sx={{
+                                        width: 40, // Icon size
+                                        height: 40, // Icon size
+                                    }}
+                                />
+                            </Avatar>
                         </Grid>
                         <Grid item maxWidth="250px">
                             <Typography variant="body1">{step.label}</Typography>
                         </Grid>
                     </Grid>
                 ))}
-            </Grid>
+            </MotionGrid>
         </Box>
     );
 };
@@ -133,14 +131,20 @@ const HowItWorksDesktop = () => {
                 alignItems: "center",
             }}
         >
-            <Typography
-                variant="h5"
+            <MotionTypography
+                variant="h4"
+                variants={SlideUp(0.3)}
+                initial="initial"
+                whileInView="animate"
                 sx={{ fontWeight: "bold", marginBottom: 4, textAlign: "center" }}
             >
                 How it works
-            </Typography>
+            </MotionTypography>
 
-            <Box
+            <MotionBox
+                variants={SlideUp(0.5)}
+                initial="initial"
+                whileInView="animate"
                 sx={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -173,28 +177,28 @@ const HowItWorksDesktop = () => {
                     >
 
                         <Avatar
-  sx={{
-    backgroundColor: "#ffffff",
-    border: "2px solid #e0e0e0",
-    color: "primary.main",
-    width: isTab ? 60 : 80, // Outer avatar size
-    height: isTab ? 60 : 80, // Outer avatar size
-    margin: "0 auto",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }}
->
-  <Box
-    component="img"
-    src={step.icon}
-    alt={step.label}
-    sx={{
-      width: isTab ? 40 : 50, // Icon size
-      height: isTab ? 40 : 50, // Icon size
-    }}
-  />
-</Avatar>
+                            sx={{
+                                backgroundColor: "#ffffff",
+                                border: "2px solid #e0e0e0",
+                                color: "primary.main",
+                                width: isTab ? 60 : 80, // Outer avatar size
+                                height: isTab ? 60 : 80, // Outer avatar size
+                                margin: "0 auto",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Box
+                                component="img"
+                                src={step.icon}
+                                alt={step.label}
+                                sx={{
+                                    width: isTab ? 40 : 50, // Icon size
+                                    height: isTab ? 40 : 50, // Icon size
+                                }}
+                            />
+                        </Avatar>
 
                         <Typography
                             variant="body1"
@@ -207,7 +211,7 @@ const HowItWorksDesktop = () => {
                         </Typography>
                     </Box>
                 ))}
-            </Box>
+            </MotionBox>
 
 
         </Box>
@@ -226,7 +230,9 @@ const HowItWorks = () => {
     return <Box>
         {isMobile ? <HowItWorksMobile /> : <HowItWorksDesktop />}
         <motion.Box
-            variants={SlideUp(1.6)}
+            variants={SlideUp(0.6)}
+            initial="initial"
+            whileInView="animate"
             style={{
                 display: "flex",
                 justifyContent: "center"

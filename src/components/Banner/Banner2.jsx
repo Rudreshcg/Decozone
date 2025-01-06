@@ -2,32 +2,38 @@ import React from "react";
 import Banner1 from "../../assets/banner2.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
+import { Typography } from "@mui/material";
+
+const MotionTypography = motion(Typography);
 
 const Banner2 = () => {
+  const fontFamily = "YourFontFamily, sans-serif"; // Replace with your desired font family
+
   return (
     <div>
       <div className="container py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* text section */}
           <div className="space-y-5 flex justify-center flex-col xl:max-w-[500px]">
-            <motion.h1
+            <MotionTypography
               variants={SlideUp(0.2)}
               initial="initial"
               whileInView="animate"
-              className="text-4xl font-bold font-serif"
+              variant="h4"
+              fontWeight="bold"
+              sx={{ fontFamily }}
             >
               Simple way to make stylish living room
-            </motion.h1>
-            <motion.p
+            </MotionTypography>
+            <MotionTypography
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView="animate"
-              className="text-gray-500 text-sm leading-7"
+              sx={{ fontFamily }}
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
-              earum accusantium tempore nam adipisicing elit. Suscipit earum
-              accusantium tempore nam aliquid{" "}
-            </motion.p>
+              Transform your living room into a space that’s both elegant and functional. 
+              With thoughtful design, curated decor, and personalized touches, 
+              we bring your dream living space to life. Style meets comfort, all in one room.{" "}
+            </MotionTypography>
             <motion.div
               variants={SlideUp(0.6)}
               initial="initial"
@@ -35,31 +41,50 @@ const Banner2 = () => {
               className="flex gap-3"
             >
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">5</p>
-                <p className="text-gray-500 text-sm">Years of Experience</p>
+                <p
+                  className="text-3xl font-bold font-serif"
+                  style={{ fontFamily }}
+                >
+                  5
+                </p>
+                <p
+                  className="text-gray-500 text-sm"
+                  style={{ fontFamily }}
+                >
+                  Years of Experience
+                </p>
               </div>
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">50</p>
-                <p className="text-gray-500 text-sm">Happy Clients</p>
+                <p
+                  className="text-3xl font-bold font-serif"
+                  style={{ fontFamily }}
+                >
+                  50
+                </p>
+                <p
+                  className="text-gray-500 text-sm"
+                  style={{ fontFamily }}
+                >
+                  Happy Clients
+                </p>
               </div>
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">4</p>
-                <p className="text-gray-500 text-sm">Award Gained</p>
+                <p
+                  className="text-3xl font-bold font-serif"
+                  style={{ fontFamily }}
+                >
+                  4
+                </p>
+                <p
+                  className="text-gray-500 text-sm"
+                  style={{ fontFamily }}
+                >
+                  Award Gained
+                </p>
               </div>
             </motion.div>
-            {/* <div>
-              <motion.button
-                variants={SlideUp(0.6)}
-                initial="initial"
-                whileInView="animate"
-                className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c]"
-              >
-                Contact Us
-              </motion.button>
-            </div> */}
           </div>
-          {/* image section */}
-          <div className="flex flex-col justify-center  ">
+          <div className="flex flex-col justify-center">
             <motion.img
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
