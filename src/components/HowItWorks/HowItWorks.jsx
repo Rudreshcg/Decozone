@@ -21,11 +21,11 @@ import MovingIcon from "@mui/icons-material/Moving";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
 import ContactModal from "../ContactModal/ContactModal"
-import Payement2 from "../../assets/payment-2.png";
-import Payement from "../../assets/payment.png";
-import BookRenovation from "../../assets/book-renovation.png";
-import MeetDesigner from "../../assets/meet-designer.png";
-import MoveEnjoy from "../../assets/move-enjoy.png";
+import Payement2 from "../../assets/icons8-rocket-64.png";
+import Payement from "../../assets/icons8-gavel-50.png";
+import BookRenovation from "../../assets/icons8-booking-50.png";
+import MeetDesigner from "../../assets/icons8-working-48.png";
+import MoveEnjoy from "../../assets/icons8-traveler-50.png";
 
 
 const MotionTypography = motion(Typography);
@@ -95,8 +95,8 @@ const HowItWorksMobile = () => {
                                     src={step.icon}
                                     alt={step.label}
                                     sx={{
-                                        width: 40, // Icon size
-                                        height: 40, // Icon size
+                                        width: 30, // Icon size
+                                        height: 30, // Icon size
                                     }}
                                 />
                             </Avatar>
@@ -194,8 +194,8 @@ const HowItWorksDesktop = () => {
                                 src={step.icon}
                                 alt={step.label}
                                 sx={{
-                                    width: isTab ? 40 : 50, // Icon size
-                                    height: isTab ? 40 : 50, // Icon size
+                                    width: isTab ? 30 : 40, // Icon size
+                                    height: isTab ? 30 : 40, // Icon size
                                 }}
                             />
                         </Avatar>
