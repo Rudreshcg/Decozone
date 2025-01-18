@@ -17,10 +17,11 @@ import {
 import { ExpandLess, ExpandMore, FiberManualRecord as BulletIcon } from '@mui/icons-material';
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
-import ServicesIcon from "../../assets/services.png";
-import WarrantyIcon from "../../assets/warranty.png";
-import TechnologyIcon from "../../assets/technology.png";
-import PriceIcon from "../../assets/price.png";
+// import ServicesIcon from "../../assets/services.png";
+import  ServicesIcon from "../../assets/icons8-service-48.png"
+import WarrantyIcon from "../../assets/icons8-warranty-48.png";
+import TechnologyIcon from "../../assets/icons8-technology-50.png";
+import PriceIcon from "../../assets/icons8-get-a-discount-50.png";
 import ContactModal from "../ContactModal/ContactModal"
 
 

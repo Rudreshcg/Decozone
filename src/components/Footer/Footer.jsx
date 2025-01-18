@@ -14,10 +14,10 @@ const Footer = () => {
           <Grid item xs={12} md={3}>
             <motion.div variants={SlideLeft(0.2)} initial="initial" whileInView="animate">
               <Box display="flex" alignItems="center" mb={2}>
-                <img src={Logo} alt="Decozone Logo" className="w-6" />
-                <Typography variant="h6" fontWeight="bold" ml={2}>Decozone</Typography>
+                <img src={Logo} alt="Tvashta Logo" className="w-6" />
+                <Typography variant="h6" fontWeight="bold" ml={2} minWidth="155px">Tvashta Interior</Typography>
               </Box>
-              <Typography variant="h6" textAlign="center">Where design meets your dream lifestyle.</Typography>
+              <Typography variant="h6" textAlign="center" color="burlywood">Where design meets your dream lifestyle.</Typography>
               <Box mt={2}>
                 <IconButton color="inherit" href="#"><Facebook /></IconButton>
                 <IconButton color="inherit" href="#"><Twitter /></IconButton>
@@ -54,14 +54,14 @@ const Footer = () => {
           <Grid item xs={12} md={3}>
             <motion.div variants={SlideLeft(0.5)} initial="initial" whileInView="animate">
               <Typography variant="h6" fontWeight="bold">Visit</Typography>
-              <Typography mt={2}>Decozone LLP</Typography>
+              <Typography mt={2}>Tvashta Interior LLP</Typography>
               <Typography mt={2}>3rd Floor, Sai Ram, KV Jairam Road, Jakkur Rd, above Kotak Mahindra Bank, MCECHS Layout Phase 2, Yelahanka, Bengaluru, Karnataka 560064</Typography>
             </motion.div>
           </Grid>
         </Grid>
         {/* bottom section */}
         <Typography textAlign="center" variant="body2" fontWeight="bold" borderTop={2} pt={5} mt={5}>
-          &copy; 2024 Decozone. All rights reserved
+          &copy; 2024 Tvashta Interior. All rights reserved
         </Typography>
       </Container>
     </Box>
