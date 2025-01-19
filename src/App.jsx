@@ -18,11 +18,11 @@ const App = () => {
       <Navbar />
       <Hero />
       <Services />
-            <WhyPartnerWithUs />
-      <HowItWorks/>
+      <WhyPartnerWithUs />
+      <HowItWorks />
       <Banner />
       <Banner2 />
-<ImageGallery/>
+      <ImageGallery />
       <Testimonial />
       {/* <Newsletter /> */}
       <Footer />

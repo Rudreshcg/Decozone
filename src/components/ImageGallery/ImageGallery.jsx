@@ -10,6 +10,10 @@ import {
   Container,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import Kitchen1 from "../../assets/kitchen/kitchen-1.jpeg"
+import Kitchen2 from "../../assets/kitchen/kitchen-2.jpeg"
+import Kitchen3 from "../../assets/kitchen/kitchen-3.jpeg"
+import Kitchen4 from "../../assets/kitchen/kitchen-4.jpeg"
 
 const finishes = [
   {
@@ -24,10 +28,11 @@ const finishes = [
   {
     title: "KITCHENS",
     images: [
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
+      Kitchen1,
+      Kitchen3,
+      Kitchen4,
+      Kitchen2,
+
     ],
   },
   {
@@ -138,14 +143,14 @@ const CustomTab = styled(Tab)(({ theme }) => ({
                   "&:hover": {
                     transform: "scale(1.05)",
                   },
+                  // aspectRatio: "4 / 3",
                 }}
               >
                 <CardMedia
                   component="img"
-                  height="200"
                   image={image}
                   alt={`Finish ${index}`}
-                  sx={{ objectFit: "cover" }}
+                  sx={{ objectFit: "cover", height: 320,}}
                 />
               </Card>
             </Grid>

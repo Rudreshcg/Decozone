@@ -3,75 +3,54 @@ import { motion } from "framer-motion";
 import { SlideLeft, SlideUp } from "../../animation/animate";
 import { Box, Container, IconButton, Typography, useMediaQuery } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import Man from "../../assets/man.png"
+import Women from "../../assets/women.png"
 
 const MotionTypography = motion(Typography);
 
 const TestimonialData = [
   {
     id: 1,
-    name: "John Doe",
-    designation: "Designer",
-    img: "https://i.pravatar.cc/300?img=1",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Ramesh Kumar",
+    designation: "Homeowner",
+    img: Man,
+    text: "The team transformed our living room into a space that feels modern yet cozy. Their attention to detail was amazing!",
     delay: 0.2,
   },
   {
     id: 2,
-    name: "Alex",
-    designation: "Developer",
-    img: "https://i.pravatar.cc/300?img=2",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Priya Sharma",
+    designation: "Apartment Owner",
+    img: Women,
+    text: "Our kitchen renovation was flawless. The designs were practical yet stylish, and everything was delivered on time.",
     delay: 0.4,
   },
   {
     id: 3,
-    name: "George",
-    designation: "Manager",
-    img: "https://i.pravatar.cc/300?img=3",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Vishwanath Iyer",
+    designation: "Villa Owner",
+    img: Man,
+    text: "They brought elegance and functionality to our villa. Their creative approach and professionalism were outstanding.",
     delay: 0.6,
   },
   {
     id: 4,
-    name: "Emily",
-    designation: "Architect",
-    img: "https://i.pravatar.cc/300?img=4",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Lakshmi Narayan",
+    designation: "Homeowner",
+    img: Man,
+    text: "We wanted a unique design for our bedroom, and they delivered exactly that. Absolutely love their work!",
     delay: 0.8,
   },
   {
     id: 5,
-    name: "Michael",
-    designation: "Engineer",
-    img: "https://i.pravatar.cc/300?img=5",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    delay: 1.0,
-  },
-  {
-    id: 3,
-    name: "George",
-    designation: "Manager",
-    img: "https://i.pravatar.cc/300?img=3",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    delay: 0.6,
-  },
-  {
-    id: 4,
-    name: "Emily",
-    designation: "Architect",
-    img: "https://i.pravatar.cc/300?img=4",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    delay: 0.8,
-  },
-  {
-    id: 5,
-    name: "Michael",
-    designation: "Engineer",
-    img: "https://i.pravatar.cc/300?img=5",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Arjun Shetty",
+    designation: "Office Owner",
+    img: Man,
+    text: "Our office space is now vibrant and inspiring thanks to their designs. They truly understood our vision.",
     delay: 1.0,
   },
 ];
+
 
 const Testimonial = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
