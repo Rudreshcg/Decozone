@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Container,
   Grid,
@@ -13,32 +13,72 @@ import {
   ListItemIcon,
   Box,
   Avatar,
-} from '@mui/material';
-import { ExpandLess, ExpandMore, FiberManualRecord as BulletIcon } from '@mui/icons-material';
+} from "@mui/material";
+import {
+  ExpandLess,
+  ExpandMore,
+  FiberManualRecord as BulletIcon,
+} from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
 // import ServicesIcon from "../../assets/services.png";
-import  ServicesIcon from "../../assets/icons8-service-48.png"
+import ServicesIcon from "../../assets/icons8-service-48.png";
 import WarrantyIcon from "../../assets/icons8-warranty-48.png";
 import TechnologyIcon from "../../assets/icons8-technology-50.png";
 import PriceIcon from "../../assets/icons8-get-a-discount-50.png";
-import ContactModal from "../ContactModal/ContactModal"
-
+import ContactModal from "../ContactModal/ContactModal";
 
 const offerings = [
-  { title: 'Our Services', icon: ServicesIcon, details: ['Modular kitchens', 'Modular wardrobes', 'Lighting', 'Flooring', 'Electrical work', 'Civil work', 'False ceiling', 'Wall design & painting'] },
-  { title: 'Warranty', icon: WarrantyIcon, details: ['FLAT 10-year warranty - Stay worry-free with our warranty policy on modular products.', 'Up to 1-year on-site service warranty - Warranty on on-site services such as painting, electrical, plumbing and more.'] },
-  { title: 'Technology & Science', icon: TechnologyIcon, details: ['AquaBloc® Technology - Hermetically sealed edges that ensure no moisture enters the panels of your modular cabinets.', 'AntiBubble® Technology - Super seamless panels without air bubbles for your modular cabinets.', 'DuraBuild™ Technology - Robust structure for modular cabinets, making them strong and long-lasting.', 'Design Science - Modular kitchens with improved accessibility that makes daily tasks more efficient and reduces stress on the body.'] },
-  { title: 'Price Benefits', icon: PriceIcon, details: ['Price-match guarantee - Price match to a valid quote in comparison with a branded player and for exact scope.', 'Flexible payment options - EMI solutions and payment schemes from leading financial partners.', 'No hidden costs - Transparent costing without last-minute additions.'] },
+  {
+    title: "Our Services",
+    icon: ServicesIcon,
+    details: [
+      "Modular kitchens",
+      "Modular wardrobes",
+      "Lighting",
+      "Flooring",
+      "Electrical work",
+      "Civil work",
+      "False ceiling",
+      "Wall design & painting",
+    ],
+  },
+  {
+    title: "Warranty",
+    icon: WarrantyIcon,
+    details: [
+      "FLAT 10-year warranty - Stay worry-free with our warranty policy on modular products.",
+      "Up to 1-year on-site service warranty - Warranty on on-site services such as painting, electrical, plumbing and more.",
+    ],
+  },
+  {
+    title: "Technology & Science",
+    icon: TechnologyIcon,
+    details: [
+      "AquaBloc® Technology - Hermetically sealed edges that ensure no moisture enters the panels of your modular cabinets.",
+      "AntiBubble® Technology - Super seamless panels without air bubbles for your modular cabinets.",
+      "DuraBuild™ Technology - Robust structure for modular cabinets, making them strong and long-lasting.",
+      "Design Science - Modular kitchens with improved accessibility that makes daily tasks more efficient and reduces stress on the body.",
+    ],
+  },
+  {
+    title: "Price Benefits",
+    icon: PriceIcon,
+    details: [
+      "Price-match guarantee - Price match to a valid quote in comparison with a branded player and for exact scope.",
+      "Flexible payment options - EMI solutions and payment schemes from leading financial partners.",
+      "No hidden costs - Transparent costing without last-minute additions.",
+    ],
+  },
 ];
 
 const Services = () => {
   const [expandedSections, setExpandedSections] = useState({});
-  const [open, setOpen] = useState(false); 
-  
-    const handleOpen = () => {
-      setOpen(true);
-    };
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   const handleExpandClick = (index) => {
     setExpandedSections((prev) => ({
@@ -65,10 +105,20 @@ const Services = () => {
         <Grid container spacing={3} direction="column">
           {offerings.map((offering, index) => (
             <Grid item xs={12} key={index}>
-              <motion.div variants={SlideUp(1.6)} initial="hidden" animate="visible">
+              <motion.div
+                variants={SlideUp(1.6)}
+                initial="hidden"
+                animate="visible"
+              >
                 <Card sx={{ boxShadow: 3 }}>
-                  <CardContent sx={{ "&:last-child": { paddingBottom: "16px" } }}>
-                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                  <CardContent
+                    sx={{ "&:last-child": { paddingBottom: "16px" } }}
+                  >
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
                       <Box display="flex" alignItems="center">
                         <Avatar
                           src={offering.icon}
@@ -79,16 +129,31 @@ const Services = () => {
                           {offering.title}
                         </Typography>
                       </Box>
-                      <Button onClick={() => handleExpandClick(index)} color="black">
-                        {expandedSections[index] ? <ExpandLess /> : <ExpandMore />}
+                      <Button
+                        onClick={() => handleExpandClick(index)}
+                        color="black"
+                      >
+                        {expandedSections[index] ? (
+                          <ExpandLess />
+                        ) : (
+                          <ExpandMore />
+                        )}
                       </Button>
                     </Box>
-                    <Collapse in={expandedSections[index]} timeout="auto" unmountOnExit>
+                    <Collapse
+                      in={expandedSections[index]}
+                      timeout="auto"
+                      unmountOnExit
+                    >
                       <List>
                         {offering.details.map((detail, detailIndex) => (
                           <ListItem key={detailIndex}>
                             <ListItemIcon sx={{ minWidth: "28px" }}>
-                              <BulletIcon sx={{ fontSize: "10px", fill: "black" }} />
+                              <span
+                                style={{ fontSize: "12px", color: "black" }}
+                              >
+                                ➤
+                              </span>
                             </ListItemIcon>
                             <ListItemText primary={detail} />
                           </ListItem>
@@ -105,7 +170,7 @@ const Services = () => {
           variants={SlideUp(1.6)}
           style={{
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <Button
