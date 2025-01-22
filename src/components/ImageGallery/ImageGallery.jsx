@@ -17,15 +17,6 @@ import Kitchen4 from "../../assets/kitchen/kitchen-4.jpeg"
 
 const finishes = [
   {
-    title: "BED ROOMS",
-    images: [
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp", // Replace with real URLs
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-    ],
-  },
-  {
     title: "KITCHENS",
     images: [
       Kitchen1,
@@ -33,6 +24,15 @@ const finishes = [
       Kitchen4,
       Kitchen2,
 
+    ],
+  },
+  {
+    title: "BED ROOMS",
+    images: [
+      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp", // Replace with real URLs
+      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
+      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
+      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
     ],
   },
   {
