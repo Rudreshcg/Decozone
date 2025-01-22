@@ -38,7 +38,7 @@ const HowItWorksMobile = () => {
 
     const steps = [
         { icon: MeetDesigner, label: "Meet a designer" },
-        { icon: BookRenovation, label: "(5% payment⁴) Book a renovation" },
+        { icon: BookRenovation, label: "(5% payment⁴) Initial design advance" },
         { icon: Payement, label: "(50% payment) Execution begins" },
         { icon: Payement2, label: "(100% payment) Final installations" },
         { icon: MoveEnjoy, label: "Move in and enjoy!" },
@@ -116,7 +116,7 @@ const HowItWorksDesktop = () => {
 
     const steps = [
         { icon: MeetDesigner, label: "Meet a designer" },
-        { icon: BookRenovation, label: "(5% payment⁴) Book a renovation" },
+        { icon: BookRenovation, label: "(5% payment) Initial design advance" },
         { icon: Payement, label: "(50% payment) Execution begins" },
         { icon: Payement2, label: "(100% payment) Final installations" },
         { icon: MoveEnjoy, label: "Move in and enjoy!" },

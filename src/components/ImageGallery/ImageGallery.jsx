@@ -10,10 +10,26 @@ import {
   Container,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import Kitchen1 from "../../assets/kitchen/kitchen-1.jpeg"
-import Kitchen2 from "../../assets/kitchen/kitchen-2.jpeg"
-import Kitchen3 from "../../assets/kitchen/kitchen-3.jpeg"
-import Kitchen4 from "../../assets/kitchen/kitchen-4.jpeg"
+import Kitchen1 from "../../assets/gallery/kitchen-1.jpeg"
+import Kitchen2 from "../../assets/gallery/kitchen-2.jpeg"
+import Kitchen3 from "../../assets/gallery/kitchen-3.jpeg"
+import Kitchen4 from "../../assets/gallery/kitchen-4.jpeg"
+
+import bedroom1 from "../../assets/gallery/bedroom-1.webp"
+import bedroom2 from "../../assets/gallery/bedroom-2.webp"
+import bedroom3 from "../../assets/gallery/bedroom-3.jpeg"
+import bedroom4 from "../../assets/gallery/bedroom-4.jpeg"
+
+import livingarea1 from "../../assets/gallery/livingarea-1.png"
+import livingarea2 from "../../assets/gallery/livingarea-2.jpeg"
+import livingarea3 from "../../assets/gallery/livingarea-3.jpeg"
+import livingarea4 from "../../assets/gallery/livingarea-4.png"
+
+
+import storage1 from "../../assets/gallery/storage-1.png"
+import storage2 from "../../assets/gallery/storage-2.png"
+import storage3 from "../../assets/gallery/storage-3.png"
+import storage4 from "../../assets/gallery/storage-4.png"
 
 const finishes = [
   {
@@ -29,28 +45,28 @@ const finishes = [
   {
     title: "BED ROOMS",
     images: [
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp", // Replace with real URLs
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
+      bedroom1,
+      bedroom2,
+      bedroom3,
+      bedroom4,
     ],
   },
   {
     title: "LIVING AREA",
     images: [
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
+      livingarea1,
+      livingarea2,
+      livingarea3,
+      livingarea4,
     ],
   },
   {
     title: "STORAGES",
     images: [
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
-      "https://d3v0m53z9y66y6.cloudfront.net/finemake-web/image/Mask group-16.webp",
+      storage1,
+      storage2,
+      storage3,
+      storage4
     ],
   },
 ];

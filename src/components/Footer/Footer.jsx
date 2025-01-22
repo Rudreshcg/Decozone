@@ -103,7 +103,7 @@ const Footer = () => {
               <Typography variant="h6" fontWeight="bold">
                 Call
               </Typography>
-              <Typography mt={2}>+91-123456789</Typography>
+              <Typography mt={2}>+91-9663051609</Typography>
               <Typography variant="h6" fontWeight="bold" mt={4}>
                 Write
               </Typography>

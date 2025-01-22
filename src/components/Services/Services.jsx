@@ -66,7 +66,7 @@ const offerings = [
     icon: PriceIcon,
     details: [
       "Price-match guarantee - Price match to a valid quote in comparison with a branded player and for exact scope.",
-      "Flexible payment options - EMI solutions and payment schemes from leading financial partners.",
+      // "Flexible payment options - EMI solutions and payment schemes from leading financial partners.",
       "No hidden costs - Transparent costing without last-minute additions.",
     ],
   },
