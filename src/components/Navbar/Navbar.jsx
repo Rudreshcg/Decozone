@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {
   Button,
-  Box,
-  Paper,
-  IconButton,
-  Checkbox,
-  TextField,
-  FormControlLabel,
   Typography,
 } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-
 import { motion } from "framer-motion";
-import { SlideLeft, SlideUp } from "../../animation/animate";
-import { styled } from "@mui/system";
-
-import ContactModal from "../ContactModal/ContactModal"
+import ContactModal from "../ContactModal/ContactModal";
 
 
 
@@ -55,11 +44,37 @@ const Navbar = () => {
       >
         <div className="container mx-auto py-4 flex justify-between items-center">
           {/* Logo Section */}
-          <div>
-            <Typography variant="h5" fontWeight="bold" color="black">
-              Decozone
-            </Typography>
-          </div>
+          <div style={{ textAlign: 'center' }}>
+  <Typography
+    variant="h5"
+    fontWeight="bold"
+    color="black"
+    sx={{
+      fontFamily: 'var(--primaryHeaderFont)',
+      fontStyle: 'normal',
+      letterSpacing: '5px',
+      fontSize: { xs: '18px', sm: '20px', md: '24px' },
+      lineHeight: { xs: '1.2', sm: '1.3', md: '1.4' },
+    }}
+  >
+    TVASHTA
+  </Typography>
+  <Typography
+    variant="subtitle1"
+    fontWeight="medium"
+    color="#FF5A5F"
+    sx={{
+      fontFamily: 'var(--primaryHeaderFont)',
+      fontStyle: 'normal',
+      letterSpacing: '5px',
+      marginTop: { xs: '-4px', sm: '-6px', md: '-8px' },
+      fontSize: { xs: '12px', sm: '14px', md: '16px' },
+    }}
+  >
+    INTERIOR
+  </Typography>
+</div>
+
 
           {/* Call-to-Action Button */}
           <div>

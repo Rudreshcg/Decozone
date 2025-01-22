@@ -12,14 +12,14 @@ const HomePage = () => {
     <Box
       sx={{
         position: "relative",
-        height: { xs: "100vh", sm: "100vh", md: "100vh" }, // Adjust height based on screen size
+        height: { xs: "100vh", sm: "100vh", md: "100vh" },
         backgroundImage: `url(${landingPageImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        px: 2, // Padding for smaller screens
+        px: 2,
         "::before": {
           content: '""',
           position: "absolute",
@@ -27,8 +27,8 @@ const HomePage = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay
-          zIndex: 1, // Ensure overlay is above the image
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          zIndex: 1,
         },
       }}
     >
@@ -36,14 +36,14 @@ const HomePage = () => {
         component={motion.div}
         sx={{
           position: "relative",
-          zIndex: 2, // Ensure content is above the overlay
+          zIndex: 2,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          gap: 1, // Smaller gap for mobile, larger for desktop
-          maxWidth: { xs: "90%", sm: "70%", md: "45%" }, // Adjust width based on screen size
+          gap: 1,
+          maxWidth: { xs: "90%", sm: "70%", md: "45%" },
         }}
       >
         <MotionTypography
@@ -56,7 +56,7 @@ const HomePage = () => {
             fontWeight: "bold",
             color: "white",
             textAlign: "center",
-            display: "inline", // Ensure inline behavior
+            display: "inline",
           }}
         >
           Bring home beautiful interiors{" "}
@@ -83,7 +83,7 @@ const HomePage = () => {
             fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.35rem" }, // Responsive font size
           }}
         >
-          Experience unmatched quality & timely delivery with Decozone
+          Experience unmatched quality & timely delivery with Tvashta Interior
         </MotionTypography>
       </Box>
     </Box>

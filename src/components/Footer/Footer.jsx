@@ -108,8 +108,8 @@ const Footer = () => {
                 Write
               </Typography>
               <Typography mt={2}>
-                <Link href="mailto:Enquiry@chattelsdesign.com" color="inherit">
-                  Enquiry@chattelsdesign.com
+                <Link href="mailto:info@tvashtainterior.com" color="inherit">
+                  info@tvashtainterior.com
                 </Link>
               </Typography>
             </motion.div>

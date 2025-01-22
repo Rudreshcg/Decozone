@@ -291,7 +291,7 @@ const WhyPartnerWithUs = () => {
                                     color: "success.main",
                                 }}
                             >
-                                Decozone Experience
+                                Tvashta Experience
                             </TableCell>
                         </TableRow>
                     </TableHead>
