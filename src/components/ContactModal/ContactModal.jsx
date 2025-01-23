@@ -122,7 +122,7 @@ const ContactModal = ({ open, setOpen }) => {
                         variant="contained"
                         fullWidth
                         sx={{
-                            bgcolor: "#FF5A5F",
+                            bgcolor: "#4a5942",
                             my: 2,
                             fontWeight: "bold",
                             p: "10px 16px",

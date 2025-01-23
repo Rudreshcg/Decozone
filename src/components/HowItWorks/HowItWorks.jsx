@@ -241,7 +241,7 @@ const HowItWorks = () => {
             <Button
                 variant="contained"
                 sx={{
-                    bgcolor: "#FF5A5F",
+                    bgcolor: "#4a5942",
                     my: 4,
                     fontWeight: "bold",
                     p: "10px 16px",

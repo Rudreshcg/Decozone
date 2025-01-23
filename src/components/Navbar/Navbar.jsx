@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
 import {
   Button,
-  Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import ContactModal from "../ContactModal/ContactModal";
-
-
+import LogoPng from "../../assets/companyLogo/Logo.png";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false); // Initially, the modal is closed
-
-
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -43,45 +39,22 @@ const Navbar = () => {
         className="bg-white shadow-md"
       >
         <div className="container mx-auto py-4 flex justify-between items-center">
-          {/* Logo Section */}
           <div style={{ textAlign: 'center' }}>
-  <Typography
-    variant="h5"
-    fontWeight="bold"
-    color="black"
-    sx={{
-      fontFamily: 'var(--primaryHeaderFont)',
-      fontStyle: 'normal',
-      letterSpacing: '5px',
-      fontSize: { xs: '18px', sm: '20px', md: '24px' },
-      lineHeight: { xs: '1.2', sm: '1.3', md: '1.4' },
-    }}
-  >
-    TVASHTA
-  </Typography>
-  <Typography
-    variant="subtitle1"
-    fontWeight="medium"
-    color="#FF5A5F"
-    sx={{
-      fontFamily: 'var(--primaryHeaderFont)',
-      fontStyle: 'normal',
-      letterSpacing: '5px',
-      marginTop: { xs: '-4px', sm: '-6px', md: '-8px' },
-      fontSize: { xs: '12px', sm: '14px', md: '16px' },
-    }}
-  >
-    INTERIOR
-  </Typography>
-</div>
+            <img
+              src={LogoPng}
+              alt="Logo"
+              style={{
+                maxWidth: '150px',
+                height: 'auto',
+              }}
+            />
+          </div>
 
-
-          {/* Call-to-Action Button */}
           <div>
             <Button
               variant="contained"
               sx={{
-                bgcolor: "#FF5A5F",
+                bgcolor: "#4a5942",
                 fontWeight: "bold",
                 padding: "10px 20px",
                 borderRadius: "8px",
@@ -101,4 +74,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

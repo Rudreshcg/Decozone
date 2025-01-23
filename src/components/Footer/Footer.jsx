@@ -18,6 +18,8 @@ import {
   Pinterest,
   LinkedIn,
 } from "@mui/icons-material";
+import LogoPng from "../../assets/companyLogo/Logo.png";
+
 
 const Footer = () => {
   return (
@@ -32,16 +34,24 @@ const Footer = () => {
               whileInView="animate"
             >
               <Box display="flex" alignItems="center" mb={2}>
-                <img src={Logo} alt="Tvashta Logo" className="w-6" />
-                <Typography
+                <img
+                              src={LogoPng}
+                              alt="Logo"
+                              style={{
+                                maxWidth: '150px',
+                                height: 'auto',
+                              }}
+                            />
+                {/* <Typography
                   variant="h6"
                   fontWeight="bold"
                   ml={2}
                   minWidth="155px"
                 >
                   Tvashta Interior
-                </Typography>
+                </Typography> */}
               </Box>
+              
               <Typography variant="h6" textAlign="center" color="burlywood">
                 Where design meets your dream lifestyle.
               </Typography>
