@@ -4,7 +4,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const FloatingWhatsAppButton = () => {
     const handleClick = () => {
-        window.open("https://wa.me/9663051609", "_blank");
+        window.open("https://wa.me/8431000242", "_blank");
     };
 
     return (

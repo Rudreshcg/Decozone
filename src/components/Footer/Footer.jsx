@@ -35,23 +35,16 @@ const Footer = () => {
             >
               <Box display="flex" alignItems="center" mb={2}>
                 <img
-                              src={LogoPng}
-                              alt="Logo"
-                              style={{
-                                maxWidth: '150px',
-                                height: 'auto',
-                              }}
-                            />
-                {/* <Typography
-                  variant="h6"
-                  fontWeight="bold"
-                  ml={2}
-                  minWidth="155px"
-                >
-                  Tvashta Interior
-                </Typography> */}
+                  src={LogoPng}
+                  alt="Logo"
+                  style={{
+                    maxWidth: '150px',
+                    height: 'auto',
+                  }}
+                />
+
               </Box>
-              
+
               <Typography variant="h6" textAlign="center" color="burlywood">
                 Where design meets your dream lifestyle.
               </Typography>
@@ -113,7 +106,7 @@ const Footer = () => {
               <Typography variant="h6" fontWeight="bold">
                 Call
               </Typography>
-              <Typography mt={2}>+91-9663051609</Typography>
+              <Typography mt={2}>+91-8431000242</Typography>
               <Typography variant="h6" fontWeight="bold" mt={4}>
                 Write
               </Typography>
