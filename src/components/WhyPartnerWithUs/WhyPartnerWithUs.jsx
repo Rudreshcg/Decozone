@@ -1,175 +1,3 @@
-// import React from "react";
-// import {
-//     Container,
-//     Typography,
-//     Box,
-//     Table,
-//     TableBody,
-//     TableCell,
-//     TableRow,
-//     TableHead,
-//     useMediaQuery,
-//     useTheme,
-// } from "@mui/material";
-// import { motion } from "framer-motion";
-// import { SlideUp } from "../../animation/animate";
-// import SentimentDissatisfiedTwoToneIcon from '@mui/icons-material/SentimentDissatisfiedTwoTone';
-// import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
-// import EmojiEmotionsTwoToneIcon from '@mui/icons-material/EmojiEmotionsTwoTone';
-// import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-// import SentimentSatisfiedTwoToneIcon from '@mui/icons-material/SentimentSatisfiedTwoTone';
-// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-// import VerifiedIcon from "@mui/icons-material/Verified";
-// import OnTime from "../../assets/icons8-delivery-time.gif";
-// import Delay from "../../assets/icons8-hourglass.gif";
-
-
-// const MotionTypography = motion(Typography);
-// const MotionTable = motion(Table);
-// const MotionTableRow = motion(TableRow);
-
-
-// const comparisonData = [
-//     {
-//         feature: "Timely Deliveries",
-//         marketExperience: <HourglassEmptyIcon fontSize="inherit" color="error" />,
-//         decozoneExperience: <LocalShippingIcon fontSize="inherit" color="success" />,
-//     },
-//     {
-//         feature: "Client Customization",
-//         marketExperience: <SentimentDissatisfiedTwoToneIcon fontSize="inherit" color="error" />,
-//         decozoneExperience: <SentimentSatisfiedTwoToneIcon fontSize="inherit" color="success" />,
-//     },
-//     {
-//         feature: "Cost Efficiency",
-//         marketExperience: <SentimentDissatisfiedTwoToneIcon fontSize="inherit" color="error" />,
-//         decozoneExperience: <SentimentSatisfiedTwoToneIcon fontSize="inherit" color="success" />,
-//     },
-//     {
-//         feature: "Product Variety",
-//         marketExperience: <HourglassEmptyIcon fontSize="inherit" color="error" />,
-//         decozoneExperience: <EmojiEmotionsTwoToneIcon fontSize="inherit" color="success" />,
-//     },
-//     {
-//         feature: "Quality Assurance",
-//         marketExperience: <SentimentDissatisfiedTwoToneIcon fontSize="inherit" color="error" />,
-//         decozoneExperience: <VerifiedIcon fontSize="inherit" color="success" />,
-//     },
-//     {
-//         feature: "Customer Support",
-//         marketExperience: <SentimentDissatisfiedTwoToneIcon fontSize="inherit" color="error" />,
-//         decozoneExperience: <AccountCircleIcon fontSize="inherit" color="success" />,
-//     },
-// ];
-
-// const WhyPartnerWithUs = () => {
-//     const theme = useTheme();
-//     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
-//     return (
-//         <Box sx={{ py: 5 }}>
-//             <Container>
-//                 <MotionTypography
-//                     variant="h4"
-//                     variants={SlideUp(0.2)}
-//                     initial="initial"
-//                     whileInView="animate"
-//                     sx={{
-//                         my: 4,
-//                         fontWeight: "bold",
-//                         fontFamily: "Arial, sans-serif",
-//                         color: "#333",
-//                         textAlign: "center",
-//                     }}
-//                 >
-//                     Why Partner With Us?
-//                 </MotionTypography>
-//                 <MotionTable variants={SlideUp(0.4)}
-//                                   initial="initial"
-//                                   whileInView="animate">
-//                     <TableHead>
-//                         <TableRow>
-//                             <TableCell
-//                                 align="center"
-//                                 sx={{
-//                                     fontWeight: "bold",
-//                                     fontSize: isMobile ? "14px" : "18px",
-//                                     color: "error.main",
-//                                 }}
-//                             >
-//                                 Your Market Experience
-//                             </TableCell>
-//                             <TableCell
-//                                 align="center"
-//                                 sx={{
-//                                     fontWeight: "bold",
-//                                     fontSize: isMobile ? "14px" : "18px",
-//                                 }}
-//                             >
-//                                 Features
-//                             </TableCell>
-//                             <TableCell
-//                                 align="center"
-//                                 sx={{
-//                                     fontWeight: "bold",
-//                                     fontSize: isMobile ? "14px" : "18px",
-//                                     color: "success.main",
-//                                 }}
-//                             >
-//                                 Decozone Experience
-//                             </TableCell>
-//                         </TableRow>
-//                     </TableHead>
-//                     <TableBody>
-//                         {comparisonData.map((item, index) => (
-//                             <MotionTableRow
-//                                 key={index}
-//                                 custom={index}
-//                                 variants={SlideUp(0.6)}
-//                                   initial="initial"
-//                                   whileInView="animate"
-//                             >
-//                                 <TableCell
-//                                     align="center"
-//                                     sx={{
-//                                         fontSize: isMobile ? "medium" : "large",
-//                                     }}
-//                                 >
-//                                     {React.cloneElement(item.marketExperience, {
-//                                         fontSize: isMobile ? "medium" : "large",
-//                                     })}
-//                                 </TableCell>
-//                                 <TableCell align="center">
-//                                     <Typography
-//                                         variant="subtitle1"
-//                                         fontWeight="bold"
-//                                         sx={{ fontSize: isMobile ? "12px" : "14px" }}
-//                                     >
-//                                         {item.feature}
-//                                     </Typography>
-//                                 </TableCell>
-//                                 <TableCell
-//                                     align="center"
-//                                     sx={{
-//                                         fontSize: isMobile ? "medium" : "large",
-//                                     }}
-//                                 >
-//                                     {React.cloneElement(item.decozoneExperience, {
-//                                         fontSize: isMobile ? "medium" : "large",
-//                                     })}
-//                                 </TableCell>
-//                             </MotionTableRow>
-//                         ))}
-//                     </TableBody>
-//                 </MotionTable>
-//             </Container>
-//         </Box>
-//     );
-// };
-
-// export default WhyPartnerWithUs;
-
-
 import React from "react";
 import {
     Container,
@@ -196,6 +24,8 @@ import LessOptions from "../../assets/negative.png"
 import QualityAssurance from "../../assets/quality-assurance.png"
 import LowQuality from "../../assets/low-quality.png"
 import CustomerSupport from "../../assets/customer-support.png"
+import { Helmet } from "react-helmet-async";
+
 
 
 const MotionTypography = motion(Typography);
@@ -240,105 +70,117 @@ const WhyPartnerWithUs = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     return (
-        <Box sx={{ py: 5 }}>
-            <Container>
-                <MotionTypography
-                    variant="h4"
-                    variants={SlideUp(0.2)}
-                    initial="initial"
-                    whileInView="animate"
-                    sx={{
-                        my: 4,
-                        fontWeight: "bold",
-                        fontFamily: "Arial, sans-serif",
-                        color: "#333",
-                        textAlign: "center",
-                    }}
-                >
-                    Why Partner With Us?
-                </MotionTypography>
-                <MotionTable
-                    variants={SlideUp(0.4)}
-                    initial="initial"
-                    whileInView="animate"
-                >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell
-                                align="center"
-                                sx={{
-                                    fontWeight: "bold",
-                                    fontSize: isMobile ? "14px" : "18px",
-                                    color: "error.main",
-                                }}
-                            >
-                                Your Market Experience
-                            </TableCell>
-                            <TableCell
-                                align="center"
-                                sx={{
-                                    fontWeight: "bold",
-                                    fontSize: isMobile ? "14px" : "18px",
-                                }}
-                            >
-                                Features
-                            </TableCell>
-                            <TableCell
-                                align="center"
-                                sx={{
-                                    fontWeight: "bold",
-                                    fontSize: isMobile ? "14px" : "18px",
-                                    color: "success.main",
-                                }}
-                            >
-                                Tvashta Experience
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {comparisonData.map((item, index) => (
-                            <MotionTableRow
-                                key={index}
-                                custom={index}
-                                variants={SlideUp(0.6)}
-                                initial="initial"
-                                whileInView="animate"
-                            >
-                                <TableCell sx={{justifyItems: "center"}}>
-                                    <img
-                                        src={item.marketExperience}
-                                        alt="Market Experience"
-                                        style={{
-                                            width: isMobile ? "30px" : "40px",
-                                            height: isMobile ? "30px" : "40px",
-                                        }}
-                                    />
+        <>
+            <Helmet>
+                <title>Why Partner With Tvashta Interior | Trusted Interior Design Bangalore</title>
+                <meta name="description" content="Discover why Tvashta Interior outshines market competitors with timely deliveries, customization, cost-efficiency, quality, and customer support across Bangalore & India." />
+                <meta name="keywords" content="interior partner, timely delivery, customization, cost-efficiency, product variety, quality assurance, customer support, Bangalore interiors" />
+                <link rel="canonical" href="https://tvashtainterior.com/" />
+                <meta property="og:title" content="Why Partner With Tvashta Interior" />
+                <meta property="og:description" content="Experience superior service and quality with Tvashta Interior compared to other market options in Bangalore and all India." />
+                <meta property="og:url" content="https://tvashtainterior.com/" />
+                <meta property="og:type" content="website" />
+            </Helmet>
+            <Box sx={{ py: 5 }}>
+                <Container>
+                    <MotionTypography
+                        variant="h4"
+                        variants={SlideUp(0.2)}
+                        initial="initial"
+                        whileInView="animate"
+                        sx={{
+                            my: 4,
+                            fontWeight: "bold",
+                            fontFamily: "Arial, sans-serif",
+                            color: "#333",
+                            textAlign: "center",
+                        }}
+                    >
+                        Why Partner With Us?
+                    </MotionTypography>
+                    <MotionTable
+                        variants={SlideUp(0.4)}
+                        initial="initial"
+                        whileInView="animate"
+                    >
+                        <TableHead>
+                            <TableRow>
+                                <TableCell
+                                    align="center"
+                                    sx={{
+                                        fontWeight: "bold",
+                                        fontSize: isMobile ? "14px" : "18px",
+                                        color: "error.main",
+                                    }}
+                                >
+                                    Your Market Experience
                                 </TableCell>
-                                <TableCell align="center">
-                                    <Typography
-                                        variant="subtitle1"
-                                        fontWeight="bold"
-                                        sx={{ fontSize: isMobile ? "12px" : "14px" }}
-                                    >
-                                        {item.feature}
-                                    </Typography>
+                                <TableCell
+                                    align="center"
+                                    sx={{
+                                        fontWeight: "bold",
+                                        fontSize: isMobile ? "14px" : "18px",
+                                    }}
+                                >
+                                    Features
                                 </TableCell>
-                                <TableCell sx={{justifyItems: "center"}}>
-                                    <img
-                                        src={item.decozoneExperience}
-                                        alt="Decozone Experience"
-                                        style={{
-                                            width: isMobile ? "30px" : "40px",
-                                            height: isMobile ? "30px" : "40px",
-                                        }}
-                                    />
+                                <TableCell
+                                    align="center"
+                                    sx={{
+                                        fontWeight: "bold",
+                                        fontSize: isMobile ? "14px" : "18px",
+                                        color: "success.main",
+                                    }}
+                                >
+                                    Tvashta Experience
                                 </TableCell>
-                            </MotionTableRow>
-                        ))}
-                    </TableBody>
-                </MotionTable>
-            </Container>
-        </Box>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {comparisonData.map((item, index) => (
+                                <MotionTableRow
+                                    key={index}
+                                    custom={index}
+                                    variants={SlideUp(0.6)}
+                                    initial="initial"
+                                    whileInView="animate"
+                                >
+                                    <TableCell sx={{ justifyItems: "center" }}>
+                                        <img
+                                            src={item.marketExperience}
+                                            alt="Market Experience"
+                                            style={{
+                                                width: isMobile ? "30px" : "40px",
+                                                height: isMobile ? "30px" : "40px",
+                                            }}
+                                        />
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <Typography
+                                            variant="subtitle1"
+                                            fontWeight="bold"
+                                            sx={{ fontSize: isMobile ? "12px" : "14px" }}
+                                        >
+                                            {item.feature}
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell sx={{ justifyItems: "center" }}>
+                                        <img
+                                            src={item.decozoneExperience}
+                                            alt="Decozone Experience"
+                                            style={{
+                                                width: isMobile ? "30px" : "40px",
+                                                height: isMobile ? "30px" : "40px",
+                                            }}
+                                        />
+                                    </TableCell>
+                                </MotionTableRow>
+                            ))}
+                        </TableBody>
+                    </MotionTable>
+                </Container>
+            </Box>
+        </>
     );
 };
 

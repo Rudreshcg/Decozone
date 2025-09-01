@@ -26,6 +26,8 @@ import Payement from "../../assets/icons8-gavel-50.png";
 import BookRenovation from "../../assets/icons8-booking-50.png";
 import MeetDesigner from "../../assets/icons8-working-48.png";
 import MoveEnjoy from "../../assets/icons8-traveler-50.png";
+import { Helmet } from "react-helmet-async";
+
 
 
 const MotionTypography = motion(Typography);
@@ -45,69 +47,81 @@ const HowItWorksMobile = () => {
     ];
 
     return (
-        <Box sx={{ padding: 4 }}>
-            <MotionTypography
-                variant="h4"
-                variants={SlideUp(0.3)}
-                initial="initial"
-                whileInView="animate" sx={{ fontWeight: "bold", marginBottom: 4, textAlign: "center" }}>
-                How it works
-            </MotionTypography>
-            <MotionGrid variants={SlideUp(0.5)}
-                initial="initial"
-                whileInView="animate" container direction="column" spacing={3} sx={{ position: "relative" }}>
-                <Box
-                    sx={{
-                        position: "absolute",
-                        top: "25px",
-                        bottom: 0,
-                        left: "53px",
-                        width: "2px",
-                        backgroundColor: "#e0e0e0",
-                        zIndex: 1,
-                    }}
-                />
-                {steps.map((step, index) => (
-                    <Grid
-                        item
-                        key={index}
-                        container
-                        alignItems="center"
-                        spacing={2}
-                        sx={{ zIndex: 2, position: "relative" }}
-                    >
-                        <Grid item>
-                            <Avatar
-                                sx={{
-                                    backgroundColor: "#ffffff",
-                                    border: "2px solid #e0e0e0",
-                                    color: "primary.main",
-                                    width: 60, // Outer avatar size
-                                    height: 60, // Outer avatar size
-                                    margin: "0 auto",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                }}
-                            >
-                                <Box
-                                    component="img"
-                                    src={step.icon}
-                                    alt={step.label}
+        <>
+            <Helmet>
+                <title>How It Works - Interior Design Process | Tvashta Interior Bangalore</title>
+                <meta name="description" content="Learn our simple, transparent interior design process from meeting a designer to moving in. Trusted by homes and offices across Bangalore and India." />
+                <meta name="keywords" content="interior design process, meetings with designer, payment stages, final installation, Tvashta Interior, Bangalore interior design, India" />
+                <link rel="canonical" href="https://tvashtainterior.com/" />
+                <meta property="og:title" content="How It Works - Tvashta Interior" />
+                <meta property="og:description" content="Our transparent payment and design workflow ensures a smooth interior renovation experience for your home or office." />
+                <meta property="og:url" content="https://tvashtainterior.com/" />
+                <meta property="og:type" content="website" />
+            </Helmet>
+            <Box sx={{ padding: 4 }}>
+                <MotionTypography
+                    variant="h4"
+                    variants={SlideUp(0.3)}
+                    initial="initial"
+                    whileInView="animate" sx={{ fontWeight: "bold", marginBottom: 4, textAlign: "center" }}>
+                    How it works
+                </MotionTypography>
+                <MotionGrid variants={SlideUp(0.5)}
+                    initial="initial"
+                    whileInView="animate" container direction="column" spacing={3} sx={{ position: "relative" }}>
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            top: "25px",
+                            bottom: 0,
+                            left: "53px",
+                            width: "2px",
+                            backgroundColor: "#e0e0e0",
+                            zIndex: 1,
+                        }}
+                    />
+                    {steps.map((step, index) => (
+                        <Grid
+                            item
+                            key={index}
+                            container
+                            alignItems="center"
+                            spacing={2}
+                            sx={{ zIndex: 2, position: "relative" }}
+                        >
+                            <Grid item>
+                                <Avatar
                                     sx={{
-                                        width: 30, // Icon size
-                                        height: 30, // Icon size
+                                        backgroundColor: "#ffffff",
+                                        border: "2px solid #e0e0e0",
+                                        color: "primary.main",
+                                        width: 60, // Outer avatar size
+                                        height: 60, // Outer avatar size
+                                        margin: "0 auto",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                     }}
-                                />
-                            </Avatar>
+                                >
+                                    <Box
+                                        component="img"
+                                        src={step.icon}
+                                        alt={step.label}
+                                        sx={{
+                                            width: 30, // Icon size
+                                            height: 30, // Icon size
+                                        }}
+                                    />
+                                </Avatar>
+                            </Grid>
+                            <Grid item maxWidth="250px">
+                                <Typography variant="body1">{step.label}</Typography>
+                            </Grid>
                         </Grid>
-                        <Grid item maxWidth="250px">
-                            <Typography variant="body1">{step.label}</Typography>
-                        </Grid>
-                    </Grid>
-                ))}
-            </MotionGrid>
-        </Box>
+                    ))}
+                </MotionGrid>
+            </Box>
+        </>
     );
 };
 
@@ -123,6 +137,7 @@ const HowItWorksDesktop = () => {
     ];
 
     return (
+
         <Box
             sx={{
                 padding: 4,
@@ -227,34 +242,47 @@ const HowItWorks = () => {
         setOpen(true);
     };
 
-    return <Box>
-        {isMobile ? <HowItWorksMobile /> : <HowItWorksDesktop />}
-        <motion.Box
-            variants={SlideUp(0.6)}
-            initial="initial"
-            whileInView="animate"
-            style={{
-                display: "flex",
-                justifyContent: "center"
-            }}
-        >
-            <Button
-                variant="contained"
-                sx={{
-                    bgcolor: "#4a5942",
-                    my: 4,
-                    fontWeight: "bold",
-                    p: "10px 16px",
-                    borderRadius: "10px",
-                    fontSize: { xs: "0.875rem", sm: "1rem" },
-                }}
-                onClick={handleOpen}
-            >
-                BOOK FREE CONSULTATION
-            </Button>
-        </motion.Box>
-        <ContactModal open={open} setOpen={setOpen} />
-    </Box>;
+    return (
+        <>
+            <Helmet>
+                <title>How It Works - Interior Design Process | Tvashta Interior Bangalore</title>
+                <meta name="description" content="Learn our simple, transparent interior design process from meeting a designer to moving in. Trusted by homes and offices across Bangalore and India." />
+                <meta name="keywords" content="interior design process, meetings with designer, payment stages, final installation, Tvashta Interior, Bangalore interior design, India" />
+                <link rel="canonical" href="https://tvashtainterior.com/" />
+                <meta property="og:title" content="How It Works - Tvashta Interior" />
+                <meta property="og:description" content="Our transparent payment and design workflow ensures a smooth interior renovation experience for your home or office." />
+                <meta property="og:url" content="https://tvashtainterior.com/" />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
+            <Box>
+                {isMobile ? <HowItWorksMobile /> : <HowItWorksDesktop />}
+                <motion.Box
+                    variants={SlideUp(0.6)}
+                    initial="initial"
+                    whileInView="animate"
+                    style={{ display: "flex", justifyContent: "center" }}
+                >
+                    <Button
+                        variant="contained"
+                        sx={{
+                            bgcolor: "#4a5942",
+                            my: 4,
+                            fontWeight: "bold",
+                            p: "10px 16px",
+                            borderRadius: "10px",
+                            fontSize: { xs: "0.875rem", sm: "1rem" },
+                        }}
+                        onClick={handleOpen}
+                    >
+                        BOOK FREE CONSULTATION
+                    </Button>
+                </motion.Box>
+                <ContactModal open={open} setOpen={setOpen} />
+            </Box>
+        </>
+    );
+
 };
 
 export default HowItWorks;
