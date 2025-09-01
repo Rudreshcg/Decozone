@@ -1,13 +1,12 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { motion } from "framer-motion";
-import { SlideUp } from "../../animation/animate";
+import { SlideUp } from "../../animation/animate"; // your animation utility
 import landingPageImage from "../../assets/landing-image.jpeg";
 import { Helmet } from "react-helmet-async";
 
-
 const MotionTypography = motion(Typography);
-
+const MotionButton = motion(Button);
 
 const HomePage = () => {
   return (
@@ -26,84 +25,111 @@ const HomePage = () => {
       <Box
         sx={{
           position: "relative",
-          height: { xs: "100vh", sm: "100vh", md: "100vh" },
+          height: "100vh",
+          minHeight: 520,
           backgroundImage: `url(${landingPageImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
-          justifyContent: "center",
           alignItems: "center",
-          px: 2,
+          justifyContent: "center",
+          width: "100vw",
+          overflow: "hidden",
           "::before": {
             content: '""',
             position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            inset: 0,
+            background: "linear-gradient(115deg, rgba(30,38,47,0.82) 42%, rgba(255,215,0,0.07) 100%)",
             zIndex: 1,
           },
         }}
       >
         <Box
-          component={motion.div}
           sx={{
             position: "relative",
             zIndex: 2,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
             textAlign: "center",
-            gap: 1,
-            maxWidth: { xs: "90%", sm: "70%", md: "45%" },
+            maxWidth: { xs: "94vw", sm: 600, md: 760 },
+            mx: "auto",
           }}
         >
           <MotionTypography
-            variant="h3"
-            variants={SlideUp(0.4)}
-            initial="initial"
-            whileInView="animate"
+            variant="h2"
             sx={{
-              fontSize: { xs: "32px", sm: "38px", md: "45px" },
-              fontWeight: "bold",
-              color: "white",
-              textAlign: "center",
-              display: "inline",
+              fontWeight: 800,
+              color: "#fff",
+              fontSize: { xs: "2.1rem", sm: "2.5rem", md: "3rem" },
+              letterSpacing: 1.2,
+              mb: 2,
+              lineHeight: 1.14,
+              textShadow: "0 4px 32px rgba(0,0,0,0.38)",
             }}
+            variants={SlideUp(0)}
+            initial="initial"
+            animate="animate"
           >
             Bring home beautiful interiors{" "}
-            <Typography
-              variant="h3"
+            <Box
               component="span"
               sx={{
-                fontSize: { xs: "36px", sm: "38px", md: "45px" },
-                fontWeight: "bold",
-                color: "#FFD700", // Gold color for the second part
+                color: "#FFD700",
+                display: "block",
+                textShadow: "0 2px 18px rgba(220,180,25,0.16)",
               }}
             >
               that fit your budget
-            </Typography>
+            </Box>
           </MotionTypography>
 
           <MotionTypography
-            variants={SlideUp(0.8)}
-            initial="initial"
-            whileInView="animate"
             variant="h6"
-            color="white"
             sx={{
-              fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.35rem" }, // Responsive font size
+              color: "#fff",
+              opacity: 0.93,
+              fontWeight: 500,
+              fontSize: { xs: "1.08rem", sm: "1.23rem", md: "1.35rem" },
+              letterSpacing: 0.8,
+              mb: 5,
+              mt: 2,
+              textShadow: "0 3px 10px rgba(25,25,25,0.22)",
             }}
+            variants={SlideUp(0.2)}
+            initial="initial"
+            animate="animate"
           >
             Experience unmatched quality & timely delivery with Tvashta Interior
           </MotionTypography>
+
+          <MotionButton
+            variant="contained"
+            size="large"
+            sx={{
+              background: "linear-gradient(90deg, #4a5942 0%, #7cc7a0 100%)",
+              color: "#fff",
+              fontWeight: 700,
+              py: 1.3,
+              px: 5,
+              borderRadius: 2,
+              fontSize: "1.1rem",
+              letterSpacing: 1,
+              boxShadow: "0 4px 16px 0 rgba(44, 75, 60, 0.15)",
+              textTransform: "uppercase",
+              transition: "background 0.22s",
+              "&:hover": {
+                background: "linear-gradient(90deg, #7cc7a0 0%, #4a5942 100%)",
+              },
+            }}
+            variants={SlideUp(0.4)}
+            initial="initial"
+            animate="animate"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Get Free Quote
+          </MotionButton>
         </Box>
       </Box>
-
     </>
-
   );
 };
 
