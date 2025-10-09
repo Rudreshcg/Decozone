@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tvashtainterior.com/sitemap.xml
-
 User-agent: Googlebot
 Disallow: /private
+
+Sitemap: https://tvashtainterior.com/sitemap.xml
