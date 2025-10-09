@@ -6,8 +6,10 @@ export default defineConfig({
   plugins: [
     react(),
     viteSitemap({
-      baseUrl: 'https://tvashtainterior.com',
+      hostname: 'https://tvashtainterior.com', // ✅ correct property name
+      changefreq: 'weekly',
+      priority: 1.0,
     }),
   ],
-  base: "/",
+  base: '/',
 });
