@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tvashtainterior.com/</loc>
-    <lastmod>2025-09-15</lastmod>
+    <lastmod>2025-01-27T12:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://tvashtainterior.com/assets/companyLogo/LogoT.png</image:loc>
+      <image:title>Tvashta Interior Logo</image:title>
+      <image:caption>Professional Interior Design Company</image:caption>
+    </image:image>
   </url>
-
 </urlset>
