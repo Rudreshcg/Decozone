@@ -36,32 +36,32 @@ const comparisonData = [
     {
         feature: "Timely Deliveries",
         marketExperience: Delay,
-        decozoneExperience: OnTime,
+        tvashtaExperience: OnTime,
     },
     {
         feature: "Client Customization",
         marketExperience: NoIcon,
-        decozoneExperience: Customization,
+        tvashtaExperience: Customization,
     },
     {
         feature: "Cost Efficiency",
         marketExperience: HighCost,
-        decozoneExperience: LowCost,
+        tvashtaExperience: LowCost,
     },
     {
         feature: "Product Variety",
         marketExperience: LessOptions,
-        decozoneExperience: MoreOptions,
+        tvashtaExperience: MoreOptions,
     },
     {
         feature: "Quality Assurance",
         marketExperience: LowQuality,
-        decozoneExperience: QualityAssurance,
+        tvashtaExperience: QualityAssurance,
     },
     {
         feature: "Customer Support",
         marketExperience: NoIcon,
-        decozoneExperience: CustomerSupport,
+        tvashtaExperience: CustomerSupport,
     },
 ];
 
@@ -166,8 +166,8 @@ const WhyPartnerWithUs = () => {
                                     </TableCell>
                                     <TableCell sx={{ justifyItems: "center" }}>
                                         <img
-                                            src={item.decozoneExperience}
-                                            alt="Decozone Experience"
+                                            src={item.tvashtaExperience}
+                                            alt="Tvashta Experience"
                                             style={{
                                                 width: isMobile ? "30px" : "40px",
                                                 height: isMobile ? "30px" : "40px",

@@ -1,0 +1,255 @@
+/* Our Story Section Styling */
+.our-story-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Story Header Section */
+.story-header {
+    text-align: center;
+    padding: 80px 5% 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    box-sizing: border-box;
+}
+
+.story-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.story-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #4a5942, #5c6c53);
+    /* Tvashta Interior Green */
+    border-radius: 2px;
+}
+
+.story-subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Photo Section */
+.photo-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.photo-section img {
+    width: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.6s ease;
+    box-sizing: border-box;
+}
+
+.photo-section:hover img {
+    filter: grayscale(0%);
+}
+
+/* Stats Section */
+.stats-section {
+    width: 100%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 80px 5%;
+    box-sizing: border-box;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.stat-item {
+    text-align: left;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.stat-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #4a5942, #5c6c53);
+    /* Tvashta Interior Green */
+    margin-bottom: 16px;
+    border-radius: 2px;
+}
+
+.stat-title {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #2c3e50;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-top: 8px;
+    background: linear-gradient(135deg, #2c3e50, #4a5942);
+    /* Tvashta Interior colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    width: 100%;
+    display: block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Story Text Section */
+.story-section {
+    width: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 80px 5%;
+    box-sizing: border-box;
+}
+
+.story-content {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.story-text {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 32px;
+    text-align: left;
+    font-weight: 400;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.story-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .story-header {
+        padding: 60px 20px 30px;
+    }
+
+    .story-title {
+        font-size: 2.5rem;
+    }
+
+    .story-subtitle {
+        font-size: 1rem;
+    }
+
+    .stats-section {
+        padding: 60px 20px;
+    }
+
+    .story-section {
+        padding: 60px 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .stat-item {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .story-text {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .story-content {
+        padding: 0;
+    }
+
+    .photo-section img {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-section {
+        padding: 40px 20px;
+    }
+
+    .story-section {
+        padding: 40px 20px;
+    }
+
+    .stat-item {
+        padding: 16px;
+        width: 100%;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .story-content {
+        padding: 0;
+    }
+
+    .photo-section img {
+        min-height: 250px;
+    }
+}

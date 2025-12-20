@@ -34,7 +34,7 @@ const Newsletter = () => {
           placeholder="Enter your email"
           className="px-4 py-4 ring-1 ring-gray-300"
         />
-        <button className="bg-black text-white px-6 py-4 uppercase">
+        <button className="bg-[#4a5942] text-white px-6 py-4 uppercase">
           Subscribe
         </button>
       </motion.div>

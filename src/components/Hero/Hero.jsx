@@ -104,7 +104,7 @@ const HomePage = () => {
             variant="contained"
             size="large"
             sx={{
-              background: "linear-gradient(90deg, #4a5942 0%, #7cc7a0 100%)",
+              background: "#4a5942",
               color: "#fff",
               fontWeight: 700,
               py: 1.3,
@@ -112,11 +112,11 @@ const HomePage = () => {
               borderRadius: 2,
               fontSize: "1.1rem",
               letterSpacing: 1,
-              boxShadow: "0 4px 16px 0 rgba(44, 75, 60, 0.15)",
+              boxShadow: "0 4px 16px 0 rgba(74, 89, 66, 0.15)",
               textTransform: "uppercase",
-              transition: "background 0.22s",
+              transition: "all 0.22s",
               "&:hover": {
-                background: "linear-gradient(90deg, #7cc7a0 0%, #4a5942 100%)",
+                background: "#3d4a36", // Slightly darker green for hover
               },
             }}
             variants={SlideUp(0.4)}

@@ -1,0 +1,213 @@
+/* Modern Portfolio Card Styling */
+.portfolio-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-image-container {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-category {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: linear-gradient(135deg, #4a5942, #5c6c53);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(74, 89, 66, 0.3);
+}
+
+.card-content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-header {
+    text-align: left;
+}
+
+.project-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.project-title {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin: 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #5a6c7d;
+}
+
+.detail-icon {
+    font-size: 1rem;
+    width: 16px;
+    text-align: center;
+}
+
+.detail-text {
+    font-weight: 500;
+}
+
+.explore-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #4a5942, #5c6c53);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.explore-button:hover::before {
+    left: 100%;
+}
+
+.explore-button:hover {
+    background: linear-gradient(135deg, #5c6c53, #4a5942);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 89, 66, 0.4);
+}
+
+.arrow {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.explore-button:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* Animation for card entrance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-image-container {
+        height: 240px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .project-name {
+        font-size: 1.2rem;
+    }
+
+    .project-title {
+        font-size: 0.9rem;
+    }
+
+    .detail-item {
+        font-size: 0.85rem;
+    }
+
+    .explore-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-content {
+        padding: 16px;
+    }
+
+    .card-details {
+        gap: 6px;
+    }
+
+    .detail-item {
+        font-size: 0.8rem;
+    }
+}
