@@ -230,7 +230,7 @@ export default function Contact() {
                         {/* Contact Form */}
                         <Grid item xs={12} md={7}>
                             <FormCard component={motion.div} initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                                <Typography variant="h4" sx={{ mb: 3, fontWeight: 600, color: "#2e3921", textAlign: "center" }}>
+                                <Typography variant="h4" sx={{ mb: 3, fontWeight: 600, color: "#2c3e50", textAlign: "center" }}>
                                     Send Us a Message
                                 </Typography>
                                 <Box component="form" onSubmit={handleSubmit}>
@@ -279,7 +279,7 @@ export default function Contact() {
                         {/* Contact Details */}
                         <Grid item xs={12} md={5}>
                             <ContactCard component={motion.div} initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                                <Typography variant="h4" sx={{ mb: 3, color: "#2e3921", fontWeight: 600, textAlign: "center" }}>
+                                <Typography variant="h4" sx={{ mb: 3, color: "#2c3e50", fontWeight: 600, textAlign: "center" }}>
                                     Contact Details
                                 </Typography>
 
@@ -317,7 +317,16 @@ export default function Contact() {
 
             {/* Google Map */}
             <Box sx={{ width: "100%", height: { xs: "300px", md: "500px" } }}>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6186919274014!2d77.5166837!3d12.932211500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f000308f089%3A0x44c0c94f4abf6ac5!2sTvashta%20Interiors!5e0!3m2!1sen!2sin!4v1766159986235!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6186919274014!2d77.5166837!3d12.932211500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f000308f089%3A0x44c0c94f4abf6ac5!2sTvashta%20Interiors!5e0!3m2!1sen!2sin!4v1766159986235!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Google Map"
+                ></iframe>
             </Box>
 
             {/* Internal Links */}

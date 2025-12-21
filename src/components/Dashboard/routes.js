@@ -2,6 +2,7 @@ import Home from "../Home/Home";
 import Teams from "../Teams/Teams";
 import Portfolio from "../Portfolio/Portfolio";
 import Blogs from "../Blogs/Blogs";
+import BlogPost from "../Blogs/BlogPost";
 import Contact from "../Contact/Contact";
 import OurStory from "../About/OurStory";
 import ProjectDetails from "../Portfolio/ProjectDetails";
@@ -13,5 +14,6 @@ export const routes = [
     { name: "Project Detail", component: ProjectDetails, path: "/portfolio/:id" },
     { name: "Teams", component: Teams, path: "/teams" },
     { name: "Blogs", component: Blogs, path: "/blogs" },
+    { name: "Blog Detail", component: BlogPost, path: "/blogs/:id" },
     { name: "Contact", component: Contact, path: "/contact" },
 ];

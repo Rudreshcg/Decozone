@@ -1,20 +1,29 @@
+
 import React from "react";
 import { motion } from "framer-motion";
+import {
+    Box,
+    Container,
+    Typography,
+    Grid,
+} from "@mui/material";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
-// Using a placeholder or appropriate image from Decozone assets
 import teamPhoto from "../../assets/landing_page_Image.avif";
-import "./OurStory.css";
+import { SlideUp } from "../../animation/animate";
+
+const BRAND_GREEN = "#4a5942";
+const BRAND_DARK = "#0f1f15";
 
 const OurStory = () => {
     const stats = [
         { title: "PEOPLE", number: "30+" },
         { title: "YEARS", number: "5+" },
-        { title: "ONGOING PROJECTS", number: "50+" },
+        { title: "PROJECTS", number: "50+" },
     ];
 
     return (
-        <div className="our-story-section">
+        <>
             <SEOHead
                 title="Our Story - Tvashta Interior"
                 description="Discover Our Story at Tvashta Interior. Learn about our mission, values, and commitment to delivering exceptional interior design services in Bangalore."
@@ -32,109 +41,174 @@ const OurStory = () => {
                 }}
             />
 
-            {/* Title Section */}
-            <div className="story-header">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+            <Box sx={{ bgcolor: "#fff", overflowX: "hidden" }}>
+                {/* Full Width Parallax Hero Image */}
+                <Box
+                    sx={{
+                        width: "100%",
+                        height: { xs: "50vh", md: "70vh" },
+                        backgroundImage: `url(${teamPhoto})`,
+                        backgroundAttachment: { xs: "scroll", md: "fixed" }, // Fixed attachment for parallax feel on desktop
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        position: "relative",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        "&::after": {
+                            content: '""',
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            backgroundColor: "rgba(0,0,0,0.3)" // Overlay for text readability if needed
+                        }
+                    }}
                 >
-                    <h2 className="story-title">Our Story</h2>
-                    <p className="story-subtitle">
-                        Discover the journey, values, and vision that drive Tvashta Interior to excellence.
-                    </p>
-                </motion.div>
-            </div>
-
-            {/* Top Hero Image Section */}
-            <div className="photo-section">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                >
-                    <img
-                        src={teamPhoto}
-                        alt="Tvashta Interior - Designing Excellence"
-                        onError={(e) => {
-                            e.target.style.display = "none";
-                            e.target.parentElement.style.minHeight = "400px";
-                            e.target.parentElement.style.backgroundColor = "#e0e0e0";
-                        }}
-                    />
-                </motion.div>
-            </div>
-
-            {/* Stats Section */}
-            <div className="stats-section">
-                <div className="stats-grid">
-                    {stats.map((stat, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="stat-item">
-                                <div className="stat-line" />
-                                <div className="stat-title">{stat.title}</div>
-                                <div className="stat-number">{stat.number}</div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Story Text Section - Middle Content */}
-            <div className="story-section">
-                <div className="story-content">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
+                        variants={SlideUp(0.2)}
+                        initial="initial"
+                        whileInView="animate"
+                        style={{ position: "relative", zIndex: 1, textAlign: "center" }}
                     >
-                        <p className="story-text">
-                            Founded in Bangalore with a vision to transform the interior design landscape, Tvashta Interior emerged from a passion for creating spaces that blend functionality with aesthetic excellence. What started as a modest venture has grown into one of Bangalore's most trusted names in residential and commercial interiors.
-                        </p>
-                        <p className="story-text">
-                            Our approach to design has always been client-centric. We believe in understanding each client's unique vision before we start. By integrating modern trends with timeless utility, we create spaces that tell stories. Every project is a collaboration, where our team of designers and craftsmen work in harmony to bring dreams to life.
-                        </p>
-                        <p className="story-text">
-                            At the heart of Tvashta Interior lies our commitment to quality, integrity, and innovation. We draw strength from the collective expertise of our diverse team. This collaborative spirit, combined with our unwavering dedication to excellence, has enabled us to build not just beautiful homes, but lasting relationships with our clients.
-                        </p>
+                        <Typography
+                            variant="h1"
+                            sx={{
+                                fontFamily: "Playfair Display, serif",
+                                fontWeight: 700,
+                                color: "#fff",
+                                fontSize: { xs: "3rem", md: "5rem" },
+                                letterSpacing: -1,
+                                textShadow: "0 4px 10px rgba(0,0,0,0.3)"
+                            }}
+                        >
+                            Our Story
+                        </Typography>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                color: "rgba(255,255,255,0.9)",
+                                mt: 2,
+                                fontWeight: 400,
+                                letterSpacing: 1,
+                                textTransform: "uppercase"
+                            }}
+                        >
+                            Designing with Passion, Building with Integrity
+                        </Typography>
                     </motion.div>
-                </div>
-            </div>
+                </Box>
 
-            {/* Bottom Image Section */}
-            <div className="photo-section">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                    viewport={{ once: true }}
-                >
-                    <img
-                        src={teamPhoto}
-                        alt="Tvashta Interior - Designing Excellence"
-                        onError={(e) => {
-                            e.target.style.display = "none";
-                            e.target.parentElement.style.minHeight = "400px";
-                            e.target.parentElement.style.backgroundColor = "#e0e0e0";
-                        }}
-                    />
-                </motion.div>
-            </div>
+                {/* Content Section */}
+                <Container maxWidth="lg" sx={{ py: 10 }}>
+                    <Grid container spacing={8} justifyContent="center">
+                        <Grid item xs={12} md={10}>
+                            <motion.div
+                                variants={SlideUp(0.3)}
+                                initial="initial"
+                                whileInView="animate"
+                                viewport={{ once: true }}
+                            >
+                                <Box sx={{ textAlign: "center", mb: 6 }}>
+                                    <Typography variant="overline" sx={{ color: BRAND_GREEN, fontWeight: 700, letterSpacing: 2 }}>
+                                        WHO WE ARE
+                                    </Typography>
+                                    <Typography
+                                        variant="h3"
+                                        sx={{
+                                            fontFamily: "Playfair Display, serif",
+                                            fontWeight: 700,
+                                            mt: 1,
+                                            color: BRAND_DARK,
+                                            fontSize: { xs: "2rem", md: "3rem" }
+                                        }}
+                                    >
+                                        Crafting Dreams into Reality
+                                    </Typography>
+                                    <Box
+                                        sx={{
+                                            width: 60,
+                                            height: 4,
+                                            bgcolor: BRAND_GREEN,
+                                            mx: "auto",
+                                            mt: 3,
+                                            borderRadius: 2
+                                        }}
+                                    />
+                                </Box>
 
-            {/* Internal Links */}
-            <div style={{ padding: "40px 5%", backgroundColor: "#ffffff" }}>
-                <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-                    <InternalLinks currentPage="about" />
-                </div>
-            </div>
-        </div>
+                                <Typography
+                                    variant="body1"
+                                    sx={{
+                                        color: "#4a4a4a",
+                                        mb: 4,
+                                        lineHeight: 1.9,
+                                        fontSize: "1.125rem",
+                                        textAlign: "center"
+                                    }}
+                                >
+                                    Founded in Bangalore with a vision to transform the interior design landscape, Tvashta Interior emerged from a passion for creating spaces that blend functionality with aesthetic excellence. What started as a modest venture has grown into one of Bangalore's most trusted names in residential and commercial interiors.
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    sx={{
+                                        color: "#4a4a4a",
+                                        mb: 6,
+                                        lineHeight: 1.9,
+                                        fontSize: "1.125rem",
+                                        textAlign: "center"
+                                    }}
+                                >
+                                    Our approach to design has always been client-centric. We believe in understanding each client's unique vision before we start. By integrating modern trends with timeless utility, we create spaces that not only look beautiful but also tell your personal story. At the heart of Tvashta Interior lies our commitment to quality, integrity, and innovation.
+                                </Typography>
+
+                                {/* Stats Row */}
+                                <Grid container spacing={4} justifyContent="center" sx={{ mt: 4 }}>
+                                    {stats.map((stat, index) => (
+                                        <Grid item xs={4} md={3} key={index}>
+                                            <Box sx={{ textAlign: "center" }}>
+                                                <Typography
+                                                    variant="h2"
+                                                    sx={{
+                                                        color: BRAND_GREEN,
+                                                        fontWeight: 700,
+                                                        fontFamily: "Playfair Display, serif",
+                                                        fontSize: { xs: "2.5rem", md: "3.5rem" }
+                                                    }}
+                                                >
+                                                    {stat.number}
+                                                </Typography>
+                                                <Typography
+                                                    variant="subtitle2"
+                                                    sx={{
+                                                        letterSpacing: 2,
+                                                        color: "#666",
+                                                        fontWeight: 600,
+                                                        mt: 1,
+                                                        fontSize: { xs: "0.7rem", md: "0.875rem" }
+                                                    }}
+                                                >
+                                                    {stat.title}
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            </motion.div>
+                        </Grid>
+                    </Grid>
+                </Container>
+
+                {/* Internal Links */}
+                <Box sx={{ bgcolor: "#f8f9fa", py: 8, borderTop: "1px solid rgba(0,0,0,0.05)" }}>
+                    <Container maxWidth="lg">
+                        <InternalLinks currentPage="about" />
+                    </Container>
+                </Box>
+            </Box>
+        </>
     );
 };
 

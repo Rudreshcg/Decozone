@@ -2,25 +2,15 @@ import React, { useState } from 'react';
 import {
     Box,
     Typography,
-    Grid,
     Avatar,
     Button,
     useMediaQuery,
     useTheme,
+    Container
 } from "@mui/material";
-
-import HomeIcon from "@mui/icons-material/Home";
-import EventNoteIcon from "@mui/icons-material/EventNote";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import BuildCircleIcon from "@mui/icons-material/BuildCircle";
-import CelebrationIcon from "@mui/icons-material/Celebration";
-import PersonIcon from "@mui/icons-material/Person";
-import CheckIcon from "@mui/icons-material/Check";
-import BuildIcon from "@mui/icons-material/Build";
-import MovingIcon from "@mui/icons-material/Moving";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
-import ContactModal from "../ContactModal/ContactModal"
+import ContactModal from "../ContactModal/ContactModal";
 import Payement2 from "../../assets/icons8-rocket-64.png";
 import Payement from "../../assets/icons8-gavel-50.png";
 import BookRenovation from "../../assets/icons8-booking-50.png";
@@ -28,135 +18,85 @@ import MeetDesigner from "../../assets/icons8-working-48.png";
 import MoveEnjoy from "../../assets/icons8-traveler-50.png";
 import { Helmet } from "react-helmet-async";
 
+const BRAND_GREEN = "#4a5942";
+const BRAND_GREEN_LIGHT = "#e8f0e6";
 
-
-const MotionTypography = motion(Typography);
-const MotionBox = motion(Box)
-const MotionGrid = motion(Grid)
-
-
+const steps = [
+    { icon: MeetDesigner, label: "Meet a designer" },
+    { icon: BookRenovation, label: "(5% payment) Initial design advance" },
+    { icon: Payement, label: "(50% payment) Execution begins" },
+    { icon: Payement2, label: "(100% payment) Final installations" },
+    { icon: MoveEnjoy, label: "Move in and enjoy!" },
+];
 
 const HowItWorksMobile = () => {
-
-    const steps = [
-        { icon: MeetDesigner, label: "Meet a designer" },
-        { icon: BookRenovation, label: "(5% payment) Initial design advance" },
-        { icon: Payement, label: "(50% payment) Execution begins" },
-        { icon: Payement2, label: "(100% payment) Final installations" },
-        { icon: MoveEnjoy, label: "Move in and enjoy!" },
-    ];
-
     return (
-        <>
-            <Helmet>
-                <title>How It Works - Interior Design Process | Tvashta Interior Bangalore</title>
-                <meta name="description" content="Learn our simple, transparent interior design process from meeting a designer to moving in. Trusted by homes and offices across Bangalore and India." />
-                <meta name="keywords" content="interior design process, meetings with designer, payment stages, final installation, Tvashta Interior, Bangalore interior design, India" />
-                <link rel="canonical" href="https://tvashtainterior.com/" />
-                <meta property="og:title" content="How It Works - Tvashta Interior" />
-                <meta property="og:description" content="Our transparent payment and design workflow ensures a smooth interior renovation experience for your home or office." />
-                <meta property="og:url" content="https://tvashtainterior.com/" />
-                <meta property="og:type" content="website" />
-            </Helmet>
-            <Box sx={{ padding: 4 }}>
-                <MotionTypography
-                    variant="h4"
-                    variants={SlideUp(0.3)}
+        <Box sx={{ position: "relative", pl: 2, pr: 2 }}>
+            {/* Vertical Line */}
+            <Box
+                component={motion.div}
+                initial={{ height: 0 }}
+                whileInView={{ height: "100%" }}
+                transition={{ duration: 1.5 }}
+                sx={{
+                    position: "absolute",
+                    top: 20,
+                    bottom: 20,
+                    left: "39px",
+                    width: "2px",
+                    background: `linear-gradient(to bottom, ${BRAND_GREEN} 50%, transparent 100%)`,
+                    zIndex: 0,
+                    opacity: 0.3
+                }}
+            />
+            {steps.map((step, index) => (
+                <Box
+                    key={index}
+                    component={motion.div}
+                    variants={SlideUp(0.2 + index * 0.1)}
                     initial="initial"
-                    whileInView="animate" sx={{ fontWeight: "bold", marginBottom: 4, textAlign: "center" }}>
-                    How it works
-                </MotionTypography>
-                <MotionGrid variants={SlideUp(0.5)}
-                    initial="initial"
-                    whileInView="animate" container direction="column" spacing={3} sx={{ position: "relative" }}>
-                    <Box
+                    whileInView="animate"
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        mb: 4,
+                        position: "relative",
+                        zIndex: 1
+                    }}
+                >
+                    <Avatar
                         sx={{
-                            position: "absolute",
-                            top: "25px",
-                            bottom: 0,
-                            left: "53px",
-                            width: "2px",
-                            backgroundColor: "#e0e0e0",
-                            zIndex: 1,
+                            bgcolor: "#fff",
+                            border: `2px solid ${BRAND_GREEN_LIGHT}`,
+                            width: 56,
+                            height: 56,
+                            p: 1.5,
+                            boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+                            mr: 3,
+                            flexShrink: 0
                         }}
-                    />
-                    {steps.map((step, index) => (
-                        <Grid
-                            item
-                            key={index}
-                            container
-                            alignItems="center"
-                            spacing={2}
-                            sx={{ zIndex: 2, position: "relative" }}
-                        >
-                            <Grid item>
-                                <Avatar
-                                    sx={{
-                                        backgroundColor: "#ffffff",
-                                        border: "2px solid #e0e0e0",
-                                        color: "primary.main",
-                                        width: 60, // Outer avatar size
-                                        height: 60, // Outer avatar size
-                                        margin: "0 auto",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                    }}
-                                >
-                                    <Box
-                                        component="img"
-                                        src={step.icon}
-                                        alt={step.label}
-                                        sx={{
-                                            width: 30, // Icon size
-                                            height: 30, // Icon size
-                                        }}
-                                    />
-                                </Avatar>
-                            </Grid>
-                            <Grid item maxWidth="250px">
-                                <Typography variant="body1">{step.label}</Typography>
-                            </Grid>
-                        </Grid>
-                    ))}
-                </MotionGrid>
-            </Box>
-        </>
+                    >
+                        <Box component="img" src={step.icon} alt={step.label} sx={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                    </Avatar>
+                    <Box>
+                        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1rem", color: "#2c3e50", fontFamily: "Playfair Display, serif" }}>
+                            {step.label}
+                        </Typography>
+                    </Box>
+                </Box>
+            ))}
+        </Box>
     );
 };
 
 const HowItWorksDesktop = () => {
     const isTab = useMediaQuery("(max-width:960px)");
 
-    const steps = [
-        { icon: MeetDesigner, label: "Meet a designer" },
-        { icon: BookRenovation, label: "(5% payment) Initial design advance" },
-        { icon: Payement, label: "(50% payment) Execution begins" },
-        { icon: Payement2, label: "(100% payment) Final installations" },
-        { icon: MoveEnjoy, label: "Move in and enjoy!" },
-    ];
-
     return (
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
 
-        <Box
-            sx={{
-                padding: 4,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-            }}
-        >
-            <MotionTypography
-                variant="h4"
-                variants={SlideUp(0.3)}
-                initial="initial"
-                whileInView="animate"
-                sx={{ fontWeight: "bold", marginBottom: 4, textAlign: "center" }}
-            >
-                How it works
-            </MotionTypography>
-
-            <MotionBox
+            <Box
+                component={motion.div}
                 variants={SlideUp(0.5)}
                 initial="initial"
                 whileInView="animate"
@@ -167,20 +107,23 @@ const HowItWorksDesktop = () => {
                     paddingX: 2,
                     marginTop: 2,
                     minWidth: "75%",
+                    width: "85%", // Ensure consistent width container
+                    maxWidth: "1200px"
                 }}
             >
+                {/* Connecting Line - Restored Original Alignment Logic */}
                 <Box
                     sx={{
                         position: "absolute",
-                        top: "28%",
-                        left: "8%",
-                        right: "5%",
+                        top: "28%", // Original Top Position
+                        left: "8%", // Original Left Position
+                        width: "85%", // Original Width
                         height: "2px",
                         backgroundColor: "#e0e0e0",
                         zIndex: 1,
-                        width: "85%",
                     }}
                 />
+
                 {steps.map((step, index) => (
                     <Box
                         key={index}
@@ -188,101 +131,138 @@ const HowItWorksDesktop = () => {
                             textAlign: "center",
                             position: "relative",
                             zIndex: 2,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            width: "150px" // Fixed width for alignment stability
                         }}
                     >
-
                         <Avatar
                             sx={{
-                                backgroundColor: "#ffffff",
-                                border: "2px solid #e0e0e0",
-                                color: "primary.main",
-                                width: isTab ? 60 : 80, // Outer avatar size
-                                height: isTab ? 60 : 80, // Outer avatar size
+                                bgcolor: "#fff",
+                                border: `2px solid #e0e0e0`,
+                                width: isTab ? 60 : 80,
+                                height: isTab ? 60 : 80,
                                 margin: "0 auto",
                                 display: "flex",
                                 justifyContent: "center",
                                 alignItems: "center",
+                                transition: "all 0.3s ease",
+                                "&:hover": {
+                                    borderColor: BRAND_GREEN,
+                                    transform: "scale(1.05)",
+                                    boxShadow: "0 8px 24px rgba(74, 89, 66, 0.2)",
+                                }
                             }}
                         >
-                            <Box
-                                component="img"
-                                src={step.icon}
-                                alt={step.label}
-                                sx={{
-                                    width: isTab ? 30 : 40, // Icon size
-                                    height: isTab ? 30 : 40, // Icon size
-                                }}
-                            />
+                            <Box component="img" src={step.icon} alt={step.label} sx={{ width: isTab ? 30 : 40, height: isTab ? 30 : 40, objectFit: "contain" }} />
                         </Avatar>
 
                         <Typography
-                            variant="body1"
+                            variant="h6"
                             sx={{
-                                marginTop: 1,
-                                maxWidth: 140,
+                                mt: 2,
+                                fontWeight: 700,
+                                fontSize: "1rem",
+                                fontFamily: "Playfair Display, serif",
+                                color: "#2c3e50",
+                                lineHeight: 1.3
                             }}
                         >
                             {step.label}
                         </Typography>
                     </Box>
                 ))}
-            </MotionBox>
-
-
+            </Box>
         </Box>
     );
 };
 
 const HowItWorks = () => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const [open, setOpen] = useState(false);
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
 
     return (
         <>
             <Helmet>
-                <title>How It Works - Interior Design Process | Tvashta Interior Bangalore</title>
-                <meta name="description" content="Learn our simple, transparent interior design process from meeting a designer to moving in. Trusted by homes and offices across Bangalore and India." />
-                <meta name="keywords" content="interior design process, meetings with designer, payment stages, final installation, Tvashta Interior, Bangalore interior design, India" />
-                <link rel="canonical" href="https://tvashtainterior.com/" />
-                <meta property="og:title" content="How It Works - Tvashta Interior" />
-                <meta property="og:description" content="Our transparent payment and design workflow ensures a smooth interior renovation experience for your home or office." />
-                <meta property="og:url" content="https://tvashtainterior.com/" />
-                <meta property="og:type" content="website" />
+                <title>How It Works - Interior Design Process | Tvashta Interior</title>
+                <meta name="description" content="Our simple 5-step interior design process: Meet, Design, Execute, Install, and Enjoy." />
             </Helmet>
 
-            <Box>
-                {isMobile ? <HowItWorksMobile /> : <HowItWorksDesktop />}
-                <motion.Box
-                    variants={SlideUp(0.6)}
-                    initial="initial"
-                    whileInView="animate"
-                    style={{ display: "flex", justifyContent: "center" }}
-                >
-                    <Button
-                        variant="contained"
-                        sx={{
-                            bgcolor: "#4a5942",
-                            my: 4,
-                            fontWeight: "bold",
-                            p: "10px 16px",
-                            borderRadius: "10px",
-                            fontSize: { xs: "0.875rem", sm: "1rem" },
-                        }}
-                        onClick={handleOpen}
+            <Box sx={{ py: 10, bgcolor: "#fff", overflow: "hidden" }}>
+                <Container maxWidth="lg">
+                    {/* Header */}
+                    <Box sx={{ textAlign: "center", mb: 8 }}>
+                        <Typography
+                            component={motion.h4}
+                            variants={SlideUp(0.2)}
+                            initial="initial"
+                            whileInView="animate"
+                            variant="overline"
+                            sx={{ color: BRAND_GREEN, fontWeight: 700, letterSpacing: 1.5 }}
+                        >
+                            SIMPLE & TRANSPARENT
+                        </Typography>
+                        <Typography
+                            component={motion.h2}
+                            variants={SlideUp(0.3)}
+                            initial="initial"
+                            whileInView="animate"
+                            variant="h3"
+                            sx={{
+                                fontFamily: "Playfair Display, serif",
+                                fontWeight: 700,
+                                color: "#2c3e50",
+                                mt: 1,
+                                fontSize: { xs: "2rem", md: "3rem" }
+                            }}
+                        >
+                            How It Works
+                        </Typography>
+                    </Box>
+
+                    {/* Content */}
+                    <Box sx={{ mb: 8 }}>
+                        {isMobile ? <HowItWorksMobile /> : <HowItWorksDesktop />}
+                    </Box>
+
+                    {/* CTA */}
+                    <Box
+                        component={motion.div}
+                        variants={SlideUp(0.5)}
+                        initial="initial"
+                        whileInView="animate"
+                        sx={{ textAlign: "center" }}
                     >
-                        BOOK FREE CONSULTATION
-                    </Button>
-                </motion.Box>
+                        <Button
+                            variant="contained"
+                            onClick={() => setOpen(true)}
+                            sx={{
+                                bgcolor: BRAND_GREEN,
+                                color: "#fff",
+                                px: 5,
+                                py: 1.5,
+                                borderRadius: "50px",
+                                fontWeight: 700,
+                                textTransform: "uppercase",
+                                letterSpacing: 1,
+                                boxShadow: "0 10px 20px rgba(74, 89, 66, 0.3)",
+                                "&:hover": {
+                                    bgcolor: "#3d4a36",
+                                    transform: "translateY(-2px)",
+                                    boxShadow: "0 15px 30px rgba(74, 89, 66, 0.4)",
+                                }
+                            }}
+                        >
+                            Start Your Journey
+                        </Button>
+                    </Box>
+                </Container>
                 <ContactModal open={open} setOpen={setOpen} />
             </Box>
         </>
     );
-
 };
 
 export default HowItWorks;

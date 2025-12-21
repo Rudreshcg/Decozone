@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { SlideLeft, SlideUp } from "../../animation/animate";
-import { Box, Container, IconButton, Typography, useMediaQuery } from "@mui/material";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import Man from "../../assets/man.png"
-import Women from "../../assets/women.png"
-import "./Testimonial.css";
+import {
+  Box,
+  Container,
+  Typography,
+  IconButton,
+  Card,
+  CardContent,
+  Avatar,
+  Divider,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import { ChevronLeft, ChevronRight, Star } from "@mui/icons-material";
+import Man from "../../assets/man.png";
+import Women from "../../assets/women.png";
 
 const TestimonialData = [
   {
     id: 1,
-    name: "Mohan kumar",
+    name: "Mohan Kumar",
     designation: "Premium Client",
     img: Man,
     text: "Tvashta Interior exceeded all my expectations. The level of sophistication they brought to my penthouse is unparalleled. A truly beautiful and seamless experience!",
@@ -50,83 +60,188 @@ const TestimonialData = [
   },
 ];
 
-
 const Testimonial = () => {
-  const isMobile = useMediaQuery("(max-width:768px)");
+  const scrollRef = useRef(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const scrollLeft = () => {
-    document.getElementById("testimonialScroll").scrollLeft -= 380;
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -350, behavior: "smooth" });
+    }
   };
 
   const scrollRight = () => {
-    document.getElementById("testimonialScroll").scrollLeft += 380;
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+    }
   };
 
   return (
-    <section className="testimonial-section">
-      <div className="testimonial-header">
-        <motion.h2
-          variants={SlideUp(0.2)}
-          initial="initial"
-          whileInView="animate"
-        >
-          Words From Our Customers
-        </motion.h2>
-        <motion.p
-          variants={SlideUp(0.4)}
-          initial="initial"
-          whileInView="animate"
-        >
-          Bring your dream home to life with one-on-one design help & hand-picked products
-        </motion.p>
-      </div>
+    <Box
+      component="section"
+      sx={{
+        py: { xs: 8, md: 12 },
+        backgroundColor: "#f9f9f9",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      <Container maxWidth="lg">
+        {/* Header */}
+        <Box sx={{ textAlign: "center", mb: 6, maxWidth: 700, mx: "auto" }}>
+          <Typography
+            component={motion.h2}
+            variants={SlideUp(0.2)}
+            initial="initial"
+            whileInView="animate"
+            variant="h3"
+            sx={{
+              fontFamily: "Playfair Display, serif",
+              fontWeight: 700,
+              color: "#2c3e50",
+              mb: 2,
+              fontSize: { xs: "2rem", md: "2.5rem" },
+            }}
+          >
+            Words From Our Customers
+          </Typography>
+          <Typography
+            component={motion.p}
+            variants={SlideUp(0.4)}
+            initial="initial"
+            whileInView="animate"
+            variant="body1"
+            sx={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.6 }}
+          >
+            Bring your dream home to life with one-on-one design help & hand-picked products
+          </Typography>
+        </Box>
 
-      <div className="testimonial-slider-container">
-        {!isMobile && (
-          <>
-            <button className="nav-button prev" onClick={scrollLeft}>
-              <ChevronLeft />
-            </button>
-            <button className="nav-button next" onClick={scrollRight}>
-              <ChevronRight />
-            </button>
-          </>
-        )}
+        {/* Slider Container */}
+        <Box sx={{ position: "relative" }}>
+          {/* Default Arrows (Desktop) */}
+          {!isMobile && (
+            <>
+              <IconButton
+                onClick={scrollLeft}
+                sx={{
+                  position: "absolute",
+                  left: -20,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  zIndex: 2,
+                  bgcolor: "#fff",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                  "&:hover": { bgcolor: "#4a5942", color: "#fff" },
+                  width: 48,
+                  height: 48,
+                }}
+              >
+                <ChevronLeft />
+              </IconButton>
+              <IconButton
+                onClick={scrollRight}
+                sx={{
+                  position: "absolute",
+                  right: -20,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  zIndex: 2,
+                  bgcolor: "#fff",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                  "&:hover": { bgcolor: "#4a5942", color: "#fff" },
+                  width: 48,
+                  height: 48,
+                }}
+              >
+                <ChevronRight />
+              </IconButton>
+            </>
+          )}
 
-        <Container>
-          <div id="testimonialScroll" className="testimonial-scroll-area">
+          {/* Cards Scroll Area */}
+          <Box
+            ref={scrollRef}
+            sx={{
+              display: "flex",
+              gap: 3,
+              overflowX: "auto",
+              pb: 4,
+              scrollSnapType: "x mandatory",
+              "&::-webkit-scrollbar": { display: "none" },
+              scrollbarWidth: "none",
+            }}
+          >
             {TestimonialData.map((card) => (
-              <motion.div
+              <Box
                 key={card.id}
-                className="testimonial-card"
+                component={motion.div}
                 variants={SlideLeft(card.delay)}
                 initial="initial"
                 whileInView="animate"
+                sx={{
+                  minWidth: { xs: 280, md: 350 },
+                  scrollSnapAlign: "center",
+                }}
               >
-                <div className="card-top">
-                  <div className="avatar-wrapper">
-                    <img src={card.img} alt={card.name} />
-                  </div>
-                  <div className="info-content">
-                    <h4>{card.name}</h4>
-                    <span>{card.designation}</span>
-                    <div className="star-rating">
-                      ★★★★★
-                    </div>
-                  </div>
-                </div>
+                <Card
+                  elevation={0}
+                  sx={{
+                    p: 4,
+                    height: "100%",
+                    borderRadius: 3,
+                    border: "1px solid rgba(0,0,0,0.05)",
+                    background: "#fff",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
+                      borderColor: "#4a5942",
+                    },
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+                    <Avatar
+                      src={card.img}
+                      alt={card.name}
+                      sx={{ width: 60, height: 60, border: "2px solid #f0f0f0" }}
+                    />
+                    <Box>
+                      <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1rem" }}>
+                        {card.name}
+                      </Typography>
+                      <Typography variant="caption" sx={{ color: "#888", display: "block" }}>
+                        {card.designation}
+                      </Typography>
+                      <Box sx={{ display: "flex", color: "#4a5942", mt: 0.5 }}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} sx={{ fontSize: 16 }} />
+                        ))}
+                      </Box>
+                    </Box>
+                  </Box>
 
-                <div className="divider"></div>
+                  <Divider sx={{ mb: 2, opacity: 0.6 }} />
 
-                <p className="testimonial-text">
-                  "{card.text}"
-                </p>
-              </motion.div>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontStyle: "italic",
+                      color: "#555",
+                      lineHeight: 1.7,
+                      fontSize: "0.95rem",
+                    }}
+                  >
+                    "{card.text}"
+                  </Typography>
+                </Card>
+              </Box>
             ))}
-          </div>
-        </Container>
-      </div>
-    </section>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
