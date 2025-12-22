@@ -1,0 +1,236 @@
+/* Featured Projects Section */
+.featured-projects-section {
+    padding: 100px 0;
+    background-color: #fffaf5;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-header .badge {
+    display: inline-block;
+    background-color: #f1ebd7;
+    color: #8c763f;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-header .main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    color: #2c3e50;
+    margin: 0 0 25px 0;
+    font-weight: 700;
+}
+
+.section-header .description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header .main-title {
+        font-size: 36px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    position: relative;
+    height: 280px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: #4a5942;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.project-location {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.project-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.project-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.project-features li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.project-features li span {
+    width: 6px;
+    height: 6px;
+    background-color: #4a5942;
+    border-radius: 50%;
+    margin-top: 7px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.card-footer {
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.project-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.details-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #4a5942;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.details-link:hover {
+    color: #3d4a36;
+}
+
+.details-link .eye-icon {
+    font-style: normal;
+    font-size: 16px;
+}
+
+.section-footer {
+    text-align: center;
+}
+
+.view-all-btn {
+    display: inline-block;
+    background-color: #4a5942;
+    color: #fff;
+    padding: 16px 45px;
+    border-radius: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(166, 140, 82, 0.2);
+}
+
+.view-all-btn:hover {
+    background-color: #3d4a36;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(74, 89, 66, 0.3);
+}
+
+.view-all-btn span {
+    margin-left: 10px;
+    font-size: 18px;
+    vertical-align: middle;
+}

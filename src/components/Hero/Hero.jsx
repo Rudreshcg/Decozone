@@ -1,133 +1,292 @@
-import React from "react";
-import { Box, Typography, Button } from "@mui/material";
-import { motion } from "framer-motion";
-import { SlideUp } from "../../animation/animate"; // your animation utility
-import landingPageImage from "../../assets/landing-image.jpeg";
+import React, { useState, useEffect } from "react";
+import { Box, Typography, Button, Container, IconButton } from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
+import { SlideUp } from "../../animation/animate";
 import { Helmet } from "react-helmet-async";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
+// Image Imports
+import Img1 from "../../assets/gallery/livingarea-1.png";
+import Img2 from "../../assets/gallery/bedroom-1.webp";
+import Img3 from "../../assets/gallery/kitchen-1.jpeg";
+import Img4 from "../../assets/gallery/storage-3.png";
+import Img5 from "../../assets/gallery/bedroom-2.webp";
+import Img6 from "../../assets/gallery/livingarea-4.png";
+
+const slides = [
+  {
+    id: 1,
+    img: Img1,
+    title: "Elegant Living Spaces",
+    subtitle: "Designed for comfort and style",
+  },
+  {
+    id: 2,
+    img: Img2,
+    title: "Cozy & Modern Bedrooms",
+    subtitle: "Your personal sanctuary tailored to you",
+  },
+  {
+    id: 3,
+    img: Img3,
+    title: "Functional Modular Kitchens",
+    subtitle: "The heart of your home, reimagined",
+  },
+  {
+    id: 4,
+    img: Img4,
+    title: "Smart Storage Solutions",
+    subtitle: "Maximize space with elegant utility",
+  },
+  {
+    id: 5,
+    img: Img5,
+    title: "Dreamy Bedroom Designs",
+    subtitle: "Experience luxury in every detail",
+  },
+  {
+    id: 6,
+    img: Img6,
+    title: "Luxury Living Rooms",
+    subtitle: "Bring home beautiful interiors that fit your budget",
+  },
+];
 
 const MotionTypography = motion(Typography);
 const MotionButton = motion(Button);
 
+import ContactModal from "../ContactModal/ContactModal";
+
 const HomePage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // ... existing timer logic ...
+    const timer = setInterval(() => {
+      handleNext();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentSlide]);
+
+  // ... (keeping handleNext, handlePrev, and variants same) ...
+
+  const handleNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const slideVariants = {
+    initial: { x: "100%", opacity: 0, scale: 1.2 },
+    animate: { x: 0, opacity: 1, scale: 1 },
+    exit: { x: "-100%", opacity: 0, scale: 1 },
+  };
+
+  const textVariants = {
+    initial: { y: -50, opacity: 0, filter: "blur(10px)" },
+    animate: { y: 0, opacity: 1, filter: "blur(0px)" },
+    exit: { y: 20, opacity: 0, filter: "blur(10px)" },
+  };
+
   return (
     <>
       <Helmet>
-        <title>Tvashta Interior - Beautiful, Budget-Friendly Interiors in Bangalore & India</title>
-        <meta name="description" content="Experience unmatched quality, timely delivery, and elegant interior design with Tvashta Interior. Transform homes and offices in Bangalore & across India—always within your budget." />
-        <meta name="keywords" content="interior design, Bangalore interiors, budget interiors, Tvashta Interior, modular kitchen, home renovation, commercial interiors, India" />
-        <link rel="canonical" href="https://tvashtainterior.com/" />
-        <meta property="og:title" content="Tvashta Interior - Transform Your Spaces in Bangalore & Across India" />
-        <meta property="og:description" content="Bring home beautiful interiors that fit your budget. Trusted for quality design and seamless delivery." />
-        <meta property="og:url" content="https://tvashtainterior.com/" />
-        <meta property="og:type" content="website" />
+        <title>Tvashta Interior - {slides[currentSlide].title}</title>
+        <meta
+          name="description"
+          content={`Explore our ${slides[currentSlide].title}. ${slides[currentSlide].subtitle} with Tvashta Interior.`}
+        />
       </Helmet>
 
+      <ContactModal open={isModalOpen} setOpen={setIsModalOpen} />
+
       <Box
+        // ... (keeping Box props same) ...
         sx={{
           position: "relative",
           height: "100vh",
-          minHeight: 520,
-          backgroundImage: `url(${landingPageImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          minHeight: 600,
+          width: "100vw",
+          overflow: "hidden",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          width: "100vw",
-          overflow: "hidden",
-          "::before": {
-            content: '""',
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(115deg, rgba(30,38,47,0.82) 42%, rgba(255,215,0,0.07) 100%)",
-            zIndex: 1,
-          },
+          backgroundColor: "#000",
         }}
       >
+        {/* ... (keeping AnimatePresence and background Box and buttons same) ... */}
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={slides[currentSlide].id}
+            variants={slideVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 1, ease: "easeInOut" }}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundImage: `url(${slides[currentSlide].img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              zIndex: 0,
+            }}
+          />
+        </AnimatePresence>
+
         <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%)",
+            zIndex: 1,
+          }}
+        />
+
+        <IconButton
+          onClick={handlePrev}
+          sx={{
+            position: "absolute",
+            left: { xs: 10, md: 40 },
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 100,
+            color: "#fff",
+            backgroundColor: "rgba(255,255,255,0.1)",
+            border: "1px solid rgba(255,255,255,0.3)",
+            "&:hover": {
+              backgroundColor: "rgba(255,255,255,0.3)",
+              color: "#fff",
+            },
+            width: 50,
+            height: 50,
+          }}
+        >
+          <ChevronLeftIcon fontSize="large" />
+        </IconButton>
+
+        <IconButton
+          onClick={handleNext}
+          sx={{
+            position: "absolute",
+            right: { xs: 10, md: 40 },
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 100,
+            color: "#fff",
+            backgroundColor: "rgba(255,255,255,0.1)",
+            border: "1px solid rgba(255,255,255,0.3)",
+            "&:hover": {
+              backgroundColor: "rgba(255,255,255,0.3)",
+              color: "#fff",
+            },
+            width: 50,
+            height: 50,
+          }}
+        >
+          <ChevronRightIcon fontSize="large" />
+        </IconButton>
+
+        <Container
+          maxWidth="lg"
           sx={{
             position: "relative",
             zIndex: 2,
             textAlign: "center",
-            maxWidth: { xs: "94vw", sm: 600, md: 760 },
-            mx: "auto",
+            px: { xs: 2, md: 0 },
           }}
         >
-          <MotionTypography
-            variant="h2"
-            sx={{
-              fontWeight: 800,
-              color: "#fff",
-              fontSize: { xs: "2.1rem", sm: "2.5rem", md: "3rem" },
-              letterSpacing: 1.2,
-              mb: 2,
-              lineHeight: 1.14,
-              textShadow: "0 4px 32px rgba(0,0,0,0.38)",
-            }}
-            variants={SlideUp(0)}
-            initial="initial"
-            animate="animate"
-          >
-            Bring home beautiful interiors{" "}
-            <Box
-              component="span"
+          <Box sx={{ maxWidth: 900, mx: "auto", overflow: "hidden" }}>
+            {/* ... (keeping text animations same) ... */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={slides[currentSlide].id}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <motion.div
+                  variants={textVariants}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      fontWeight: 700,
+                      color: "#fff",
+                      fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
+                      lineHeight: 1.1,
+                      mb: 3,
+                      fontFamily: "Playfair Display, serif",
+                      textShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    {slides[currentSlide].title}
+                  </Typography>
+                </motion.div>
+
+                <motion.div
+                  variants={textVariants}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} // Staggered delay
+                >
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      color: "#f0f0f0",
+                      fontWeight: 400,
+                      fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
+                      letterSpacing: 0.5,
+                      mb: 6,
+                      maxWidth: "800px",
+                      mx: "auto",
+                      lineHeight: 1.6,
+                      textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    {slides[currentSlide].subtitle}
+                  </Typography>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+
+            <MotionButton
+              variant="contained"
+              size="large"
+              onClick={() => setIsModalOpen(true)}
               sx={{
-                color: "#FFD700",
-                display: "block",
-                textShadow: "0 2px 18px rgba(220,180,25,0.16)",
+                background: "#4a5942",
+                color: "#fff",
+                fontWeight: 700,
+                py: { xs: 1.5, md: 1.8 },
+                px: { xs: 4, md: 6 },
+                borderRadius: "50px",
+                fontSize: { xs: "1rem", md: "1.1rem" },
+                letterSpacing: 1.5,
+                textTransform: "uppercase",
+                boxShadow: "0 8px 30px rgba(74, 89, 66, 0.4)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                backdropFilter: "blur(4px)",
+                "&:hover": {
+                  background: "#3d4a36",
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 10px 40px rgba(74, 89, 66, 0.6)",
+                },
               }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              that fit your budget
-            </Box>
-          </MotionTypography>
-
-          <MotionTypography
-            variant="h6"
-            sx={{
-              color: "#fff",
-              opacity: 0.93,
-              fontWeight: 500,
-              fontSize: { xs: "1.08rem", sm: "1.23rem", md: "1.35rem" },
-              letterSpacing: 0.8,
-              mb: 5,
-              mt: 2,
-              textShadow: "0 3px 10px rgba(25,25,25,0.22)",
-            }}
-            variants={SlideUp(0.2)}
-            initial="initial"
-            animate="animate"
-          >
-            Experience unmatched quality & timely delivery with Tvashta Interior
-          </MotionTypography>
-
-          <MotionButton
-            variant="contained"
-            size="large"
-            sx={{
-              background: "linear-gradient(90deg, #4a5942 0%, #7cc7a0 100%)",
-              color: "#fff",
-              fontWeight: 700,
-              py: 1.3,
-              px: 5,
-              borderRadius: 2,
-              fontSize: "1.1rem",
-              letterSpacing: 1,
-              boxShadow: "0 4px 16px 0 rgba(44, 75, 60, 0.15)",
-              textTransform: "uppercase",
-              transition: "background 0.22s",
-              "&:hover": {
-                background: "linear-gradient(90deg, #7cc7a0 0%, #4a5942 100%)",
-              },
-            }}
-            variants={SlideUp(0.4)}
-            initial="initial"
-            animate="animate"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Get Free Quote
-          </MotionButton>
-        </Box>
+              Get Free Quote
+            </MotionButton>
+          </Box>
+        </Container>
       </Box>
     </>
   );

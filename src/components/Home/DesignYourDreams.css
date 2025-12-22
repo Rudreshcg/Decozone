@@ -1,0 +1,188 @@
+.design-dreams-section {
+    padding: 80px 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.design-dreams-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.design-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    gap: 40px;
+}
+
+.design-header-left {
+    flex: 1;
+}
+
+.design-header-right {
+    flex: 1;
+}
+
+.design-header-left .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #4a5942;
+    /* Logo green accent */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.design-header-left .subtitle .dash {
+    margin-right: 10px;
+}
+
+.design-header-left .main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    line-height: 1.1;
+    color: #2c3e50;
+    font-weight: 700;
+    margin: 0;
+}
+
+.design-header-right .description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Grid Styles */
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.design-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 450px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.design-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(calc(100% - 70px));
+    width: 95%;
+    background-color: #fff;
+    padding: 18px 10px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    border-radius: 4px 4px 0 0;
+}
+
+.design-card:hover .card-overlay {
+    transform: translateX(-50%) translateY(0);
+    width: 100%;
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    white-space: nowrap !important;
+    display: inline-block;
+    width: 100%;
+    overflow: visible;
+}
+
+.card-title .accent {
+    color: #4a5942;
+    /* Logo green */
+}
+
+.card-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    transition-delay: 0.1s;
+    margin-top: 15px;
+}
+
+.design-card:hover .card-description {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .design-header {
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .design-header-left .main-title {
+        font-size: 48px;
+    }
+
+    .design-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .design-dreams-section {
+        padding: 50px 0;
+    }
+
+    .design-header-left .main-title {
+        font-size: 36px;
+    }
+
+    .design-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .design-card {
+        height: 350px;
+    }
+
+    .card-overlay {
+        width: 90%;
+        transform: translateX(-50%) translateY(calc(100% - 55px));
+    }
+}

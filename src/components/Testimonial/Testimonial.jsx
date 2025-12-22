@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { SlideLeft, SlideUp } from "../../animation/animate";
-import { Box, Container, IconButton, Typography, useMediaQuery } from "@mui/material";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import Man from "../../assets/man.png"
-import Women from "../../assets/women.png"
-
-const MotionTypography = motion(Typography);
+import {
+  Box,
+  Container,
+  Typography,
+  IconButton,
+  Card,
+  CardContent,
+  Avatar,
+  Divider,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import { ChevronLeft, ChevronRight, Star } from "@mui/icons-material";
+import Man from "../../assets/man.png";
+import Women from "../../assets/women.png";
 
 const TestimonialData = [
   {
     id: 1,
-    name: "Ramesh Kumar",
-    designation: "Homeowner",
+    name: "Mohan Kumar",
+    designation: "Premium Client",
     img: Man,
-    text: "The team transformed our living room into a space that feels modern yet cozy. Their attention to detail was amazing!",
+    text: "Tvashta Interior exceeded all my expectations. The level of sophistication they brought to my penthouse is unparalleled. A truly beautiful and seamless experience!",
     delay: 0.2,
   },
   {
     id: 2,
+    name: "Ramesh Kumar",
+    designation: "Homeowner",
+    img: Man,
+    text: "The team transformed our living room into a space that feels modern yet cozy. Their attention to detail was amazing!",
+    delay: 0.3,
+  },
+  {
+    id: 3,
     name: "Priya Sharma",
     designation: "Apartment Owner",
     img: Women,
@@ -26,187 +43,205 @@ const TestimonialData = [
     delay: 0.4,
   },
   {
-    id: 3,
+    id: 4,
     name: "Vishwanath Iyer",
     designation: "Villa Owner",
     img: Man,
     text: "They brought elegance and functionality to our villa. Their creative approach and professionalism were outstanding.",
-    delay: 0.6,
+    delay: 0.5,
   },
   {
-    id: 4,
+    id: 5,
     name: "Lakshmi Narayan",
     designation: "Homeowner",
     img: Man,
     text: "We wanted a unique design for our bedroom, and they delivered exactly that. Absolutely love their work!",
-    delay: 0.8,
-  },
-  {
-    id: 5,
-    name: "Arjun Shetty",
-    designation: "Office Owner",
-    img: Man,
-    text: "Our office space is now vibrant and inspiring thanks to their designs. They truly understood our vision.",
-    delay: 1.0,
+    delay: 0.6,
   },
 ];
 
-
 const Testimonial = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const scrollRef = useRef(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const scrollLeft = () => {
-    document.getElementById("testimonialScroll").scrollLeft -= 300;
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -350, behavior: "smooth" });
+    }
   };
 
   const scrollRight = () => {
-    document.getElementById("testimonialScroll").scrollLeft += 300;
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+    }
   };
 
   return (
-    <div className="py-14">
-      {/* Heading title */}
-      <div className="space-y-4 text-center max-w-[550px] mx-auto mb-8">
-        <MotionTypography
-          variants={SlideUp(0.2)}
-          initial="initial"
-          whileInView="animate"
-          variant="h4"
-          fontWeight="bold"
-        >
-          Words from our customers
-        </MotionTypography>
-        <MotionTypography
-          variants={SlideUp(0.4)}
-          initial="initial"
-          whileInView="animate"
-          px={2}
-        >
-          Bring your dream home to life with one-on-one design help & hand-picked products
-        </MotionTypography>
-      </div>
-      {/* Testimonial cards */}
-      <div className="bg-black p-12 relative">
-        <Container>
-          <Box display="flex" alignItems="center">
-            <IconButton
-              sx={{
-                position: "absolute",
-                left: -25,
-                zIndex: 1000,
-                backgroundColor: "white",
-                borderRadius: "50%",
-                "&:hover": {
-                  backgroundColor: "lightgray",
-                },
-              }}
-              onClick={scrollLeft}
-            >
-              <ChevronLeft />
-            </IconButton>
-            <Box
-              id="testimonialScroll"
-              display="flex"
-              overflow="auto"
-              sx={{ scrollSnapType: "x mandatory", gap: 2, width: "100%" }}
-            >
-              {TestimonialData.map((card) => {
-                return (
-                  <motion.div
-                    key={card.id}
-                    variants={SlideLeft(card.delay)}
-                    initial="initial"
-                    whileInView="animate"
-                    style={{
-                      border: "1px solid #6b7280", // Equivalent to `border-gray-500`
-                      padding: "25px 20px", // Equivalent to `px-5 py-10`
-                      color: "white",
-                      minWidth: isMobile ? "260px" : "300px",
-                      maxWidth: isMobile ? "260px" : "300px",
-                      transition: "background-color 0.3s",
-                      scrollSnapAlign: "start",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "white";
-                      e.currentTarget.style.color = "black";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "white";
-                    }}
-                  >
-                    {/* Upper section */}
-                    <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                      <img
-                        src={card.img}
-                        alt=""
-                        style={{ width: "60px", borderRadius: "50%" }}
-                      />
-                      <Box>
-                        <Typography
-                          variant="body2"
-                          fontWeight="bold"
-                          sx={{ color: "inherit" }}
-                        >
-                          {card.name}
-                        </Typography>
-                        <Typography
-                          variant="caption"
-                          sx={{ color: "inherit" }}
-                        >
-                          {card.designation}
-                        </Typography>
-                        <Typography
-                          variant="caption"
-                          display="block"
-                          sx={{ marginTop: "8px" }}
-                        >
-                          ⭐⭐⭐⭐⭐
-                        </Typography>
+    <Box
+      component="section"
+      sx={{
+        py: { xs: 8, md: 12 },
+        backgroundColor: "#f9f9f9",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      <Container maxWidth="lg">
+        {/* Header */}
+        <Box sx={{ textAlign: "center", mb: 6, maxWidth: 700, mx: "auto" }}>
+          <Typography
+            component={motion.h2}
+            variants={SlideUp(0.2)}
+            initial="initial"
+            whileInView="animate"
+            variant="h3"
+            sx={{
+              fontFamily: "Playfair Display, serif",
+              fontWeight: 700,
+              color: "#2c3e50",
+              mb: 2,
+              fontSize: { xs: "2rem", md: "2.5rem" },
+            }}
+          >
+            Words From Our Customers
+          </Typography>
+          <Typography
+            component={motion.p}
+            variants={SlideUp(0.4)}
+            initial="initial"
+            whileInView="animate"
+            variant="body1"
+            sx={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.6 }}
+          >
+            Bring your dream home to life with one-on-one design help & hand-picked products
+          </Typography>
+        </Box>
+
+        {/* Slider Container */}
+        <Box sx={{ position: "relative" }}>
+          {/* Default Arrows (Desktop) */}
+          {!isMobile && (
+            <>
+              <IconButton
+                onClick={scrollLeft}
+                sx={{
+                  position: "absolute",
+                  left: -20,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  zIndex: 2,
+                  bgcolor: "#fff",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                  "&:hover": { bgcolor: "#4a5942", color: "#fff" },
+                  width: 48,
+                  height: 48,
+                }}
+              >
+                <ChevronLeft />
+              </IconButton>
+              <IconButton
+                onClick={scrollRight}
+                sx={{
+                  position: "absolute",
+                  right: -20,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  zIndex: 2,
+                  bgcolor: "#fff",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                  "&:hover": { bgcolor: "#4a5942", color: "#fff" },
+                  width: 48,
+                  height: 48,
+                }}
+              >
+                <ChevronRight />
+              </IconButton>
+            </>
+          )}
+
+          {/* Cards Scroll Area */}
+          <Box
+            ref={scrollRef}
+            sx={{
+              display: "flex",
+              gap: 3,
+              overflowX: "auto",
+              pb: 4,
+              scrollSnapType: "x mandatory",
+              "&::-webkit-scrollbar": { display: "none" },
+              scrollbarWidth: "none",
+            }}
+          >
+            {TestimonialData.map((card) => (
+              <Box
+                key={card.id}
+                component={motion.div}
+                variants={SlideLeft(card.delay)}
+                initial="initial"
+                whileInView="animate"
+                sx={{
+                  minWidth: { xs: 280, md: 350 },
+                  scrollSnapAlign: "center",
+                }}
+              >
+                <Card
+                  elevation={0}
+                  sx={{
+                    p: 4,
+                    height: "100%",
+                    borderRadius: 3,
+                    border: "1px solid rgba(0,0,0,0.05)",
+                    background: "#fff",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
+                      borderColor: "#4a5942",
+                    },
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+                    <Avatar
+                      src={card.img}
+                      alt={card.name}
+                      sx={{ width: 60, height: 60, border: "2px solid #f0f0f0" }}
+                    />
+                    <Box>
+                      <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1rem" }}>
+                        {card.name}
+                      </Typography>
+                      <Typography variant="caption" sx={{ color: "#888", display: "block" }}>
+                        {card.designation}
+                      </Typography>
+                      <Box sx={{ display: "flex", color: "#4a5942", mt: 0.5 }}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} sx={{ fontSize: 16 }} />
+                        ))}
                       </Box>
                     </Box>
-                    {/* Bottom section */}
-                    <Box
-                      sx={{
-                        marginTop: "20px",
-                        borderTop: "2px solid rgb(107 114 128 / 40%)", // Equivalent to `border-gray-500/40`
-                        paddingTop: "20px",
-                      }}
-                    >
-                      <Typography
-                        variant="body2"
-                        sx={{
-                         color: "inherit", 
-                          transition: "color 0.3s",
-                        }}
-                      >
-                        {card.text}
-                      </Typography>
-                    </Box>
-                  </motion.div>
-                );
-              })}
+                  </Box>
 
-            </Box>
-            <IconButton
-              sx={{
-                position: "absolute",
-                right: -25,
-                zIndex: 1000,
-                backgroundColor: "white",
-                borderRadius: "50%",
-                "&:hover": {
-                  backgroundColor: "lightgray",
-                },
-              }}
-              onClick={scrollRight}
-            >
-              <ChevronRight />
-            </IconButton>
+                  <Divider sx={{ mb: 2, opacity: 0.6 }} />
+
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontStyle: "italic",
+                      color: "#555",
+                      lineHeight: 1.7,
+                      fontSize: "0.95rem",
+                    }}
+                  >
+                    "{card.text}"
+                  </Typography>
+                </Card>
+              </Box>
+            ))}
           </Box>
-        </Container>
-      </div>
-    </div>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
