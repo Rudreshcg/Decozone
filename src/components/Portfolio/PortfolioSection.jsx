@@ -23,7 +23,7 @@ function PortfolioSection() {
         ? projects
         : projects.filter(project => project.category.toLowerCase() === filter.toLowerCase());
 
-    const categories = ['all', 'Kitchen', 'Bedroom', 'Living', 'Storage'];
+    const categories = ['all', 'Residential', 'Commercial'];
 
     return (
         <section className="portfolio-section">

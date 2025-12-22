@@ -8,8 +8,8 @@ const FeaturedProjects = () => {
     // Select specific projects to feature
     const featuredProjects = [
         projectsData.find(p => p.id === 1), // Modern Modular Kitchen
-        projectsData.find(p => p.id === 5), // Master Bedroom Suite
-        projectsData.find(p => p.id === 9)  // Open Concept Living
+        projectsData.find(p => p.id === 5), // Office Breakout Pantry
+        projectsData.find(p => p.id === 4)  // Corporate Executive Lounge
     ].filter(Boolean); // Ensure we don't have nulls if IDs change
 
     return (

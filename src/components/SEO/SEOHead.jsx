@@ -13,7 +13,7 @@ const SEOHead = ({
     const defaultDescription = "Tvashta Interior is a premier interior design company specializing in modular kitchens, wardrobes, and complete home interiors.";
     const defaultKeywords = "interior design, modular kitchen, wardrobes, home renovation, interior decorators, Bangalore interiors, Tvashta Interior";
     const defaultOgImage = ""; // TODO: Add default OG image
-    const siteUrl = "https://Rudreshcg.github.io/tvashta-interior"; // Based on package.json homepage
+    const siteUrl = "https://tvashtainterior.com"; // Standardized production URL
 
     const finalTitle = title ? `${title} | Tvashta Interior` : defaultTitle;
     const finalDescription = description || defaultDescription;

@@ -56,15 +56,21 @@ const slides = [
 const MotionTypography = motion(Typography);
 const MotionButton = motion(Button);
 
+import ContactModal from "../ContactModal/ContactModal";
+
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
+    // ... existing timer logic ...
     const timer = setInterval(() => {
       handleNext();
     }, 5000);
     return () => clearInterval(timer);
   }, [currentSlide]);
+
+  // ... (keeping handleNext, handlePrev, and variants same) ...
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -75,15 +81,15 @@ const HomePage = () => {
   };
 
   const slideVariants = {
-    initial: { x: "100%", opacity: 0, scale: 1.2 }, // Start zoomed in slightly
-    animate: { x: 0, opacity: 1, scale: 1 }, // Zoom out to normal
+    initial: { x: "100%", opacity: 0, scale: 1.2 },
+    animate: { x: 0, opacity: 1, scale: 1 },
     exit: { x: "-100%", opacity: 0, scale: 1 },
   };
 
   const textVariants = {
-    initial: { y: -50, opacity: 0, filter: "blur(10px)" }, // Start from above
-    animate: { y: 0, opacity: 1, filter: "blur(0px)" }, // Drop to normal
-    exit: { y: 20, opacity: 0, filter: "blur(10px)" }, // Fade out slightly downwards
+    initial: { y: -50, opacity: 0, filter: "blur(10px)" },
+    animate: { y: 0, opacity: 1, filter: "blur(0px)" },
+    exit: { y: 20, opacity: 0, filter: "blur(10px)" },
   };
 
   return (
@@ -96,7 +102,10 @@ const HomePage = () => {
         />
       </Helmet>
 
+      <ContactModal open={isModalOpen} setOpen={setIsModalOpen} />
+
       <Box
+        // ... (keeping Box props same) ...
         sx={{
           position: "relative",
           height: "100vh",
@@ -109,6 +118,7 @@ const HomePage = () => {
           backgroundColor: "#000",
         }}
       >
+        {/* ... (keeping AnimatePresence and background Box and buttons same) ... */}
         <AnimatePresence mode="popLayout">
           <motion.div
             key={slides[currentSlide].id}
@@ -195,6 +205,7 @@ const HomePage = () => {
           }}
         >
           <Box sx={{ maxWidth: 900, mx: "auto", overflow: "hidden" }}>
+            {/* ... (keeping text animations same) ... */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={slides[currentSlide].id}
@@ -249,7 +260,7 @@ const HomePage = () => {
             <MotionButton
               variant="contained"
               size="large"
-              href="#contact"
+              onClick={() => setIsModalOpen(true)}
               sx={{
                 background: "#4a5942",
                 color: "#fff",

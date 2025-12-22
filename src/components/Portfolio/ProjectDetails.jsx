@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { projectsData } from '../../data/projectsData';
+import { galleryData } from '../../data/galleryData';
 import SEOHead from '../SEO/SEOHead';
 import InternalLinks from '../SEO/InternalLinks';
 
@@ -35,6 +36,13 @@ const ProjectDetails = () => {
     // We'll use ID 1, 5, and 9 as the ones with details for now
     const sidebarProjects = projectsData.filter(p => [1, 5, 9].includes(p.id));
 
+    const displayedImages = React.useMemo(() => {
+        return galleryData
+            .flatMap(section => section.images)
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 6);
+    }, []);
+
     return (
         <div className="project-details-container">
             <SEOHead
@@ -59,6 +67,7 @@ const ProjectDetails = () => {
                 {/* Left Column: Description & Details */}
                 <div className="main-content">
                     <h2>Project Overview</h2>
+                    {/* ... (existing content logic is unchanged, just moving gallery usage down) ... */}
                     <p className="project-description">
                         {project.description || "Project specific description is coming soon. Stay tuned for more updates on this beautiful interior design execution by Tvashta Interior."}
                     </p>
@@ -95,19 +104,16 @@ const ProjectDetails = () => {
 
                     {/* Project Gallery Section */}
                     <div className="project-gallery-section" style={{ marginTop: '50px' }}>
-                        <h2>Project Gallery</h2>
+                        <h2 style={{ marginBottom: '30px' }}>Project Gallery</h2>
                         <div className="project-gallery-grid">
-                            {projectsData
-                                .filter(p => p.category === project.category) // Get all images from same category
-                                .slice(0, 6) // Limit to 6 images for the gallery
-                                .map((p, index) => (
-                                    <img
-                                        key={index}
-                                        src={p.image}
-                                        alt={`${project.category} gallery ${index + 1}`}
-                                        className="gallery-img"
-                                    />
-                                ))
+                            {displayedImages.map((img, index) => (
+                                <img
+                                    key={index}
+                                    src={img}
+                                    alt={`Project gallery ${index + 1}`}
+                                    className="gallery-img"
+                                />
+                            ))
                             }
                         </div>
                     </div>
