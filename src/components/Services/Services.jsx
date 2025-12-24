@@ -32,44 +32,61 @@ import { Helmet } from "react-helmet-async";
 
 const offerings = [
   {
-    title: "Our Services",
+    title: "What is Interior Design?",
     icon: ServicesIcon,
     details: [
-      "Modular kitchens",
-      "Modular wardrobes",
-      "Lighting",
-      "Flooring",
-      "Electrical work",
-      "Civil work",
-      "False ceiling",
-      "Wall design & painting",
+      "Interior design is the art and science of enhancing the interior of a building to create a healthier, safer, and more aesthetically pleasing environment for its occupants.",
+      "Unlike simple decoration, interior design is a multifaceted profession that combines creative vision with technical knowledge of human behavior, building codes, and structural systems.",
+      "Our expert designers transform spaces into functional works of art that reflect your personality while optimizing comfort, efficiency, and style.",
+      "From concept to completion, we handle every aspect - space planning, color schemes, lighting design, material selection, and furniture placement.",
     ],
   },
   {
-    title: "Warranty",
-    icon: WarrantyIcon,
-    details: [
-      "FLAT 10-year warranty - Stay worry-free with our warranty policy on modular products.",
-      "Up to 1-year on-site service warranty - Warranty on on-site services such as painting, electrical, plumbing and more.",
-    ],
-  },
-  {
-    title: "Technology & Science",
+    title: "In-house Production",
     icon: TechnologyIcon,
     details: [
-      "AquaBloc® Technology - Hermetically sealed edges that ensure no moisture enters the panels of your modular cabinets.",
-      "AntiBubble® Technology - Super seamless panels without air bubbles for your modular cabinets.",
-      "DuraBuild™ Technology - Robust structure for modular cabinets, making them strong and long-lasting.",
-      "Design Science - Modular kitchens with improved accessibility that makes daily tasks more efficient and reduces stress on the body.",
+      "Complete Factory Process - We manage the entire production cycle in our state-of-the-art manufacturing facility, ensuring quality at every step.",
+      "Know Your Components (KYC) - Full transparency in our production process. We document and track every component used in your project.",
+      "Factory Assembly - All modular units are pre-assembled and quality-tested in our factory before delivery to your site.",
+      "Quality Control - Multi-stage inspection process ensures that only the finest products reach your home.",
+      "Precision Manufacturing - Advanced machinery and skilled craftsmen work together to deliver products with perfect finishes.",
     ],
   },
   {
-    title: "Price Benefits",
+    title: "Premium Quality Standards",
+    icon: WarrantyIcon,
+    details: [
+      "CENTURY MAXIMA - We exclusively use Century Maxima plywood with OME (One More Extra) material for superior strength and durability.",
+      "CENTURY CLUB BWB - For applications requiring boiling water resistance, we use only Century Club BWB grade plywood.",
+      "Tried & Tested Materials - Every material we use has been rigorously tested to ensure long-lasting performance.",
+      "After-Sales Care - We care for your home even after project completion. Our commitment doesn't end at handover - we provide ongoing support and maintenance guidance.",
+    ],
+  },
+  {
+    title: "Unmatched Warranty",
+    icon: WarrantyIcon,
+    details: [
+      "FLAT 10-year warranty - Stay worry-free with our comprehensive warranty policy on all modular products.",
+      "Up to 1-year on-site service warranty - Warranty coverage on on-site services such as painting, electrical, plumbing and more.",
+    ],
+  },
+  {
+    title: "Advanced Technology",
+    icon: TechnologyIcon,
+    details: [
+      "AquaBloc® Technology - Hermetically sealed edges preventing moisture damage to ensure your modular cabinets stay pristine for years.",
+      "AntiBubble® Technology - Super seamless panels without air bubbles for flawless modular cabinet surfaces.",
+      "DuraBuild™ Technology - Robust structural engineering for modular cabinets, making them exceptionally strong and long-lasting.",
+      "Design Science - Ergonomically designed modular kitchens with improved accessibility that makes daily tasks more efficient and reduces physical strain.",
+    ],
+  },
+  {
+    title: "Transparent Pricing",
     icon: PriceIcon,
     details: [
-      "Price-match guarantee - Price match to a valid quote in comparison with a branded player and for exact scope.",
-      // "Flexible payment options - EMI solutions and payment schemes from leading financial partners.",
-      "No hidden costs - Transparent costing without last-minute additions.",
+      "Price-match guarantee - We match valid quotes from branded competitors for the exact same scope of work.",
+      "No hidden costs - Completely transparent costing with no last-minute surprises or additions.",
+      "Detailed quotations - Every item and service is clearly itemized so you know exactly what you're paying for.",
     ],
   },
 ];
@@ -123,7 +140,18 @@ const Services = () => {
                   initial="hidden"
                   animate="visible"
                 >
-                  <Card sx={{ boxShadow: 3 }}>
+                  <Card
+                    sx={{
+                      boxShadow: 3,
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        boxShadow: 6,
+                        transform: 'translateY(-2px)',
+                      }
+                    }}
+                    onClick={() => handleExpandClick(index)}
+                  >
                     <CardContent
                       sx={{ "&:last-child": { paddingBottom: "16px" } }}
                     >
@@ -142,16 +170,13 @@ const Services = () => {
                             {offering.title}
                           </Typography>
                         </Box>
-                        <Button
-                          onClick={() => handleExpandClick(index)}
-                          color="black"
-                        >
+                        <Box sx={{ display: 'flex', alignItems: 'center', color: '#666' }}>
                           {expandedSections[index] ? (
                             <ExpandLess />
                           ) : (
                             <ExpandMore />
                           )}
-                        </Button>
+                        </Box>
                       </Box>
                       <Collapse
                         in={expandedSections[index]}
