@@ -51,25 +51,15 @@ const HeroText = styled(Box)({
 const HeroTitle = styled(Typography)(({ theme }) => ({
     fontSize: "3rem",
     [theme.breakpoints.up("md")]: {
-        fontSize: "5rem",
+        fontSize: "5rem", // Match Our Story
     },
-    fontWeight: 800,
+    fontWeight: 700, // Match Our Story (was 800)
     color: "#fff",
     marginBottom: "20px",
     position: "relative",
     fontFamily: "'Playfair Display', serif",
-    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-    "&::after": {
-        content: '""',
-        position: "absolute",
-        bottom: "-10px",
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: "80px",
-        height: "4px",
-        background: "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)",
-        borderRadius: "2px",
-    },
+    letterSpacing: "-1px", // Match Our Story
+    textShadow: "0 4px 10px rgba(0,0,0,0.3)", // Match Our Story
 }));
 
 // Section wrapper
@@ -217,7 +207,15 @@ export default function Contact() {
                     <HeroTitle variant="h2">
                         Contact Us
                     </HeroTitle>
-                    <Typography variant="h6" sx={{ maxWidth: 700, mx: "auto", lineHeight: 1.6 }}>
+                    <Typography variant="h6" sx={{
+                        maxWidth: 700,
+                        mx: "auto",
+                        lineHeight: 1.6,
+                        color: "rgba(255,255,255,0.9)", // Match Our Story
+                        fontWeight: 400, // Match Our Story
+                        letterSpacing: 1, // Match Our Story
+                        textTransform: "uppercase" // Match Our Story
+                    }}>
                         We'd love to hear from you. Please send us a message or reach out directly.
                     </Typography>
                 </HeroText>

@@ -12,17 +12,20 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
-import OnTime from "../../assets/order.png";
-import Delay from "../../assets/expired.png";
-import Customization from "../../assets/web-design.png";
-import NoIcon from "../../assets/no.png";
-import HighCost from "../../assets/cost.png";
-import LowCost from "../../assets/reduce-cost.png";
-import MoreOptions from "../../assets/more-options.png";
-import LessOptions from "../../assets/negative.png";
-import QualityAssurance from "../../assets/quality-assurance.png";
-import LowQuality from "../../assets/low-quality.png";
-import CustomerSupport from "../../assets/customer-support.png";
+import {
+    LocalShipping,
+    AccessTime,
+    DesignServices,
+    RemoveCircle,
+    ReceiptLong,
+    VisibilityOff,
+    Category,
+    MenuBook,
+    Verified,
+    GppBad,
+    SupportAgent,
+    PhoneDisabled
+} from "@mui/icons-material";
 import { Helmet } from "react-helmet-async";
 
 // Custom green color from the brand
@@ -33,43 +36,43 @@ const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 1
 const comparisonData = [
     {
         feature: "Timely Deliveries",
-        marketExperience: Delay,
-        tvashtaExperience: OnTime,
+        marketIcon: <AccessTime sx={{ fontSize: "inherit", color: "#d32f2f" }} />, // Red for negative
+        tvashtaIcon: <LocalShipping sx={{ fontSize: "inherit", color: BRAND_GREEN }} />,
         marketLabel: "Delays Common",
         tvashtaLabel: "On-Time Guarantee",
     },
     {
         feature: "Customization",
-        marketExperience: NoIcon,
-        tvashtaExperience: Customization,
+        marketIcon: <RemoveCircle sx={{ fontSize: "inherit", color: "#9e9e9e" }} />, // Grey for limited
+        tvashtaIcon: <DesignServices sx={{ fontSize: "inherit", color: "#9f8033" }} />, // Gold for Premium
         marketLabel: "Limited Options",
         tvashtaLabel: "Fully Personalized",
     },
     {
         feature: "Cost Efficiency",
-        marketExperience: HighCost,
-        tvashtaExperience: LowCost,
+        marketIcon: <VisibilityOff sx={{ fontSize: "inherit", color: "#d32f2f" }} />,
+        tvashtaIcon: <ReceiptLong sx={{ fontSize: "inherit", color: BRAND_GREEN }} />,
         marketLabel: "Hidden Costs",
         tvashtaLabel: "Transparent Pricing",
     },
     {
         feature: "Product Variety",
-        marketExperience: LessOptions,
-        tvashtaExperience: MoreOptions,
+        marketIcon: <MenuBook sx={{ fontSize: "inherit", color: "#9e9e9e" }} />,
+        tvashtaIcon: <Category sx={{ fontSize: "inherit", color: "#1976d2" }} />, // Blue for variety
         marketLabel: "Standard Catalog",
         tvashtaLabel: "Endless Choices",
     },
     {
         feature: "Quality Assurance",
-        marketExperience: LowQuality,
-        tvashtaExperience: QualityAssurance,
+        marketIcon: <GppBad sx={{ fontSize: "inherit", color: "#d32f2f" }} />,
+        tvashtaIcon: <Verified sx={{ fontSize: "inherit", color: "#9f8033" }} />, // Gold
         marketLabel: "Inconsistent",
         tvashtaLabel: "Premium Checks",
     },
     {
         feature: "Customer Support",
-        marketExperience: NoIcon,
-        tvashtaExperience: CustomerSupport,
+        marketIcon: <PhoneDisabled sx={{ fontSize: "inherit", color: "#9e9e9e" }} />,
+        tvashtaIcon: <SupportAgent sx={{ fontSize: "inherit", color: BRAND_GREEN }} />,
         marketLabel: "Unresponsive",
         tvashtaLabel: "Dedicated Support",
     },
@@ -201,15 +204,16 @@ const WhyPartnerWithUs = () => {
                                         }}
                                     >
                                         <Avatar
-                                            src={item.marketExperience}
                                             variant="rounded"
                                             sx={{
-                                                width: { xs: 32, md: 48 },
-                                                height: { xs: 32, md: 48 },
-                                                bgcolor: "transparent",
-                                                img: { objectFit: "contain" }
+                                                width: { xs: 40, md: 56 }, // Slight increase for icon visibility
+                                                height: { xs: 40, md: 56 },
+                                                bgcolor: "#f5f5f5", // Light textured background for market
+                                                fontSize: { xs: "24px", md: "32px" } // Icon size control
                                             }}
-                                        />
+                                        >
+                                            {item.marketIcon}
+                                        </Avatar>
                                         <Typography
                                             variant="body2"
                                             sx={{
@@ -264,16 +268,17 @@ const WhyPartnerWithUs = () => {
                                         }}
                                     >
                                         <Avatar
-                                            src={item.tvashtaExperience}
                                             variant="rounded"
                                             sx={{
-                                                width: { xs: 36, md: 56 },
-                                                height: { xs: 36, md: 56 },
+                                                width: { xs: 40, md: 56 },
+                                                height: { xs: 40, md: 56 },
                                                 bgcolor: BRAND_GREEN_LIGHT,
-                                                p: 1,
-                                                img: { objectFit: "contain" }
+                                                fontSize: { xs: "24px", md: "32px" },
+                                                boxShadow: "0 4px 10px rgba(74, 89, 66, 0.1)"
                                             }}
-                                        />
+                                        >
+                                            {item.tvashtaIcon}
+                                        </Avatar>
                                         <Typography
                                             variant="body1"
                                             sx={{
