@@ -153,7 +153,15 @@ const WhyPartnerWithUs = () => {
                             <Grid item xs={4} sx={{ textAlign: "center" }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: "700", color: BRAND_GREEN, fontFamily: "Montserrat, sans-serif", fontSize: "1rem" }}
+                                    sx={{
+                                        fontWeight: "800",
+                                        background: goldGradient,
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        fontFamily: "Montserrat, sans-serif",
+                                        fontSize: "1.1rem",
+                                        letterSpacing: "0.5px"
+                                    }}
                                 >
                                     The Tvashta Advantage
                                 </Typography>
@@ -173,19 +181,20 @@ const WhyPartnerWithUs = () => {
                                 viewport={{ once: true }}
                                 elevation={0}
                                 sx={{
-                                    p: { xs: 2.5, md: 3 },
-                                    borderRadius: 3,
+                                    p: 0, // Reset padding to handle inner layout better
+                                    borderRadius: 4,
                                     border: "1px solid",
-                                    borderColor: "rgba(0,0,0,0.06)",
-                                    transition: "all 0.3s ease",
+                                    borderColor: "rgba(0,0,0,0.04)",
+                                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                                     background: "#fff",
+                                    overflow: "hidden",
                                     "&:hover": {
                                         transform: "translateY(-4px)",
-                                        boxShadow: "0 10px 20px rgba(74, 89, 66, 0.1)",
-                                        borderColor: BRAND_GREEN_LIGHT,
+                                        boxShadow: "0 20px 40px rgba(159, 128, 51, 0.15)", // Premium Gold Shadow
+                                        borderColor: "rgba(197, 160, 89, 0.3)", // Subtle Gold Border
                                     },
                                     display: "flex",
-                                    alignItems: "center",
+                                    alignItems: "stretch", // Stretch to full height for background coloring
                                 }}
                             >
                                 <Grid container alignItems="center" spacing={2}>
@@ -195,40 +204,44 @@ const WhyPartnerWithUs = () => {
                                         item
                                         xs={4}
                                         sx={{
+                                            borderRight: { md: "1px dashed #e0e0e0" },
+                                            // Flex and padding moved to inner Box to avoid Grid conflict
+                                        }}
+                                    >
+                                        <Box sx={{
+                                            width: "100%",
                                             display: "flex",
                                             flexDirection: "column",
                                             alignItems: "center",
                                             justifyContent: "center",
-                                            opacity: 0.6,
-                                            borderRight: { md: "1px dashed #e0e0e0" },
-                                        }}
-                                    >
-                                        <Avatar
-                                            variant="rounded"
-                                            sx={{
-                                                width: { xs: 40, md: 56 }, // Slight increase for icon visibility
-                                                height: { xs: 40, md: 56 },
-                                                bgcolor: "#f5f5f5", // Light textured background for market
-                                                fontSize: { xs: "24px", md: "32px" } // Icon size control
-                                            }}
-                                        >
-                                            {item.marketIcon}
-                                        </Avatar>
-                                        <Typography
-                                            variant="body2"
-                                            sx={{
-                                                mt: 1,
-                                                color: "#666",
-                                                fontWeight: 500,
-                                                fontSize: { xs: "0.7rem", md: "0.875rem" },
-
-                                                textAlign: "center",
-                                                fontFamily: "Montserrat, sans-serif",
-                                                lineHeight: 1.2
-                                            }}
-                                        >
-                                            {item.marketLabel}
-                                        </Typography>
+                                            py: 2, // Safe explicit padding
+                                        }}>
+                                            <Avatar
+                                                variant="rounded"
+                                                sx={{
+                                                    width: { xs: 40, md: 56 },
+                                                    height: { xs: 40, md: 56 },
+                                                    bgcolor: "#f5f5f5",
+                                                    fontSize: { xs: "24px", md: "32px" }
+                                                }}
+                                            >
+                                                {item.marketIcon}
+                                            </Avatar>
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    mt: { xs: 0.5, md: 1 },
+                                                    color: "#666",
+                                                    fontWeight: 600,
+                                                    fontSize: { xs: "0.7rem", md: "0.85rem" },
+                                                    textAlign: "center",
+                                                    fontFamily: "Montserrat, sans-serif",
+                                                    lineHeight: 1.2
+                                                }}
+                                            >
+                                                {item.marketLabel}
+                                            </Typography>
+                                        </Box>
                                     </Grid>
 
                                     {/* Feature Name (Center) */}
@@ -239,6 +252,7 @@ const WhyPartnerWithUs = () => {
                                             textAlign: "center",
                                             display: "flex",
                                             justifyContent: "center",
+                                            alignItems: "center", // Center vertically
                                         }}
                                     >
                                         <Typography
@@ -260,39 +274,48 @@ const WhyPartnerWithUs = () => {
                                         item
                                         xs={4}
                                         sx={{
+                                            borderLeft: { md: `1px solid ${BRAND_GREEN_LIGHT}` },
+                                            background: "linear-gradient(to bottom, #fafaf5, #fff)",
+                                            // Flex and padding moved to inner Box
+                                        }}
+                                    >
+                                        <Box sx={{
+                                            width: "100%",
                                             display: "flex",
                                             flexDirection: "column",
                                             alignItems: "center",
                                             justifyContent: "center",
-                                            borderLeft: { md: `1px solid ${BRAND_GREEN_LIGHT}` },
-                                        }}
-                                    >
-                                        <Avatar
-                                            variant="rounded"
-                                            sx={{
-                                                width: { xs: 40, md: 56 },
-                                                height: { xs: 40, md: 56 },
-                                                bgcolor: BRAND_GREEN_LIGHT,
-                                                fontSize: { xs: "24px", md: "32px" },
-                                                boxShadow: "0 4px 10px rgba(74, 89, 66, 0.1)"
-                                            }}
-                                        >
-                                            {item.tvashtaIcon}
-                                        </Avatar>
-                                        <Typography
-                                            variant="body1"
-                                            sx={{
-                                                mt: 1,
-                                                color: BRAND_GREEN,
-                                                fontWeight: 700,
-                                                fontSize: { xs: "0.75rem", md: "1rem" },
-                                                textAlign: "center",
-                                                fontFamily: "Montserrat, sans-serif",
-                                                lineHeight: 1.2
-                                            }}
-                                        >
-                                            {item.tvashtaLabel}
-                                        </Typography>
+                                            py: 2, // Safe explicit padding
+                                        }}>
+                                            <Avatar
+                                                variant="rounded"
+                                                sx={{
+                                                    width: { xs: 40, md: 56 },
+                                                    height: { xs: 40, md: 56 },
+                                                    bgcolor: BRAND_GREEN_LIGHT,
+                                                    fontSize: { xs: "24px", md: "32px" },
+                                                    boxShadow: "0 4px 15px rgba(159, 128, 51, 0.2)",
+                                                    border: "1px solid rgba(159, 128, 51, 0.2)",
+                                                    color: "#4a5942"
+                                                }}
+                                            >
+                                                {item.tvashtaIcon}
+                                            </Avatar>
+                                            <Typography
+                                                variant="body1"
+                                                sx={{
+                                                    mt: { xs: 0.5, md: 1 },
+                                                    color: BRAND_GREEN,
+                                                    fontWeight: 700,
+                                                    fontSize: { xs: "0.75rem", md: "1rem" },
+                                                    textAlign: "center",
+                                                    fontFamily: "Montserrat, sans-serif",
+                                                    lineHeight: 1.2
+                                                }}
+                                            >
+                                                {item.tvashtaLabel}
+                                            </Typography>
+                                        </Box>
                                     </Grid>
                                 </Grid>
                             </Paper>
