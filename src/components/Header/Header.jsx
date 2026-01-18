@@ -71,15 +71,15 @@ const Header = () => {
                         overflowX: "hidden",
                     }}
                 >
-                    <Box sx={{ flexGrow: 1, px: 1 }}>
+                    <Box sx={{ flexGrow: 1, pl: { xs: 2, md: 0 } }}>
                         <RouterLink to="/" style={{ textDecoration: "none" }}>
                             <img
                                 src={Logo}
                                 alt="Tvashta Interior"
                                 style={{
-                                    height: "60px",
+                                    height: "45px",
                                     width: "auto",
-                                    paddingLeft: isMobile ? "12px" : "0px",
+                                    // paddingLeft: isMobile ? "12px" : "0px", // Removed in favor of Box padding
                                 }}
                             />
                         </RouterLink>
@@ -94,7 +94,8 @@ const Header = () => {
                                     to={tab.to}
                                     sx={{
                                         color: isActive(tab.to) ? "#4a5942" : "#4A4A4A", // Used #4a5942 from Tvashta Interior theme
-                                        fontWeight: isActive(tab.to) ? "bold" : "normal",
+                                        fontWeight: isActive(tab.to) ? "bold" : "500",
+                                        fontFamily: "Montserrat, sans-serif",
                                         p: "16px 24px",
                                         "&:hover": {
                                             color: "#4a5942",

@@ -34,7 +34,7 @@ const VideoShowcase = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="subtitle"
+                        className="section-badge-global"
                     >
                         Our Projects in Action
                     </motion.span>
@@ -43,7 +43,8 @@ const VideoShowcase = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="main-title"
+                        className="section-title-global"
+                        style={{ textAlign: "center" }}
                     >
                         See Our Designs <br /> in Motion
                     </motion.h2>

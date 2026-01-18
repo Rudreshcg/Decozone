@@ -108,7 +108,7 @@ const HomePage = () => {
         // ... (keeping Box props same) ...
         sx={{
           position: "relative",
-          height: "100vh",
+          height: "85vh",
           minHeight: 600,
           width: "100vw",
           overflow: "hidden",
@@ -249,6 +249,7 @@ const HomePage = () => {
                       mx: "auto",
                       lineHeight: 1.6,
                       textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                      fontFamily: "Montserrat, sans-serif",
                     }}
                   >
                     {slides[currentSlide].subtitle}
@@ -262,22 +263,25 @@ const HomePage = () => {
               size="large"
               onClick={() => setIsModalOpen(true)}
               sx={{
-                background: "#4a5942",
+
+                background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)", // Rich Green
+                border: "2px solid #9f8033", // Gold Border
                 color: "#fff",
-                fontWeight: 700,
+                fontWeight: 800,
                 py: { xs: 1.5, md: 1.8 },
                 px: { xs: 4, md: 6 },
                 borderRadius: "50px",
                 fontSize: { xs: "1rem", md: "1.1rem" },
                 letterSpacing: 1.5,
+                fontFamily: "Montserrat, sans-serif",
                 textTransform: "uppercase",
-                boxShadow: "0 8px 30px rgba(74, 89, 66, 0.4)",
-                border: "1px solid rgba(255,255,255,0.2)",
+                boxShadow: "0 8px 20px rgba(74, 89, 66, 0.4)",
                 backdropFilter: "blur(4px)",
                 "&:hover": {
                   background: "#3d4a36",
+                  border: "2px solid #c5a059", // Brighter Gold on Hover
                   transform: "translateY(-2px)",
-                  boxShadow: "0 10px 40px rgba(74, 89, 66, 0.6)",
+                  boxShadow: "0 10px 30px rgba(159, 128, 51, 0.4)", // Gold Glow
                 },
               }}
               whileHover={{ scale: 1.05 }}

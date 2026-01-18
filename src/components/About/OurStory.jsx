@@ -112,9 +112,15 @@ const OurStory = () => {
                                 viewport={{ once: true }}
                             >
                                 <Box sx={{ textAlign: "center", mb: 6 }}>
-                                    <Typography variant="overline" sx={{ color: BRAND_GREEN, fontWeight: 700, letterSpacing: 2 }}>
+                                    <motion.div
+                                        variants={SlideUp(0.2)}
+                                        initial="initial"
+                                        whileInView="animate"
+                                        className="section-badge-global"
+                                        style={{ display: "inline-block" }}
+                                    >
                                         WHO WE ARE
-                                    </Typography>
+                                    </motion.div>
                                     <Typography
                                         variant="h3"
                                         sx={{
@@ -131,7 +137,7 @@ const OurStory = () => {
                                         sx={{
                                             width: 60,
                                             height: 4,
-                                            bgcolor: BRAND_GREEN,
+                                            background: "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)",
                                             mx: "auto",
                                             mt: 3,
                                             borderRadius: 2

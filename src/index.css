@@ -8,6 +8,55 @@
   }
 }
 
+/* GLOBAL SECTION TITLE STANDARD */
+.section-title-global {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  color: #2c3e50 !important;
+  font-size: 2.5rem !important;
+  /* Desktop Standard */
+  line-height: 1.2 !important;
+  margin-bottom: 20px !important;
+  position: relative;
+  /* text-transform: titlecase; (Custom capitalization handled in JSX) */
+}
+
+.section-title-global::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%);
+  margin: 20px auto 0;
+  /* Centered by default */
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .section-title-global {
+    font-size: 2rem !important;
+    /* Mobile Standard */
+  }
+}
+
+/* GLOBAL BADGE STANDARD */
+.section-badge-global {
+  display: inline-block;
+  background-color: #f4f1ea;
+  /* Luxury Cream */
+  color: #9f8033 !important;
+  /* Muted Gold/Bronze Text */
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  /* No shadow for this clean pill look, or very subtle */
+}
+
 /* Project Details Styles */
 .project-details-container {
   padding-top: 80px;
@@ -367,4 +416,29 @@
   /* Green accent */
   font-weight: 500;
   margin-top: 2px;
+}
+
+/* GLOBAL PREMIUM BUTTON */
+.btn-premium {
+  background: linear-gradient(135deg, #4a5942 0%, #3d4a36 100%) !important;
+  border: 2px solid #9f8033 !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  padding: 12px 30px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 0.9rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 5px 15px rgba(74, 89, 66, 0.2) !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+}
+
+.btn-premium:hover {
+  background: #3d4a36 !important;
+  border-color: #c5a059 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(159, 128, 51, 0.3) !important;
 }

@@ -16,7 +16,7 @@
     color: #2c3e50;
     margin-bottom: 20px;
     position: relative;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 
 .teams-title::after {
@@ -27,8 +27,8 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #4a5942, #5c6c53);
-    /* Tvashta Interior Green */
+    background: linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%);
+    /* Gold Gradient */
     border-radius: 2px;
 }
 

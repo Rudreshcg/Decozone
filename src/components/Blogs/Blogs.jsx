@@ -19,16 +19,14 @@ const Blogs = () => {
                 <Container maxWidth="lg">
                     {/* Header */}
                     <Box sx={{ textAlign: "center", mb: 8 }}>
-                        <Typography
-                            component={motion.h2}
+                        <motion.div
                             variants={SlideUp(0.2)}
                             initial="initial"
                             whileInView="animate"
-                            variant="overline"
-                            sx={{ color: "#4a5942", fontWeight: 700, letterSpacing: 1.5 }}
+                            className="section-badge-global"
                         >
                             OUR JOURNAL
-                        </Typography>
+                        </motion.div>
                         <Typography
                             component={motion.h1}
                             variants={SlideUp(0.3)}
@@ -45,7 +43,7 @@ const Blogs = () => {
                         >
                             Design Insights & Trends
                         </Typography>
-                        <Box sx={{ width: 60, height: 4, bgcolor: "#4a5942", mx: "auto", mt: 3, borderRadius: 2 }} />
+                        <Box sx={{ width: 60, height: 4, background: "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)", mx: "auto", mt: 3, borderRadius: 2 }} />
                     </Box>
 
                     {/* Blog Grid */}
@@ -85,8 +83,8 @@ const Blogs = () => {
                                                     label={blog.category}
                                                     size="small"
                                                     sx={{
-                                                        bgcolor: "#e8f0e6",
-                                                        color: "#4a5942",
+                                                        bgcolor: "#f4f1ea", // Luxury Cream
+                                                        color: "#9f8033", // Gold Text
                                                         fontWeight: 600,
                                                         fontSize: "0.75rem"
                                                     }}

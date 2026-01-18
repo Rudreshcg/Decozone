@@ -20,12 +20,13 @@ import { Helmet } from "react-helmet-async";
 
 const BRAND_GREEN = "#4a5942";
 const BRAND_GREEN_LIGHT = "#e8f0e6";
+const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)";
 
 const steps = [
     { icon: MeetDesigner, label: "Meet a designer" },
-    { icon: BookRenovation, label: "(5% payment) Initial design advance" },
-    { icon: Payement, label: "(50% payment) Execution begins" },
-    { icon: Payement2, label: "(100% payment) Final installations" },
+    { icon: BookRenovation, label: "Initial design advance" },
+    { icon: Payement, label: "Execution begins" },
+    { icon: Payement2, label: "Final installations" },
     { icon: MoveEnjoy, label: "Move in and enjoy!" },
 ];
 
@@ -194,29 +195,22 @@ const HowItWorks = () => {
                 <Container maxWidth="lg">
                     {/* Header */}
                     <Box sx={{ textAlign: "center", mb: 8 }}>
-                        <Typography
-                            component={motion.h4}
+                        <motion.div
                             variants={SlideUp(0.2)}
                             initial="initial"
                             whileInView="animate"
-                            variant="overline"
-                            sx={{ color: BRAND_GREEN, fontWeight: 700, letterSpacing: 1.5 }}
+                            className="section-badge-global"
                         >
                             SIMPLE & TRANSPARENT
-                        </Typography>
+                        </motion.div>
                         <Typography
                             component={motion.h2}
                             variants={SlideUp(0.3)}
                             initial="initial"
                             whileInView="animate"
                             variant="h3"
-                            sx={{
-                                fontFamily: "Playfair Display, serif",
-                                fontWeight: 700,
-                                color: "#2c3e50",
-                                mt: 1,
-                                fontSize: { xs: "2rem", md: "3rem" }
-                            }}
+                            className="section-title-global"
+                            sx={{ mt: 1, textAlign: "center" }}
                         >
                             How It Works
                         </Typography>
@@ -239,28 +233,32 @@ const HowItWorks = () => {
                             variant="contained"
                             onClick={() => setOpen(true)}
                             sx={{
-                                bgcolor: BRAND_GREEN,
+                                bgcolor: BRAND_GREEN, // Fallback
+                                background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)",
+                                border: "2px solid #9f8033", // Gold Border
                                 color: "#fff",
                                 px: 5,
                                 py: 1.5,
                                 borderRadius: "50px",
                                 fontWeight: 700,
+                                fontFamily: "Montserrat, sans-serif",
                                 textTransform: "uppercase",
                                 letterSpacing: 1,
                                 boxShadow: "0 10px 20px rgba(74, 89, 66, 0.3)",
                                 "&:hover": {
-                                    bgcolor: "#3d4a36",
+                                    background: "#3d4a36",
+                                    border: "2px solid #c5a059",
                                     transform: "translateY(-2px)",
-                                    boxShadow: "0 15px 30px rgba(74, 89, 66, 0.4)",
+                                    boxShadow: "0 15px 30px rgba(159, 128, 51, 0.4)",
                                 }
                             }}
                         >
                             Start Your Journey
                         </Button>
                     </Box>
-                </Container>
+                </Container >
                 <ContactModal open={open} setOpen={setOpen} />
-            </Box>
+            </Box >
         </>
     );
 };

@@ -8,8 +8,19 @@ import FeaturedProjects from "../FeaturedProjects/FeaturedProjects";
 import HowItWorks from "../HowItWorks/HowItWorks";
 import VideoShowcase from "../VideoShowcase/VideoShowcase";
 import Services from "../Services/Services";
+import ContactModal from "../ContactModal/ContactModal";
 
 const Home = () => {
+    const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsContactModalOpen(true);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <>
             <SEOHead
@@ -37,6 +48,7 @@ const Home = () => {
             <VideoShowcase />
             <Testimonial />
             <DesignYourDreams />
+            <ContactModal open={isContactModalOpen} setOpen={setIsContactModalOpen} />
         </>
     );
 };

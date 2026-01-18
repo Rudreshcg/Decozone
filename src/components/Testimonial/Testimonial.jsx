@@ -17,6 +17,8 @@ import { ChevronLeft, ChevronRight, Star } from "@mui/icons-material";
 import Man from "../../assets/man.png";
 import Women from "../../assets/women.png";
 
+const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)";
+
 const TestimonialData = [
   {
     id: 1,
@@ -96,13 +98,8 @@ const Testimonial = () => {
             initial="initial"
             whileInView="animate"
             variant="h3"
-            sx={{
-              fontFamily: "Playfair Display, serif",
-              fontWeight: 700,
-              color: "#2c3e50",
-              mb: 2,
-              fontSize: { xs: "2rem", md: "2.5rem" },
-            }}
+            className="section-title-global"
+            sx={{ mb: 2, textAlign: "center" }}
           >
             Words From Our Customers
           </Typography>
@@ -112,7 +109,7 @@ const Testimonial = () => {
             initial="initial"
             whileInView="animate"
             variant="body1"
-            sx={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.6 }}
+            sx={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.6, fontFamily: "Montserrat, sans-serif" }}
           >
             Bring your dream home to life with one-on-one design help & hand-picked products
           </Typography>
@@ -208,10 +205,10 @@ const Testimonial = () => {
                       sx={{ width: 60, height: 60, border: "2px solid #f0f0f0" }}
                     />
                     <Box>
-                      <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1rem" }}>
+                      <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1rem", fontFamily: "Montserrat, sans-serif" }}>
                         {card.name}
                       </Typography>
-                      <Typography variant="caption" sx={{ color: "#888", display: "block" }}>
+                      <Typography variant="caption" sx={{ color: "#888", display: "block", fontFamily: "Montserrat, sans-serif" }}>
                         {card.designation}
                       </Typography>
                       <Box sx={{ display: "flex", color: "#4a5942", mt: 0.5 }}>
@@ -230,7 +227,9 @@ const Testimonial = () => {
                       fontStyle: "italic",
                       color: "#555",
                       lineHeight: 1.7,
+                      lineHeight: 1.7,
                       fontSize: "0.95rem",
+                      fontFamily: "Montserrat, sans-serif"
                     }}
                   >
                     "{card.text}"

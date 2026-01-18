@@ -24,7 +24,7 @@ import { submitContactForm } from "../../utils/contactService";
 const AccentDivider = styled("div")({
     width: "100%",
     height: "6px",
-    background: "linear-gradient(to right, #4a5942, #7d8f6d, #4a5942)", // Adapted green gradient
+    background: "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)", // Gold gradient
 });
 
 // Hero Section wrapper
@@ -48,13 +48,16 @@ const HeroText = styled(Box)({
 });
 
 // Hero Title with gold underline
-const HeroTitle = styled(Typography)({
+const HeroTitle = styled(Typography)(({ theme }) => ({
     fontSize: "3rem",
+    [theme.breakpoints.up("md")]: {
+        fontSize: "5rem",
+    },
     fontWeight: 800,
     color: "#fff",
     marginBottom: "20px",
     position: "relative",
-    fontFamily: "'Montserrat', sans-serif",
+    fontFamily: "'Playfair Display', serif",
     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
     "&::after": {
         content: '""',
@@ -64,10 +67,10 @@ const HeroTitle = styled(Typography)({
         transform: "translateX(-50%)",
         width: "80px",
         height: "4px",
-        background: "linear-gradient(135deg, #4a5942, #5c6c53)",
+        background: "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)",
         borderRadius: "2px",
     },
-});
+}));
 
 // Section wrapper
 const Section = styled(Box)(({ theme }) => ({
@@ -230,7 +233,7 @@ export default function Contact() {
                         {/* Contact Form */}
                         <Grid item xs={12} md={7}>
                             <FormCard component={motion.div} initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                                <Typography variant="h4" sx={{ mb: 3, fontWeight: 600, color: "#2c3e50", textAlign: "center" }}>
+                                <Typography variant="h4" sx={{ mb: 3, fontWeight: 600, color: "#2c3e50", textAlign: "center", fontFamily: "'Playfair Display', serif" }}>
                                     Send Us a Message
                                 </Typography>
                                 <Box component="form" onSubmit={handleSubmit}>
@@ -257,7 +260,7 @@ export default function Contact() {
                                             <StyledTextField label="Your Message" name="message" value={form.message} onChange={handleChange} fullWidth required multiline rows={4} />
                                         </Grid>
                                         <Grid item xs={12} textAlign="center">
-                                            <Button variant="contained" type="submit" disabled={isSubmitting} sx={{ background: "#4a5942", color: "white", fontWeight: 600, px: 5, py: 1.5, borderRadius: "10px", "&:hover": { background: "#5c6c53" }, opacity: isSubmitting ? 0.8 : 1 }}>
+                                            <Button variant="contained" type="submit" disabled={isSubmitting} className="btn-premium" sx={{ px: 5, py: 1.5, opacity: isSubmitting ? 0.8 : 1 }}>
                                                 {isSubmitting ? "Sending..." : "Send Message"}
                                             </Button>
                                         </Grid>
@@ -279,7 +282,7 @@ export default function Contact() {
                         {/* Contact Details */}
                         <Grid item xs={12} md={5}>
                             <ContactCard component={motion.div} initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                                <Typography variant="h4" sx={{ mb: 3, color: "#2c3e50", fontWeight: 600, textAlign: "center" }}>
+                                <Typography variant="h4" sx={{ mb: 3, color: "#2c3e50", fontWeight: 600, textAlign: "center", fontFamily: "'Playfair Display', serif" }}>
                                     Contact Details
                                 </Typography>
 

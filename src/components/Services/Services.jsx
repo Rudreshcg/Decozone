@@ -2,108 +2,55 @@ import React, { useState } from "react";
 import {
   Container,
   Grid,
-  Card,
-  CardContent,
   Typography,
   Button,
-  Collapse,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
   Box,
-  Avatar,
 } from "@mui/material";
-import {
-  ExpandLess,
-  ExpandMore,
-  FiberManualRecord as BulletIcon,
-} from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
-// import ServicesIcon from "../../assets/services.png";
-import ServicesIcon from "../../assets/icons8-service-48.png";
-import WarrantyIcon from "../../assets/icons8-warranty-48.png";
-import TechnologyIcon from "../../assets/icons8-technology-50.png";
-import PriceIcon from "../../assets/icons8-get-a-discount-50.png";
 import ContactModal from "../ContactModal/ContactModal";
 import { Helmet } from "react-helmet-async";
 
+// MUI Icons
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import ScienceIcon from '@mui/icons-material/Science';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+
+// Premium colors & Gradients
+const goldColor = "#9f8033";
+const brandColor = "#4a5942"; // Logo Green
+const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)";
 
 const offerings = [
   {
-    title: "What is Interior Design?",
-    icon: ServicesIcon,
-    details: [
-      "Interior design is the art and science of enhancing the interior of a building to create a healthier, safer, and more aesthetically pleasing environment for its occupants.",
-      "Unlike simple decoration, interior design is a multifaceted profession that combines creative vision with technical knowledge of human behavior, building codes, and structural systems.",
-      "Our expert designers transform spaces into functional works of art that reflect your personality while optimizing comfort, efficiency, and style.",
-      "From concept to completion, we handle every aspect - space planning, color schemes, lighting design, material selection, and furniture placement.",
-    ],
-  },
-  {
     title: "In-house Production",
-    icon: TechnologyIcon,
-    details: [
-      "Complete Factory Process - We manage the entire production cycle in our state-of-the-art manufacturing facility, ensuring quality at every step.",
-      "Know Your Components (KYC) - Full transparency in our production process. We document and track every component used in your project.",
-      "Factory Assembly - All modular units are pre-assembled and quality-tested in our factory before delivery to your site.",
-      "Quality Control - Multi-stage inspection process ensures that only the finest products reach your home.",
-      "Precision Manufacturing - Advanced machinery and skilled craftsmen work together to deliver products with perfect finishes.",
-    ],
+    icon: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} />,
   },
   {
-    title: "Premium Quality Standards",
-    icon: WarrantyIcon,
-    details: [
-      "CENTURY MAXIMA - We exclusively use Century Maxima plywood with OME (One More Extra) material for superior strength and durability.",
-      "CENTURY CLUB BWB - For applications requiring boiling water resistance, we use only Century Club BWB grade plywood.",
-      "Tried & Tested Materials - Every material we use has been rigorously tested to ensure long-lasting performance.",
-      "After-Sales Care - We care for your home even after project completion. Our commitment doesn't end at handover - we provide ongoing support and maintenance guidance.",
-    ],
+    title: "Premium Quality",
+    icon: <WorkspacePremiumIcon sx={{ fontSize: 40 }} />,
   },
   {
     title: "Unmatched Warranty",
-    icon: WarrantyIcon,
-    details: [
-      "FLAT 10-year warranty - Stay worry-free with our comprehensive warranty policy on all modular products.",
-      "Up to 1-year on-site service warranty - Warranty coverage on on-site services such as painting, electrical, plumbing and more.",
-    ],
+    icon: <VerifiedUserIcon sx={{ fontSize: 40 }} />,
   },
   {
     title: "Advanced Technology",
-    icon: TechnologyIcon,
-    details: [
-      "AquaBloc® Technology - Hermetically sealed edges preventing moisture damage to ensure your modular cabinets stay pristine for years.",
-      "AntiBubble® Technology - Super seamless panels without air bubbles for flawless modular cabinet surfaces.",
-      "DuraBuild™ Technology - Robust structural engineering for modular cabinets, making them exceptionally strong and long-lasting.",
-      "Design Science - Ergonomically designed modular kitchens with improved accessibility that makes daily tasks more efficient and reduces physical strain.",
-    ],
+    icon: <ScienceIcon sx={{ fontSize: 40 }} />,
   },
   {
     title: "Transparent Pricing",
-    icon: PriceIcon,
-    details: [
-      "Price-match guarantee - We match valid quotes from branded competitors for the exact same scope of work.",
-      "No hidden costs - Completely transparent costing with no last-minute surprises or additions.",
-      "Detailed quotations - Every item and service is clearly itemized so you know exactly what you're paying for.",
-    ],
+    icon: <CurrencyRupeeIcon sx={{ fontSize: 40 }} />,
   },
 ];
 
 const Services = () => {
-  const [expandedSections, setExpandedSections] = useState({});
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
-  };
-
-  const handleExpandClick = (index) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
   };
 
   return (
@@ -111,126 +58,165 @@ const Services = () => {
       <Helmet>
         <title>Interior Services | Modular Kitchens, Wardrobes, Warranty – Tvashta Interior Bangalore</title>
         <meta name="description" content="Discover modular kitchens, wardrobes, advanced technology, unbeatable warranty, and price benefits. Tvashta Interior offers complete interior solutions in Bangalore and all India." />
-        <meta name="keywords" content="interior services, modular kitchens, wardrobe, interior warranty, interior technology, price match, Bangalore, India, Tvashta Interior" />
-        <link rel="canonical" href="https://tvashtainterior.com/" />
-        <meta property="og:title" content="Complete Interior Services - Tvashta Interior" />
-        <meta property="og:description" content="Get modular kitchens, wardrobes, warranty, and more with Tvashta Interior. Free quote, transparent pricing, and advanced tech for homes and offices." />
-        <meta property="og:url" content="https://tvashtainterior.com/" />
-        <meta property="og:type" content="website" />
       </Helmet>
-      <Box sx={{ backgroundColor: "#f2f2f2" }}>
-        <Container sx={{ py: 5 }}>
+      {/* Luminous Background */}
+      <Box sx={{ background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #fcfbf7 100%)", py: 12 }}>
+        <Container maxWidth="lg">
           <Typography
             variant="h4"
-            sx={{
-              my: 4,
-              fontWeight: "bold",
-              fontFamily: "Arial, sans-serif",
-              color: "#333",
-              textAlign: "center",
-            }}
+            className="section-title-global" // Global Class
+            sx={{ mb: 10, textAlign: "center" }}
           >
-            What we offer
+            What We Deliver
           </Typography>
-          <Grid container spacing={3} direction="column">
+
+          <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
             {offerings.map((offering, index) => (
-              <Grid item xs={12} key={index}>
+              <Grid item xs={6} sm={4} md={2.4} key={index}>
                 <motion.div
-                  variants={SlideUp(1.6)}
+                  variants={SlideUp(0.2 * index)}
                   initial="hidden"
-                  animate="visible"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                 >
-                  <Card
+                  <Box
                     sx={{
-                      boxShadow: 3,
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        boxShadow: 6,
-                        transform: 'translateY(-2px)',
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                      cursor: "pointer",
+                      "&:hover .icon-box": {
+                        // Brighter Hover: No dark fill, just glow
+                        transform: "translateY(-10px)",
+                        boxShadow: `0 20px 40px ${brandColor}25`, // Soft Green Glow
+                        borderColor: "transparent", // Hide solid border to show gradient pseduo
+                        background: "#fff",
+                      },
+                      "&:hover .icon-box::after": {
+                        opacity: 1 // Show full gradient border on hover
+                      },
+                      "&:hover .icon-svg": {
+                        color: goldColor, // Icon turns Gold
+                        filter: "drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3))"
+                      },
+                      "&:hover .inner-circle": {
+                        borderColor: `${goldColor}40`,
+                        transform: "translate(-50%, -50%) scale(1.1) rotate(180deg)",
                       }
                     }}
-                    onClick={() => handleExpandClick(index)}
                   >
-                    <CardContent
-                      sx={{ "&:last-child": { paddingBottom: "16px" } }}
+                    <Box
+                      className="icon-box"
+                      sx={{
+                        width: 110,
+                        height: 110,
+                        borderRadius: "50%",
+                        backgroundColor: "#fff",
+                        position: "relative",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mb: 3,
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.05)", // Soft ambient shadow
+                        transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                        zIndex: 1,
+                        // Gradient Border Mockup
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          inset: 0,
+                          borderRadius: "50%",
+                          padding: "2px", // Border width
+                          background: `linear-gradient(135deg, ${brandColor} 0%, ${goldColor} 100%)`,
+                          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                          WebkitMaskComposite: "xor",
+                          maskComposite: "exclude",
+                          opacity: 0.5, // Subtle by default
+                          transition: "opacity 0.4s ease"
+                        }
+                      }}
                     >
                       <Box
-                        display="flex"
-                        justifyContent="space-between"
-                        alignItems="center"
-                      >
-                        <Box display="flex" alignItems="center">
-                          <Avatar
-                            src={offering.icon}
-                            alt={`${offering.title} Icon`}
-                            sx={{ width: 32, height: 32, marginRight: 2 }}
-                          />
-                          <Typography fontSize="18px" fontWeight={600}>
-                            {offering.title}
-                          </Typography>
-                        </Box>
-                        <Box sx={{ display: 'flex', alignItems: 'center', color: '#666' }}>
-                          {expandedSections[index] ? (
-                            <ExpandLess />
-                          ) : (
-                            <ExpandMore />
-                          )}
-                        </Box>
+                        className="inner-circle"
+                        sx={{
+                          position: "absolute",
+                          top: "50%",
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                          width: "85%",
+                          height: "85%",
+                          borderRadius: "50%",
+                          border: `1px dashed ${brandColor}30`,
+                          transition: "all 0.6s ease",
+                        }}
+                      />
+                      <Box className="icon-svg" sx={{ color: brandColor, transition: "all 0.3s ease" }}>
+                        {offering.icon}
                       </Box>
-                      <Collapse
-                        in={expandedSections[index]}
-                        timeout="auto"
-                        unmountOnExit
-                      >
-                        <List>
-                          {offering.details.map((detail, detailIndex) => (
-                            <ListItem key={detailIndex}>
-                              <ListItemIcon sx={{ minWidth: "28px" }}>
-                                <span
-                                  style={{ fontSize: "12px", color: "black" }}
-                                >
-                                  ➤
-                                </span>
-                              </ListItemIcon>
-                              <ListItemText primary={detail} />
-                            </ListItem>
-                          ))}
-                        </List>
-                      </Collapse>
-                    </CardContent>
-                  </Card>
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      fontWeight="600"
+                      color="#2c3e50"
+                      sx={{
+                        fontFamily: "Montserrat, sans-serif",
+                        fontSize: "0.95rem",
+                        letterSpacing: "0.05em",
+                        textTransform: "uppercase",
+                        transition: "color 0.3s",
+                        "&:hover": { color: brandColor }
+                      }}
+                    >
+                      {offering.title}
+                    </Typography>
+                  </Box>
                 </motion.div>
               </Grid>
             ))}
           </Grid>
+
           <motion.Box
-            variants={SlideUp(1.6)}
+            variants={SlideUp(0.5)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             style={{
               display: "flex",
               justifyContent: "center",
+              marginTop: "48px"
             }}
           >
             <Button
               variant="contained"
               sx={{
-                bgcolor: "#4a5942",
-                my: 4,
+                bgcolor: "#4a5942", // Brand Green Base
+                background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)",
+                border: "2px solid #9f8033", // Gold Border
                 fontWeight: "bold",
-                p: "10px 16px",
-                borderRadius: "10px",
-                fontSize: { xs: "0.875rem", sm: "1rem" },
+                px: 5,
+                py: 1.8,
+                borderRadius: "50px",
+                fontSize: "1rem",
+                textTransform: "uppercase",
+                color: "#fff",
+                boxShadow: "0 10px 25px rgba(74, 89, 66, 0.3)",
+                "&:hover": {
+                  background: "#3d4a36",
+                  border: "2px solid #c5a059",
+                  transform: "translateY(-3px)",
+                  boxShadow: "0 15px 35px rgba(159, 128, 51, 0.4)", // Gold Hover Glow
+                }
               }}
               onClick={handleOpen}
             >
-              GET FREE QUOTE
+              Talk to our designer
             </Button>
           </motion.Box>
         </Container>
         <ContactModal open={open} setOpen={setOpen} />
-      </Box>
+      </Box >
     </>
-
   );
 };
 

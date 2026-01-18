@@ -32,38 +32,36 @@ const DesignYourDreams = () => {
     return (
         <section className="design-dreams-section">
             <div className="container">
-                <div className="design-header">
-                    <div className="design-header-left">
-                        <motion.h4
-                            variants={SlideUp(0.2)}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="subtitle"
-                        >
-                            <span className="dash">—</span> TRANSFORMING HOMES, ENHANCING LIVES
-                        </motion.h4>
-                        <motion.h2
-                            variants={SlideUp(0.4)}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="main-title"
-                        >
-                            Design your <br /> Dreams
-                        </motion.h2>
-                    </div>
-                    <div className="design-header-right">
-                        <motion.p
-                            variants={SlideUp(0.6)}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="description"
-                        >
-                            At Tvashta Interior, we specialise in creating a wide range of exceptional interiors, from classic and elegant to contemporary and modern. We offer a range of customised designs tailored to your specific needs and desires. Irrespective of your style or budget, we have the expertise to create a space that you'll love coming home to.
-                        </motion.p>
-                    </div>
+                <div className="design-header" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '20px' }}>
+                    <motion.span
+                        variants={SlideUp(0.2)}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="section-badge-global"
+                        style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                    >
+                        TRANSFORMING HOMES, ENHANCING LIVES
+                    </motion.span>
+                    <motion.h2
+                        variants={SlideUp(0.4)}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="section-title-global"
+                    >
+                        Design Your Dreams
+                    </motion.h2>
+                    <motion.p
+                        variants={SlideUp(0.6)}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="description"
+                        style={{ maxWidth: '800px', margin: '0 auto', fontSize: '16px', lineHeight: '1.6', color: '#666', fontFamily: 'Montserrat, sans-serif' }}
+                    >
+                        At Tvashta Interior, we specialise in creating a wide range of exceptional interiors, from classic and elegant to contemporary and modern. We offer a range of customised designs tailored to your specific needs and desires. Irrespective of your style or budget, we have the expertise to create a space that you'll love coming home to.
+                    </motion.p>
                 </div>
 
                 <div className="design-grid">

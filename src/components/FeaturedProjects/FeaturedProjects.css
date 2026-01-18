@@ -1,7 +1,36 @@
 /* Featured Projects Section */
+/* Featured Projects Section */
 .featured-projects-section {
     padding: 100px 0;
-    background-color: #fffaf5;
+    /* Brighter Luminous White Gradient */
+    background: radial-gradient(circle at 50% 50%, #ffffff 20%, #f4f1ea 100%);
+}
+
+/* ... existing container styles ... */
+
+.view-all-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%);
+    /* Golf Gradient */
+    color: #fff;
+    padding: 16px 45px;
+    border-radius: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    /* Bolder */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(159, 128, 51, 0.3);
+    /* Gold Shadow */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.view-all-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(159, 128, 51, 0.4);
+    background: linear-gradient(135deg, #8a6d2b 0%, #b08d4b 50%, #8a6d2b 100%);
 }
 
 .container {
@@ -17,8 +46,8 @@
 
 .section-header .badge {
     display: inline-block;
-    background-color: #f1ebd7;
-    color: #8c763f;
+    background-color: #e8f0e6;
+    color: #4a5942;
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 11px;
@@ -28,13 +57,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.section-header .main-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    color: #2c3e50;
-    margin: 0 0 25px 0;
-    font-weight: 700;
-}
+/** Title Styles handled by Global CSS (.section-title-global) */
 
 .section-header .description {
     font-family: 'Montserrat', sans-serif;
@@ -63,10 +86,6 @@
         grid-template-columns: 1fr;
     }
 
-    .section-header .main-title {
-        font-size: 36px;
-    }
-
     .container {
         padding: 0 20px;
     }
@@ -84,7 +103,8 @@
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    /* Softer, larger shadow */
 }
 
 .card-image {
@@ -211,22 +231,31 @@
 
 .view-all-btn {
     display: inline-block;
-    background-color: #4a5942;
+    background: linear-gradient(135deg, #4a5942 0%, #3d4a36 100%);
+    /* Green Gradient */
+    border: 2px solid #9f8033;
+    /* Gold Border */
     color: #fff;
     padding: 16px 45px;
     border-radius: 40px;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(166, 140, 82, 0.2);
+    box-shadow: 0 10px 25px rgba(74, 89, 66, 0.3);
+    /* Green Shadow */
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .view-all-btn:hover {
-    background-color: #3d4a36;
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(74, 89, 66, 0.3);
+    background: #3d4a36;
+    border-color: #c5a059;
+    /* Bright Gold Hover */
+    box-shadow: 0 15px 35px rgba(159, 128, 51, 0.4);
+    /* Gold Glow */
 }
 
 .view-all-btn span {

@@ -1,7 +1,7 @@
 /* Video Showcase Section */
 .video-showcase-section {
     padding: 100px 0;
-    background-color: #fcfcfc;
+    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #fcfbf7 100%);
     overflow: hidden;
 }
 
@@ -28,14 +28,7 @@
     text-transform: uppercase;
 }
 
-.video-header .main-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 50px;
-    line-height: 1.2;
-    color: #2c3e50;
-    font-weight: 700;
-    margin: 0 0 20px 0;
-}
+/** Title Styles handled by Global CSS (.section-title-global) */
 
 .video-header .description {
     font-family: 'Montserrat', sans-serif;
@@ -111,16 +104,6 @@
     grid-column: span 2;
 }
 
-@media (max-width: 992px) {
-    .video-card.featured {
-        grid-column: span 1;
-    }
-
-    .video-header .main-title {
-        font-size: 36px;
-    }
-}
-
 .video-cta-group {
     display: flex;
     justify-content: center;
@@ -132,24 +115,29 @@
 .channel-btn {
     display: inline-block;
     padding: 16px 40px;
-    background-color: #4a5942;
-    /* Logo green */
+    background: linear-gradient(135deg, #4a5942 0%, #3d4a36 100%);
+    /* Brand Green Gradient */
+    border: 2px solid #9f8033;
+    /* Gold Border */
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 50px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(255, 196, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(74, 89, 66, 0.3);
 }
 
 .channel-btn:hover {
-    background-color: #3d4a36;
+    background: #3d4a36;
+    border-color: #c5a059;
+    /* Bright Gold Hover */
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(74, 89, 66, 0.3);
+    box-shadow: 0 15px 30px rgba(159, 128, 51, 0.4);
+    /* Gold Glow */
 }
 
 .arrow-btn {
@@ -158,9 +146,10 @@
     justify-content: center;
     width: auto;
     background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 16px 25px;
-    border-radius: 4px;
+    border-radius: 50px;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -171,7 +160,11 @@
 }
 
 .arrow-btn:hover {
-    background-color: #333;
+    background-color: #000;
+    border-color: #9f8033;
+    /* Gold Border on Hover */
+    color: #9f8033;
+    /* Gold Text on Hover */
     transform: translateX(5px);
 }
 

@@ -28,6 +28,7 @@ import { Helmet } from "react-helmet-async";
 // Custom green color from the brand
 const BRAND_GREEN = "#4a5942";
 const BRAND_GREEN_LIGHT = "#e8f0e6";
+const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)";
 
 const comparisonData = [
     {
@@ -105,39 +106,19 @@ const WhyPartnerWithUs = () => {
                         viewport={{ once: true }}
                         sx={{ textAlign: "center", mb: 8 }}
                     >
-                        <Typography
-                            variant="overline"
-                            sx={{
-                                color: BRAND_GREEN,
-                                fontWeight: 700,
-                                letterSpacing: 1.5,
-                                fontSize: "0.9rem",
-                            }}
+                        <motion.div
+                            className="section-badge-global"
+                            style={{ display: "block", width: "fit-content", margin: "0 auto" }}
                         >
                             THE TVASHTA DIFFERENCE
-                        </Typography>
+                        </motion.div>
                         <Typography
                             variant="h3"
-                            sx={{
-                                fontWeight: "bold",
-                                fontFamily: "Playfair Display, serif",
-                                color: "#2c3e50",
-                                mt: 1,
-                                mb: 2,
-                                fontSize: { xs: "2rem", md: "2.5rem" },
-                            }}
+                            className="section-title-global"
+                            sx={{ mt: 1, mb: 2 }}
                         >
                             Why Partner With Us?
                         </Typography>
-                        <Box
-                            sx={{
-                                width: 80,
-                                height: 4,
-                                bgcolor: BRAND_GREEN,
-                                mx: "auto",
-                                borderRadius: 2,
-                            }}
-                        />
                     </Box>
 
                     {/* Desktop Headers */}
@@ -153,7 +134,7 @@ const WhyPartnerWithUs = () => {
                             <Grid item xs={4} sx={{ textAlign: "center" }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: "bold", color: "#888", opacity: 0.8 }}
+                                    sx={{ fontWeight: "700", color: "#888", opacity: 0.8, fontFamily: "Montserrat, sans-serif", fontSize: "1rem" }}
                                 >
                                     Market Standard
                                 </Typography>
@@ -161,7 +142,7 @@ const WhyPartnerWithUs = () => {
                             <Grid item xs={4} sx={{ textAlign: "center" }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: "bold", color: "#333" }}
+                                    sx={{ fontWeight: "700", color: "#333", fontFamily: "Montserrat, sans-serif", fontSize: "1rem" }}
                                 >
                                     Feature
                                 </Typography>
@@ -169,7 +150,7 @@ const WhyPartnerWithUs = () => {
                             <Grid item xs={4} sx={{ textAlign: "center" }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: "bold", color: BRAND_GREEN }}
+                                    sx={{ fontWeight: "700", color: BRAND_GREEN, fontFamily: "Montserrat, sans-serif", fontSize: "1rem" }}
                                 >
                                     The Tvashta Advantage
                                 </Typography>
@@ -236,7 +217,9 @@ const WhyPartnerWithUs = () => {
                                                 color: "#666",
                                                 fontWeight: 500,
                                                 fontSize: { xs: "0.7rem", md: "0.875rem" },
+
                                                 textAlign: "center",
+                                                fontFamily: "Montserrat, sans-serif",
                                                 lineHeight: 1.2
                                             }}
                                         >
@@ -299,6 +282,7 @@ const WhyPartnerWithUs = () => {
                                                 fontWeight: 700,
                                                 fontSize: { xs: "0.75rem", md: "1rem" },
                                                 textAlign: "center",
+                                                fontFamily: "Montserrat, sans-serif",
                                                 lineHeight: 1.2
                                             }}
                                         >

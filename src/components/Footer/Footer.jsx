@@ -24,7 +24,7 @@ import { Helmet } from "react-helmet-async";
 // Premium Dark Brand Green Palette
 const BRAND_DARK = "#0f1f15"; // Very dark green/black
 const BRAND_GREEN_DARK = "#1a2e1a"; // Main footer background
-const ACCENT_GOLD = "#d4af37"; // Optional slight gold accent for icons if needed, using text color for now
+const ACCENT_GOLD = "#9f8033"; // Darker Muted Gold
 const TEXT_LIGHT = "#e8f0e6"; // Off-white with hint of green
 
 const Footer = () => {
@@ -200,9 +200,20 @@ const Footer = () => {
 
                 <Box>
                   <Typography variant="subtitle2" sx={{ color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: 1 }}>Visit</Typography>
-                  <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", mt: 0.5, lineHeight: 1.6 }}>
-                    Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
-                  </Typography>
+
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="body2" sx={{ color: ACCENT_GOLD, fontWeight: 600, mb: 0.5 }}>FACTORY</Typography>
+                    <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", lineHeight: 1.6 }}>
+                      Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="body2" sx={{ color: ACCENT_GOLD, fontWeight: 600, mb: 0.5 }}>OFFICE</Typography>
+                    <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", lineHeight: 1.6 }}>
+                      3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
+                    </Typography>
+                  </Box>
                 </Box>
               </motion.div>
             </Grid>

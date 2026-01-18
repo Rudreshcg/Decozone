@@ -21,7 +21,7 @@ const FeaturedProjects = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="badge"
+                        className="section-badge-global"
                     >
                         SIGNATURE WORK
                     </motion.span>
@@ -30,7 +30,7 @@ const FeaturedProjects = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="main-title"
+                        className="section-title-global"
                     >
                         Featured Projects
                     </motion.h2>

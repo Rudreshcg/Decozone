@@ -15,6 +15,7 @@
     color: #2c3e50;
     margin-bottom: 20px;
     position: relative;
+    font-family: 'Playfair Display', serif;
 }
 
 .portfolio-title::after {
@@ -25,7 +26,7 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #4a5942, #5c6c53);
+    background: linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%);
     border-radius: 2px;
 }
 
@@ -49,29 +50,31 @@
 
 .filter-btn {
     padding: 12px 24px;
-    border: 2px solid #4a5942;
-    background: transparent;
-    color: #4a5942;
-    border-radius: 25px;
-    font-weight: 600;
+    background: linear-gradient(135deg, #4a5942 0%, #3d4a36 100%);
+    border: 2px solid #9f8033;
+    color: #ffffff;
+    border-radius: 50px;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(74, 89, 66, 0.2);
 }
 
 .filter-btn:hover {
-    background: #4a5942;
+    background: #3d4a36;
+    border-color: #c5a059;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(74, 89, 66, 0.3);
+    box-shadow: 0 8px 20px rgba(159, 128, 51, 0.3);
 }
 
 .filter-btn.active {
-    background: #4a5942;
-    color: white;
-    box-shadow: 0 5px 15px rgba(74, 89, 66, 0.4);
+    background: linear-gradient(135deg, #3d4a36 0%, #2c3526 100%);
+    border-color: #c5a059;
+    box-shadow: 0 5px 15px rgba(159, 128, 51, 0.4);
 }
 
 .portfolio-grid {

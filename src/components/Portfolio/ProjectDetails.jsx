@@ -23,8 +23,7 @@ const ProjectDetails = () => {
                 <p>The project you are looking for does not exist or has been removed.</p>
                 <button
                     onClick={() => navigate('/portfolio')}
-                    className="inquiry-btn"
-                    style={{ background: '#4a5942', color: 'white' }}
+                    className="btn-premium"
                 >
                     Back to Portfolio
                 </button>
@@ -97,7 +96,7 @@ const ProjectDetails = () => {
                     <div className="inquiry-box">
                         <h3>Love this design?</h3>
                         <p>Get in touch with us to transform your space into something similar.</p>
-                        <button onClick={() => navigate('/contact')} className="inquiry-btn">
+                        <button onClick={() => navigate('/contact')} className="btn-premium" style={{ marginTop: '15px' }}>
                             Get a Quote
                         </button>
                     </div>

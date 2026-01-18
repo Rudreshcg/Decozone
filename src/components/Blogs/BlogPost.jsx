@@ -61,12 +61,8 @@ const BlogPost = () => {
                     >
                         <Chip
                             label={blog.category}
-                            sx={{
-                                bgcolor: "#e8f0e6",
-                                color: "#4a5942",
-                                fontWeight: 600,
-                                mb: 2
-                            }}
+                            className="section-badge-global"
+                            sx={{ mb: 2 }}
                         />
                         <Typography
                             variant="h2"
@@ -169,14 +165,7 @@ const BlogPost = () => {
                                 component={Link}
                                 to="/contact"
                                 variant="contained"
-                                sx={{
-                                    bgcolor: "#4a5942",
-                                    color: "#fff",
-                                    px: 4,
-                                    py: 1.5,
-                                    borderRadius: "50px",
-                                    "&:hover": { bgcolor: "#3d4a36" }
-                                }}
+                                className="btn-premium"
                             >
                                 Get in Touch
                             </Button>
