@@ -6,9 +6,9 @@ import './VideoShowcase.css';
 const VideoShowcase = () => {
     const videos = [
         {
-            id: "hL-l6zSR9uY",
-            title: "Project Showcase | 3BHK Luxury Interior",
-            description: "A complete walkthrough of a premium 3BHK residential project, highlighting our signature blend of aesthetics and functionality.",
+            id: "e_w_OJaHtvY",
+            title: "ಇಂತಹ ಮನೆ ನೋಡೋದೆ ಖುಷಿ | 40x60 premium house design | construction in Bangalore | Home tour",
+            description: "Explore this stunning 40x60 premium house in Bangalore. A complete home tour showcasing luxury design, construction excellence, and elegant interiors that are a joy to behold.",
             featured: false
         },
         {
