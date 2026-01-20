@@ -5,7 +5,7 @@ import { routes } from "./routes";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import ScrollToTop from "../SEO/ScrollToTop";
-import FloatingWhatsAppButton from "../WhatsAppIcon/WhatsAppIcon";
+import SocialFloat from "../SocialFloat/SocialFloat";
 
 const Dashboard = () => {
     return (
@@ -24,7 +24,7 @@ const Dashboard = () => {
                 })}
             </Routes>
             <Footer />
-            <FloatingWhatsAppButton />
+            <SocialFloat />
         </div>
     );
 }
