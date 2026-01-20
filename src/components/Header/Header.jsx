@@ -63,15 +63,13 @@ const Header = () => {
             >
                 <Toolbar
                     sx={{
-                        maxWidth: "1200px",
-                        margin: "0 auto",
                         width: "100%",
                         minHeight: "90px !important",
-                        paddingX: "0px",
+                        paddingX: { xs: 2, md: 6 }, // Added padding for better spacing on full width
                         overflowX: "hidden",
                     }}
                 >
-                    <Box sx={{ flexGrow: 1, pl: { xs: 2, md: 0 } }}>
+                    <Box sx={{ flexGrow: 1, pl: 0 }}>
                         <RouterLink to="/" style={{ textDecoration: "none" }}>
                             <img
                                 src={Logo}
