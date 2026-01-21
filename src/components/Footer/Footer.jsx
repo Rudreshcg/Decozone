@@ -34,7 +34,6 @@ const Footer = () => {
     { icon: <Twitter />, href: "https://www.twitter.com/tvashtainterior" },
     { icon: <Instagram />, href: "https://www.instagram.com/tvashtainterior" },
     { icon: <YouTube />, href: "#" },
-    { icon: <Pinterest />, href: "#" },
     { icon: <LinkedIn />, href: "https://www.linkedin.com/company/tvashtainterior" },
   ];
 
@@ -92,7 +91,7 @@ const Footer = () => {
         <Container maxWidth="lg">
           <Grid container spacing={5}>
             {/* Company info section */}
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={3}>
               <motion.div
                 variants={SlideLeft(0.2)}
                 initial="initial"
@@ -138,9 +137,6 @@ const Footer = () => {
               </motion.div>
             </Grid>
 
-            {/* Spacer */}
-            <Grid item xs={false} md={1} />
-
             {/* Useful Links */}
             <Grid item xs={12} sm={6} md={3}>
               <motion.div
@@ -175,8 +171,8 @@ const Footer = () => {
               </motion.div>
             </Grid>
 
-            {/* Contact Information */}
-            <Grid item xs={12} sm={6} md={4}>
+            {/* Contact Information - Call & Write */}
+            <Grid item xs={12} sm={6} md={3}>
               <motion.div
                 variants={SlideLeft(0.4)}
                 initial="initial"
@@ -191,29 +187,38 @@ const Footer = () => {
                   <Typography variant="body1" sx={{ color: "#fff", mt: 0.5 }}>+91-8431000242</Typography>
                 </Box>
 
-                <Box sx={{ mb: 3 }}>
+                <Box>
                   <Typography variant="subtitle2" sx={{ color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: 1 }}>Write</Typography>
-                  <Link href="mailto:info@tvashtainterior.com" underline="hover" sx={{ color: "#fff", mt: 0.5, display: "block" }}>
-                    info@tvashtainterior.com
+                  <Link href="mailto:tvashtainterior@gmail.com" underline="hover" sx={{ color: "#fff", mt: 0.5, display: "block" }}>
+                    tvashtainterior@gmail.com
                   </Link>
+                </Box>
+              </motion.div>
+            </Grid>
+
+            {/* Visit Section - Separate Column */}
+            <Grid item xs={12} md={3}>
+              <motion.div
+                variants={SlideLeft(0.5)}
+                initial="initial"
+                whileInView="animate"
+              >
+                <Typography variant="h6" sx={{ fontFamily: "Playfair Display, serif", mb: 3, color: "#fff" }}>
+                  Visit Us
+                </Typography>
+
+                <Box sx={{ mb: 3 }}>
+                  <Typography variant="body2" sx={{ color: ACCENT_GOLD, fontWeight: 600, mb: 0.5 }}>FACTORY</Typography>
+                  <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", lineHeight: 1.6 }}>
+                    Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
+                  </Typography>
                 </Box>
 
                 <Box>
-                  <Typography variant="subtitle2" sx={{ color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: 1 }}>Visit</Typography>
-
-                  <Box sx={{ mt: 2 }}>
-                    <Typography variant="body2" sx={{ color: ACCENT_GOLD, fontWeight: 600, mb: 0.5 }}>FACTORY</Typography>
-                    <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", lineHeight: 1.6 }}>
-                      Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
-                    </Typography>
-                  </Box>
-
-                  <Box sx={{ mt: 2 }}>
-                    <Typography variant="body2" sx={{ color: ACCENT_GOLD, fontWeight: 600, mb: 0.5 }}>OFFICE</Typography>
-                    <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", lineHeight: 1.6 }}>
-                      3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
-                    </Typography>
-                  </Box>
+                  <Typography variant="body2" sx={{ color: ACCENT_GOLD, fontWeight: 600, mb: 0.5 }}>OFFICE</Typography>
+                  <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", lineHeight: 1.6 }}>
+                    3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
+                  </Typography>
                 </Box>
               </motion.div>
             </Grid>

@@ -47,7 +47,7 @@ const Home = () => {
             <HowItWorks />
             <VideoShowcase />
             <Testimonial />
-            <DesignYourDreams />
+            {/* <DesignYourDreams /> */}
             <ContactModal open={isContactModalOpen} setOpen={setIsContactModalOpen} />
         </>
     );

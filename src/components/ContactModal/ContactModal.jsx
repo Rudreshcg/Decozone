@@ -13,6 +13,7 @@ import {
     ToggleButtonGroup,
     useMediaQuery,
     useTheme,
+    Alert,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -20,6 +21,7 @@ import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
 import { styled } from "@mui/system";
 import LivingArea from "../../assets/gallery/livingarea-1.png";
+import { submitContactForm } from "../../utils/contactService";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
     maxWidth: 900,
@@ -54,15 +56,89 @@ const StyledToggleButton = styled(ToggleButton)({
 const ContactModal = ({ open, setOpen }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-    const [propertyType, setPropertyType] = useState("2BHK");
+
+    // Form state
+    const [form, setForm] = useState({
+        propertyType: "2BHK",
+        propertyLocation: "",
+        name: "",
+        phone: "",
+        whatsappUpdates: true,
+    });
+
+    // UI state
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
 
     const handleClose = () => {
         setOpen(false);
+        // Reset messages when closing
+        setMessage("");
+        setError("");
     };
 
     const handlePropertyChange = (event, newAlignment) => {
         if (newAlignment !== null) {
-            setPropertyType(newAlignment);
+            setForm({ ...form, propertyType: newAlignment });
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value, checked, type } = e.target;
+        setForm({
+            ...form,
+            [name]: type === "checkbox" ? checked : value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setMessage("");
+        setError("");
+
+        // Basic validation
+        if (!form.name.trim()) {
+            setError("Please enter your name");
+            return;
+        }
+
+        if (!form.phone.trim()) {
+            setError("Please enter your phone number");
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            await submitContactForm({
+                ...form,
+                submittedAt: new Date().toISOString(),
+                source: "contact-modal-tvashta-interior",
+            });
+
+            setMessage("✅ Thank you! We'll contact you soon for a free consultation.");
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                setForm({
+                    propertyType: "2BHK",
+                    propertyLocation: "",
+                    name: "",
+                    phone: "",
+                    whatsappUpdates: true,
+                });
+                setMessage("");
+                handleClose();
+            }, 3000);
+
+        } catch (err) {
+            setError(
+                err?.message ||
+                "Something went wrong. Please try again or call us directly."
+            );
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -159,7 +235,7 @@ const ContactModal = ({ open, setOpen }) => {
                             Property type
                         </Typography>
                         <ToggleButtonGroup
-                            value={propertyType}
+                            value={form.propertyType}
                             exclusive
                             onChange={handlePropertyChange}
                             sx={{ mb: 3, flexWrap: "wrap", gap: 1 }}
@@ -170,12 +246,15 @@ const ContactModal = ({ open, setOpen }) => {
                             <StyledToggleButton value="4BHK+">4+ BHK / Duplex</StyledToggleButton>
                         </ToggleButtonGroup>
 
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <TextField
                                 fullWidth
+                                name="propertyLocation"
                                 placeholder="Property Location"
                                 variant="outlined"
                                 size="small"
+                                value={form.propertyLocation}
+                                onChange={handleInputChange}
                                 sx={{
                                     mb: 2,
                                     "& .MuiOutlinedInput-root": {
@@ -189,9 +268,13 @@ const ContactModal = ({ open, setOpen }) => {
                             />
                             <TextField
                                 fullWidth
+                                name="name"
                                 placeholder="Name"
                                 variant="outlined"
                                 size="small"
+                                value={form.name}
+                                onChange={handleInputChange}
+                                required
                                 sx={{
                                     mb: 2,
                                     "& .MuiOutlinedInput-root": {
@@ -205,9 +288,13 @@ const ContactModal = ({ open, setOpen }) => {
                             />
                             <TextField
                                 fullWidth
+                                name="phone"
                                 placeholder="Mobile Number"
                                 variant="outlined"
                                 size="small"
+                                value={form.phone}
+                                onChange={handleInputChange}
+                                required
                                 sx={{
                                     mb: 1,
                                     "& .MuiOutlinedInput-root": {
@@ -221,15 +308,39 @@ const ContactModal = ({ open, setOpen }) => {
                             />
 
                             <FormControlLabel
-                                control={<Checkbox defaultChecked size="small" sx={{ color: "#9f8033", '&.Mui-checked': { color: "#9f8033" } }} />}
+                                control={
+                                    <Checkbox
+                                        name="whatsappUpdates"
+                                        checked={form.whatsappUpdates}
+                                        onChange={handleInputChange}
+                                        size="small"
+                                        sx={{ color: "#9f8033", '&.Mui-checked': { color: "#9f8033" } }}
+                                    />
+                                }
                                 label={<Typography variant="caption" color="textSecondary">Send me updates on WhatsApp</Typography>}
                                 sx={{ mb: 2 }}
                             />
+
+                            {/* Success Message */}
+                            {message && (
+                                <Alert severity="success" sx={{ mb: 2 }}>
+                                    {message}
+                                </Alert>
+                            )}
+
+                            {/* Error Message */}
+                            {error && (
+                                <Alert severity="error" sx={{ mb: 2 }}>
+                                    {error}
+                                </Alert>
+                            )}
 
                             <Button
                                 variant="contained"
                                 fullWidth
                                 size="large"
+                                type="submit"
+                                disabled={isSubmitting}
                                 sx={{
                                     background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)",
                                     border: "1px solid #9f8033", // Gold Border
@@ -240,15 +351,16 @@ const ContactModal = ({ open, setOpen }) => {
                                     fontSize: "1rem",
                                     boxShadow: "0 4px 15px rgba(74, 89, 66, 0.3)",
                                     transition: "all 0.3s ease",
+                                    opacity: isSubmitting ? 0.7 : 1,
                                     "&:hover": {
-                                        transform: "translateY(-2px)",
+                                        transform: isSubmitting ? "none" : "translateY(-2px)",
                                         background: "#3d4a36",
                                         borderColor: "#c5a059",
                                         boxShadow: "0 6px 20px rgba(159, 128, 51, 0.4)",
                                     },
                                 }}
                             >
-                                Book a Free Consultation
+                                {isSubmitting ? "Submitting..." : "Book a Free Consultation"}
                             </Button>
 
                             <Typography
