@@ -32,8 +32,8 @@ const Footer = () => {
   const socialIcons = [
     { icon: <Facebook />, href: "https://www.facebook.com/tvashtainterior" },
     { icon: <Twitter />, href: "https://www.twitter.com/tvashtainterior" },
-    { icon: <Instagram />, href: "https://www.instagram.com/tvashtainterior" },
-    { icon: <YouTube />, href: "#" },
+    { icon: <Instagram />, href: "https://www.instagram.com/tvashta.interior" },
+    { icon: <YouTube />, href: "https://www.youtube.com/@Tvashtainteriors" },
     { icon: <LinkedIn />, href: "https://www.linkedin.com/company/tvashtainterior" },
   ];
 
@@ -67,7 +67,7 @@ const Footer = () => {
             "sameAs": [
               "https://www.facebook.com/tvashtainterior",
               "https://www.twitter.com/tvashtainterior",
-              "https://www.instagram.com/tvashtainterior",
+              "https://www.instagram.com/tvashta.interior",
               "https://www.linkedin.com/company/tvashtainterior"
             ]
           }

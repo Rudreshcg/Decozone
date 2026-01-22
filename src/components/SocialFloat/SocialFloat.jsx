@@ -10,7 +10,7 @@ const SocialFloat = () => {
     };
 
     const handleInstagramClick = () => {
-        window.open("https://www.instagram.com/tvashtainterior", "_blank");
+        window.open("https://www.instagram.com/tvashta.interior", "_blank");
     };
 
     return (
