@@ -41,19 +41,19 @@
 
 /* GLOBAL BADGE STANDARD */
 .section-badge-global {
-  display: inline-block;
-  background-color: #faf8f6;
+  display: inline-block !important;
+  background-color: #faf8f6 !important;
   /* Premium Off-White */
   color: #9f8033 !important;
   /* Muted Gold/Bronze Text */
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  padding: 8px 20px !important;
+  border-radius: 50px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 20px !important;
   /* No shadow for this clean pill look, or very subtle */
 }
 

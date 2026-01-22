@@ -83,10 +83,15 @@ const Blogs = () => {
                                                     label={blog.category}
                                                     size="small"
                                                     sx={{
-                                                        bgcolor: "#f4f1ea", // Luxury Cream
-                                                        color: "#9f8033", // Gold Text
-                                                        fontWeight: 600,
-                                                        fontSize: "0.75rem"
+                                                        bgcolor: "#faf8f6",
+                                                        color: "#9f8033",
+                                                        fontWeight: 700,
+                                                        fontSize: "0.85rem",
+                                                        padding: "8px 16px",
+                                                        borderRadius: "50px",
+                                                        letterSpacing: "2px",
+                                                        textTransform: "uppercase",
+                                                        fontFamily: "'Montserrat', sans-serif"
                                                     }}
                                                 />
                                                 <Typography variant="caption" color="text.secondary">

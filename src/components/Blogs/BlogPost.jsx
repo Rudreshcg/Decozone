@@ -62,7 +62,18 @@ const BlogPost = () => {
                         <Chip
                             label={blog.category}
                             className="section-badge-global"
-                            sx={{ mb: 2 }}
+                            sx={{ 
+                                mb: 2,
+                                bgcolor: "#faf8f6",
+                                color: "#9f8033",
+                                fontWeight: 700,
+                                fontSize: "0.85rem",
+                                padding: "8px 16px",
+                                borderRadius: "50px",
+                                letterSpacing: "2px",
+                                textTransform: "uppercase",
+                                fontFamily: "'Montserrat', sans-serif"
+                            }}
                         />
                         <Typography
                             variant="h2"

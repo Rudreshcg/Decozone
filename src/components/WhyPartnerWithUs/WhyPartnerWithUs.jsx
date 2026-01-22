@@ -111,7 +111,7 @@ const WhyPartnerWithUs = () => {
                     >
                         <motion.div
                             className="section-badge-global"
-                            style={{ display: "block", width: "fit-content", margin: "0 auto" }}
+                            style={{ margin: "0 auto" }}
                         >
                             THE TVASHTA DIFFERENCE
                         </motion.div>

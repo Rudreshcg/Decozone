@@ -16,7 +16,7 @@ const FeaturedProjects = () => {
         <section className="featured-projects-section">
             <div className="container">
                 <div className="section-header">
-                    <motion.span
+                    <motion.div
                         variants={SlideUp(0.2)}
                         initial="hidden"
                         whileInView="visible"
@@ -24,7 +24,7 @@ const FeaturedProjects = () => {
                         className="section-badge-global"
                     >
                         SIGNATURE WORK
-                    </motion.span>
+                    </motion.div>
                     <motion.h2
                         variants={SlideUp(0.4)}
                         initial="hidden"

@@ -29,7 +29,7 @@ const VideoShowcase = () => {
         <section className="video-showcase-section">
             <div className="container">
                 <div className="video-header">
-                    <motion.span
+                    <motion.div
                         variants={SlideUp(0.2)}
                         initial="hidden"
                         whileInView="visible"
@@ -37,7 +37,7 @@ const VideoShowcase = () => {
                         className="section-badge-global"
                     >
                         Our Projects in Action
-                    </motion.span>
+                    </motion.div>
                     <motion.h2
                         variants={SlideUp(0.4)}
                         initial="hidden"

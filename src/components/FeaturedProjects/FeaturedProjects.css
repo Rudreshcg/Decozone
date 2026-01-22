@@ -44,20 +44,7 @@
     margin-bottom: 70px;
 }
 
-.section-header .badge {
-    display: inline-block;
-    background-color: #faf8f6;
-    color: #4a5942;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/** Title Styles handled by Global CSS (.section-title-global) */
+/** Badge Styles - Use .section-badge-global from global CSS */
 
 .section-header .description {
     font-family: 'Montserrat', sans-serif;
@@ -122,13 +109,15 @@
     position: absolute;
     bottom: 15px;
     left: 15px;
-    background-color: #4a5942;
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
+    background-color: #faf8f6;
+    color: #9f8033;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card-content {
