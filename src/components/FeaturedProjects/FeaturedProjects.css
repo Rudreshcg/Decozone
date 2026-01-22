@@ -2,8 +2,8 @@
 /* Featured Projects Section */
 .featured-projects-section {
     padding: 100px 0;
-    /* Brighter Luminous White Gradient */
-    background: radial-gradient(circle at 50% 50%, #ffffff 20%, #f4f1ea 100%);
+    /* Premium Off-White Background */
+    background: #faf8f6;
 }
 
 /* ... existing container styles ... */
@@ -46,7 +46,7 @@
 
 .section-header .badge {
     display: inline-block;
-    background-color: #e8f0e6;
+    background-color: #faf8f6;
     color: #4a5942;
     padding: 6px 16px;
     border-radius: 20px;

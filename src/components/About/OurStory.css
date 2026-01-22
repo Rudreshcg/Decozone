@@ -1,6 +1,6 @@
 /* Our Story Section Styling */
 .our-story-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: #faf8f6;
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
@@ -11,7 +11,7 @@
 .story-header {
     text-align: center;
     padding: 80px 5% 40px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: #faf8f6;
     box-sizing: border-box;
 }
 
@@ -73,7 +73,7 @@
 /* Stats Section */
 .stats-section {
     width: 100%;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: #faf8f6;
     padding: 80px 5%;
     box-sizing: border-box;
 }

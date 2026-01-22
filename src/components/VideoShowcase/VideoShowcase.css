@@ -1,7 +1,7 @@
 /* Video Showcase Section */
 .video-showcase-section {
     padding: 100px 0;
-    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #fcfbf7 100%);
+    background: #faf8f6;
     overflow: hidden;
 }
 
