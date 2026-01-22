@@ -1,7 +1,31 @@
 User-agent: *
 Allow: /
-
-User-agent: Googlebot
+Disallow: /admin
 Disallow: /private
+Disallow: /temp
+Disallow: /uploads/temp
 
+# Crawl delay to prevent overloading the server
+Crawl-delay: 1
+
+# Allow specific crawlers for better crawling
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Disallow bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap
 Sitemap: https://tvashtainterior.com/sitemap.xml
+
+# Preferred domain
+Host: tvashtainterior.com
