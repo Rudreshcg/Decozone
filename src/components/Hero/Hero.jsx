@@ -16,12 +16,6 @@ import Img6 from "../../assets/gallery/livingarea-4.png";
 
 const slides = [
   {
-    id: 1,
-    img: Img1,
-    title: "Elegant Living Spaces",
-    subtitle: "Designed for comfort and style",
-  },
-  {
     id: 2,
     img: Img2,
     title: "Cozy & Modern Bedrooms",
