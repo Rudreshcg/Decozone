@@ -1,104 +1,76 @@
-// Import images
-import Kitchen1 from "../assets/gallery/kitchen-1.jpeg"
-import Kitchen2 from "../assets/gallery/kitchen-2.jpeg"
-import Kitchen3 from "../assets/gallery/kitchen-3.jpeg"
-import Kitchen4 from "../assets/gallery/kitchen-4.jpeg"
+// Import images - Client Projects
+import Project1Card from "../assets/project_1/project1-11.jpeg"
+import Project1_1 from "../assets/project_1/project1-1.jpeg"
+import Project1_2 from "../assets/project_1/project1-2.jpeg"
+import Project1_3 from "../assets/project_1/project1-3.jpeg"
+import Project1_4 from "../assets/project_1/project1-4.jpeg"
+import Project1_5 from "../assets/project_1/project1-5.jpeg"
+import Project1_6 from "../assets/project_1/project1-6.jpeg"
+import Project1_7 from "../assets/project_1/project1-7.jpeg"
+import Project1_8 from "../assets/project_1/project1-8.jpeg"
+import Project1_9 from "../assets/project_1/project1-9.jpeg"
 
-import bedroom1 from "../assets/gallery/bedroom-1.webp"
-import bedroom2 from "../assets/gallery/bedroom-2.webp"
-import bedroom3 from "../assets/gallery/bedroom-3.jpeg"
-import bedroom4 from "../assets/gallery/bedroom-4.jpeg"
+import Project2Card from "../assets/project_2/project2-5.jpeg"
+import Project2_1 from "../assets/project_2/project2-1.jpeg"
+import Project2_2 from "../assets/project_2/project2-2.jpeg"
+import Project2_3 from "../assets/project_2/project2-3.jpeg"
+import Project2_4 from "../assets/project_2/project2-4.jpeg"
+import Project2_5 from "../assets/project_2/project2-5.jpeg"
+import Project2_6 from "../assets/project_2/project2-6.jpeg"
+import Project2_7 from "../assets/project_2/project2-7.jpeg"
+import Project2_8 from "../assets/project_2/project2-8.jpeg"
+import Project2_9 from "../assets/project_2/project2-9.jpeg"
 
-import livingarea1 from "../assets/gallery/livingarea-1.png"
-import livingarea2 from "../assets/gallery/livingarea-2.jpeg"
-import livingarea3 from "../assets/gallery/livingarea-3.jpeg"
-import livingarea4 from "../assets/gallery/livingarea-4.png"
-
-import storage1 from "../assets/gallery/storage-1.jpeg"
-import storage2 from "../assets/gallery/storage-2.png"
-import storage3 from "../assets/gallery/storage-3.png"
-import storage4 from "../assets/gallery/storage-4.png"
+import Project3Card from "../assets/project_3/project3-9.jpeg"
+import Project3_1 from "../assets/project_3/project3-1.jpeg"
+import Project3_2 from "../assets/project_3/project3-2.jpeg"
+import Project3_3 from "../assets/project_3/project3-3.jpeg"
+import Project3_4 from "../assets/project_3/project3-4.jpeg"
+import Project3_5 from "../assets/project_3/project3-5.jpeg"
+import Project3_6 from "../assets/project_3/project3-6.jpeg"
+import Project3_7 from "../assets/project_3/project3-7.jpeg"
+import Project3_8 from "../assets/project_3/project3-8.jpeg"
+import Project3_9 from "../assets/project_3/project3-9.jpeg"
 
 export const projectsData = [
-    // Residential Projects
+    // Project 1: Mr. Raghavendra - Banswadi
     {
         id: 1,
-        image: Kitchen1,
-        name: "Modern Modular Kitchen",
-        title: "Sleek design with maximum storage",
+        image: Project1Card,
+        name: "Mr. Raghavendra's Contemporary Home",
+        title: "Modern living spaces with premium finishes",
         category: "Residential",
-        location: "Whitefield, Bangalore",
-        area: "120 sq ft",
+        location: "Banswadi, Bangalore",
+        area: "1200 sq ft",
         date: "2024",
-        description: "A state-of-the-art modular kitchen designed for efficiency and aesthetics. Featuring high-gloss finishes, soft-close cabinets, and integrated appliances, this kitchen is a perfect blend of form and function.",
-        highlights: ["High-gloss finish", "Soft-close mechanism", "Integrated lighting", "Space-saving corner units"],
-        features: ["Water-resistant materials", "Heat-resistant countertop", "Customizable internal organizers"]
+        description: "A stunning residential transformation for Mr. Raghavendra in Banswadi, combining contemporary design with functional luxury. This beautifully executed project showcases carefully curated interiors with attention to every detail, creating elegant and sophisticated living spaces that reflect the client's refined taste and lifestyle.",
+        highlights: ["Modern design execution", "Premium quality finishes", "Thoughtful space planning", "Sophisticated aesthetics"],
+        features: ["Expert craftsmanship", "Quality materials", "Functional design", "Contemporary style"]
     },
     {
         id: 2,
-        image: bedroom1,
-        name: "Master Bedroom Suite",
-        title: "Elegant wardrobe and lighting",
+        image: Project2Card,
+        name: "Mr. Rakesh Chandra's Luxury Residence",
+        title: "Premium interior design with elegant aesthetics",
         category: "Residential",
-        location: "Sarjapur, Bangalore",
-        area: "200 sq ft",
+        location: "RR Nagar, Bangalore",
+        area: "1500 sq ft",
         date: "2024",
-        description: "A master bedroom designed to be a personal sanctuary. The room features a custom floor-to-ceiling wardrobe with sliding doors and ambient cove lighting.",
-        highlights: ["Custom Wardrobes", "Ambient Lighting", "Integrated Workspace", "Acoustic Insulation"],
-        features: ["Premium laminates", "Durable hardware", "Energy-efficient lighting"]
+        description: "An exquisite residential project for Mr. Rakesh Chandra in RR Nagar, featuring luxurious finishes and bespoke design elements throughout. This comprehensive home transformation includes premium living areas, sophisticated bedroom suites, and functional spaces that seamlessly blend elegance with everyday livability.",
+        highlights: ["Luxury finishes", "Bespoke design", "Premium spaces", "Sophisticated elegance"],
+        features: ["High-quality execution", "Attention to detail", "Premium materials", "Expert installation"]
     },
     {
         id: 3,
-        image: livingarea1,
-        name: "Open Concept Living",
-        title: "Spacious layout for family time",
+        image: Project3Card,
+        name: "Mr. Srinivas Reddy's Modern Sanctuary",
+        title: "Sophisticated design for discerning homeowners",
         category: "Residential",
-        location: "Bannerghatta Rd, Bangalore",
-        area: "250 sq ft",
+        location: "Bangalore",
+        area: "1400 sq ft",
         date: "2024",
-        description: "An open-concept living area that serves as the heart of the home. We utilized a mix of textures—wood, glass, and fabric—to create depth and interest.",
-        highlights: ["Floating TV Unit", "Textured Wall Panels", "Open Plan Layout", "Custom Upholstery"],
-        features: ["Easy-clean surfaces", "Hidden cable management", "Modular seating arrangements"]
-    },
-
-    // Commercial Projects (Repurposed Images)
-    {
-        id: 4,
-        image: livingarea2, // Originally TV Unit Design
-        name: "Corporate Executive Lounge",
-        title: "Modern professional environment",
-        category: "Commercial",
-        location: "Electronic City, Bangalore",
-        area: "400 sq ft",
-        date: "2024",
-        description: "A sleek and modern executive lounge designed for casual meetings and relaxation. The combination of wood veneer and matte black finishes adds a touch of corporate luxury.",
-        highlights: ["Hidden Consoles", "Wire Management", "Modern Finishes", "Display Shelves"],
-        features: ["Commercial grade materials", "Acoustic paneling", "Ergonomic layout"]
-    },
-    {
-        id: 5,
-        image: Kitchen3, // Originally Island Kitchen
-        name: "Office Breakout Pantry",
-        title: "Employee refreshment hub",
-        category: "Commercial",
-        location: "Koramangala, Bangalore",
-        area: "300 sq ft",
-        date: "2023",
-        description: "A functional and inviting breakout pantry for a tech startup. The island counter serves as a communal eating space, fostering collaboration during breaks.",
-        highlights: ["Communal Island", "Durable Surfaces", "Easy Maintenance", "High Traffic Design"],
-        features: ["Anti-scratch countertops", "Heavy-duty fittings", "Optimized flow"]
-    },
-    {
-        id: 6,
-        image: livingarea3, // Originally Formal Living Room
-        name: "Boutique Reception Area",
-        title: "Welcoming client entrance",
-        category: "Commercial",
-        location: "Indiranagar, Bangalore",
-        area: "350 sq ft",
-        date: "2024",
-        description: "A sophisticated reception area for a boutique law firm. The design emphasizes professionalism and warmth with premium seating and balanced lighting.",
-        highlights: ["Statement Lighting", "Premium Seating", "Brand Identity Wall", "Waiting Zone"],
-        features: ["Custom reception desk", "Visitor management focus", "Luxurious textures"]
+        description: "A remarkable interior design project for Mr. Srinivas Reddy in Bangalore, featuring sophisticated design elements and premium materials throughout. This carefully planned and executed project creates a harmonious blend of modern aesthetics and comfort, transforming spaces into beautiful and functional sanctuaries for contemporary living.",
+        highlights: ["Sophisticated execution", "Modern elegance", "Premium materials", "Thoughtful design"],
+        features: ["Expert design", "Quality finishes", "Functional spaces", "Contemporary comfort"]
     }
 ];

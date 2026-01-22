@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Images Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .category {
+            margin-bottom: 50px;
+        }
+        .category h2 {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .image-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .image-info {
+            padding: 15px;
+            background: white;
+        }
+        .image-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .filename {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gallery Images Preview - Select Best Images</h1>
+        
+        <div class="category">
+            <h2>Kitchen Images</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="./src/assets/gallery/kitchen-1.jpeg" alt="kitchen-1">
+                    <div class="image-info">
+                        <p class="filename">kitchen-1.jpeg</p>
+                        <p>Modern modular kitchen</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/kitchen-2.jpeg" alt="kitchen-2">
+                    <div class="image-info">
+                        <p class="filename">kitchen-2.jpeg</p>
+                        <p>Contemporary kitchen design</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/kitchen-3.jpeg" alt="kitchen-3">
+                    <div class="image-info">
+                        <p class="filename">kitchen-3.jpeg</p>
+                        <p>Island kitchen</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/kitchen-4.jpeg" alt="kitchen-4">
+                    <div class="image-info">
+                        <p class="filename">kitchen-4.jpeg</p>
+                        <p>Open kitchen layout</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Bedroom Images</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="./src/assets/gallery/bedroom-1.webp" alt="bedroom-1">
+                    <div class="image-info">
+                        <p class="filename">bedroom-1.webp</p>
+                        <p>Modern bedroom</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/bedroom-2.webp" alt="bedroom-2">
+                    <div class="image-info">
+                        <p class="filename">bedroom-2.webp</p>
+                        <p>Contemporary bed design</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/bedroom-3.jpeg" alt="bedroom-3">
+                    <div class="image-info">
+                        <p class="filename">bedroom-3.jpeg</p>
+                        <p>Luxury bedroom</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/bedroom-4.jpeg" alt="bedroom-4">
+                    <div class="image-info">
+                        <p class="filename">bedroom-4.jpeg</p>
+                        <p>Elegant bedroom suite</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Living Area Images</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="./src/assets/gallery/livingarea-1.png" alt="livingarea-1">
+                    <div class="image-info">
+                        <p class="filename">livingarea-1.png</p>
+                        <p>Modern living room</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/livingarea-2.jpeg" alt="livingarea-2">
+                    <div class="image-info">
+                        <p class="filename">livingarea-2.jpeg</p>
+                        <p>Contemporary living space</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/livingarea-3.jpeg" alt="livingarea-3">
+                    <div class="image-info">
+                        <p class="filename">livingarea-3.jpeg</p>
+                        <p>Elegant lounge area</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/livingarea-4.png" alt="livingarea-4">
+                    <div class="image-info">
+                        <p class="filename">livingarea-4.png</p>
+                        <p>Open concept living</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Storage Solutions Images</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="./src/assets/gallery/storage-1.jpeg" alt="storage-1">
+                    <div class="image-info">
+                        <p class="filename">storage-1.jpeg</p>
+                        <p>Wardrobe storage</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/storage-2.png" alt="storage-2">
+                    <div class="image-info">
+                        <p class="filename">storage-2.png</p>
+                        <p>Closet organization</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/storage-3.png" alt="storage-3">
+                    <div class="image-info">
+                        <p class="filename">storage-3.png</p>
+                        <p>Storage system</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/gallery/storage-4.png" alt="storage-4">
+                    <div class="image-info">
+                        <p class="filename">storage-4.png</p>
+                        <p>Built-in storage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

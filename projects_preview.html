@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Projects Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .project {
+            margin-bottom: 60px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .project h2 {
+            background-color: #1a73e8;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 0;
+        }
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .image-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-color: #1a73e8;
+        }
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .image-info {
+            padding: 10px;
+            background: white;
+            font-size: 12px;
+            color: #666;
+            word-break: break-word;
+        }
+        .image-info.selected {
+            background-color: #c8e6c9;
+            border-top: 3px solid #4caf50;
+        }
+        .note {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Client Project Images Preview</h1>
+        <div class="note">
+            <strong>Total Images:</strong> Project 1: 12 images | Project 2: 13 images | Project 3: 10 images
+        </div>
+
+        <div class="project">
+            <h2>Project 1 - Mr. Raghavendra (Banswadi) - 12 Images</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.54 PM (1).jpeg" alt="p1-1">
+                    <div class="image-info">Image 1</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.54 PM (2).jpeg" alt="p1-2">
+                    <div class="image-info">Image 2</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.54 PM.jpeg" alt="p1-3">
+                    <div class="image-info">Image 3</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.56 PM (1).jpeg" alt="p1-4">
+                    <div class="image-info">Image 4</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.56 PM (2).jpeg" alt="p1-5">
+                    <div class="image-info">Image 5</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.56 PM (3).jpeg" alt="p1-6">
+                    <div class="image-info">Image 6</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.56 PM (4).jpeg" alt="p1-7">
+                    <div class="image-info">Image 7</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.56 PM.jpeg" alt="p1-8">
+                    <div class="image-info">Image 8</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.57 PM (1).jpeg" alt="p1-9">
+                    <div class="image-info">Image 9</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.57 PM.jpeg" alt="p1-10">
+                    <div class="image-info">Image 10</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.58 PM (1).jpeg" alt="p1-11">
+                    <div class="image-info">Image 11</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_1/WhatsApp Image 2026-01-21 at 10.38.58 PM.jpeg" alt="p1-12">
+                    <div class="image-info">Image 12</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Project 2 - Mr. Rakesh Chandra (RR Nagar) - 13 Images</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.37.02 PM.jpeg" alt="p2-1">
+                    <div class="image-info">Image 1</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.05 PM (1).jpeg" alt="p2-2">
+                    <div class="image-info">Image 2</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.05 PM (2).jpeg" alt="p2-3">
+                    <div class="image-info">Image 3</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.05 PM.jpeg" alt="p2-4">
+                    <div class="image-info">Image 4</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (1).jpeg" alt="p2-5">
+                    <div class="image-info">Image 5</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (2).jpeg" alt="p2-6">
+                    <div class="image-info">Image 6</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (3).jpeg" alt="p2-7">
+                    <div class="image-info">Image 7</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (4).jpeg" alt="p2-8">
+                    <div class="image-info">Image 8</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (5).jpeg" alt="p2-9">
+                    <div class="image-info">Image 9</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (6).jpeg" alt="p2-10">
+                    <div class="image-info">Image 10</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (7).jpeg" alt="p2-11">
+                    <div class="image-info">Image 11</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM (8).jpeg" alt="p2-12">
+                    <div class="image-info">Image 12</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_2/WhatsApp Image 2026-01-21 at 10.38.06 PM.jpeg" alt="p2-13">
+                    <div class="image-info">Image 13</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Project 3 - Mr. Srinivas Reddy (Bangalore) - 10 Images</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.00 PM (1).jpeg" alt="p3-1">
+                    <div class="image-info">Image 1</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.00 PM (2).jpeg" alt="p3-2">
+                    <div class="image-info">Image 2</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.00 PM.jpeg" alt="p3-3">
+                    <div class="image-info">Image 3</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.01 PM (1).jpeg" alt="p3-4">
+                    <div class="image-info">Image 4</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.01 PM (2).jpeg" alt="p3-5">
+                    <div class="image-info">Image 5</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.01 PM (3).jpeg" alt="p3-6">
+                    <div class="image-info">Image 6</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.01 PM (4).jpeg" alt="p3-7">
+                    <div class="image-info">Image 7</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.01 PM (5).jpeg" alt="p3-8">
+                    <div class="image-info">Image 8</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.01 PM (6).jpeg" alt="p3-9">
+                    <div class="image-info">Image 9</div>
+                </div>
+                <div class="image-card">
+                    <img src="./src/assets/project_3/WhatsApp Image 2026-01-21 at 10.40.01 PM.jpeg" alt="p3-10">
+                    <div class="image-info">Image 10</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

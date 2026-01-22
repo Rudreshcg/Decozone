@@ -7,9 +7,9 @@ import './FeaturedProjects.css';
 const FeaturedProjects = () => {
     // Select specific projects to feature
     const featuredProjects = [
-        projectsData.find(p => p.id === 1), // Modern Modular Kitchen
-        projectsData.find(p => p.id === 5), // Office Breakout Pantry
-        projectsData.find(p => p.id === 4)  // Corporate Executive Lounge
+        projectsData.find(p => p.id === 1), // Mr. Raghavendra's Contemporary Home
+        projectsData.find(p => p.id === 2), // Mr. Rakesh Chandra's Luxury Residence
+        projectsData.find(p => p.id === 3)  // Mr. Srinivas Reddy's Modern Sanctuary
     ].filter(Boolean); // Ensure we don't have nulls if IDs change
 
     return (

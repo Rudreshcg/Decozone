@@ -36,11 +36,11 @@ const ProjectDetails = () => {
     const sidebarProjects = projectsData.filter(p => [1, 5, 9].includes(p.id));
 
     const displayedImages = React.useMemo(() => {
-        return galleryData
-            .flatMap(section => section.images)
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 6);
-    }, []);
+        // Get the gallery data for the current project
+        const projectGallery = galleryData.find(gallery => gallery.projectId === parseInt(id));
+        // Return all 9 images from the project gallery
+        return projectGallery ? projectGallery.images : [];
+    }, [id]);
 
     return (
         <div className="project-details-container">
