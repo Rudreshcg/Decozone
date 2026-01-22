@@ -6,21 +6,21 @@ import './VideoShowcase.css';
 const VideoShowcase = () => {
     const videos = [
         {
+            id: "Dyuy7D31mZ0",
+            title: "Mr. Raghavendra's Dream Home | Banswadi | European Luxury Interior",
+            description: "Step into a world of European luxury living, where timeless elegance meets bespoke craftsmanship. This exclusive home interior project in Banswadi is thoughtfully designed and fully customized to reflect the client's lifestyle, devotion, and modern aspirations.",
+            featured: false
+        },
+        {
+            id: "uWRlhNymh5s",
+            title: "Mr. Srinivas Reddy Dream Home Interiors | HSR Layout",
+            description: "Step into a world of clean lines, smart layouts, and timeless elegance. This contemporary interior project is designed to balance aesthetics, functionality, and comfort—perfect for modern homes and lifestyles.",
+            featured: false
+        },
+        {
             id: "e_w_OJaHtvY",
-            title: "ಇಂತಹ ಮನೆ ನೋಡೋದೆ ಖುಷಿ | 40x60 premium house design | construction in Bangalore | Home tour",
+            title: "ಇಂತಹ ಮನೆ ನೋಡೋದೆ ಖುಷಿ | 40x60 premium house design | construction in Bangalore",
             description: "Explore this stunning 40x60 premium house in Bangalore. A complete home tour showcasing luxury design, construction excellence, and elegant interiors that are a joy to behold.",
-            featured: false
-        },
-        {
-            id: "k6Xc1F9hEuA",
-            title: "Modern Home Design Concepts",
-            description: "Explore the latest in contemporary home design, featuring clever space-saving solutions and elegant finishes.",
-            featured: false
-        },
-        {
-            id: "1LsONmb0raA",
-            title: "Bespoke Interior Transformations",
-            description: "Seeing is believing. Watch how we transform standard spaces into dream homes for our clients.",
             featured: false
         }
     ];
