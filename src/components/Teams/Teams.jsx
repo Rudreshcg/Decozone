@@ -23,12 +23,13 @@ const GOLD_GRADIENT = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 
 const Teams = () => {
     // Placeholder team members
     const teamMembers = [
-        { name: "Dhanush N Gowda", title: "FOUNDER & CEO", image: null },
-        { name: "Chandrashekar.K", title: "Interior Chief Operating Officer", image: null },
+        { name: "Dhanush N Gowda", title: "Founder & CEO", image: null },
+        { name: "Chandrashekar.K", title: "Founder and Interior design COO", image: null },
+        { name: "Shree Bhagwat Mishra", title: "Founder and interior Factory COO", image: null },
+        { name: "VISHWANATH RAVEENDRA ALUR", title: "Interior site engg", image: null },
         { name: "Mohan S", title: "Sales and Marketing Head", image: null },
-        { name: "Vaishnavi", title: "Sr Interior Designer", image: null },
         { name: "Kavana A", title: "Jr Interior designer", image: null },
-        { name: "Manasa", title: "Accounts Executive", image: null },
+        { name: "Manasa N", title: "Head of office manager", image: null },
     ];
 
     const theme = useTheme();
@@ -44,18 +45,18 @@ const Teams = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1,
+                staggerChildren: 0.15,
                 delayChildren: 0.2,
             },
         },
     };
 
     const cardVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { type: "spring", stiffness: 50, damping: 20 },
+            transition: { type: "spring", stiffness: 40, damping: 15 },
         },
     };
 
@@ -78,35 +79,25 @@ const Teams = () => {
             >
                 <Container maxWidth="lg">
                     {/* Header Section */}
-                    <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
-                        <Typography
-                            variant="h2"
-                            component={motion.h2}
+                    <Box sx={{ textAlign: "center", mb: { xs: 8, md: 10 } }}>
+                        <motion.div
                             initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            sx={{
-                                fontFamily: "'Playfair Display', serif",
-                                fontWeight: 700,
-                                color: BRAND_GREEN,
-                                mb: 2,
-                                position: "relative",
-                                display: "inline-block",
-                                "&::after": {
-                                    content: '""',
-                                    position: "absolute",
-                                    bottom: -10,
-                                    left: "50%",
-                                    transform: "translateX(-50%)",
-                                    width: 80,
-                                    height: 4,
-                                    background: GOLD_GRADIENT,
-                                    borderRadius: 2,
-                                },
-                            }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="section-badge-global"
                         >
-                            Our Team
-                        </Typography>
+                            OUR EXPERTS
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="section-title-global"
+                        >
+                            Meet The Team
+                        </motion.h2>
                         <Typography
                             variant="body1"
                             component={motion.p}
@@ -118,7 +109,7 @@ const Teams = () => {
                                 color: "#666",
                                 maxWidth: 700,
                                 mx: "auto",
-                                mt: 4,
+                                mt: 3,
                                 lineHeight: 1.8,
                                 fontSize: { xs: "1rem", md: "1.1rem" },
                             }}
@@ -131,7 +122,7 @@ const Teams = () => {
                     {/* Team Grid */}
                     <Grid
                         container
-                        spacing={4}
+                        spacing={5}
                         component={motion.div}
                         variants={containerVariants}
                         initial="hidden"
@@ -142,87 +133,117 @@ const Teams = () => {
                                 <Paper
                                     elevation={0}
                                     sx={{
-                                        p: 3,
+                                        p: 4,
                                         height: "100%",
                                         display: "flex",
                                         flexDirection: "column",
                                         alignItems: "center",
                                         textAlign: "center",
-                                        background: "#ffffff",
-                                        border: "1px solid rgba(159, 128, 51, 0.1)", // Subtle gold border
-                                        borderRadius: 4,
-                                        transition: "all 0.4s ease",
+                                        background: "linear-gradient(to bottom, #ffffff 0%, #fcfcfc 100%)",
+                                        border: "1px solid rgba(159, 128, 51, 0.2)",
+                                        borderRadius: 2,
+                                        transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+                                        position: "relative",
+                                        overflow: "hidden",
                                         "&:hover": {
-                                            transform: "translateY(-10px)",
-                                            boxShadow: "0 20px 40px rgba(74, 89, 66, 0.15)", // Greenish shadow
+                                            transform: "translateY(-12px)",
+                                            boxShadow: "0 25px 50px rgba(74, 89, 66, 0.12)",
                                             border: `1px solid ${ACCENT_GOLD}`,
-                                            "& .team-avatar": {
+                                            "& .team-avatar-ring": {
                                                 borderColor: ACCENT_GOLD,
                                                 transform: "scale(1.05)",
                                             },
-                                            "& .team-role": {
-                                                color: BRAND_GREEN,
-                                            }
                                         },
                                     }}
                                 >
+                                    {/* Avatar Container with Ring Effect */}
                                     <Box
                                         className="team-avatar-container"
                                         sx={{
-                                            mb: 3,
+                                            mb: 4,
                                             position: "relative",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
                                         }}
                                     >
+                                        <Box
+                                            className="team-avatar-ring"
+                                            sx={{
+                                                position: "absolute",
+                                                width: 156,
+                                                height: 156,
+                                                borderRadius: "50%",
+                                                border: "1px solid rgba(159, 128, 51, 0.3)",
+                                                transition: "all 0.5s ease",
+                                            }}
+                                        />
                                         <Avatar
-                                            className="team-avatar"
                                             src={member.image}
                                             alt={member.name}
                                             sx={{
                                                 width: 140,
                                                 height: 140,
-                                                bgcolor: BRAND_GREEN,
-                                                color: "#fff",
-                                                fontSize: "3rem",
+                                                background: `linear-gradient(135deg, ${BRAND_GREEN} 0%, #2c3e50 100%)`, // Deep premium gradient
+                                                color: "#f4f1ea",
+                                                fontSize: "2.8rem",
                                                 fontFamily: "'Playfair Display', serif",
-                                                border: `3px solid rgba(159, 128, 51, 0.3)`, // Muted gold border initally
-                                                transition: "all 0.4s ease",
-                                                boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
+                                                border: `4px solid #fff`,
+                                                boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
                                             }}
                                         >
                                             {member.name.charAt(0)}
                                         </Avatar>
                                     </Box>
 
-                                    <Typography
-                                        variant="h6"
-                                        sx={{
-                                            fontFamily: "'Playfair Display', serif",
-                                            fontWeight: 700,
-                                            color: BRAND_DARK,
-                                            textTransform: "uppercase",
-                                            letterSpacing: "0.5px",
-                                            mb: 1,
-                                            fontSize: "1.1rem",
-                                        }}
-                                    >
-                                        {member.name}
-                                    </Typography>
+                                    {/* Content */}
+                                    <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                        <Typography
+                                            variant="h6"
+                                            sx={{
+                                                fontFamily: "'Playfair Display', serif",
+                                                fontWeight: 700,
+                                                color: BRAND_DARK,
+                                                textTransform: "uppercase",
+                                                letterSpacing: "1px",
+                                                mb: 1.5,
+                                                fontSize: "1rem",
+                                                lineHeight: 1.4,
+                                                minHeight: "44px", // Ensure consistent height for 2-line names
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center"
+                                            }}
+                                        >
+                                            {member.name}
+                                        </Typography>
 
-                                    <Typography
-                                        className="team-role"
-                                        variant="subtitle2"
-                                        sx={{
-                                            fontFamily: "'Montserrat', sans-serif",
-                                            fontWeight: 600,
-                                            color: ACCENT_GOLD,
-                                            textTransform: "uppercase",
-                                            fontSize: "0.75rem",
-                                            letterSpacing: "1px",
-                                            transition: "color 0.3s ease",
-                                        }}
-                                    >
-                                        {member.title}
-                                    </Typography>
+                                        {/* Decorative Divider */}
+                                        <Box
+                                            sx={{
+                                                width: 40,
+                                                height: "2px",
+                                                bgcolor: ACCENT_GOLD,
+                                                opacity: 0.5,
+                                                mb: 2
+                                            }}
+                                        />
+
+                                        <Typography
+                                            variant="subtitle2"
+                                            sx={{
+                                                fontFamily: "'Montserrat', sans-serif",
+                                                fontWeight: 500,
+                                                color: "#888",
+                                                textTransform: "uppercase",
+                                                fontSize: "0.7rem",
+                                                letterSpacing: "1.5px",
+                                                lineHeight: 1.6,
+                                            }}
+                                        >
+                                            {member.title}
+                                        </Typography>
+                                    </Box>
                                 </Paper>
                             </Grid>
                         ))}
