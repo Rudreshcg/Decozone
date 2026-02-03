@@ -32,21 +32,21 @@ import Project3_9 from "../assets/project_3/project3-9.jpeg";
 export const galleryData = [
     {
         projectId: 1,
-        projectName: "Mr. Raghavendra's Contemporary Home",
+        projectName: "Mr. Raghavendra's European Home",
         location: "Banswadi, Bangalore",
         category: "Residential",
         images: [Project1_1, Project1_2, Project1_3, Project1_4, Project1_5, Project1_6, Project1_7, Project1_8, Project1_9]
     },
     {
         projectId: 2,
-        projectName: "Mr. Rakesh Chandra's Luxury Residence",
+        projectName: "Mr. Rakesh Chandra's Traditional Residence",
         location: "RR Nagar, Bangalore",
         category: "Residential",
         images: [Project2_1, Project2_2, Project2_3, Project2_4, Project2_5, Project2_6, Project2_7, Project2_8, Project2_9]
     },
     {
         projectId: 3,
-        projectName: "Mr. Srinivas Reddy's Modern Sanctuary",
+        projectName: "Mr. Srinivas Reddy's Contemporary Sanctuary",
         location: "Bangalore",
         category: "Residential",
         images: [Project3_1, Project3_2, Project3_3, Project3_4, Project3_5, Project3_6, Project3_7, Project3_8, Project3_9]

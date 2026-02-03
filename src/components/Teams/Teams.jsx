@@ -24,13 +24,11 @@ const Teams = () => {
     // Placeholder team members
     const teamMembers = [
         { name: "Dhanush N Gowda", title: "FOUNDER & CEO", image: null },
-        { name: "PRIYA SHARMA", title: "CHIEF ARCHITECT", image: null },
-        { name: "AMIT PATEL", title: "Senior Project Manager", image: null },
-        { name: "SUNITA REDDY", title: "Head of Design", image: null },
-        { name: "VIKRAM SINGH", title: "Senior Site Engineer", image: null },
-        { name: "ANJALI MENON", title: "Interior Design Specialist", image: null },
-        { name: "ROHIT MALHOTRA", title: "Quality Assurance Lead", image: null },
-        { name: "MEERA KRISHNAN", title: "Client Relations Manager", image: null },
+        { name: "Chandrashekar.K", title: "Interior Chief Operating Officer", image: null },
+        { name: "Mohan S", title: "Sales and Marketing Head", image: null },
+        { name: "Vaishnavi", title: "Sr Interior Designer", image: null },
+        { name: "Kavana A", title: "Jr Interior designer", image: null },
+        { name: "Manasa", title: "Accounts Executive", image: null },
     ];
 
     const theme = useTheme();
