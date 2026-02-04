@@ -296,7 +296,7 @@ export default function Contact() {
                                     <PhoneOutlined />
                                     <Box>
                                         <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Phone</Typography>
-                                        <Typography>+91 9901452655</Typography>
+                                        <Typography>+91 8431000242</Typography>
                                     </Box>
                                 </ContactItem>
 
