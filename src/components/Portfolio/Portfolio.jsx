@@ -1,4 +1,4 @@
-import React from 'react';
+
 import PortfolioSection from './PortfolioSection';
 import SEOHead from '../SEO/SEOHead';
 import InternalLinks from '../SEO/InternalLinks';

@@ -56,6 +56,8 @@ const OurStory = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        textAlign: "center",
+                        color: "#fff",
                         "&::after": {
                             content: '""',
                             position: "absolute",

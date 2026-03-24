@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SlideUp } from '../../animation/animate';
+import WatermarkedImage from '../Portfolio/WatermarkedImage';
 import { projectsData } from '../../data/projectsData';
 import './FeaturedProjects.css';
 
@@ -56,9 +57,11 @@ const FeaturedProjects = () => {
                             viewport={{ once: true }}
                             className="project-card"
                         >
-                            <div className="card-image">
-                                <img src={project.image} alt={project.name} />
-                                <span className="category-badge">{project.category.toUpperCase()}</span>
+                            <div className="card-image-wrapper">
+                                <WatermarkedImage src={project.image} alt={project.name} className="card-image" />
+                                <div className="card-overlay">
+                                    <span className="category-badge">{project.category.toUpperCase()}</span>
+                                </div>
                             </div>
                             <div className="card-content">
                                 <h3 className="project-title">{project.name}</h3>

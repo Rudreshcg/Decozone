@@ -1,13 +1,17 @@
-
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PortfolioCard from './PortfolioCard';
 import './PortfolioSection.css';
 import { projectsData } from '../../data/projectsData';
+import ImageModal from './ImageModal';
 
 function PortfolioSection() {
     const [projects, setProjects] = useState([]);
     const [filter, setFilter] = useState('all');
     const [isVisible, setIsVisible] = useState(false);
+    
+    // Modal State
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState('');
 
     useEffect(() => {
         // Transform data to include links for specific projects
@@ -65,10 +69,24 @@ function PortfolioSection() {
                             area={project.area}
                             date={project.date}
                             link={project.link}
+                            onImageClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setSelectedImage(project.image);
+                                setIsModalOpen(true);
+                            }}
                         />
                     </div>
                 ))}
             </div>
+
+            <ImageModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                images={[selectedImage]}
+                currentIndex={0}
+                setCurrentIndex={() => {}}
+            />
         </section>
     );
 }

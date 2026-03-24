@@ -217,7 +217,7 @@ const Footer = () => {
                 <Box>
                   <Typography variant="body2" sx={{ color: ACCENT_GOLD, fontWeight: 600, mb: 0.5 }}>OFFICE</Typography>
                   <Typography variant="body1" sx={{ color: "rgba(232, 240, 230, 0.7)", lineHeight: 1.6 }}>
-                    3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
+                    Sree Sai heights , 3rd floor ideal home town ship Rajarajeshwari Nagar Bangalore - 560098
                   </Typography>
                 </Box>
               </motion.div>

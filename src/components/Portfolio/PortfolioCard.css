@@ -34,6 +34,43 @@
     transform: scale(1.1);
 }
 
+.image-overlay-zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.portfolio-card:hover .image-overlay-zoom {
+    opacity: 1;
+}
+
+.zoom-icon {
+    color: white;
+    font-size: 2rem;
+    background: rgba(159, 128, 51, 0.8);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .zoom-icon {
+    transform: scale(1);
+}
+
 .card-category {
     position: absolute;
     top: 16px;
@@ -78,6 +115,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    line-clamp: 2;
     overflow: hidden;
 }
 

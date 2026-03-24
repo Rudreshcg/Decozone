@@ -70,6 +70,15 @@ const Blogs = () => {
                                             }
                                         }}
                                     >
+                                    <Box
+                                        sx={{
+                                            position: "relative",
+                                            overflow: "hidden",
+                                            "&:hover img": {
+                                                transform: "scale(1.1)",
+                                            }
+                                        }}
+                                    >
                                         <CardMedia
                                             component="img"
                                             height="240"
@@ -77,6 +86,7 @@ const Blogs = () => {
                                             alt={blog.title}
                                             sx={{ objectFit: "cover" }}
                                         />
+                                    </Box>
                                         <CardContent sx={{ flexGrow: 1, p: 3 }}>
                                             <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                                                 <Chip

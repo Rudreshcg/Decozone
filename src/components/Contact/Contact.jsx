@@ -195,7 +195,7 @@ export default function Contact() {
                         position: "absolute",
                         top: 0,
                         left: 0,
-                        zIndex: 1,
+                        zIndex: 0,
                         filter: "brightness(0.6)",
                     }}
                     onError={(e) => {

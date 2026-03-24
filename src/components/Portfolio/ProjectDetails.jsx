@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { projectsData } from '../../data/projectsData';
 import { galleryData } from '../../data/galleryData';
 import SEOHead from '../SEO/SEOHead';
 import InternalLinks from '../SEO/InternalLinks';
+import ImageModal from './ImageModal';
+import WatermarkedImage from './WatermarkedImage';
 
 const ProjectDetails = () => {
     const { id } = useParams();
@@ -11,6 +13,10 @@ const ProjectDetails = () => {
 
     // Find the project matching the ID
     const project = projectsData.find(p => p.id === parseInt(id));
+
+    // Image Modal State
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -35,7 +41,7 @@ const ProjectDetails = () => {
     // We'll use ID 1, 5, and 9 as the ones with details for now
     const sidebarProjects = projectsData.filter(p => [1, 5, 9].includes(p.id));
 
-    const displayedImages = React.useMemo(() => {
+    const displayedImages = useMemo(() => {
         // Get the gallery data for the current project
         const projectGallery = galleryData.find(gallery => gallery.projectId === parseInt(id));
         // Return all 9 images from the project gallery
@@ -51,8 +57,13 @@ const ProjectDetails = () => {
             />
 
             {/* Hero Section */}
-            <div className="project-hero" style={{ backgroundImage: `url(${project.image})` }}>
-                <div className="hero-overlay">
+            <div className="project-hero" style={{ position: 'relative', overflow: 'hidden', height: '60vh', minHeight: '400px' }}>
+                <WatermarkedImage 
+                    src={project.image} 
+                    alt={project.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div className="hero-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, background: 'rgba(0,0,0,0.5)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <h1>{project.name}</h1>
                     <div className="project-meta-hero">
                         {project.category} | {project.location} | {project.date}
@@ -106,16 +117,29 @@ const ProjectDetails = () => {
                         <h2 style={{ marginBottom: '30px' }}>Project Gallery</h2>
                         <div className="project-gallery-grid">
                             {displayedImages.map((img, index) => (
-                                <img
+                                <WatermarkedImage
                                     key={index}
                                     src={img}
                                     alt={`Project gallery ${index + 1}`}
                                     className="gallery-img"
+                                    onClick={() => {
+                                        setSelectedImageIndex(index);
+                                        setIsModalOpen(true);
+                                    }}
+                                    style={{ cursor: 'pointer' }}
                                 />
                             ))
                             }
                         </div>
                     </div>
+
+                    <ImageModal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        images={displayedImages}
+                        currentIndex={selectedImageIndex}
+                        setCurrentIndex={setSelectedImageIndex}
+                    />
 
                     {/* Related Projects Section */}
                     <div className="related-projects-section" style={{ marginTop: '60px' }}>
@@ -131,7 +155,7 @@ const ProjectDetails = () => {
                                         className="related-project-card"
                                         onClick={() => navigate(`/portfolio/${p.id}`)}
                                     >
-                                        <img
+                                        <WatermarkedImage
                                             src={p.image}
                                             alt={p.name}
                                             className="related-project-img"
@@ -163,7 +187,7 @@ const ProjectDetails = () => {
                                 className="latest-item"
                                 onClick={() => navigate(`/portfolio/${p.id}`)}
                             >
-                                <img src={p.image} alt={p.name} className="latest-img" />
+                                <WatermarkedImage src={p.image} alt={p.name} className="latest-img" />
                                 <div className="latest-content">
                                     <h4 className="latest-project-name">{p.name}</h4>
                                     <p className="latest-project-title">{p.title}</p>

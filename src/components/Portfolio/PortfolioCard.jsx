@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import WatermarkedImage from './WatermarkedImage';
 import './PortfolioCard.css';
 
 function PortfolioCard({
@@ -10,13 +10,19 @@ function PortfolioCard({
     location,
     area,
     date,
-    link
+    link,
+    onImageClick
 }) {
     return (
         <div className="portfolio-card">
-            <div className="card-image-container">
-                <img src={image} alt={name} className="card-image" />
+            <div className="card-image-container" onClick={onImageClick} style={{ cursor: onImageClick ? 'pointer' : 'default' }}>
+                <WatermarkedImage src={image} alt={name} className="card-image" />
                 <div className="card-category">{category}</div>
+                {onImageClick && (
+                    <div className="image-overlay-zoom">
+                        <span className="zoom-icon">🔍</span>
+                    </div>
+                )}
             </div>
 
             <div className="card-content">

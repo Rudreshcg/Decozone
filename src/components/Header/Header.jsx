@@ -31,7 +31,7 @@ const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const toggleDrawer = (e) => {
-        setDrawerOpen(Boolean(drawerOpen) ? !drawerOpen : e.currentTarget);
+        setDrawerOpen(drawerOpen ? !drawerOpen : e.currentTarget);
     };
 
     const tabMenu = [

@@ -2,6 +2,7 @@ import React from 'react';
 import './DesignYourDreams.css';
 import { motion } from 'framer-motion';
 import { SlideUp } from '../../animation/animate';
+import WatermarkedImage from '../Portfolio/WatermarkedImage';
 
 import Kitchen1 from "../../assets/gallery/kitchen-1.jpeg"
 import bedroom1 from "../../assets/gallery/bedroom-1.webp"
@@ -75,7 +76,7 @@ const DesignYourDreams = () => {
                             className="design-card"
                         >
                             <div className="card-image-wrapper">
-                                <img src={card.image} alt={card.title} className="card-image" />
+                                <WatermarkedImage src={card.image} alt={card.title} className="card-image" />
                                 <div className="card-overlay">
                                     <div className="card-content">
                                         <h3 className="card-title">
