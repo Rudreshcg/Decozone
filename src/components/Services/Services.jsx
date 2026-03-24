@@ -60,17 +60,23 @@ const Services = () => {
         <meta name="description" content="Discover modular kitchens, wardrobes, advanced technology, unbeatable warranty, and price benefits. Tvashta Interior offers complete interior solutions in Bangalore and all India." />
       </Helmet>
       {/* Luminous Background */}
-      <Box sx={{ background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #fcfbf7 100%)", py: 12 }}>
+      <Box sx={{ background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #fcfbf7 100%)", py: { xs: 4, sm: 5, md: 9 } }}>
         <Container maxWidth="lg">
           <Typography
             variant="h4"
             className="section-title-global" // Global Class
-            sx={{ mb: 10, textAlign: "center" }}
+            sx={{ mb: { xs: 5, md: 10 }, textAlign: "center" }}
           >
             What We Deliver
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
+          <Grid
+            container
+            justifyContent="center"
+            alignItems="flex-start"
+            rowSpacing={{ xs: 5, md: 4 }}
+            columnSpacing={{ xs: 2, md: 4 }}
+          >
             {offerings.map((offering, index) => (
               <Grid item xs={6} sm={4} md={2.4} key={index}>
                 <motion.div
@@ -176,43 +182,40 @@ const Services = () => {
             ))}
           </Grid>
 
-          <motion.Box
-            variants={SlideUp(0.5)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "48px"
-            }}
-          >
-            <Button
-              variant="contained"
-              sx={{
-                bgcolor: "#4a5942", // Brand Green Base
-                background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)",
-                border: "2px solid #9f8033", // Gold Border
-                fontWeight: "bold",
-                px: 5,
-                py: 1.8,
-                borderRadius: "50px",
-                fontSize: "1rem",
-                textTransform: "uppercase",
-                color: "#fff",
-                boxShadow: "0 10px 25px rgba(74, 89, 66, 0.3)",
-                "&:hover": {
-                  background: "#3d4a36",
-                  border: "2px solid #c5a059",
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 15px 35px rgba(159, 128, 51, 0.4)", // Gold Hover Glow
-                }
-              }}
-              onClick={handleOpen}
+          <Box sx={{ display: "flex", justifyContent: "center", mt: { xs: 6, md: 6 } }}>
+            <motion.div
+              variants={SlideUp(0.5)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
             >
-              Talk to our designer
-            </Button>
-          </motion.Box>
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "#4a5942", // Brand Green Base
+                  background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)",
+                  border: "2px solid #9f8033", // Gold Border
+                  fontWeight: "bold",
+                  px: 5,
+                  py: 1.8,
+                  borderRadius: "50px",
+                  fontSize: "1rem",
+                  textTransform: "uppercase",
+                  color: "#fff",
+                  boxShadow: "0 10px 25px rgba(74, 89, 66, 0.3)",
+                  "&:hover": {
+                    background: "#3d4a36",
+                    border: "2px solid #c5a059",
+                    transform: "translateY(-3px)",
+                    boxShadow: "0 15px 35px rgba(159, 128, 51, 0.4)", // Gold Hover Glow
+                  }
+                }}
+                onClick={handleOpen}
+              >
+                Talk to our designer
+              </Button>
+            </motion.div>
+          </Box>
         </Container>
         <ContactModal open={open} setOpen={setOpen} />
       </Box >

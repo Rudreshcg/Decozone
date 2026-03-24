@@ -1,5 +1,18 @@
 export const SlideUp = (delay) => {
+  const transition = {
+    duration: 0.5,
+    delay,
+  };
   return {
+    hidden: {
+      y: 50,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition,
+    },
     initial: {
       y: 50,
       opacity: 0,
@@ -7,10 +20,7 @@ export const SlideUp = (delay) => {
     animate: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay,
-      },
+      transition,
     },
   };
 };

@@ -102,8 +102,8 @@ const HomePage = () => {
         // ... (keeping Box props same) ...
         sx={{
           position: "relative",
-          height: "85vh",
-          minHeight: 600,
+          height: { xs: "88vh", md: "85vh" },
+          minHeight: { xs: 520, md: 600 },
           width: "100vw",
           overflow: "hidden",
           display: "flex",
@@ -139,8 +139,10 @@ const HomePage = () => {
           sx={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%)",
+            background: {
+              xs: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.62) 45%, rgba(0,0,0,0.82) 100%)",
+              md: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%)",
+            },
             zIndex: 1,
           }}
         />
@@ -149,8 +151,8 @@ const HomePage = () => {
           onClick={handlePrev}
           sx={{
             position: "absolute",
-            left: { xs: 10, md: 40 },
-            top: "50%",
+            left: { xs: 6, md: 40 },
+            top: { xs: "36%", md: "50%" },
             transform: "translateY(-50%)",
             zIndex: 100,
             color: "#fff",
@@ -160,19 +162,19 @@ const HomePage = () => {
               backgroundColor: "rgba(255,255,255,0.3)",
               color: "#fff",
             },
-            width: 50,
-            height: 50,
+            width: { xs: 42, md: 50 },
+            height: { xs: 42, md: 50 },
           }}
         >
-          <ChevronLeftIcon fontSize="large" />
+          <ChevronLeftIcon sx={{ fontSize: { xs: 26, md: 32 } }} />
         </IconButton>
 
         <IconButton
           onClick={handleNext}
           sx={{
             position: "absolute",
-            right: { xs: 10, md: 40 },
-            top: "50%",
+            right: { xs: 6, md: 40 },
+            top: { xs: "36%", md: "50%" },
             transform: "translateY(-50%)",
             zIndex: 100,
             color: "#fff",
@@ -182,11 +184,11 @@ const HomePage = () => {
               backgroundColor: "rgba(255,255,255,0.3)",
               color: "#fff",
             },
-            width: 50,
-            height: 50,
+            width: { xs: 42, md: 50 },
+            height: { xs: 42, md: 50 },
           }}
         >
-          <ChevronRightIcon fontSize="large" />
+          <ChevronRightIcon sx={{ fontSize: { xs: 26, md: 32 } }} />
         </IconButton>
 
         <Container
@@ -195,10 +197,18 @@ const HomePage = () => {
             position: "relative",
             zIndex: 2,
             textAlign: "center",
-            px: { xs: 2, md: 0 },
+            px: { xs: 3, sm: 4, md: 3 },
+            py: { xs: 3, md: 0 },
           }}
         >
-          <Box sx={{ maxWidth: 900, mx: "auto", overflow: "hidden" }}>
+          <Box
+            sx={{
+              maxWidth: { xs: 320, sm: 520, md: 900 },
+              mx: "auto",
+              overflow: "hidden",
+              px: { xs: 1, md: 0 },
+            }}
+          >
             {/* ... (keeping text animations same) ... */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -216,11 +226,17 @@ const HomePage = () => {
                     sx={{
                       fontWeight: 700,
                       color: "#fff",
-                      fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
-                      lineHeight: 1.1,
-                      mb: 3,
+                      fontSize: { xs: "2.15rem", sm: "3.5rem", md: "4.5rem" },
+                      lineHeight: { xs: 1.18, md: 1.1 },
+                      mb: { xs: 2, md: 3 },
+                      mt: { xs: 0.5, md: 0 },
                       fontFamily: "Playfair Display, serif",
-                      textShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                      textShadow: {
+                        xs: "0 2px 12px rgba(0,0,0,0.85), 0 4px 28px rgba(0,0,0,0.55)",
+                        md: "0 4px 20px rgba(0,0,0,0.5)",
+                      },
+                      maxWidth: { xs: 300, sm: "none" },
+                      mx: "auto",
                     }}
                   >
                     {slides[currentSlide].title}
@@ -234,15 +250,18 @@ const HomePage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      color: "#f0f0f0",
+                      color: "#f5f5f5",
                       fontWeight: 400,
-                      fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
+                      fontSize: { xs: "1rem", sm: "1.3rem", md: "1.5rem" },
                       letterSpacing: 0.5,
-                      mb: 6,
-                      maxWidth: "800px",
+                      mb: { xs: 4, md: 6 },
+                      maxWidth: { xs: 300, sm: 480, md: 800 },
                       mx: "auto",
-                      lineHeight: 1.6,
-                      textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                      lineHeight: 1.65,
+                      textShadow: {
+                        xs: "0 1px 4px rgba(0,0,0,0.9), 0 3px 20px rgba(0,0,0,0.6)",
+                        md: "0 2px 10px rgba(0,0,0,0.5)",
+                      },
                       fontFamily: "Montserrat, sans-serif",
                     }}
                   >
@@ -271,6 +290,7 @@ const HomePage = () => {
                 textTransform: "uppercase",
                 boxShadow: "0 8px 20px rgba(74, 89, 66, 0.4)",
                 backdropFilter: "blur(4px)",
+                mb: { xs: 7, md: 0 },
                 "&:hover": {
                   background: "#3d4a36",
                   border: "2px solid #c5a059", // Brighter Gold on Hover

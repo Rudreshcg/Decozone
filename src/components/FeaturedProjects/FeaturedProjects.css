@@ -1,8 +1,8 @@
 /* Featured Projects Section */
 /* Featured Projects Section */
 .featured-projects-section {
-    padding: 100px 0;
-    /* Premium Off-White Background */
+    padding: 72px 0;
+    /* Premium Off-White Background — aligned with home section rhythm */
     background: #faf8f6;
 }
 
@@ -69,6 +69,10 @@
 }
 
 @media (max-width: 768px) {
+    .featured-projects-section {
+        padding: 32px 0;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -76,9 +80,13 @@
     .container {
         padding: 0 20px;
     }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
 }
 
-.project-card {
+.featured-projects-section .project-card {
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -88,27 +96,55 @@
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.project-card:hover {
+.featured-projects-section .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
     /* Softer, larger shadow */
 }
 
-.card-image {
+.featured-projects-section .card-image-wrapper {
     position: relative;
-    height: 280px;
+    overflow: hidden;
+    flex-shrink: 0;
+    flex-grow: 0;
+    align-self: flex-start;
+    /* Defensive: ignore any leaked .card-image-wrapper { height: 100% } from other sections */
+    height: auto !important;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
 }
 
-.card-image img {
+.featured-projects-section .card-image {
+    position: relative;
+    height: 280px;
+    width: 100%;
+    display: block;
+}
+
+.featured-projects-section .card-image img,
+.featured-projects-section .card-image canvas {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-.category-badge {
+/* Badge only — no full-width white strip */
+.featured-projects-section .card-overlay {
     position: absolute;
-    bottom: 15px;
-    left: 15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 16px 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 55%);
+}
+
+.featured-projects-section .category-badge {
+    position: static;
     background-color: #faf8f6;
     color: #9f8033;
     padding: 8px 16px;
@@ -118,46 +154,59 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    pointer-events: auto;
 }
 
-.card-content {
+.featured-projects-section .card-content {
     padding: 30px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
+    min-height: min-content;
+    position: relative;
+    z-index: 3;
+    background: #fff;
 }
 
-.project-title {
+/* Override global PortfolioCard .project-title (line-clamp / tiny font) */
+.featured-projects-section .project-card .project-title {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
     color: #2c3e50;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
     line-height: 1.4;
     font-weight: 700;
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+    -webkit-box-orient: unset;
 }
 
-.project-location {
+.featured-projects-section .project-location {
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     color: #777;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
 }
 
-.project-desc {
+.featured-projects-section .project-desc {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     line-height: 1.6;
     color: #666;
-    margin-bottom: 25px;
+    margin: 0 0 25px 0;
 }
 
-.project-features {
+.featured-projects-section .project-features {
     list-style: none;
     padding: 0;
     margin: 0 0 30px 0;
 }
 
-.project-features li {
+.featured-projects-section .project-features li {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: #555;
@@ -166,7 +215,7 @@
     align-items: flex-start;
 }
 
-.project-features li span {
+.featured-projects-section .project-features li span {
     width: 6px;
     height: 6px;
     background-color: #4a5942;
@@ -176,7 +225,7 @@
     flex-shrink: 0;
 }
 
-.card-footer {
+.featured-projects-section .card-footer {
     padding-top: 25px;
     border-top: 1px solid #eee;
     display: flex;
@@ -185,7 +234,7 @@
     margin-top: auto;
 }
 
-.project-date {
+.featured-projects-section .project-date {
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
     color: #999;
@@ -193,7 +242,7 @@
     letter-spacing: 1px;
 }
 
-.details-link {
+.featured-projects-section .details-link {
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     color: #4a5942;
@@ -205,11 +254,11 @@
     transition: color 0.3s ease;
 }
 
-.details-link:hover {
+.featured-projects-section .details-link:hover {
     color: #3d4a36;
 }
 
-.details-link .eye-icon {
+.featured-projects-section .details-link .eye-icon {
     font-style: normal;
     font-size: 16px;
 }

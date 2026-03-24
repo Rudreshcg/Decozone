@@ -19,8 +19,8 @@ const FeaturedProjects = () => {
                 <div className="section-header">
                     <motion.div
                         variants={SlideUp(0.2)}
-                        initial="hidden"
-                        whileInView="visible"
+                        initial="initial"
+                        whileInView="animate"
                         viewport={{ once: true }}
                         className="section-badge-global"
                     >
@@ -28,8 +28,8 @@ const FeaturedProjects = () => {
                     </motion.div>
                     <motion.h2
                         variants={SlideUp(0.4)}
-                        initial="hidden"
-                        whileInView="visible"
+                        initial="initial"
+                        whileInView="animate"
                         viewport={{ once: true }}
                         className="section-title-global"
                     >
@@ -37,8 +37,8 @@ const FeaturedProjects = () => {
                     </motion.h2>
                     <motion.p
                         variants={SlideUp(0.6)}
-                        initial="hidden"
-                        whileInView="visible"
+                        initial="initial"
+                        whileInView="animate"
                         viewport={{ once: true }}
                         className="description"
                     >
@@ -52,8 +52,8 @@ const FeaturedProjects = () => {
                         <motion.div
                             key={project.id}
                             variants={SlideUp(0.4 + index * 0.2)}
-                            initial="hidden"
-                            whileInView="visible"
+                            initial="initial"
+                            whileInView="animate"
                             viewport={{ once: true }}
                             className="project-card"
                         >
@@ -65,7 +65,7 @@ const FeaturedProjects = () => {
                             </div>
                             <div className="card-content">
                                 <h3 className="project-title">{project.name}</h3>
-                                <p className="project-location">{project.location} • {project.area}</p>
+                                <p className="project-location">{project.location} – {project.area}</p>
                                 <p className="project-desc">{project.description}</p>
                                 <ul className="project-features">
                                     {(project.highlights || project.features || []).slice(0, 3).map((feature, idx) => (
@@ -85,8 +85,8 @@ const FeaturedProjects = () => {
 
                 <motion.div
                     variants={SlideUp(0.8)}
-                    initial="hidden"
-                    whileInView="visible"
+                    initial="initial"
+                    whileInView="animate"
                     viewport={{ once: true }}
                     className="section-footer"
                 >

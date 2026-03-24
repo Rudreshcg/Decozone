@@ -191,10 +191,10 @@ const HowItWorks = () => {
                 <meta name="description" content="Our simple 5-step interior design process: Meet, Design, Execute, Install, and Enjoy." />
             </Helmet>
 
-            <Box sx={{ py: 10, bgcolor: "#fff", overflow: "hidden" }}>
+            <Box sx={{ py: { xs: 4, md: 9 }, bgcolor: "#fff", overflow: "hidden" }}>
                 <Container maxWidth="lg">
                     {/* Header */}
-                    <Box sx={{ textAlign: "center", mb: 8 }}>
+                    <Box sx={{ textAlign: "center", mb: { xs: 5, md: 8 } }}>
                         <motion.div
                             variants={SlideUp(0.2)}
                             initial="initial"

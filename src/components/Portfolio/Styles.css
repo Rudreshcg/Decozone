@@ -271,6 +271,11 @@
     transition: transform 0.3s ease;
 }
 
+.gallery-img canvas {
+    object-fit: cover;
+    object-position: right bottom;
+}
+
 .gallery-img:hover {
     transform: scale(1.02);
 }

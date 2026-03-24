@@ -36,6 +36,11 @@
   .section-title-global {
     font-size: 2rem !important;
     /* Mobile Standard */
+    margin-bottom: 28px !important;
+  }
+
+  .section-title-global::after {
+    margin: 18px auto 0;
   }
 }
 
@@ -328,6 +333,13 @@
   object-fit: cover;
   border-radius: 4px;
   transition: transform 0.3s ease;
+}
+
+/* Watermark is drawn bottom-right on canvas; default object-position:center crops sides/top-bottom
+   and often clips the logo in narrow 3-col mobile cells (portrait tiles + landscape photos). */
+.gallery-img canvas {
+  object-fit: cover;
+  object-position: right bottom;
 }
 
 .gallery-img:hover {

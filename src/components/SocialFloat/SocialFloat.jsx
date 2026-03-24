@@ -1,9 +1,11 @@
 import React from "react";
-import { Box, IconButton, Stack, Tooltip } from "@mui/material";
+import { Box, Tooltip, useMediaQuery, useTheme } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 const SocialFloat = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const handleWhatsAppClick = () => {
         const message = "Hello! I found your website and I'm interested in your interior design services.";
         window.open(`https://wa.me/8431000242?text=${encodeURIComponent(message)}`, "_blank");
@@ -13,16 +15,21 @@ const SocialFloat = () => {
         window.open("https://www.instagram.com/tvashta.interior", "_blank");
     };
 
+    const igSize = isMobile ? 42 : 50;
+    const waSize = isMobile ? 51 : 60;
+    const igIcon = isMobile ? 24 : 28;
+    const waIcon = isMobile ? 27 : 32;
+
     return (
         <Box
             sx={{
                 position: "fixed",
-                bottom: 40,
-                right: 30,
+                bottom: isMobile ? 20 : 40,
+                right: isMobile ? 12 : 30,
                 zIndex: 1100,
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
+                gap: isMobile ? 1.25 : 2,
                 alignItems: "center",
             }}
         >
@@ -31,8 +38,8 @@ const SocialFloat = () => {
                 <Box
                     sx={{
                         background: "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)",
-                        width: "50px",
-                        height: "50px",
+                        width: igSize,
+                        height: igSize,
                         borderRadius: "50%",
                         boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
                         display: "flex",
@@ -49,7 +56,7 @@ const SocialFloat = () => {
                 >
                     <InstagramIcon
                         sx={{
-                            fontSize: "28px",
+                            fontSize: igIcon,
                             color: "white",
                             filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
                         }}
@@ -62,8 +69,8 @@ const SocialFloat = () => {
                 <Box
                     sx={{
                         bgcolor: "#25D366", // Official WhatsApp Green
-                        width: "60px", // Slightly larger main CTA
-                        height: "60px",
+                        width: waSize,
+                        height: waSize,
                         borderRadius: "50%",
                         boxShadow: "0 4px 15px rgba(37, 211, 102, 0.4)", // Coloured shadow
                         display: "flex",
@@ -104,7 +111,7 @@ const SocialFloat = () => {
                 >
                     <WhatsAppIcon
                         sx={{
-                            fontSize: "32px",
+                            fontSize: waIcon,
                             color: "white",
                         }}
                     />

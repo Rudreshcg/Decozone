@@ -1,6 +1,6 @@
 /* Video Showcase Section */
 .video-showcase-section {
-    padding: 100px 0;
+    padding: 72px 0;
     background: #faf8f6;
     overflow: hidden;
 }
@@ -170,6 +170,16 @@
 
 .arrow-btn span {
     margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .video-showcase-section {
+        padding: 32px 0;
+    }
+
+    .video-header {
+        margin-bottom: 40px;
+    }
 }
 
 @media (max-width: 600px) {

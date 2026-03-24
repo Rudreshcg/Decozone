@@ -94,7 +94,7 @@ const WhyPartnerWithUs = () => {
 
             <Box
                 sx={{
-                    py: 8,
+                    py: { xs: 4, md: 9 },
                     background: "linear-gradient(180deg, #ffffff 0%, #f7f9f6 100%)",
                     overflow: "hidden",
                 }}
@@ -107,7 +107,7 @@ const WhyPartnerWithUs = () => {
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true }}
-                        sx={{ textAlign: "center", mb: 8 }}
+                        sx={{ textAlign: "center", mb: { xs: 5, md: 8 } }}
                     >
                         <motion.div
                             className="section-badge-global"
