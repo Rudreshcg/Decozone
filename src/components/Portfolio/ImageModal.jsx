@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import WatermarkedImage from './WatermarkedImage';
+import LogoPng from '../../assets/companyLogo/Logo.png';
 import './ImageModal.css';
 
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -49,19 +49,19 @@ const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) 
                         )}
 
                         <div className="modal-image-wrapper">
-                            <WatermarkedImage
+                            <img
                                 src={images[currentIndex]}
                                 alt={`Gallery image ${currentIndex + 1}`}
                                 className="modal-image"
-                                useLogo={false}
-                                watermarkText="TVASHTA INTERIOR"
-                                objectFit="contain"
                                 onContextMenu={blockImageSave}
                                 onDragStart={blockImageSave}
                             />
-                            <div className="modal-watermark-text" aria-hidden="true">
-                                TVASHTA INTERIOR
-                            </div>
+                            <img
+                                src={LogoPng}
+                                alt="Tvashta watermark"
+                                className="modal-watermark-logo"
+                                draggable="false"
+                            />
                         </div>
 
                         <div className="modal-counter">
