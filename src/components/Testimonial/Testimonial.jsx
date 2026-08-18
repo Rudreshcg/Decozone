@@ -227,7 +227,6 @@ const Testimonial = () => {
                       fontStyle: "italic",
                       color: "#555",
                       lineHeight: 1.7,
-                      lineHeight: 1.7,
                       fontSize: "0.95rem",
                       fontFamily: "Montserrat, sans-serif"
                     }}

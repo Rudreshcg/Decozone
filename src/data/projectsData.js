@@ -1,37 +1,11 @@
 // Import images - Client Projects
-import Project1Card from "../assets/project_1/project1-11.jpeg"
-import Project1_1 from "../assets/project_1/project1-1.jpeg"
-import Project1_2 from "../assets/project_1/project1-2.jpeg"
-import Project1_3 from "../assets/project_1/project1-3.jpeg"
-import Project1_4 from "../assets/project_1/project1-4.jpeg"
-import Project1_5 from "../assets/project_1/project1-5.jpeg"
-import Project1_6 from "../assets/project_1/project1-6.jpeg"
-import Project1_7 from "../assets/project_1/project1-7.jpeg"
-import Project1_8 from "../assets/project_1/project1-8.jpeg"
-import Project1_9 from "../assets/project_1/project1-9.jpeg"
+import Project1Card from "../assets/Projects/raghavendra/project1-11.jpeg"
 
-import Project2Card from "../assets/project_2/project2-5.jpeg"
-import Project2_1 from "../assets/project_2/project2-1.jpeg"
-import Project2_2 from "../assets/project_2/project2-2.jpeg"
-import Project2_3 from "../assets/project_2/project2-3.jpeg"
-import Project2_4 from "../assets/project_2/project2-4.jpeg"
-import Project2_5 from "../assets/project_2/project2-5.jpeg"
-import Project2_6 from "../assets/project_2/project2-6.jpeg"
-import Project2_7 from "../assets/project_2/project2-7.jpeg"
-import Project2_8 from "../assets/project_2/project2-8.jpeg"
-import Project2_9 from "../assets/project_2/project2-9.jpeg"
+import Project2Card from "../assets/Projects/rakesh_chandra/project2-5.jpeg"
 
-import Project3Card from "../assets/project_3/project3-9.jpeg"
-import Project3_1 from "../assets/project_3/project3-1.jpeg"
-import Project3_2 from "../assets/project_3/project3-2.jpeg"
-import Project3_3 from "../assets/project_3/project3-3.jpeg"
-import Project3_4 from "../assets/project_3/project3-4.jpeg"
-import Project3_5 from "../assets/project_3/project3-5.jpeg"
-import Project3_6 from "../assets/project_3/project3-6.jpeg"
-import Project3_7 from "../assets/project_3/project3-7.jpeg"
-import Project3_8 from "../assets/project_3/project3-8.jpeg"
-import Project3_9 from "../assets/project_3/project3-9.jpeg"
+import Project3Card from "../assets/Projects/srinivas_reddy/project3-9.jpeg"
 
+import Project4Card from "../assets/Projects/dilip/project4-2.jpeg"
 export const projectsData = [
     // Project 1: Mr. Raghavendra - Banswadi
     {
@@ -72,5 +46,18 @@ export const projectsData = [
         description: "A remarkable interior design project for Mr. Srinivas Reddy in Bangalore, featuring sophisticated design elements and premium materials throughout. This carefully planned and executed project creates a harmonious blend of modern aesthetics and comfort, transforming spaces into beautiful and functional sanctuaries for contemporary living.",
         highlights: ["Sophisticated execution", "Modern elegance", "Premium materials", "Thoughtful design"],
         features: ["Expert design", "Quality finishes", "Functional spaces", "Contemporary comfort"]
+    },
+    {
+        id: 4,
+        image: Project4Card,
+        name: "Mr. Dilip's Residence",
+        title: "Modern elegance and comfort",
+        category: "Residential",
+        location: "Mysore",
+        area: "3000 sq ft",
+        date: "2026",
+        description: "A meticulously designed residential project for Mr. Dilip in Mysore, spanning 3000 sq ft of elegant living space. Completed in 2026, this home showcases a perfect harmony of modern aesthetics and comfortable functionality, featuring tailored interior spaces that enhance everyday living.",
+        highlights: ["Elegant modern design", "Spacious layout", "Premium finishes", "Comfortable living spaces"],
+        features: ["Tailored interiors", "Functional aesthetics", "Quality materials", "Expert craftsmanship"]
     }
 ];
