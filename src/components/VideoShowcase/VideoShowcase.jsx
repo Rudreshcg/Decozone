@@ -22,6 +22,18 @@ const VideoShowcase = () => {
             title: "ಇಂತಹ ಮನೆ ನೋಡೋದೆ ಖುಷಿ | 40x60 premium house design | construction in Bangalore",
             description: "Explore this stunning 40x60 premium house in Bangalore. A complete home tour showcasing luxury design, construction excellence, and elegant interiors that are a joy to behold.",
             featured: false
+        },
+        {
+            id: "mLex6ktxNig",
+            title: "ನಮ್ಗೆ Expectation ಇರ್ಲಿಲ್ಲ ಇಷ್ಟು Beautiful ಬರುತ್ತೆ ಅಂತ! FARMHOUSE",
+            description: "Step into this extraordinary farmhouse tour that exceeded every expectation. An idyllic blend of rustic charm, bespoke contemporary design, and luxurious open spaces.",
+            featured: false
+        },
+        {
+            id: "nXedefHvBU0",
+            title: "80 ಲಕ್ಷದಲ್ಲಿ ಬಾಡಿಗೆ ಬರುವಂತ ಸುಂದರ ಮನೆ | ಮನೆ ಓನರ್ ಏನ್ ಹೇಳಿದ್ರೂ? | Gruhams | Tvashta Interior",
+            description: "A complete walkthrough of a rental-yielding dream home delivered within budget. Hear genuine homeowner feedback on quality execution, smart spatial planning, and high ROI.",
+            featured: false
         }
     ];
 
@@ -63,7 +75,7 @@ const VideoShowcase = () => {
                     {videos.map((video, index) => (
                         <motion.div
                             key={index}
-                            variants={SlideUp(0.4 + index * 0.2)}
+                            variants={SlideUp(0.2 + (index % 3) * 0.15)}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
