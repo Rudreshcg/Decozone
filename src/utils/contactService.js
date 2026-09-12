@@ -1,5 +1,5 @@
 const DEFAULT_CONTACT_ENDPOINT =
-    "https://script.google.com/macros/s/AKfycbwqA9__OmY50jRtHth-Czym57hxtDhbVmHQicfew0k9U2decamXGznuuFaYH-AyQTHs/exec";
+    "https://script.google.com/macros/s/AKfycbz3Imxp5-Hw38eP1pZia9b2NwdRGiS1OUufZomYmkGC4scrpYuaL3Y7Ksoem7p_0q8CPA/exec";
 
 const getContactEndpoint = () => {
     const url = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || DEFAULT_CONTACT_ENDPOINT;
