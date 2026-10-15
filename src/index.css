@@ -2,64 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Exact Logo Palette */
+  --brand-green: #42523e;
+  --brand-green-dark: #2c3829;
+  --brand-green-deep: #1e271c;
+  --brand-green-light: #eef3ec;
+  --brand-green-subtle: #f4f7f3;
+  
+  --brand-gold: #b29873;
+  --brand-gold-dark: #917753;
+  --brand-gold-light: #dfcfb8;
+  --brand-gold-shimmer: linear-gradient(135deg, #c5a880 0%, #e8dccb 50%, #b29873 100%);
+  
+  --bg-ivory: #faf8f5;
+  --bg-cream: #f4f0e8;
+  --bg-pure: #ffffff;
+  
+  --text-primary: #1e281e;
+  --text-secondary: #576355;
+  --text-muted: #828e80;
+  
+  --border-gold: rgba(178, 152, 115, 0.25);
+  --border-subtle: rgba(66, 82, 62, 0.1);
+  --shadow-luxury: 0 20px 40px -15px rgba(44, 56, 41, 0.08);
+}
+
 @layer components {
   .primary-btn {
-    @apply text-sm font-semibold lg:text-base border-[1px] border-[#4a5942] px-4 py-2 shadow-[5px_5px_0px_0px_#4a5942] hover:bg-[#4a5942] hover:text-white duration-300 hover:shadow-[5px_5px_0px_0px_#6c6c6c];
+    @apply text-sm font-semibold tracking-wider uppercase border border-[#42523e] px-6 py-3 rounded-full transition-all duration-300;
+    background: linear-gradient(135deg, #42523e 0%, #2f3c2c 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(66, 82, 62, 0.25);
+  }
+  .primary-btn:hover {
+    box-shadow: 0 12px 28px rgba(178, 152, 115, 0.35);
+    border-color: #b29873;
+    transform: translateY(-2px);
+  }
+
+  .gold-btn {
+    @apply text-sm font-semibold tracking-wider uppercase px-6 py-3 rounded-full transition-all duration-300;
+    background: linear-gradient(135deg, #b29873 0%, #cbb493 50%, #9e825c 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(178, 152, 115, 0.3);
+  }
+  .gold-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(178, 152, 115, 0.45);
   }
 }
 
-/* GLOBAL SECTION TITLE STANDARD */
+/* GLOBAL SECTION TITLE STANDARD - LUXURY EDITORIAL */
 .section-title-global {
-  font-family: 'Playfair Display', serif !important;
-  font-weight: 700 !important;
-  color: #2c3e50 !important;
-  font-size: 2.5rem !important;
-  /* Desktop Standard */
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 600 !important;
+  color: #1e281e !important;
+  font-size: 2.75rem !important;
   line-height: 1.2 !important;
-  margin-bottom: 20px !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 16px !important;
   position: relative;
-  /* text-transform: titlecase; (Custom capitalization handled in JSX) */
 }
 
 .section-title-global::after {
   content: "";
   display: block;
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%);
-  margin: 20px auto 0;
-  /* Centered by default */
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b29873, transparent);
+  margin: 18px auto 0;
   border-radius: 2px;
 }
 
 @media (max-width: 768px) {
   .section-title-global {
-    font-size: 2rem !important;
-    /* Mobile Standard */
-    margin-bottom: 28px !important;
-  }
-
-  .section-title-global::after {
-    margin: 18px auto 0;
+    font-size: 2.1rem !important;
+    margin-bottom: 20px !important;
   }
 }
 
-/* GLOBAL BADGE STANDARD */
+/* GLOBAL BADGE STANDARD - ATELIER PILL */
 .section-badge-global {
-  display: inline-block !important;
-  background-color: #faf8f6 !important;
-  /* Premium Off-White */
-  color: #9f8033 !important;
-  /* Muted Gold/Bronze Text */
-  padding: 8px 20px !important;
-  border-radius: 50px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(178, 152, 115, 0.1) !important;
+  color: #917753 !important;
+  border: 1px solid rgba(178, 152, 115, 0.3) !important;
+  padding: 6px 18px !important;
+  border-radius: 9999px !important;
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 0.85rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 2px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  margin-bottom: 20px !important;
-  /* No shadow for this clean pill look, or very subtle */
+  margin-bottom: 16px !important;
+  backdrop-filter: blur(8px);
+}
+
+/* LUXURY CARD & GLASS UTILITIES */
+.luxury-card {
+  background: #ffffff;
+  border: 1px solid rgba(178, 152, 115, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px -10px rgba(44, 56, 41, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(178, 152, 115, 0.45);
+  box-shadow: 0 20px 45px -12px rgba(44, 56, 41, 0.12), 0 0 0 1px rgba(178, 152, 115, 0.15);
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(178, 152, 115, 0.18) !important;
 }
 
 /* Project Details Styles */
@@ -143,7 +203,7 @@
 .features-list li {
   background: #faf8f6;
   padding: 15px;
-  border-left: 3px solid #4a5942;
+  border-left: 3px solid #42523e;
   /* Tvashta Interior green */
   color: #444;
 }
@@ -162,7 +222,7 @@
 .sidebar-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  border-bottom: 2px solid #4a5942;
+  border-bottom: 2px solid #42523e;
   padding-bottom: 10px;
   display: inline-block;
 }
@@ -201,7 +261,7 @@
 
 .search-button {
   padding: 12px 15px;
-  background-color: #4a5942;
+  background-color: #42523e;
   /* Logo Green */
   border: none;
   cursor: pointer;
@@ -240,7 +300,7 @@
 
 .latest-item:hover {
   background-color: #faf8f6;
-  border-color: #4a5942;
+  border-color: #42523e;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -281,7 +341,7 @@
 
 .latest-project-date {
   font-size: 0.8rem;
-  color: #4a5942;
+  color: #42523e;
   /* Logo green date */
   font-weight: 500;
   margin-top: 2px;
@@ -289,7 +349,7 @@
 
 .inquiry-box {
   margin-top: 40px;
-  background: #4a5942;
+  background: #42523e;
   color: white;
   padding: 30px;
   text-align: center;
@@ -304,7 +364,7 @@
 .inquiry-btn {
   display: inline-block;
   background: white;
-  color: #4a5942;
+  color: #42523e;
   padding: 12px 25px;
   text-decoration: none;
   font-weight: bold;
@@ -384,7 +444,7 @@
 .related-project-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  border-color: #4a5942;
+  border-color: #42523e;
 }
 
 .related-project-img {
@@ -424,16 +484,16 @@
 
 .related-project-date {
   font-size: 0.8rem;
-  color: #4a5942;
-  /* Green accent */
-  font-weight: 500;
+  color: #42523e;
+  /* Brand Green */
+  font-weight: 600;
   margin-top: 2px;
 }
 
 /* GLOBAL PREMIUM BUTTON */
 .btn-premium {
-  background: linear-gradient(135deg, #4a5942 0%, #3d4a36 100%) !important;
-  border: 2px solid #9f8033 !important;
+  background: linear-gradient(135deg, #42523e 0%, #2c3829 100%) !important;
+  border: 1px solid #b29873 !important;
   color: #ffffff !important;
   border-radius: 50px !important;
   padding: 12px 30px !important;
@@ -442,15 +502,15 @@
   letter-spacing: 1px !important;
   font-size: 0.9rem !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 5px 15px rgba(74, 89, 66, 0.2) !important;
+  box-shadow: 0 5px 18px rgba(66, 82, 62, 0.25) !important;
   cursor: pointer !important;
   display: inline-block !important;
   text-decoration: none !important;
 }
 
 .btn-premium:hover {
-  background: #3d4a36 !important;
-  border-color: #c5a059 !important;
+  background: linear-gradient(135deg, #32402e 0%, #1e281e 100%) !important;
+  border-color: #dfcfb8 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(159, 128, 51, 0.3) !important;
+  box-shadow: 0 8px 22px rgba(178, 152, 115, 0.35) !important;
 }

@@ -22,10 +22,10 @@ import LogoPng from "../../assets/companyLogo/Logo.png";
 import { Helmet } from "react-helmet-async";
 
 // Premium Dark Brand Green Palette
-const BRAND_DARK = "#0f1f15"; // Very dark green/black
-const BRAND_GREEN_DARK = "#1a2e1a"; // Main footer background
-const ACCENT_GOLD = "#9f8033"; // Darker Muted Gold
-const TEXT_LIGHT = "#e8f0e6"; // Off-white with hint of green
+const BRAND_DARK = "#121a12"; // Deep Obsidian Green
+const BRAND_GREEN_DARK = "#182418"; // Main footer background matching brand green
+const ACCENT_GOLD = "#b29873"; // Champagne Antique Gold
+const TEXT_LIGHT = "#e8eee7"; // Off-white with hint of warm green
 
 const Footer = () => {
 
@@ -85,7 +85,7 @@ const Footer = () => {
           color: TEXT_LIGHT,
           pt: 10,
           pb: 4,
-          borderTop: "1px solid rgba(255,255,255,0.05)"
+          borderTop: "1px solid rgba(178, 152, 115, 0.25)"
         }}
       >
         <Container maxWidth="lg">

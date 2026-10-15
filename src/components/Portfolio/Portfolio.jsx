@@ -20,7 +20,7 @@ function Portfolio() {
                 }}
             />
             <PortfolioSection />
-            <div style={{ padding: "0 5%", backgroundColor: "#f8f9fa", paddingBottom: "40px" }}>
+            <div style={{ padding: "0 5%", backgroundColor: "#faf8f5", paddingBottom: "40px" }}>
                 <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
                     <InternalLinks currentPage="portfolio" />
                 </div>

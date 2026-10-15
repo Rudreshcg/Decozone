@@ -19,7 +19,14 @@ export const projectsData = [
         date: "2025",
         description: "A stunning residential transformation for Mr. Raghavendra in Banswadi, combining contemporary design with functional luxury. This beautifully executed project showcases carefully curated interiors with attention to every detail, creating elegant and sophisticated living spaces that reflect the client's refined taste and lifestyle.",
         highlights: ["Modern design execution", "Premium quality finishes", "Thoughtful space planning", "Sophisticated aesthetics"],
-        features: ["Expert craftsmanship", "Quality materials", "Functional design", "Contemporary style"]
+        features: ["Expert craftsmanship", "Quality materials", "Functional design", "Contemporary style"],
+        clientReview: {
+            reviewer: "Mr. Raghavendra",
+            residence: "European Luxury Home",
+            location: "Banswadi, Bangalore",
+            rating: 5,
+            comment: "Tvashta Interior exceeded all expectations for our European luxury home in Banswadi. The precision of their German millwork, seamless fluted paneling, and Italian marble integration create an ambiance of quiet, timeless luxury. The 45-day handover was met to the exact date with zero budget escalations."
+        }
     },
     {
         id: 2,
@@ -32,7 +39,14 @@ export const projectsData = [
         date: "2025",
         description: "An exquisite residential project for Mr. Rakesh Chandra in RR Nagar, featuring luxurious finishes and bespoke design elements throughout. This comprehensive home transformation includes premium living areas, sophisticated bedroom suites, and functional spaces that seamlessly blend elegance with everyday livability.",
         highlights: ["Luxury finishes", "Bespoke design", "Premium spaces", "Sophisticated elegance"],
-        features: ["High-quality execution", "Attention to detail", "Premium materials", "Expert installation"]
+        features: ["High-quality execution", "Attention to detail", "Premium materials", "Expert installation"],
+        clientReview: {
+            reviewer: "Mr. Rakesh Chandra",
+            residence: "Bespoke Traditional Residence",
+            location: "RR Nagar, Bangalore",
+            rating: 5,
+            comment: "Blending traditional aesthetics with modern functionality was our highest priority for our 4,000 sq.ft residence in RR Nagar. The Tvashta team crafted bespoke teak finishes, pooja room joinery, and expansive living spaces with unmatched structural integrity. Zero site dust and zero cost escalations."
+        }
     },
     {
         id: 3,
@@ -40,12 +54,19 @@ export const projectsData = [
         name: "Mr. Srinivas Reddy's Contemporary Sanctuary",
         title: "Sophisticated design for discerning homeowners",
         category: "Residential",
-        location: "Bangalore",
+        location: "HSR Layout, Bangalore",
         area: "4000 sq ft",
         date: "2024",
         description: "A remarkable interior design project for Mr. Srinivas Reddy in Bangalore, featuring sophisticated design elements and premium materials throughout. This carefully planned and executed project creates a harmonious blend of modern aesthetics and comfort, transforming spaces into beautiful and functional sanctuaries for contemporary living.",
         highlights: ["Sophisticated execution", "Modern elegance", "Premium materials", "Thoughtful design"],
-        features: ["Expert design", "Quality finishes", "Functional spaces", "Contemporary comfort"]
+        features: ["Expert design", "Quality finishes", "Functional spaces", "Contemporary comfort"],
+        clientReview: {
+            reviewer: "Mr. Srinivas Reddy",
+            residence: "Contemporary Luxury Sanctuary",
+            location: "HSR Layout, Bangalore",
+            rating: 5,
+            comment: "From the 4K photorealistic 3D virtual twin to the final turnkey handover, our HSR Layout sanctuary was handled with supreme professionalism. The island modular kitchen, integrated bar unit, and acoustic lighting turn heads every time guests arrive. Truly in a league of their own."
+        }
     },
     {
         id: 4,
@@ -58,6 +79,13 @@ export const projectsData = [
         date: "2026",
         description: "A meticulously designed residential project for Mr. Dilip in Mysore, spanning 3000 sq ft of elegant living space. Completed in 2026, this home showcases a perfect harmony of modern aesthetics and comfortable functionality, featuring tailored interior spaces that enhance everyday living.",
         highlights: ["Elegant modern design", "Spacious layout", "Premium finishes", "Comfortable living spaces"],
-        features: ["Tailored interiors", "Functional aesthetics", "Quality materials", "Expert craftsmanship"]
+        features: ["Tailored interiors", "Functional aesthetics", "Quality materials", "Expert craftsmanship"],
+        clientReview: {
+            reviewer: "Mr. Dilip",
+            residence: "Modern Elegance Residence",
+            location: "Mysore",
+            rating: 5,
+            comment: "Even executing our 3,000 sq.ft home in Mysore was completely frictionless because every modular component was pre-engineered at Tvashta's German CNC factory in Bangalore. The customized wardrobes, sleek bedroom paneling, and 10-year factory warranty gave our family total peace of mind."
+        }
     }
 ];

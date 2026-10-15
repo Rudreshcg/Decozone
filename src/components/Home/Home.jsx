@@ -13,14 +13,6 @@ import ContactModal from "../ContactModal/ContactModal";
 const Home = () => {
     const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
 
-    React.useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsContactModalOpen(true);
-        }, 3000);
-
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
         <>
             <SEOHead

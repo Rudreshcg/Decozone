@@ -6,6 +6,7 @@ import SEOHead from '../SEO/SEOHead';
 import InternalLinks from '../SEO/InternalLinks';
 import ImageModal from './ImageModal';
 import WatermarkedImage from './WatermarkedImage';
+import SearchIcon from '@mui/icons-material/Search';
 
 const ProjectDetails = () => {
     const { id } = useParams();
@@ -104,11 +105,100 @@ const ProjectDetails = () => {
                         </>
                     )}
 
+                    {/* Verified Homeowner Review */}
+                    {project.clientReview && (
+                        <div className="project-client-review-card" style={{
+                            marginTop: '45px',
+                            marginBottom: '40px',
+                            padding: '36px 32px',
+                            background: '#faf8f5',
+                            borderRadius: '18px',
+                            border: '1px solid rgba(178, 152, 115, 0.35)',
+                            position: 'relative',
+                            boxShadow: '0 12px 35px -10px rgba(66, 82, 62, 0.08)'
+                        }}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px', flexWrap: 'wrap', gap: '10px' }}>
+                                <span style={{
+                                    fontSize: '0.72rem',
+                                    fontFamily: "'Montserrat', sans-serif",
+                                    fontWeight: 700,
+                                    letterSpacing: '0.12em',
+                                    color: '#42523e',
+                                    background: 'rgba(178, 152, 115, 0.15)',
+                                    padding: '5px 12px',
+                                    borderRadius: '50px',
+                                    border: '1px solid rgba(178, 152, 115, 0.3)',
+                                    textTransform: 'uppercase'
+                                }}>
+                                    ✦ VERIFIED HOMEOWNER REVIEW
+                                </span>
+                                <div style={{ color: '#b29873', display: 'flex', gap: '3px' }}>
+                                    {[...Array(project.clientReview.rating || 5)].map((_, i) => (
+                                        <span key={i} style={{ fontSize: '1.1rem' }}>★</span>
+                                    ))}
+                                </div>
+                            </div>
+                            <p style={{
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                                fontStyle: 'italic',
+                                fontSize: '1.05rem',
+                                lineHeight: '1.75',
+                                color: '#1e281e',
+                                margin: '0 0 22px 0'
+                            }}>
+                                "{project.clientReview.comment}"
+                            </p>
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '14px',
+                                paddingTop: '18px',
+                                borderTop: '1px solid rgba(178, 152, 115, 0.2)'
+                            }}>
+                                <div style={{
+                                    width: '44px',
+                                    height: '44px',
+                                    borderRadius: '50%',
+                                    background: 'rgba(66, 82, 62, 0.1)',
+                                    border: '1.5px solid rgba(178, 152, 115, 0.4)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontFamily: "'Montserrat', sans-serif",
+                                    fontWeight: 700,
+                                    color: '#42523e',
+                                    fontSize: '0.9rem'
+                                }}>
+                                    {project.clientReview.reviewer.replace('Mr. ', '').split(' ').map(n => n[0]).join('').slice(0, 2)}
+                                </div>
+                                <div>
+                                    <h4 style={{
+                                        margin: 0,
+                                        fontFamily: "'Montserrat', sans-serif",
+                                        fontSize: '0.95rem',
+                                        fontWeight: 700,
+                                        color: '#121a12'
+                                    }}>
+                                        {project.clientReview.reviewer}
+                                    </h4>
+                                    <p style={{
+                                        margin: '3px 0 0 0',
+                                        fontFamily: "'Montserrat', sans-serif",
+                                        fontSize: '0.78rem',
+                                        color: '#7a8976'
+                                    }}>
+                                        Homeowner • {project.clientReview.location}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     <div className="inquiry-box">
                         <h3>Love this design?</h3>
                         <p>Get in touch with us to transform your space into something similar.</p>
-                        <button onClick={() => navigate('/contact')} className="btn-premium" style={{ marginTop: '15px' }}>
-                            Get a Quote
+                        <button onClick={() => navigate('/contact')} className="gold-btn" style={{ marginTop: '20px', padding: '12px 32px', fontSize: '0.85rem' }}>
+                            Request Project Consultation
                         </button>
                     </div>
 
@@ -175,8 +265,10 @@ const ProjectDetails = () => {
                 {/* Right Column: Sidebar */}
                 <aside className="project-sidebar">
                     <div className="sidebar-search">
-                        <input type="text" placeholder="Search..." />
-                        <button className="search-button">🔍</button>
+                        <input type="text" placeholder="Search projects..." />
+                        <button className="search-button" aria-label="Search">
+                            <SearchIcon sx={{ color: '#ffffff', fontSize: 18 }} />
+                        </button>
                     </div>
 
                     <h3 className="latest-title">Latest Portfolio</h3>

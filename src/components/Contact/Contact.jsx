@@ -20,17 +20,23 @@ import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
 import { submitContactForm } from "../../utils/contactService";
 
+// Brand Colors
+const BRAND_GREEN = "#42523e";
+const BRAND_DARK = "#121a12";
+const ACCENT_GOLD = "#b29873";
+const BG_CREAM = "#faf8f5";
+
 // Accent Divider
 const AccentDivider = styled("div")({
     width: "100%",
-    height: "6px",
-    background: "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)", // Gold gradient
+    height: "2px",
+    background: "linear-gradient(90deg, transparent 0%, #b29873 50%, transparent 100%)",
 });
 
 // Hero Section wrapper
 const HeroWrapper = styled(Box)({
     position: "relative",
-    height: "70vh", // Reduced slightly from 90vh
+    height: "65vh",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -47,45 +53,48 @@ const HeroText = styled(Box)({
     padding: "0 20px",
 });
 
-// Hero Title with gold underline
+// Hero Title
 const HeroTitle = styled(Typography)(({ theme }) => ({
-    fontSize: "3rem",
+    fontSize: "2.8rem",
     [theme.breakpoints.up("md")]: {
-        fontSize: "5rem", // Match Our Story
+        fontSize: "4.5rem",
     },
-    fontWeight: 700, // Match Our Story (was 800)
+    fontWeight: 700,
     color: "#fff",
-    marginBottom: "20px",
+    marginBottom: "16px",
     position: "relative",
     fontFamily: "'Playfair Display', serif",
-    letterSpacing: "-1px", // Match Our Story
-    textShadow: "0 4px 10px rgba(0,0,0,0.3)", // Match Our Story
+    letterSpacing: "-0.5px",
+    textShadow: "0 4px 15px rgba(0,0,0,0.4)",
 }));
 
 // Section wrapper
 const Section = styled(Box)(({ theme }) => ({
     padding: theme.spacing(10, 2),
-    backgroundColor: "#fff",
+    backgroundColor: "#faf8f5",
 }));
 
 // Styled input fields
 const StyledTextField = styled(TextField)(() => ({
     "& .MuiOutlinedInput-root": {
-        "& fieldset": { borderColor: "#d4cbb6" },
-        "&:hover fieldset": { borderColor: "#4a5942" },
-        "&.Mui-focused fieldset": { borderColor: "#4a5942" },
-        borderRadius: "10px",
-        background: "#fff",
+        "& fieldset": { borderColor: "rgba(178, 152, 115, 0.35)" },
+        "&:hover fieldset": { borderColor: "#b29873" },
+        "&.Mui-focused fieldset": { borderColor: "#42523e", borderWidth: "1.5px" },
+        borderRadius: "12px",
+        background: "#ffffff",
+        fontFamily: "'Montserrat', sans-serif",
     },
-    "& .MuiInputLabel-root": { color: "#7a7361" },
+    "& .MuiInputLabel-root": { color: "#6b7a69", fontFamily: "'Montserrat', sans-serif" },
+    "& .MuiInputLabel-root.Mui-focused": { color: "#42523e" },
 }));
 
 // Contact Card wrapper
 const ContactCard = styled(Box)(({ theme }) => ({
-    background: "#fff",
-    borderRadius: "16px",
-    padding: theme.spacing(4),
-    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+    background: "#ffffff",
+    borderRadius: "20px",
+    padding: theme.spacing(4.5),
+    border: "1px solid rgba(178, 152, 115, 0.25)",
+    boxShadow: "0 10px 30px rgba(66, 82, 62, 0.05)",
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(3),
@@ -96,22 +105,30 @@ const ContactCard = styled(Box)(({ theme }) => ({
 const ContactItem = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
-    gap: theme.spacing(2),
-    background: "#f4f7f2", // Light greenish tint
-    padding: theme.spacing(2),
-    borderRadius: "12px",
+    gap: theme.spacing(2.5),
+    background: "#faf8f5",
+    border: "1px solid rgba(178, 152, 115, 0.2)",
+    padding: theme.spacing(2.5),
+    borderRadius: "14px",
+    transition: "all 0.3s ease",
+    "&:hover": {
+        borderColor: "#b29873",
+        transform: "translateX(4px)",
+        boxShadow: "0 6px 16px rgba(66, 82, 62, 0.06)",
+    },
     "& svg": {
-        color: "#4a5942",
-        fontSize: "28px",
+        color: "#b29873",
+        fontSize: "30px",
     },
 }));
 
 // Styled form card
 const FormCard = styled(Box)(({ theme }) => ({
-    background: "#fff",
-    borderRadius: "16px",
-    padding: theme.spacing(4),
-    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+    background: "#ffffff",
+    borderRadius: "20px",
+    padding: theme.spacing(4.5),
+    border: "1px solid rgba(178, 152, 115, 0.25)",
+    boxShadow: "0 10px 30px rgba(66, 82, 62, 0.05)",
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(3),
@@ -200,23 +217,48 @@ export default function Contact() {
                     }}
                     onError={(e) => {
                         e.target.style.display = "none";
-                        e.target.parentNode.style.backgroundColor = "#4a5942";
+                        e.target.parentNode.style.backgroundColor = BRAND_GREEN;
                     }}
                 />
                 <HeroText>
-                    <HeroTitle variant="h2">
-                        Contact Us
+                    <Box
+                        sx={{
+                            display: "inline-block",
+                            border: "1px solid rgba(178, 152, 115, 0.6)",
+                            bgcolor: "rgba(18, 26, 18, 0.6)",
+                            backdropFilter: "blur(8px)",
+                            px: 2.5,
+                            py: 0.6,
+                            borderRadius: "50px",
+                            mb: 2
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                color: "#dfcfb8",
+                                fontSize: "0.8rem",
+                                letterSpacing: "2.5px",
+                                fontWeight: 700,
+                                textTransform: "uppercase"
+                            }}
+                        >
+                            ✦ PRIVATE ADVISORY & CONSULTING ✦
+                        </Typography>
+                    </Box>
+                    <HeroTitle variant="h1">
+                        Connect With Our Architects
                     </HeroTitle>
                     <Typography variant="h6" sx={{
                         maxWidth: 700,
                         mx: "auto",
                         lineHeight: 1.6,
-                        color: "rgba(255,255,255,0.9)", // Match Our Story
-                        fontWeight: 400, // Match Our Story
-                        letterSpacing: 1, // Match Our Story
-                        textTransform: "uppercase" // Match Our Story
+                        color: "rgba(255,255,255,0.9)",
+                        fontWeight: 400,
+                        letterSpacing: "1px",
+                        textTransform: "uppercase",
+                        fontSize: { xs: "0.85rem", md: "0.95rem" }
                     }}>
-                        We'd love to hear from you. Please send us a message or reach out directly.
+                        Visit our Bangalore experience studio or request a transparent, itemized BOQ estimate.
                     </Typography>
                 </HeroText>
             </HeroWrapper>
@@ -230,10 +272,13 @@ export default function Contact() {
                     <Grid container spacing={6}>
                         {/* Contact Form */}
                         <Grid item xs={12} md={7}>
-                            <FormCard component={motion.div} initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                                <Typography variant="h4" sx={{ mb: 3, fontWeight: 600, color: "#2c3e50", textAlign: "center", fontFamily: "'Playfair Display', serif" }}>
-                                    Send Us a Message
-                                </Typography>
+                            <FormCard component={motion.div} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+                                <Box sx={{ textAlign: "center", mb: 2 }}>
+                                    <div className="section-badge-global">✦ DIRECT INQUIRY ✦</div>
+                                    <Typography variant="h4" sx={{ mt: 1, fontWeight: 700, color: "#121a12", fontFamily: "'Playfair Display', serif", fontSize: { xs: "1.8rem", md: "2.2rem" } }}>
+                                        Schedule A Consultation
+                                    </Typography>
+                                </Box>
                                 <Box component="form" onSubmit={handleSubmit}>
                                     <Grid container spacing={3}>
                                         <Grid item xs={12} sm={6}>
@@ -246,31 +291,31 @@ export default function Contact() {
                                             <StyledTextField label="Phone Number" name="phone" value={form.phone} onChange={handleChange} fullWidth />
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
-                                            <StyledTextField select label="Best Time to Talk" name="bestTimeToTalk" value={form.bestTimeToTalk} onChange={handleChange} fullWidth>
+                                            <StyledTextField select label="Preferred Discussion Time" name="bestTimeToTalk" value={form.bestTimeToTalk} onChange={handleChange} fullWidth>
                                                 <MenuItem value="Within 15 Min.">Within 15 Min.</MenuItem>
-                                                <MenuItem value="08AM To 12PM">08AM To 12PM</MenuItem>
-                                                <MenuItem value="12PM To 04PM">12PM To 04PM</MenuItem>
-                                                <MenuItem value="04PM To 08PM">04PM To 08PM</MenuItem>
+                                                <MenuItem value="08AM To 12PM">08AM To 12PM (Morning)</MenuItem>
+                                                <MenuItem value="12PM To 04PM">12PM To 04PM (Afternoon)</MenuItem>
+                                                <MenuItem value="04PM To 08PM">04PM To 08PM (Evening)</MenuItem>
                                                 <MenuItem value="Anytime">Anytime</MenuItem>
                                             </StyledTextField>
                                         </Grid>
                                         <Grid item xs={12}>
-                                            <StyledTextField label="Your Message" name="message" value={form.message} onChange={handleChange} fullWidth required multiline rows={4} />
+                                            <StyledTextField label="Project Details (Type, Location, Sq.ft)" name="message" value={form.message} onChange={handleChange} fullWidth required multiline rows={4} />
                                         </Grid>
                                         <Grid item xs={12} textAlign="center">
-                                            <Button variant="contained" type="submit" disabled={isSubmitting} className="btn-premium" sx={{ px: 5, py: 1.5, opacity: isSubmitting ? 0.8 : 1 }}>
-                                                {isSubmitting ? "Sending..." : "Send Message"}
+                                            <Button variant="contained" type="submit" disabled={isSubmitting} className="gold-btn" sx={{ px: 6, py: 1.6, fontSize: "0.9rem", fontWeight: 700, letterSpacing: "1px", opacity: isSubmitting ? 0.8 : 1 }}>
+                                                {isSubmitting ? "Sending..." : "Request Project Consultation"}
                                             </Button>
                                         </Grid>
                                     </Grid>
                                 </Box>
                                 {message && (
-                                    <Typography align="center" sx={{ mt: 3, color: "#2e3921", fontWeight: 500 }}>
+                                    <Typography align="center" sx={{ mt: 2, color: "#42523e", fontWeight: 600, fontFamily: "'Montserrat', sans-serif" }}>
                                         {message}
                                     </Typography>
                                 )}
                                 {error && (
-                                    <Typography align="center" sx={{ mt: 2, color: "#b71c1c", fontWeight: 500 }}>
+                                    <Typography align="center" sx={{ mt: 2, color: "#b71c1c", fontWeight: 500, fontFamily: "'Montserrat', sans-serif" }}>
                                         {error}
                                     </Typography>
                                 )}
@@ -279,32 +324,51 @@ export default function Contact() {
 
                         {/* Contact Details */}
                         <Grid item xs={12} md={5}>
-                            <ContactCard component={motion.div} initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                                <Typography variant="h4" sx={{ mb: 3, color: "#2c3e50", fontWeight: 600, textAlign: "center", fontFamily: "'Playfair Display', serif" }}>
-                                    Contact Details
-                                </Typography>
+                            <ContactCard component={motion.div} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+                                <Box sx={{ textAlign: "center", mb: 1 }}>
+                                    <div className="section-badge-global">✦ ATELIER & STUDIO ✦</div>
+                                    <Typography variant="h4" sx={{ mt: 1, color: "#121a12", fontWeight: 700, fontFamily: "'Playfair Display', serif", fontSize: { xs: "1.8rem", md: "2.2rem" } }}>
+                                        Visit Our Spaces
+                                    </Typography>
+                                </Box>
 
                                 <ContactItem>
                                     <LocationOnOutlined />
                                     <Box>
-                                        <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Address</Typography>
-                                        <Typography>Bangalore, Karnataka, India</Typography>
+                                        <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "#121a12", textTransform: "uppercase", letterSpacing: "1px", fontSize: "0.75rem", fontFamily: "'Montserrat', sans-serif" }}>Design Studio</Typography>
+                                        <Typography sx={{ color: "#556353", fontSize: "0.9rem", fontFamily: "'Montserrat', sans-serif", mt: 0.5 }}>
+                                            Sree Sai Heights, 3rd Floor, Ideal Homes Township, Rajarajeshwari Nagar, Bangalore – 560098
+                                        </Typography>
+                                    </Box>
+                                </ContactItem>
+
+                                <ContactItem>
+                                    <LocationOnOutlined />
+                                    <Box>
+                                        <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "#121a12", textTransform: "uppercase", letterSpacing: "1px", fontSize: "0.75rem", fontFamily: "'Montserrat', sans-serif" }}>German CNC Factory</Typography>
+                                        <Typography sx={{ color: "#556353", fontSize: "0.9rem", fontFamily: "'Montserrat', sans-serif", mt: 0.5 }}>
+                                            Survey No 88/1, Rampura, Viragonagar Post, Bangalore – 560049
+                                        </Typography>
                                     </Box>
                                 </ContactItem>
 
                                 <ContactItem>
                                     <PhoneOutlined />
                                     <Box>
-                                        <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Phone</Typography>
-                                        <Typography>+91 8431000242</Typography>
+                                        <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "#121a12", textTransform: "uppercase", letterSpacing: "1px", fontSize: "0.75rem", fontFamily: "'Montserrat', sans-serif" }}>Direct Line</Typography>
+                                        <Typography sx={{ color: "#556353", fontSize: "0.9rem", fontFamily: "'Montserrat', sans-serif", mt: 0.5, fontWeight: 600 }}>
+                                            +91 84310 00242
+                                        </Typography>
                                     </Box>
                                 </ContactItem>
 
                                 <ContactItem>
                                     <EmailOutlined />
                                     <Box>
-                                        <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Email</Typography>
-                                        <Typography>tvashtainterior@gmail.com</Typography>
+                                        <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "#121a12", textTransform: "uppercase", letterSpacing: "1px", fontSize: "0.75rem", fontFamily: "'Montserrat', sans-serif" }}>Architectural Inquiries</Typography>
+                                        <Typography sx={{ color: "#556353", fontSize: "0.9rem", fontFamily: "'Montserrat', sans-serif", mt: 0.5 }}>
+                                            tvashtainterior@gmail.com
+                                        </Typography>
                                     </Box>
                                 </ContactItem>
                             </ContactCard>
@@ -316,22 +380,39 @@ export default function Contact() {
             {/* Divider */}
             <AccentDivider />
 
-            {/* Google Map */}
-            <Box sx={{ width: "100%", height: { xs: "300px", md: "500px" } }}>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6186919274014!2d77.5166837!3d12.932211500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f000308f089%3A0x44c0c94f4abf6ac5!2sTvashta%20Interiors!5e0!3m2!1sen!2sin!4v1766159986235!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Google Map"
-                ></iframe>
+            {/* Google Map Section */}
+            <Box sx={{ bgcolor: "#faf8f5", py: 8 }}>
+                <Container maxWidth="lg">
+                    <Box sx={{ textAlign: "center", mb: 4 }}>
+                        <div className="section-badge-global">✦ LOCATION ✦</div>
+                        <Typography variant="h4" sx={{ mt: 1, color: "#121a12", fontWeight: 700, fontFamily: "'Playfair Display', serif" }}>
+                            Locate Our Experience Studio
+                        </Typography>
+                    </Box>
+                    <Box
+                        sx={{
+                            width: "100%",
+                            height: { xs: "320px", md: "460px" },
+                            borderRadius: "20px",
+                            overflow: "hidden",
+                            border: "1px solid rgba(178, 152, 115, 0.35)",
+                            boxShadow: "0 12px 36px rgba(66, 82, 62, 0.08)",
+                        }}
+                    >
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6186919274014!2d77.5166837!3d12.932211500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f000308f089%3A0x44c0c94f4abf6ac5!2sTvashta%20Interiors!5e0!3m2!1sen!2sin!4v1766159986235!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Google Map"
+                        ></iframe>
+                    </Box>
+                    <InternalLinks currentPage="contact" />
+                </Container>
             </Box>
-
-            {/* Internal Links */}
-            <InternalLinks currentPage="contact" />
         </>
     );
 }

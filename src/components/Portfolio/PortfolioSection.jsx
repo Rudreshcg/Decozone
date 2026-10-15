@@ -32,8 +32,9 @@ function PortfolioSection() {
     return (
         <section className="portfolio-section">
             <div className="portfolio-header">
-                <h2 className="portfolio-title">Our Latest Outcomes</h2>
-                <p className="portfolio-subtitle">Discover our gallery of exceptional interior design projects</p>
+                <div className="section-badge-global">✦ CURATED RESIDENCES ✦</div>
+                <h2 className="section-title-global" style={{ marginTop: '12px' }}>Bespoke Architectural Portfolio</h2>
+                <p className="portfolio-subtitle">Discover our gallery of signature residences, luxury penthouses, and bespoke interiors executed across Bangalore.</p>
 
                 {/* Filter Buttons */}
                 <div className="portfolio-filters">

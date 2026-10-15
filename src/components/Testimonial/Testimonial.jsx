@@ -1,64 +1,81 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { SlideLeft, SlideUp } from "../../animation/animate";
+import { SlideUp } from "../../animation/animate";
 import {
   Box,
   Container,
   Typography,
   IconButton,
   Card,
-  CardContent,
   Avatar,
-  Divider,
+  Button,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { ChevronLeft, ChevronRight, Star } from "@mui/icons-material";
-import Man from "../../assets/man.png";
-import Women from "../../assets/women.png";
+import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)";
+const BRAND_GREEN = "#42523e";
+const BRAND_GOLD = "#b29873";
 
 const TestimonialData = [
   {
     id: 1,
-    name: "Mohan Kumar",
-    designation: "Premium Client",
-    img: Man,
-    text: "Tvashta Interior exceeded all my expectations. The level of sophistication they brought to my penthouse is unparalleled. A truly beautiful and seamless experience!",
-    delay: 0.2,
+    name: "Mr. Raghavendra",
+    initials: "RG",
+    residence: "Mr. Raghavendra's European Home",
+    projectCategory: "European Luxury Residence",
+    location: "Banswadi, Bangalore • 2,400 sq.ft",
+    projectId: 1,
+    projectLink: "/portfolio/1",
+    text: "Tvashta Interior exceeded all expectations for our European luxury home in Banswadi. The precision of their German millwork, seamless fluted paneling, and Italian marble integration create an ambiance of quiet, timeless luxury. The 45-day handover was met to the exact date with zero budget escalations.",
   },
   {
     id: 2,
-    name: "Ramesh Kumar",
-    designation: "Homeowner",
-    img: Man,
-    text: "The team transformed our living room into a space that feels modern yet cozy. Their attention to detail was amazing!",
-    delay: 0.3,
+    name: "Mr. Rakesh Chandra",
+    initials: "RC",
+    residence: "Mr. Rakesh Chandra's Traditional Residence",
+    projectCategory: "Bespoke Traditional Residence",
+    location: "RR Nagar, Bangalore • 4,000 sq.ft",
+    projectId: 2,
+    projectLink: "/portfolio/2",
+    text: "Blending traditional aesthetics with modern functionality was our highest priority for our 4,000 sq.ft residence in RR Nagar. The Tvashta team crafted bespoke teak finishes, pooja room joinery, and expansive living spaces with unmatched structural integrity. Zero site dust and zero cost escalations.",
   },
   {
     id: 3,
-    name: "Priya Sharma",
-    designation: "Apartment Owner",
-    img: Women,
-    text: "Our kitchen renovation was flawless. The designs were practical yet stylish, and everything was delivered on time.",
-    delay: 0.4,
+    name: "Mr. Srinivas Reddy",
+    initials: "SR",
+    residence: "Mr. Srinivas Reddy's Contemporary Sanctuary",
+    projectCategory: "Contemporary Luxury Sanctuary",
+    location: "HSR Layout, Bangalore • 4,000 sq.ft",
+    projectId: 3,
+    projectLink: "/portfolio/3",
+    text: "From the 4K photorealistic 3D virtual twin to the final turnkey handover, our HSR Layout sanctuary was handled with supreme professionalism. The island modular kitchen, integrated bar unit, and acoustic lighting turn heads every time guests arrive. Truly in a league of their own.",
   },
   {
     id: 4,
-    name: "Vishwanath Iyer",
-    designation: "Villa Owner",
-    img: Man,
-    text: "They brought elegance and functionality to our villa. Their creative approach and professionalism were outstanding.",
-    delay: 0.5,
+    name: "Mr. Dilip",
+    initials: "DL",
+    residence: "Mr. Dilip's Residence",
+    projectCategory: "Modern Elegance Residence",
+    location: "Mysore • 3,000 sq.ft",
+    projectId: 4,
+    projectLink: "/portfolio/4",
+    text: "Even executing our 3,000 sq.ft home in Mysore was completely frictionless because every modular component was pre-engineered at Tvashta's German CNC factory in Bangalore. The customized wardrobes, sleek bedroom paneling, and 10-year factory warranty gave our family total peace of mind.",
   },
   {
     id: 5,
-    name: "Lakshmi Narayan",
-    designation: "Homeowner",
-    img: Man,
-    text: "We wanted a unique design for our bedroom, and they delivered exactly that. Absolutely love their work!",
-    delay: 0.6,
+    name: "Kiran & Deepa Gowda",
+    initials: "KG",
+    residence: "Signature Farmhouse Tour",
+    projectCategory: "Bespoke Farmhouse Villa",
+    location: "Bangalore Countryside • 5,200 sq.ft",
+    projectId: null,
+    projectLink: "https://www.youtube.com/watch?v=mLex6ktxNig",
+    isVideoTour: true,
+    text: "We had high expectations, but the outcome was breathtaking! An idyllic blend of rustic warmth and ultra-modern German joinery. The open-plan living, custom outdoor deck, and bespoke master suite were delivered with zero compromises on quality.",
   },
 ];
 
@@ -69,13 +86,13 @@ const Testimonial = () => {
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -350, behavior: "smooth" });
+      scrollRef.current.scrollBy({ left: -380, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+      scrollRef.current.scrollBy({ left: 380, behavior: "smooth" });
     }
   };
 
@@ -83,73 +100,132 @@ const Testimonial = () => {
     <Box
       component="section"
       sx={{
-        py: { xs: 4, md: 9 },
-        backgroundColor: "#f9f9f9",
+        py: { xs: 8, md: 12 },
+        backgroundColor: "#faf8f5",
         overflow: "hidden",
         position: "relative",
       }}
     >
       <Container maxWidth="lg">
         {/* Header */}
-        <Box sx={{ textAlign: "center", mb: 6, maxWidth: 700, mx: "auto" }}>
-          <Typography
-            component={motion.h2}
+        <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 }, maxWidth: 780, mx: "auto" }}>
+          <motion.div
+            variants={SlideUp(0.1)}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="section-badge-global"
+          >
+            ✦ CLIENT ACCLAIM & TRUST ✦
+          </motion.div>
+          <motion.h2
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            variant="h3"
+            viewport={{ once: true }}
             className="section-title-global"
-            sx={{ mb: 2, textAlign: "center" }}
           >
-            Words From Our Customers
-          </Typography>
-          <Typography
-            component={motion.p}
-            variants={SlideUp(0.4)}
+            Words From Discerning Homeowners
+          </motion.h2>
+          <motion.p
+            variants={SlideUp(0.3)}
             initial="initial"
             whileInView="animate"
-            variant="body1"
-            sx={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.6, fontFamily: "Montserrat, sans-serif" }}
+            viewport={{ once: true }}
+            style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: "1rem",
+              color: "#576355",
+              lineHeight: 1.7,
+            }}
           >
-            Bring your dream home to life with one-on-one design help & hand-picked products
-          </Typography>
+            Read authentic experiences from homeowners whose residences were designed, manufactured, and turnkey delivered by our atelier.
+          </motion.p>
+
+          {/* Google Rating Pill */}
+          <Box
+            sx={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 1,
+              mt: 2.5,
+              backgroundColor: "#ffffff",
+              border: "1px solid rgba(178, 152, 115, 0.3)",
+              px: 2.5,
+              py: 0.8,
+              borderRadius: "50px",
+              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.04)",
+            }}
+          >
+            <Box sx={{ display: "flex", color: "#b29873" }}>
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} sx={{ fontSize: 16 }} />
+              ))}
+            </Box>
+            <Typography
+              sx={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "0.82rem",
+                fontWeight: 700,
+                color: "#1e281e",
+              }}
+            >
+              4.9 / 5.0 Rating • 200+ Verified Homeowners
+            </Typography>
+          </Box>
         </Box>
 
         {/* Slider Container */}
         <Box sx={{ position: "relative" }}>
-          {/* Default Arrows (Desktop) */}
+          {/* Controls */}
           {!isMobile && (
             <>
               <IconButton
                 onClick={scrollLeft}
+                aria-label="Previous testimonial"
                 sx={{
                   position: "absolute",
-                  left: -20,
+                  left: -24,
                   top: "50%",
                   transform: "translateY(-50%)",
                   zIndex: 2,
-                  bgcolor: "#fff",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                  "&:hover": { bgcolor: "#4a5942", color: "#fff" },
+                  bgcolor: "#ffffff",
+                  border: "1px solid rgba(178, 152, 115, 0.35)",
+                  boxShadow: "0 8px 24px rgba(44, 56, 41, 0.1)",
+                  color: BRAND_GREEN,
+                  "&:hover": {
+                    bgcolor: BRAND_GREEN,
+                    color: "#ffffff",
+                    borderColor: BRAND_GOLD,
+                  },
                   width: 48,
                   height: 48,
+                  transition: "all 0.3s ease",
                 }}
               >
                 <ChevronLeft />
               </IconButton>
               <IconButton
                 onClick={scrollRight}
+                aria-label="Next testimonial"
                 sx={{
                   position: "absolute",
-                  right: -20,
+                  right: -24,
                   top: "50%",
                   transform: "translateY(-50%)",
                   zIndex: 2,
-                  bgcolor: "#fff",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                  "&:hover": { bgcolor: "#4a5942", color: "#fff" },
+                  bgcolor: "#ffffff",
+                  border: "1px solid rgba(178, 152, 115, 0.35)",
+                  boxShadow: "0 8px 24px rgba(44, 56, 41, 0.1)",
+                  color: BRAND_GREEN,
+                  "&:hover": {
+                    bgcolor: BRAND_GREEN,
+                    color: "#ffffff",
+                    borderColor: BRAND_GOLD,
+                  },
                   width: 48,
                   height: 48,
+                  transition: "all 0.3s ease",
                 }}
               >
                 <ChevronRight />
@@ -162,9 +238,10 @@ const Testimonial = () => {
             ref={scrollRef}
             sx={{
               display: "flex",
-              gap: 3,
+              gap: 3.5,
               overflowX: "auto",
-              pb: 4,
+              py: 2,
+              px: 1,
               scrollSnapType: "x mandatory",
               "&::-webkit-scrollbar": { display: "none" },
               scrollbarWidth: "none",
@@ -173,66 +250,194 @@ const Testimonial = () => {
             {TestimonialData.map((card) => (
               <Box
                 key={card.id}
-                component={motion.div}
-                variants={SlideLeft(card.delay)}
-                initial="initial"
-                whileInView="animate"
                 sx={{
-                  minWidth: { xs: 280, md: 350 },
+                  minWidth: { xs: 300, sm: 380, md: 420 },
+                  maxWidth: { xs: 320, sm: 400, md: 440 },
                   scrollSnapAlign: "center",
                 }}
               >
                 <Card
                   elevation={0}
                   sx={{
-                    p: 4,
+                    p: { xs: 3.5, md: 4.5 },
                     height: "100%",
-                    borderRadius: 3,
-                    border: "1px solid rgba(0,0,0,0.05)",
-                    background: "#fff",
-                    transition: "all 0.3s ease",
+                    borderRadius: "20px",
+                    border: "1px solid rgba(178, 152, 115, 0.22)",
+                    background: "#ffffff",
+                    boxShadow: "0 10px 30px -10px rgba(44, 56, 41, 0.06)",
+                    transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                    display: "flex",
+                    flexDirection: "column",
+                    position: "relative",
                     "&:hover": {
-                      transform: "translateY(-8px)",
-                      boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
-                      borderColor: "#4a5942",
+                      transform: "translateY(-6px)",
+                      boxShadow: "0 20px 45px -10px rgba(44, 56, 41, 0.12)",
+                      borderColor: "rgba(178, 152, 115, 0.55)",
                     },
                   }}
                 >
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
-                    <Avatar
-                      src={card.img}
-                      alt={card.name}
-                      sx={{ width: 60, height: 60, border: "2px solid #f0f0f0" }}
-                    />
-                    <Box>
-                      <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1rem", fontFamily: "Montserrat, sans-serif" }}>
-                        {card.name}
-                      </Typography>
-                      <Typography variant="caption" sx={{ color: "#888", display: "block", fontFamily: "Montserrat, sans-serif" }}>
-                        {card.designation}
-                      </Typography>
-                      <Box sx={{ display: "flex", color: "#4a5942", mt: 0.5 }}>
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} sx={{ fontSize: 16 }} />
-                        ))}
-                      </Box>
+                  {/* Top Quote Icon & Rating */}
+                  <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
+                    <FormatQuoteRoundedIcon sx={{ fontSize: 36, color: "#dfcfb8", transform: "rotate(180deg)" }} />
+                    <Box sx={{ display: "flex", color: BRAND_GOLD }}>
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} sx={{ fontSize: 16 }} />
+                      ))}
                     </Box>
                   </Box>
 
-                  <Divider sx={{ mb: 2, opacity: 0.6 }} />
-
+                  {/* Testimonial Quote */}
                   <Typography
-                    variant="body2"
                     sx={{
+                      fontFamily: "'Playfair Display', Georgia, serif",
                       fontStyle: "italic",
-                      color: "#555",
+                      color: "#2a3628",
                       lineHeight: 1.7,
-                      fontSize: "0.95rem",
-                      fontFamily: "Montserrat, sans-serif"
+                      fontSize: "1.02rem",
+                      mb: 4,
+                      flexGrow: 1,
                     }}
                   >
                     "{card.text}"
                   </Typography>
+
+                  {/* Client Info with Monogram */}
+                  <Box
+                    sx={{
+                      pt: 2.5,
+                      borderTop: "1px solid rgba(178, 152, 115, 0.15)",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 2,
+                    }}
+                  >
+                    <Avatar
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        bgcolor: "rgba(178, 152, 115, 0.12)",
+                        color: BRAND_GREEN,
+                        border: "1.5px solid rgba(178, 152, 115, 0.35)",
+                        fontFamily: "'Montserrat', sans-serif",
+                        fontWeight: 700,
+                        fontSize: "0.95rem",
+                      }}
+                    >
+                      {card.initials}
+                    </Avatar>
+                    <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+                      <Typography
+                        sx={{
+                          fontWeight: 700,
+                          fontSize: "0.95rem",
+                          fontFamily: "'Montserrat', sans-serif",
+                          color: "#1e281e",
+                        }}
+                      >
+                        {card.name}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#8a9787",
+                          fontSize: "0.76rem",
+                          fontFamily: "'Montserrat', sans-serif",
+                          fontWeight: 500,
+                          mt: 0.2,
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {card.residence}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: BRAND_GOLD,
+                          fontSize: "0.72rem",
+                          fontFamily: "'Montserrat', sans-serif",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {card.location}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  {/* Verified Project Link Strip */}
+                  <Box
+                    sx={{
+                      mt: 2.5,
+                      pt: 2,
+                      borderTop: "1px dashed rgba(178, 152, 115, 0.25)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: "0.68rem",
+                        fontFamily: "'Montserrat', sans-serif",
+                        fontWeight: 700,
+                        letterSpacing: "0.08em",
+                        color: BRAND_GREEN,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.6,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      <Box component="span" sx={{ color: BRAND_GOLD }}>✦</Box> Verified Project
+                    </Typography>
+
+                    {card.isVideoTour ? (
+                      <Button
+                        component="a"
+                        href={card.projectLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="small"
+                        endIcon={<ArrowForwardIcon sx={{ fontSize: "14px !important" }} />}
+                        sx={{
+                          fontFamily: "'Montserrat', sans-serif",
+                          fontSize: "0.75rem",
+                          fontWeight: 600,
+                          color: BRAND_GOLD,
+                          textTransform: "none",
+                          p: 0,
+                          minWidth: 0,
+                          "&:hover": {
+                            bgcolor: "transparent",
+                            color: BRAND_GREEN,
+                          },
+                        }}
+                      >
+                        Watch Video
+                      </Button>
+                    ) : (
+                      <Button
+                        component={Link}
+                        to={card.projectLink}
+                        size="small"
+                        endIcon={<ArrowForwardIcon sx={{ fontSize: "14px !important" }} />}
+                        sx={{
+                          fontFamily: "'Montserrat', sans-serif",
+                          fontSize: "0.75rem",
+                          fontWeight: 600,
+                          color: BRAND_GOLD,
+                          textTransform: "none",
+                          p: 0,
+                          minWidth: 0,
+                          "&:hover": {
+                            bgcolor: "transparent",
+                            color: BRAND_GREEN,
+                          },
+                        }}
+                      >
+                        View Residence
+                      </Button>
+                    )}
+                  </Box>
                 </Card>
               </Box>
             ))}

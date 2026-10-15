@@ -1,80 +1,63 @@
 .portfolio-section {
     padding: 80px 5%;
-    background: #faf8f6;
+    background: #faf8f5;
     min-height: 100vh;
 }
 
 .portfolio-header {
     text-align: center;
-    margin-bottom: 60px;
-}
-
-.portfolio-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    position: relative;
-    font-family: 'Playfair Display', serif;
-}
-
-.portfolio-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%);
-    border-radius: 2px;
+    margin-bottom: 50px;
 }
 
 .portfolio-subtitle {
-    font-size: 1.2rem;
-    color: #7f8c8d;
-    margin-bottom: 40px;
-    max-width: 600px;
+    font-size: 1.05rem;
+    color: #556353;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .portfolio-filters {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .filter-btn {
-    padding: 12px 24px;
-    background: linear-gradient(135deg, #4a5942 0%, #3d4a36 100%);
-    border: 2px solid #9f8033;
-    color: #ffffff;
+    padding: 10px 26px;
+    background: #ffffff;
+    border: 1.5px solid rgba(178, 152, 115, 0.4);
+    color: #42523e;
     border-radius: 50px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(74, 89, 66, 0.2);
+    letter-spacing: 1.2px;
+    box-shadow: 0 4px 12px rgba(66, 82, 62, 0.04);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .filter-btn:hover {
-    background: #3d4a36;
-    border-color: #c5a059;
-    color: white;
+    background: #eef3ec;
+    border-color: #b29873;
+    color: #121a12;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(159, 128, 51, 0.3);
+    box-shadow: 0 6px 18px rgba(178, 152, 115, 0.25);
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, #3d4a36 0%, #2c3526 100%);
-    border-color: #c5a059;
-    box-shadow: 0 5px 15px rgba(159, 128, 51, 0.4);
+    background: #42523e;
+    border-color: #b29873;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(66, 82, 62, 0.3);
 }
 
 .portfolio-grid {

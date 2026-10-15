@@ -12,169 +12,212 @@ import ContactModal from "../ContactModal/ContactModal";
 import { Helmet } from "react-helmet-async";
 
 // MUI Icons
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import ScienceIcon from '@mui/icons-material/Science';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
+import ArchitectureOutlinedIcon from '@mui/icons-material/ArchitectureOutlined';
+import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-// Premium colors & Gradients
-const goldColor = "#9f8033";
-const brandColor = "#4a5942"; // Logo Green
-const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)";
+// Logo-matched Colors
+const brandGreen = "#42523e";
+const brandGold = "#b29873";
 
 const offerings = [
   {
-    title: "In-house Production",
-    icon: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} />,
+    step: "01",
+    tag: "OWN FACTORY",
+    title: "In-House Precision Millwork",
+    desc: "Automated German CNC routing and zero-joint edge-banding ensuring millimeter precision, termite-proof joinery, and lasting structural integrity.",
+    icon: <PrecisionManufacturingOutlinedIcon sx={{ fontSize: 32 }} />,
   },
   {
-    title: "Premium Quality",
-    icon: <WorkspacePremiumIcon sx={{ fontSize: 40 }} />,
+    step: "02",
+    tag: "ARTISANAL GRADE",
+    title: "Curated Luxury Materials",
+    desc: "Handpicked Italian marbles, natural European veneers, BWP 710 architectural marine-grade ply, and Hafele / Blum soft-close hardware.",
+    icon: <WorkspacePremiumOutlinedIcon sx={{ fontSize: 32 }} />,
   },
   {
-    title: "Unmatched Warranty",
-    icon: <VerifiedUserIcon sx={{ fontSize: 40 }} />,
+    step: "03",
+    tag: "PEACE OF MIND",
+    title: "10-Year Comprehensive Warranty",
+    desc: "Unconditional 10-year warranty certificate covering all modular installations, backed by dedicated lifetime maintenance audits.",
+    icon: <VerifiedUserOutlinedIcon sx={{ fontSize: 32 }} />,
   },
   {
-    title: "Advanced Technology",
-    icon: <ScienceIcon sx={{ fontSize: 40 }} />,
+    step: "04",
+    tag: "VIRTUAL TWIN",
+    title: "4K Photorealistic Previews",
+    desc: "Experience every corner, lighting fixture, and texture in realistic 4K 3D before execution begins, ensuring zero surprises at handover.",
+    icon: <ArchitectureOutlinedIcon sx={{ fontSize: 32 }} />,
   },
   {
-    title: "Transparent Pricing",
-    icon: <CurrencyRupeeIcon sx={{ fontSize: 40 }} />,
+    step: "05",
+    tag: "FIXED BOQ",
+    title: "100% Transparent Pricing",
+    desc: "Completely itemized bill of quantities with zero hidden clauses, surprise site expenses, or post-commencement cost escalations.",
+    icon: <ReceiptLongOutlinedIcon sx={{ fontSize: 32 }} />,
   },
 ];
 
 const Services = () => {
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   return (
     <>
       <Helmet>
-        <title>Interior Services | Modular Kitchens, Wardrobes, Warranty – Tvashta Interior Bangalore</title>
-        <meta name="description" content="Discover modular kitchens, wardrobes, advanced technology, unbeatable warranty, and price benefits. Tvashta Interior offers complete interior solutions in Bangalore and all India." />
+        <title>Interior Craftsmanship & Delivery Pillars | Tvashta Interior Bangalore</title>
+        <meta
+          name="description"
+          content="Discover Tvashta Interior's 5 craftsmanship pillars: In-house German production, curated luxury materials, 10-year warranty, 4K 3D design, and transparent pricing in Bangalore."
+        />
       </Helmet>
-      {/* Luminous Background */}
-      <Box sx={{ background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #fcfbf7 100%)", py: { xs: 4, sm: 5, md: 9 } }}>
-        <Container maxWidth="lg">
-          <Typography
-            variant="h4"
-            className="section-title-global" // Global Class
-            sx={{ mb: { xs: 5, md: 10 }, textAlign: "center" }}
-          >
-            What We Deliver
-          </Typography>
 
-          <Grid
-            container
-            justifyContent="center"
-            alignItems="flex-start"
-            rowSpacing={{ xs: 5, md: 4 }}
-            columnSpacing={{ xs: 2, md: 4 }}
-          >
-            {offerings.map((offering, index) => (
-              <Grid item xs={6} sm={4} md={2.4} key={index}>
+      <Box
+        component="section"
+        sx={{
+          background: "linear-gradient(180deg, #faf8f5 0%, #f4f0e8 100%)",
+          py: { xs: 8, md: 12 },
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <Container maxWidth="lg">
+          {/* Section Header */}
+          <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
+            <motion.div
+              variants={SlideUp(0.1)}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="section-badge-global"
+            >
+              ✦ ARCHITECTURAL EXCELLENCE ✦
+            </motion.div>
+            <motion.h2
+              variants={SlideUp(0.2)}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="section-title-global"
+            >
+              The Tvashta Delivery Pillars
+            </motion.h2>
+            <motion.p
+              variants={SlideUp(0.3)}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "1rem",
+                color: "#576355",
+                maxWidth: "680px",
+                margin: "0 auto",
+                lineHeight: 1.7,
+              }}
+            >
+              From raw architectural blueprints to immaculate handover, our integrated studio & factory ecosystem guarantees world-class craftsmanship.
+            </motion.p>
+          </Box>
+
+          {/* Cards Grid */}
+          <Grid container spacing={{ xs: 3, md: 3 }} justifyContent="center">
+            {offerings.map((item, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
                 <motion.div
-                  variants={SlideUp(0.2 * index)}
-                  initial="hidden"
-                  whileInView="visible"
+                  variants={SlideUp(0.15 * index)}
+                  initial="initial"
+                  whileInView="animate"
                   viewport={{ once: true }}
+                  style={{ height: "100%" }}
                 >
                   <Box
                     sx={{
+                      backgroundColor: "#ffffff",
+                      borderRadius: "18px",
+                      p: { xs: 3.5, md: 4 },
+                      height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "center",
-                      textAlign: "center",
-                      cursor: "pointer",
-                      "&:hover .icon-box": {
-                        // Brighter Hover: No dark fill, just glow
-                        transform: "translateY(-10px)",
-                        boxShadow: `0 20px 40px ${brandColor}25`, // Soft Green Glow
-                        borderColor: "transparent", // Hide solid border to show gradient pseduo
-                        background: "#fff",
+                      border: "1px solid rgba(178, 152, 115, 0.22)",
+                      boxShadow: "0 10px 30px -10px rgba(44, 56, 41, 0.06)",
+                      position: "relative",
+                      transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                      "&:hover": {
+                        transform: "translateY(-6px)",
+                        borderColor: "rgba(178, 152, 115, 0.55)",
+                        boxShadow: "0 20px 40px -12px rgba(44, 56, 41, 0.12), 0 0 0 1px rgba(178, 152, 115, 0.2)",
+                        "& .icon-wrap": {
+                          background: `linear-gradient(135deg, ${brandGreen} 0%, #2f3c2c 100%)`,
+                          color: "#ffffff",
+                          transform: "scale(1.08) rotate(4deg)",
+                        },
                       },
-                      "&:hover .icon-box::after": {
-                        opacity: 1 // Show full gradient border on hover
-                      },
-                      "&:hover .icon-svg": {
-                        color: goldColor, // Icon turns Gold
-                        filter: "drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3))"
-                      },
-                      "&:hover .inner-circle": {
-                        borderColor: `${goldColor}40`,
-                        transform: "translate(-50%, -50%) scale(1.1) rotate(180deg)",
-                      }
                     }}
                   >
-                    <Box
-                      className="icon-box"
-                      sx={{
-                        width: 110,
-                        height: 110,
-                        borderRadius: "50%",
-                        backgroundColor: "#fff",
-                        position: "relative",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        mb: 3,
-                        boxShadow: "0 10px 30px rgba(0,0,0,0.05)", // Soft ambient shadow
-                        transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                        zIndex: 1,
-                        // Gradient Border Mockup
-                        "&::after": {
-                          content: '""',
-                          position: "absolute",
-                          inset: 0,
-                          borderRadius: "50%",
-                          padding: "2px", // Border width
-                          background: `linear-gradient(135deg, ${brandColor} 0%, ${goldColor} 100%)`,
-                          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                          WebkitMaskComposite: "xor",
-                          maskComposite: "exclude",
-                          opacity: 0.5, // Subtle by default
-                          transition: "opacity 0.4s ease"
-                        }
-                      }}
-                    >
+                    {/* Top Row: Number & Tag */}
+                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
                       <Box
-                        className="inner-circle"
+                        className="icon-wrap"
                         sx={{
-                          position: "absolute",
-                          top: "50%",
-                          left: "50%",
-                          transform: "translate(-50%, -50%)",
-                          width: "85%",
-                          height: "85%",
-                          borderRadius: "50%",
-                          border: `1px dashed ${brandColor}30`,
-                          transition: "all 0.6s ease",
+                          width: 58,
+                          height: 58,
+                          borderRadius: "14px",
+                          backgroundColor: "#f4f7f3",
+                          border: "1px solid rgba(178, 152, 115, 0.3)",
+                          color: brandGreen,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "all 0.4s ease",
                         }}
-                      />
-                      <Box className="icon-svg" sx={{ color: brandColor, transition: "all 0.3s ease" }}>
-                        {offering.icon}
+                      >
+                        {item.icon}
                       </Box>
+                      <span
+                        style={{
+                          fontFamily: "'Montserrat', sans-serif",
+                          fontSize: "0.72rem",
+                          fontWeight: 700,
+                          letterSpacing: "0.16em",
+                          color: "#917753",
+                          backgroundColor: "rgba(178, 152, 115, 0.12)",
+                          padding: "4px 12px",
+                          borderRadius: "50px",
+                        }}
+                      >
+                        {item.tag}
+                      </span>
                     </Box>
+
+                    {/* Title */}
                     <Typography
-                      variant="body1"
-                      fontWeight="600"
-                      color="#2c3e50"
+                      variant="h5"
                       sx={{
-                        fontFamily: "Montserrat, sans-serif",
-                        fontSize: "0.95rem",
-                        letterSpacing: "0.05em",
-                        textTransform: "uppercase",
-                        transition: "color 0.3s",
-                        "&:hover": { color: brandColor }
+                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontWeight: 600,
+                        fontSize: "1.25rem",
+                        color: "#1e281e",
+                        mb: 1.5,
+                        lineHeight: 1.35,
                       }}
                     >
-                      {offering.title}
+                      {item.title}
+                    </Typography>
+
+                    {/* Description */}
+                    <Typography
+                      sx={{
+                        fontFamily: "'Montserrat', sans-serif",
+                        fontSize: "0.88rem",
+                        color: "#576355",
+                        lineHeight: 1.65,
+                        flexGrow: 1,
+                      }}
+                    >
+                      {item.desc}
                     </Typography>
                   </Box>
                 </motion.div>
@@ -182,43 +225,76 @@ const Services = () => {
             ))}
           </Grid>
 
-          <Box sx={{ display: "flex", justifyContent: "center", mt: { xs: 6, md: 6 } }}>
-            <motion.div
-              variants={SlideUp(0.5)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Button
-                variant="contained"
+          {/* Bottom Consultation Strip */}
+          <Box
+            sx={{
+              mt: { xs: 6, md: 8 },
+              p: { xs: 3, md: 4 },
+              borderRadius: "20px",
+              background: "linear-gradient(135deg, #1e281e 0%, #293828 100%)",
+              border: "1px solid rgba(178, 152, 115, 0.3)",
+              boxShadow: "0 15px 40px rgba(30, 40, 30, 0.25)",
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 3,
+            }}
+          >
+            <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+              <Typography
                 sx={{
-                  bgcolor: "#4a5942", // Brand Green Base
-                  background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)",
-                  border: "2px solid #9f8033", // Gold Border
-                  fontWeight: "bold",
-                  px: 5,
-                  py: 1.8,
-                  borderRadius: "50px",
-                  fontSize: "1rem",
-                  textTransform: "uppercase",
-                  color: "#fff",
-                  boxShadow: "0 10px 25px rgba(74, 89, 66, 0.3)",
-                  "&:hover": {
-                    background: "#3d4a36",
-                    border: "2px solid #c5a059",
-                    transform: "translateY(-3px)",
-                    boxShadow: "0 15px 35px rgba(159, 128, 51, 0.4)", // Gold Hover Glow
-                  }
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: { xs: "1.3rem", md: "1.6rem" },
+                  color: "#ffffff",
+                  fontWeight: 600,
+                  mb: 0.5,
                 }}
-                onClick={handleOpen}
               >
-                Talk to our designer
-              </Button>
-            </motion.div>
+                Planning a Villa, Penthouse, or Apartment Interior in Bangalore?
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: "0.88rem",
+                  color: "rgba(223, 207, 184, 0.9)",
+                }}
+              >
+                Get a comprehensive 3D moodboard and itemized BOQ estimate with our Principal Architect.
+              </Typography>
+            </Box>
+
+            <Button
+              onClick={() => setOpen(true)}
+              endIcon={<ArrowForwardIcon sx={{ fontSize: "1rem !important" }} />}
+              sx={{
+                background: "linear-gradient(135deg, #b29873 0%, #9e825c 100%)",
+                color: "#ffffff",
+                px: 4,
+                py: 1.6,
+                borderRadius: "50px",
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "0.82rem",
+                fontWeight: 700,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+                boxShadow: "0 8px 24px rgba(178, 152, 115, 0.35)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #c5a880 0%, #b29873 100%)",
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 12px 30px rgba(178, 152, 115, 0.5)",
+                },
+              }}
+            >
+              Talk to Our Designer
+            </Button>
           </Box>
         </Container>
+
         <ContactModal open={open} setOpen={setOpen} />
-      </Box >
+      </Box>
     </>
   );
 };

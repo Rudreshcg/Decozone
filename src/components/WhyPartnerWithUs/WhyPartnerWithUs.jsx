@@ -3,324 +3,327 @@ import {
     Container,
     Typography,
     Box,
-    useMediaQuery,
-    useTheme,
     Grid,
-    Paper,
-    Avatar,
-    Divider,
+    Button,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
-import {
-    LocalShipping,
-    AccessTime,
-    DesignServices,
-    RemoveCircle,
-    ReceiptLong,
-    VisibilityOff,
-    Category,
-    MenuBook,
-    Verified,
-    GppBad,
-    SupportAgent,
-    PhoneDisabled
-} from "@mui/icons-material";
 import { Helmet } from "react-helmet-async";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
+import ContactModal from "../ContactModal/ContactModal";
 
-// Custom green color from the brand
-const BRAND_GREEN = "#4a5942";
-const BRAND_GREEN_LIGHT = "#e8f0e6";
-const goldGradient = "linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%)";
-
-const comparisonData = [
+const comparativePoints = [
     {
-        feature: "Timely Deliveries",
-        marketIcon: <AccessTime sx={{ fontSize: "inherit", color: "#d32f2f" }} />, // Red for negative
-        tvashtaIcon: <LocalShipping sx={{ fontSize: "inherit", color: BRAND_GREEN }} />,
-        marketLabel: "Delays Common",
-        tvashtaLabel: "On-Time Guarantee",
+        feature: "Project Timeline & Handover",
+        conventional: "Frequent multi-week delays, uncoordinated subcontractors, and unpredictable site delays.",
+        tvashta: "Guaranteed 45-day handover with structured milestone tracking and dedicated project managers.",
     },
     {
-        feature: "Customization",
-        marketIcon: <RemoveCircle sx={{ fontSize: "inherit", color: "#9e9e9e" }} />, // Grey for limited
-        tvashtaIcon: <DesignServices sx={{ fontSize: "inherit", color: "#9f8033" }} />, // Gold for Premium
-        marketLabel: "Limited Options",
-        tvashtaLabel: "Fully Personalized",
+        feature: "Pricing Integrity & BOQ",
+        conventional: "Attractive initial quote followed by surprise material markups and site cost escalations.",
+        tvashta: "100% Transparent, itemized BOQ with guaranteed zero hidden costs or post-agreement escalations.",
     },
     {
-        feature: "Cost Efficiency",
-        marketIcon: <VisibilityOff sx={{ fontSize: "inherit", color: "#d32f2f" }} />,
-        tvashtaIcon: <ReceiptLong sx={{ fontSize: "inherit", color: BRAND_GREEN }} />,
-        marketLabel: "Hidden Costs",
-        tvashtaLabel: "Transparent Pricing",
+        feature: "Manufacturing & Joinery",
+        conventional: "Messy onsite carpenter fabrication with manual uneven cuts, glue fumes, and termite risks.",
+        tvashta: "100% In-house factory fabrication with German CNC machinery and zero-joint moisture-proof edge banding.",
     },
     {
-        feature: "Product Variety",
-        marketIcon: <MenuBook sx={{ fontSize: "inherit", color: "#9e9e9e" }} />,
-        tvashtaIcon: <Category sx={{ fontSize: "inherit", color: "#1976d2" }} />, // Blue for variety
-        marketLabel: "Standard Catalog",
-        tvashtaLabel: "Endless Choices",
+        feature: "Design & Customization",
+        conventional: "Restricted to standard modular box sizes and limited catalog laminates.",
+        tvashta: "Unrestricted bespoke architectural freedom with handpicked European veneers, Italian marble, and custom joinery.",
     },
     {
-        feature: "Quality Assurance",
-        marketIcon: <GppBad sx={{ fontSize: "inherit", color: "#d32f2f" }} />,
-        tvashtaIcon: <Verified sx={{ fontSize: "inherit", color: "#9f8033" }} />, // Gold
-        marketLabel: "Inconsistent",
-        tvashtaLabel: "Premium Checks",
-    },
-    {
-        feature: "Customer Support",
-        marketIcon: <PhoneDisabled sx={{ fontSize: "inherit", color: "#9e9e9e" }} />,
-        tvashtaIcon: <SupportAgent sx={{ fontSize: "inherit", color: BRAND_GREEN }} />,
-        marketLabel: "Unresponsive",
-        tvashtaLabel: "Dedicated Support",
+        feature: "Warranty & Accountability",
+        conventional: "Verbal promises from freelancers or contractors who disappear after final payment.",
+        tvashta: "Comprehensive 10-year corporate warranty certificate backed by dedicated lifetime maintenance care.",
     },
 ];
 
 const WhyPartnerWithUs = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
 
     return (
         <>
             <Helmet>
-                <title>Why Partner With Tvashta Interior | Trusted Interior Design Bangalore</title>
+                <title>Why Partner With Tvashta Interior | Trusted Luxury Design Bangalore</title>
                 <meta
                     name="description"
-                    content="Discover why Tvashta Interior outshines market competitors with timely deliveries, customization, cost-efficiency, quality, and customer support."
+                    content="Experience the Tvashta Atelier Standard: Guaranteed 45-day handover, German factory millwork, zero-escalation BOQ, and 10-year warranty in Bangalore."
                 />
             </Helmet>
 
+            <ContactModal open={isModalOpen} setOpen={setIsModalOpen} />
+
             <Box
+                component="section"
                 sx={{
-                    py: { xs: 4, md: 9 },
-                    background: "linear-gradient(180deg, #ffffff 0%, #f7f9f6 100%)",
+                    py: { xs: 8, md: 12 },
+                    background: "#f4f0e8",
+                    position: "relative",
                     overflow: "hidden",
                 }}
             >
                 <Container maxWidth="lg">
                     {/* Header Section */}
-                    <Box
-                        component={motion.div}
-                        variants={SlideUp(0.2)}
-                        initial="initial"
-                        whileInView="animate"
-                        viewport={{ once: true }}
-                        sx={{ textAlign: "center", mb: { xs: 5, md: 8 } }}
-                    >
+                    <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
                         <motion.div
+                            variants={SlideUp(0.1)}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true }}
                             className="section-badge-global"
-                            style={{ margin: "0 auto" }}
                         >
-                            THE TVASHTA DIFFERENCE
+                            ✦ THE TVASHTA ATELIER STANDARD ✦
                         </motion.div>
-                        <Typography
-                            variant="h3"
+                        <motion.h2
+                            variants={SlideUp(0.2)}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true }}
                             className="section-title-global"
-                            sx={{ mt: 1, mb: 2 }}
                         >
-                            Why Partner With Us?
-                        </Typography>
-                    </Box>
-
-                    {/* Desktop Headers */}
-                    {!isMobile && (
-                        <Grid
-                            container
-                            sx={{
-                                mb: 4,
-                                px: 4,
-                                alignItems: "center",
+                            Why Bangalore's Discerning Homeowners Choose Us
+                        </motion.h2>
+                        <motion.p
+                            variants={SlideUp(0.3)}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true }}
+                            style={{
+                                fontFamily: "'Montserrat', sans-serif",
+                                fontSize: "1rem",
+                                color: "#576355",
+                                maxWidth: "720px",
+                                margin: "0 auto",
+                                lineHeight: 1.7,
                             }}
                         >
-                            <Grid item xs={4} sx={{ textAlign: "center" }}>
-                                <Typography
-                                    variant="h6"
-                                    sx={{ fontWeight: "700", color: "#888", opacity: 0.8, fontFamily: "Montserrat, sans-serif", fontSize: "1rem" }}
-                                >
-                                    Market Standard
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} sx={{ textAlign: "center" }}>
-                                <Typography
-                                    variant="h6"
-                                    sx={{ fontWeight: "700", color: "#333", fontFamily: "Montserrat, sans-serif", fontSize: "1rem" }}
-                                >
-                                    Feature
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} sx={{ textAlign: "center" }}>
-                                <Typography
-                                    variant="h6"
-                                    sx={{
-                                        fontWeight: "800",
-                                        background: goldGradient,
-                                        WebkitBackgroundClip: "text",
-                                        WebkitTextFillColor: "transparent",
-                                        fontFamily: "Montserrat, sans-serif",
-                                        fontSize: "1.1rem",
-                                        letterSpacing: "0.5px"
-                                    }}
-                                >
-                                    The Tvashta Advantage
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                    )}
+                            Building a luxury residence is an intimate journey. See how our integrated studio & factory ecosystem eliminates typical contractor compromises.
+                        </motion.p>
+                    </Box>
 
-                    {/* Comparison Rows */}
-                    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                        {comparisonData.map((item, index) => (
-                            <Paper
-                                key={index}
-                                component={motion.div}
-                                variants={SlideUp(0.3 + index * 0.1)}
+                    {/* Comparison Cards Split Layout */}
+                    <Grid container spacing={3} alignItems="stretch">
+                        {/* Left Card: Conventional Market */}
+                        <Grid item xs={12} md={5.5}>
+                            <motion.div
+                                variants={SlideUp(0.3)}
                                 initial="initial"
                                 whileInView="animate"
                                 viewport={{ once: true }}
-                                elevation={0}
-                                sx={{
-                                    p: 0, // Reset padding to handle inner layout better
-                                    borderRadius: 4,
-                                    border: "1px solid",
-                                    borderColor: "rgba(0,0,0,0.04)",
-                                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                                    background: "#fff",
-                                    overflow: "hidden",
-                                    "&:hover": {
-                                        transform: "translateY(-4px)",
-                                        boxShadow: "0 20px 40px rgba(159, 128, 51, 0.15)", // Premium Gold Shadow
-                                        borderColor: "rgba(197, 160, 89, 0.3)", // Subtle Gold Border
-                                    },
-                                    display: "flex",
-                                    alignItems: "stretch", // Stretch to full height for background coloring
-                                }}
+                                style={{ height: "100%" }}
                             >
-                                <Grid container alignItems="center" spacing={2}>
-
-                                    {/* Market Experience (Left) */}
-                                    <Grid
-                                        item
-                                        xs={4}
-                                        sx={{
-                                            borderRight: { md: "1px dashed #e0e0e0" },
-                                            // Flex and padding moved to inner Box to avoid Grid conflict
-                                        }}
-                                    >
-                                        <Box sx={{
-                                            width: "100%",
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            py: 2, // Safe explicit padding
-                                        }}>
-                                            <Avatar
-                                                variant="rounded"
-                                                sx={{
-                                                    width: { xs: 40, md: 56 },
-                                                    height: { xs: 40, md: 56 },
-                                                    bgcolor: "#f5f5f5",
-                                                    fontSize: { xs: "24px", md: "32px" }
-                                                }}
-                                            >
-                                                {item.marketIcon}
-                                            </Avatar>
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    mt: { xs: 0.5, md: 1 },
-                                                    color: "#666",
-                                                    fontWeight: 600,
-                                                    fontSize: { xs: "0.7rem", md: "0.85rem" },
-                                                    textAlign: "center",
-                                                    fontFamily: "Montserrat, sans-serif",
-                                                    lineHeight: 1.2
-                                                }}
-                                            >
-                                                {item.marketLabel}
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-
-                                    {/* Feature Name (Center) */}
-                                    <Grid
-                                        item
-                                        xs={4}
-                                        sx={{
-                                            textAlign: "center",
-                                            display: "flex",
-                                            justifyContent: "center",
-                                            alignItems: "center", // Center vertically
-                                        }}
-                                    >
+                                <Box
+                                    sx={{
+                                        backgroundColor: "#ffffff",
+                                        borderRadius: "20px",
+                                        p: { xs: 3.5, md: 4.5 },
+                                        height: "100%",
+                                        border: "1px solid rgba(0, 0, 0, 0.08)",
+                                        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.03)",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <Box sx={{ pb: 3, borderBottom: "1px solid rgba(0, 0, 0, 0.06)", mb: 3 }}>
                                         <Typography
-                                            variant="h6"
                                             sx={{
+                                                color: "#8a9488",
+                                                fontFamily: "'Montserrat', sans-serif",
+                                                fontSize: "0.75rem",
                                                 fontWeight: 700,
-                                                color: "#2c3e50",
-                                                fontFamily: "Playfair Display, serif",
-                                                fontSize: { xs: "0.85rem", md: "1.25rem" },
-                                                lineHeight: 1.2
+                                                letterSpacing: "0.18em",
+                                                textTransform: "uppercase",
+                                                mb: 1,
                                             }}
                                         >
-                                            {item.feature}
+                                            Standard Industry Practice
                                         </Typography>
-                                    </Grid>
+                                        <Typography
+                                            sx={{
+                                                fontFamily: "'Playfair Display', Georgia, serif",
+                                                fontSize: "1.45rem",
+                                                color: "#576355",
+                                                fontWeight: 600,
+                                            }}
+                                        >
+                                            Conventional Contractors
+                                        </Typography>
+                                    </Box>
 
-                                    {/* Tvashta Experience (Right) */}
-                                    <Grid
-                                        item
-                                        xs={4}
+                                    <Box sx={{ display: "flex", flexDirection: "column", gap: 3, flexGrow: 1 }}>
+                                        {comparativePoints.map((item, idx) => (
+                                            <Box key={idx} sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
+                                                <CancelOutlinedIcon sx={{ color: "#b37b7b", fontSize: 20, mt: 0.3, flexShrink: 0 }} />
+                                                <Box>
+                                                    <Typography
+                                                        sx={{
+                                                            fontFamily: "'Montserrat', sans-serif",
+                                                            fontSize: "0.85rem",
+                                                            fontWeight: 600,
+                                                            color: "#6b7768",
+                                                            mb: 0.3,
+                                                        }}
+                                                    >
+                                                        {item.feature}
+                                                    </Typography>
+                                                    <Typography
+                                                        sx={{
+                                                            fontFamily: "'Montserrat', sans-serif",
+                                                            fontSize: "0.82rem",
+                                                            color: "#859182",
+                                                            lineHeight: 1.55,
+                                                        }}
+                                                    >
+                                                        {item.conventional}
+                                                    </Typography>
+                                                </Box>
+                                            </Box>
+                                        ))}
+                                    </Box>
+                                </Box>
+                            </motion.div>
+                        </Grid>
+
+                        {/* Right Card: The Tvashta Atelier Standard (Highlighted) */}
+                        <Grid item xs={12} md={6.5}>
+                            <motion.div
+                                variants={SlideUp(0.4)}
+                                initial="initial"
+                                whileInView="animate"
+                                viewport={{ once: true }}
+                                style={{ height: "100%" }}
+                            >
+                                <Box
+                                    sx={{
+                                        background: "linear-gradient(135deg, #1e281e 0%, #2b392a 100%)",
+                                        borderRadius: "20px",
+                                        p: { xs: 3.5, md: 4.5 },
+                                        height: "100%",
+                                        border: "1.5px solid rgba(178, 152, 115, 0.45)",
+                                        boxShadow: "0 20px 45px rgba(30, 40, 30, 0.25), 0 0 0 1px rgba(178, 152, 115, 0.2)",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        position: "relative",
+                                        overflow: "hidden",
+                                    }}
+                                >
+                                    {/* Top decorative badge */}
+                                    <Box
                                         sx={{
-                                            borderLeft: { md: `1px solid ${BRAND_GREEN_LIGHT}` },
-                                            background: "linear-gradient(to bottom, #fafaf5, #fff)",
-                                            // Flex and padding moved to inner Box
+                                            position: "absolute",
+                                            top: 20,
+                                            right: 20,
+                                            background: "rgba(178, 152, 115, 0.2)",
+                                            border: "1px solid rgba(178, 152, 115, 0.4)",
+                                            color: "#dfcfb8",
+                                            px: 1.8,
+                                            py: 0.6,
+                                            borderRadius: "50px",
+                                            fontSize: "0.72rem",
+                                            fontWeight: 700,
+                                            letterSpacing: "0.14em",
+                                            fontFamily: "'Montserrat', sans-serif",
+                                            display: { xs: "none", sm: "inline-flex" },
+                                            alignItems: "center",
+                                            gap: 0.8,
                                         }}
                                     >
-                                        <Box sx={{
-                                            width: "100%",
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            py: 2, // Safe explicit padding
-                                        }}>
-                                            <Avatar
-                                                variant="rounded"
-                                                sx={{
-                                                    width: { xs: 40, md: 56 },
-                                                    height: { xs: 40, md: 56 },
-                                                    bgcolor: BRAND_GREEN_LIGHT,
-                                                    fontSize: { xs: "24px", md: "32px" },
-                                                    boxShadow: "0 4px 15px rgba(159, 128, 51, 0.2)",
-                                                    border: "1px solid rgba(159, 128, 51, 0.2)",
-                                                    color: "#4a5942"
-                                                }}
-                                            >
-                                                {item.tvashtaIcon}
-                                            </Avatar>
-                                            <Typography
-                                                variant="body1"
-                                                sx={{
-                                                    mt: { xs: 0.5, md: 1 },
-                                                    color: BRAND_GREEN,
-                                                    fontWeight: 700,
-                                                    fontSize: { xs: "0.75rem", md: "1rem" },
-                                                    textAlign: "center",
-                                                    fontFamily: "Montserrat, sans-serif",
-                                                    lineHeight: 1.2
-                                                }}
-                                            >
-                                                {item.tvashtaLabel}
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                </Grid>
-                            </Paper>
-                        ))}
-                    </Box>
+                                        <WorkspacePremiumOutlinedIcon sx={{ fontSize: 16, color: "#dfcfb8" }} />
+                                        RECOMMENDED
+                                    </Box>
+
+                                    <Box sx={{ pb: 3, borderBottom: "1px solid rgba(178, 152, 115, 0.2)", mb: 3 }}>
+                                        <Typography
+                                            sx={{
+                                                color: "#b29873",
+                                                fontFamily: "'Montserrat', sans-serif",
+                                                fontSize: "0.75rem",
+                                                fontWeight: 700,
+                                                letterSpacing: "0.18em",
+                                                textTransform: "uppercase",
+                                                mb: 1,
+                                            }}
+                                        >
+                                            The Atelier Advantage
+                                        </Typography>
+                                        <Typography
+                                            sx={{
+                                                fontFamily: "'Playfair Display', Georgia, serif",
+                                                fontSize: { xs: "1.5rem", md: "1.65rem" },
+                                                color: "#ffffff",
+                                                fontWeight: 600,
+                                            }}
+                                        >
+                                            The Tvashta Signature Standard
+                                        </Typography>
+                                    </Box>
+
+                                    <Box sx={{ display: "flex", flexDirection: "column", gap: 3, flexGrow: 1 }}>
+                                        {comparativePoints.map((item, idx) => (
+                                            <Box key={idx} sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
+                                                <CheckCircleRoundedIcon sx={{ color: "#b29873", fontSize: 22, mt: 0.2, flexShrink: 0 }} />
+                                                <Box>
+                                                    <Typography
+                                                        sx={{
+                                                            fontFamily: "'Montserrat', sans-serif",
+                                                            fontSize: "0.9rem",
+                                                            fontWeight: 700,
+                                                            color: "#ffffff",
+                                                            mb: 0.3,
+                                                        }}
+                                                    >
+                                                        {item.feature}
+                                                    </Typography>
+                                                    <Typography
+                                                        sx={{
+                                                            fontFamily: "'Montserrat', sans-serif",
+                                                            fontSize: "0.84rem",
+                                                            color: "rgba(235, 242, 233, 0.85)",
+                                                            lineHeight: 1.6,
+                                                        }}
+                                                    >
+                                                        {item.tvashta}
+                                                    </Typography>
+                                                </Box>
+                                            </Box>
+                                        ))}
+                                    </Box>
+
+                                    {/* Action Button inside Atelier Card */}
+                                    <Box sx={{ mt: 4, pt: 3, borderTop: "1px solid rgba(178, 152, 115, 0.2)" }}>
+                                        <Button
+                                            fullWidth
+                                            onClick={() => setIsModalOpen(true)}
+                                            sx={{
+                                                background: "linear-gradient(135deg, #b29873 0%, #9e825c 100%)",
+                                                color: "#ffffff",
+                                                py: 1.6,
+                                                borderRadius: "50px",
+                                                fontFamily: "'Montserrat', sans-serif",
+                                                fontSize: "0.82rem",
+                                                fontWeight: 700,
+                                                letterSpacing: "0.15em",
+                                                textTransform: "uppercase",
+                                                boxShadow: "0 8px 24px rgba(178, 152, 115, 0.35)",
+                                                transition: "all 0.3s ease",
+                                                "&:hover": {
+                                                    background: "linear-gradient(135deg, #c5a880 0%, #b29873 100%)",
+                                                    transform: "translateY(-2px)",
+                                                    boxShadow: "0 12px 30px rgba(178, 152, 115, 0.5)",
+                                                },
+                                            }}
+                                        >
+                                            Experience the Difference — Free Consultation
+                                        </Button>
+                                    </Box>
+                                </Box>
+                            </motion.div>
+                        </Grid>
+                    </Grid>
                 </Container>
             </Box>
         </>
@@ -328,5 +331,3 @@ const WhyPartnerWithUs = () => {
 };
 
 export default WhyPartnerWithUs;
-
-

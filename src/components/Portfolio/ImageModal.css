@@ -65,7 +65,7 @@
 }
 
 .modal-close-btn:hover {
-    color: #9f8033;
+    color: #b29873;
 }
 
 .modal-nav-btn {
@@ -88,8 +88,8 @@
 }
 
 .modal-nav-btn:hover {
-    background: rgba(159, 128, 51, 0.8);
-    border-color: #9f8033;
+    background: rgba(178, 152, 115, 0.85);
+    border-color: #b29873;
 }
 
 .modal-nav-btn.prev {

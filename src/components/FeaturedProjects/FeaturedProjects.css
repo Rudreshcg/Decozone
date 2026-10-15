@@ -1,123 +1,90 @@
-/* Featured Projects Section */
-/* Featured Projects Section */
+/* Featured Projects Section - Luxury Architectural Atelier */
 .featured-projects-section {
-    padding: 72px 0;
-    /* Premium Off-White Background — aligned with home section rhythm */
-    background: #faf8f6;
+    padding: 96px 0;
+    background: #faf8f5;
+    position: relative;
 }
 
-/* ... existing container styles ... */
-
-.view-all-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #9f8033 0%, #c5a059 50%, #9f8033 100%);
-    /* Golf Gradient */
-    color: #fff;
-    padding: 16px 45px;
-    border-radius: 40px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    /* Bolder */
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(159, 128, 51, 0.3);
-    /* Gold Shadow */
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.view-all-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(159, 128, 51, 0.4);
-    background: linear-gradient(135deg, #8a6d2b 0%, #b08d4b 50%, #8a6d2b 100%);
-}
-
-.container {
-    max-width: 1400px;
+.featured-projects-section .container {
+    max-width: 1360px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 32px;
 }
 
-.section-header {
+.featured-projects-section .section-header {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 64px;
 }
 
-/** Badge Styles - Use .section-badge-global from global CSS */
-
-.section-header .description {
+.featured-projects-section .section-header .description {
     font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    color: #555;
-    max-width: 800px;
+    font-size: 1.05rem;
+    color: #576355;
+    max-width: 760px;
     margin: 0 auto;
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
-.projects-grid {
+.featured-projects-section .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 60px;
+    gap: 32px;
+    margin-bottom: 64px;
 }
 
-@media (max-width: 1200px) {
-    .projects-grid {
+@media (max-width: 1100px) {
+    .featured-projects-section .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .featured-projects-section {
-        padding: 32px 0;
+        padding: 60px 0;
     }
 
-    .projects-grid {
+    .featured-projects-section .projects-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
     }
 
-    .container {
+    .featured-projects-section .container {
         padding: 0 20px;
     }
 
-    .section-header {
-        margin-bottom: 40px;
+    .featured-projects-section .section-header {
+        margin-bottom: 36px;
     }
 }
 
+/* Luxury Project Card */
 .featured-projects-section .project-card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(178, 152, 115, 0.22);
+    box-shadow: 0 12px 35px -12px rgba(44, 56, 41, 0.08);
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .featured-projects-section .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-    /* Softer, larger shadow */
+    transform: translateY(-8px);
+    border-color: rgba(178, 152, 115, 0.55);
+    box-shadow: 0 24px 50px -15px rgba(44, 56, 41, 0.15), 0 0 0 1px rgba(178, 152, 115, 0.2);
 }
 
 .featured-projects-section .card-image-wrapper {
     position: relative;
     overflow: hidden;
-    flex-shrink: 0;
-    flex-grow: 0;
-    align-self: flex-start;
-    /* Defensive: ignore any leaked .card-image-wrapper { height: 100% } from other sections */
-    height: auto !important;
+    height: 300px;
     width: 100%;
-    border-radius: 20px 20px 0 0;
 }
 
 .featured-projects-section .card-image {
-    position: relative;
-    height: 280px;
     width: 100%;
+    height: 100%;
     display: block;
 }
 
@@ -127,177 +94,169 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Badge only — no full-width white strip */
+.featured-projects-section .project-card:hover .card-image img,
+.featured-projects-section .project-card:hover .card-image canvas {
+    transform: scale(1.06);
+}
+
 .featured-projects-section .card-overlay {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 14px 16px 16px;
+    inset: 0;
+    padding: 18px 20px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    pointer-events: none;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 55%);
+    background: linear-gradient(to top, rgba(22, 29, 21, 0.75) 0%, rgba(22, 29, 21, 0.15) 50%, transparent 100%);
 }
 
 .featured-projects-section .category-badge {
-    position: static;
-    background-color: #faf8f6;
-    color: #9f8033;
-    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #42523e;
+    border: 1px solid rgba(178, 152, 115, 0.4);
+    padding: 6px 14px;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-    pointer-events: auto;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .featured-projects-section .card-content {
-    padding: 30px;
+    padding: 28px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
-    min-height: min-content;
-    position: relative;
-    z-index: 3;
-    background: #fff;
+    background: #ffffff;
 }
 
-/* Override global PortfolioCard .project-title (line-clamp / tiny font) */
-.featured-projects-section .project-card .project-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: #2c3e50;
+.featured-projects-section .project-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.35rem;
+    color: #1e281e;
     margin: 0 0 10px 0;
-    line-height: 1.4;
-    font-weight: 700;
-    display: block;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    overflow: visible;
-    -webkit-box-orient: unset;
+    line-height: 1.35;
+    font-weight: 600;
 }
 
-.featured-projects-section .project-location {
+.featured-projects-section .project-meta-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: #777;
-    margin: 0 0 20px 0;
+    font-size: 0.82rem;
+    color: #6a7768;
+    margin-bottom: 14px;
+}
+
+.featured-projects-section .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+.featured-projects-section .meta-separator {
+    color: #b29873;
+    font-weight: bold;
 }
 
 .featured-projects-section .project-desc {
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #666;
-    margin: 0 0 25px 0;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #576355;
+    margin: 0 0 20px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    overflow: hidden;
 }
 
-.featured-projects-section .project-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 30px 0;
-}
-
-.featured-projects-section .project-features li {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 12px;
+.featured-projects-section .project-tags {
     display: flex;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
 }
 
-.featured-projects-section .project-features li span {
-    width: 6px;
-    height: 6px;
-    background-color: #4a5942;
-    border-radius: 50%;
-    margin-top: 7px;
-    margin-right: 12px;
-    flex-shrink: 0;
+.featured-projects-section .project-tag-pill {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #42523e;
+    background: #f4f7f3;
+    border: 1px solid rgba(178, 152, 115, 0.25);
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.04em;
 }
 
 .featured-projects-section .card-footer {
-    padding-top: 25px;
-    border-top: 1px solid #eee;
+    padding-top: 18px;
+    border-top: 1px solid rgba(178, 152, 115, 0.15);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     margin-top: auto;
 }
 
-.featured-projects-section .project-date {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .featured-projects-section .details-link {
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: #4a5942;
+    font-size: 0.82rem;
+    color: #42523e;
     text-decoration: none;
-    font-weight: 600;
-    display: flex;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.featured-projects-section .details-link:hover {
-    color: #3d4a36;
+.featured-projects-section .details-link .arrow-icon {
+    color: #b29873;
+    transition: transform 0.3s ease;
 }
 
-.featured-projects-section .details-link .eye-icon {
-    font-style: normal;
-    font-size: 16px;
+.featured-projects-section .project-card:hover .details-link .arrow-icon {
+    transform: translateX(4px);
+    color: #42523e;
 }
 
-.section-footer {
+.featured-projects-section .section-footer {
     text-align: center;
 }
 
-.view-all-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #4a5942 0%, #3d4a36 100%);
-    /* Green Gradient */
-    border: 2px solid #9f8033;
-    /* Gold Border */
-    color: #fff;
-    padding: 16px 45px;
-    border-radius: 40px;
+.featured-projects-section .view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #42523e 0%, #2c3829 100%);
+    border: 1px solid rgba(178, 152, 115, 0.4);
+    color: #ffffff;
+    padding: 16px 42px;
+    border-radius: 50px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: 0.85rem;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(74, 89, 66, 0.3);
-    /* Green Shadow */
-    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 28px rgba(44, 56, 41, 0.25);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
 }
 
-.view-all-btn:hover {
-    transform: translateY(-3px);
-    background: #3d4a36;
-    border-color: #c5a059;
-    /* Bright Gold Hover */
-    box-shadow: 0 15px 35px rgba(159, 128, 51, 0.4);
-    /* Gold Glow */
-}
-
-.view-all-btn span {
-    margin-left: 10px;
-    font-size: 18px;
-    vertical-align: middle;
+.featured-projects-section .view-all-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #354432 0%, #20281e 100%);
+    border-color: #b29873;
+    box-shadow: 0 14px 34px rgba(178, 152, 115, 0.38);
 }

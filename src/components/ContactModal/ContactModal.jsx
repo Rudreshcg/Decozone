@@ -31,25 +31,27 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
     backgroundColor: "white",
     position: "relative",
     overflow: "hidden", // Ensure image doesn't bleed
-    border: "1px solid rgba(159, 128, 51, 0.3)", // Subtle Darker Gold border
+    border: "1px solid rgba(178, 152, 115, 0.4)", // Champagne Gold border
+    boxShadow: "0 25px 60px rgba(18, 26, 18, 0.35)",
     [theme.breakpoints.down("sm")]: {
         maxWidth: "95%",
     },
 }));
 
 const StyledToggleButton = styled(ToggleButton)({
-    border: "1px solid #e0e0e0",
+    border: "1px solid rgba(178, 152, 115, 0.3)",
     borderRadius: "8px !important",
     marginRight: "8px !important",
     textTransform: "none",
-    fontWeight: 500,
+    fontWeight: 600,
     padding: "6px 16px",
     "&.Mui-selected": {
-        backgroundColor: "#4a5942 !important",
-        color: "white !important",
+        backgroundColor: "#42523e !important",
+        color: "#ffffff !important",
+        borderColor: "#42523e !important",
     },
     "&:hover": {
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#faf8f5",
     },
 });
 
@@ -224,14 +226,14 @@ const ContactModal = ({ open, setOpen }) => {
                             gutterBottom
                             sx={{
                                 fontFamily: "Playfair Display, serif",
-                                color: "#2c3e50",
+                                color: "#121a12",
                                 mb: 3,
                             }}
                         >
                             Get a free design consultation
                         </Typography>
 
-                        <Typography variant="body2" fontWeight="600" sx={{ mb: 1, color: "#555" }}>
+                        <Typography variant="body2" fontWeight="600" sx={{ mb: 1, color: "#42523e" }}>
                             Property type
                         </Typography>
                         <ToggleButtonGroup
@@ -259,10 +261,10 @@ const ContactModal = ({ open, setOpen }) => {
                                     mb: 2,
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "8px",
-                                        backgroundColor: "#f9f9f9",
-                                        "& fieldset": { borderColor: "#eee" },
-                                        "&:hover fieldset": { borderColor: "#9f8033" }, // Darker Muted Gold
-                                        "&.Mui-focused fieldset": { borderColor: "#9f8033" },
+                                        backgroundColor: "#faf8f5",
+                                        "& fieldset": { borderColor: "rgba(178, 152, 115, 0.3)" },
+                                        "&:hover fieldset": { borderColor: "#b29873" },
+                                        "&.Mui-focused fieldset": { borderColor: "#42523e" },
                                     }
                                 }}
                             />
@@ -279,10 +281,10 @@ const ContactModal = ({ open, setOpen }) => {
                                     mb: 2,
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "8px",
-                                        backgroundColor: "#f9f9f9",
-                                        "& fieldset": { borderColor: "#eee" },
-                                        "&:hover fieldset": { borderColor: "#9f8033" },
-                                        "&.Mui-focused fieldset": { borderColor: "#9f8033" },
+                                        backgroundColor: "#faf8f5",
+                                        "& fieldset": { borderColor: "rgba(178, 152, 115, 0.3)" },
+                                        "&:hover fieldset": { borderColor: "#b29873" },
+                                        "&.Mui-focused fieldset": { borderColor: "#42523e" },
                                     },
                                 }}
                             />
@@ -299,10 +301,10 @@ const ContactModal = ({ open, setOpen }) => {
                                     mb: 1,
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "8px",
-                                        backgroundColor: "#f9f9f9",
-                                        "& fieldset": { borderColor: "#eee" },
-                                        "&:hover fieldset": { borderColor: "#9f8033" },
-                                        "&.Mui-focused fieldset": { borderColor: "#9f8033" },
+                                        backgroundColor: "#faf8f5",
+                                        "& fieldset": { borderColor: "rgba(178, 152, 115, 0.3)" },
+                                        "&:hover fieldset": { borderColor: "#b29873" },
+                                        "&.Mui-focused fieldset": { borderColor: "#42523e" },
                                     },
                                 }}
                             />
@@ -314,7 +316,7 @@ const ContactModal = ({ open, setOpen }) => {
                                         checked={form.whatsappUpdates}
                                         onChange={handleInputChange}
                                         size="small"
-                                        sx={{ color: "#9f8033", '&.Mui-checked': { color: "#9f8033" } }}
+                                        sx={{ color: "#b29873", '&.Mui-checked': { color: "#42523e" } }}
                                     />
                                 }
                                 label={<Typography variant="caption" color="textSecondary">Send me updates on WhatsApp</Typography>}
@@ -342,21 +344,23 @@ const ContactModal = ({ open, setOpen }) => {
                                 type="submit"
                                 disabled={isSubmitting}
                                 sx={{
-                                    background: "linear-gradient(135deg, #4a5942 0%, #3d4a36 100%)",
-                                    border: "1px solid #9f8033", // Gold Border
+                                    background: "linear-gradient(135deg, #42523e 0%, #2c3829 100%)",
+                                    border: "1px solid rgba(178, 152, 115, 0.5)",
                                     color: "white",
-                                    fontWeight: "800",
+                                    fontWeight: "700",
                                     py: 1.5,
                                     borderRadius: "8px",
-                                    fontSize: "1rem",
-                                    boxShadow: "0 4px 15px rgba(74, 89, 66, 0.3)",
+                                    fontSize: "0.95rem",
+                                    letterSpacing: "0.08em",
+                                    textTransform: "uppercase",
+                                    boxShadow: "0 6px 20px rgba(66, 82, 62, 0.35)",
                                     transition: "all 0.3s ease",
                                     opacity: isSubmitting ? 0.7 : 1,
                                     "&:hover": {
                                         transform: isSubmitting ? "none" : "translateY(-2px)",
-                                        background: "#3d4a36",
-                                        borderColor: "#c5a059",
-                                        boxShadow: "0 6px 20px rgba(159, 128, 51, 0.4)",
+                                        background: "linear-gradient(135deg, #32402e 0%, #1e281e 100%)",
+                                        borderColor: "#b29873",
+                                        boxShadow: "0 10px 25px rgba(178, 152, 115, 0.45)",
                                     },
                                 }}
                             >
@@ -368,9 +372,9 @@ const ContactModal = ({ open, setOpen }) => {
                                 display="block"
                                 align="center"
                                 color="textSecondary"
-                                sx={{ mt: 2, fontSize: "10px" }}
+                                sx={{ mt: 2, fontSize: "11px" }}
                             >
-                                By submitting, you consent to <span style={{ color: "#4a5942", cursor: "pointer" }}>privacy policy</span> and <span style={{ color: "#4a5942", cursor: "pointer" }}>terms of use</span>
+                                By submitting, you consent to <span style={{ color: "#42523e", fontWeight: 600, cursor: "pointer" }}>privacy policy</span> and <span style={{ color: "#42523e", fontWeight: 600, cursor: "pointer" }}>terms of use</span>
                             </Typography>
                         </form>
                     </Grid>
