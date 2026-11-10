@@ -13,6 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import LoginIcon from "@mui/icons-material/Login";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { styled } from "@mui/system";
 import Logo from "../../assets/companyLogo/Logo.png";
@@ -21,9 +22,12 @@ import ContactModal from "../ContactModal/ContactModal";
 const DesktopMenu = styled("div")(({ theme }) => ({
     display: "none",
     alignItems: "center",
-    gap: "8px",
+    gap: "6px",
     [theme.breakpoints.up("md")]: {
         display: "flex",
+    },
+    [theme.breakpoints.up("lg")]: {
+        gap: "10px",
     },
 }));
 
@@ -101,7 +105,7 @@ const Header = () => {
                     sx={{
                         width: "100%",
                         minHeight: { xs: "72px !important", md: "84px !important" },
-                        paddingX: { xs: 2.5, md: 6 },
+                        paddingX: { xs: 2, md: 3, lg: 5 },
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
@@ -134,12 +138,13 @@ const Header = () => {
                                         color: active ? "#42523e" : "#4A524A",
                                         fontWeight: active ? 700 : 500,
                                         fontFamily: "'Montserrat', sans-serif",
-                                        fontSize: "0.82rem",
-                                        letterSpacing: "0.14em",
-                                        px: 2,
+                                        fontSize: { md: "0.76rem", lg: "0.82rem" },
+                                        letterSpacing: { md: "0.1em", lg: "0.14em" },
+                                        px: { md: 1.2, lg: 1.8 },
                                         py: 1.2,
                                         position: "relative",
                                         textTransform: "uppercase",
+                                        whiteSpace: "nowrap",
                                         transition: "all 0.25s ease",
                                         "&::after": {
                                             content: '""',
@@ -172,11 +177,11 @@ const Header = () => {
                             onClick={() => setIsConsultModalOpen(true)}
                             startIcon={<CalendarMonthOutlinedIcon sx={{ fontSize: "1.05rem !important", color: "#dfcfb8" }} />}
                             sx={{
-                                ml: 2,
+                                ml: { md: 1, lg: 1.5 },
                                 background: "linear-gradient(135deg, #42523e 0%, #2f3c2c 100%)",
                                 color: "#ffffff",
                                 border: "1px solid rgba(178, 152, 115, 0.4)",
-                                px: 2.8,
+                                px: { md: 2, lg: 2.6 },
                                 py: 1.1,
                                 borderRadius: "50px",
                                 fontFamily: "'Montserrat', sans-serif",
@@ -185,6 +190,8 @@ const Header = () => {
                                 letterSpacing: "0.14em",
                                 textTransform: "uppercase",
                                 boxShadow: "0 6px 18px rgba(66, 82, 62, 0.25)",
+                                whiteSpace: "nowrap",
+                                flexShrink: 0,
                                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                                 "&:hover": {
                                     background: "linear-gradient(135deg, #354432 0%, #232c21 100%)",
@@ -196,20 +203,101 @@ const Header = () => {
                         >
                             Book Consultation
                         </Button>
+
+                        {/* Top Right Corner Login Button */}
+                        <Button
+                            component="a"
+                            href="https://tvashtainterior.construct.sevenr.in/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            startIcon={<LoginIcon sx={{ fontSize: "1rem !important", color: "#b29873", transition: "color 0.3s ease" }} />}
+                            sx={{
+                                ml: 0.5,
+                                background: "rgba(178, 152, 115, 0.08)",
+                                color: "#42523e",
+                                border: "1.5px solid #b29873",
+                                px: { md: 1.8, lg: 2.4 },
+                                py: 1.05,
+                                borderRadius: "50px",
+                                fontFamily: "'Montserrat', sans-serif",
+                                fontSize: { md: "0.74rem", lg: "0.78rem" },
+                                fontWeight: 700,
+                                letterSpacing: "0.14em",
+                                textTransform: "uppercase",
+                                whiteSpace: "nowrap",
+                                flexShrink: 0,
+                                boxShadow: "0 4px 12px rgba(178, 152, 115, 0.15)",
+                                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                                "&:hover": {
+                                    background: "linear-gradient(135deg, #b29873 0%, #9e825c 100%)",
+                                    color: "#ffffff",
+                                    borderColor: "#b29873",
+                                    transform: "translateY(-1px)",
+                                    boxShadow: "0 8px 22px rgba(178, 152, 115, 0.35)",
+                                    "& .MuiSvgIcon-root": {
+                                        color: "#ffffff",
+                                    },
+                                },
+                            }}
+                        >
+                            Login
+                        </Button>
                     </DesktopMenu>
 
-                    <IconButton
-                        edge="end"
-                        aria-label="menu"
+                    {/* Mobile Header Right: Login Button + Hamburger Menu */}
+                    <Box
                         sx={{
-                            display: { xs: "inline-flex", md: "none" },
-                            color: "#42523e",
-                            p: 1,
+                            display: { xs: "flex", md: "none" },
+                            alignItems: "center",
+                            gap: 1,
                         }}
-                        onClick={toggleDrawer}
                     >
-                        {drawerOpen ? <CloseIcon /> : <MenuIcon fontSize="medium" />}
-                    </IconButton>
+                        <Button
+                            component="a"
+                            href="https://tvashtainterior.construct.sevenr.in/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            startIcon={<LoginIcon sx={{ fontSize: "0.95rem !important", color: "#b29873", transition: "color 0.25s ease" }} />}
+                            sx={{
+                                color: "#42523e",
+                                border: "1.5px solid rgba(178, 152, 115, 0.7)",
+                                backgroundColor: "rgba(178, 152, 115, 0.08)",
+                                px: 1.6,
+                                py: 0.65,
+                                borderRadius: "50px",
+                                fontFamily: "'Montserrat', sans-serif",
+                                fontSize: "0.72rem",
+                                fontWeight: 700,
+                                letterSpacing: "0.1em",
+                                textTransform: "uppercase",
+                                whiteSpace: "nowrap",
+                                boxShadow: "0 2px 8px rgba(178, 152, 115, 0.12)",
+                                transition: "all 0.25s ease",
+                                "&:hover": {
+                                    backgroundColor: "#b29873",
+                                    color: "#ffffff",
+                                    borderColor: "#b29873",
+                                    "& .MuiSvgIcon-root": {
+                                        color: "#ffffff",
+                                    },
+                                },
+                            }}
+                        >
+                            Login
+                        </Button>
+
+                        <IconButton
+                            edge="end"
+                            aria-label="menu"
+                            sx={{
+                                color: "#42523e",
+                                p: 1,
+                            }}
+                            onClick={toggleDrawer}
+                        >
+                            {drawerOpen ? <CloseIcon /> : <MenuIcon fontSize="medium" />}
+                        </IconButton>
+                    </Box>
                 </Toolbar>
             </AppBar>
 
@@ -332,7 +420,7 @@ const Header = () => {
                                 letterSpacing: "0.14em",
                                 textTransform: "uppercase",
                                 boxShadow: "0 8px 24px rgba(178, 152, 115, 0.35)",
-                                mb: 2,
+                                mb: 1.5,
                                 transition: "all 0.3s ease",
                                 "&:hover": {
                                     background: "linear-gradient(135deg, #a38965 0%, #8e734e 100%)",
@@ -341,6 +429,37 @@ const Header = () => {
                             }}
                         >
                             Schedule Consultation
+                        </Button>
+                        <Button
+                            fullWidth
+                            component="a"
+                            href="https://tvashtainterior.construct.sevenr.in/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={toggleDrawer}
+                            startIcon={<LoginIcon sx={{ fontSize: "1.05rem !important", color: "#dfcfb8" }} />}
+                            sx={{
+                                color: "#dfcfb8",
+                                border: "1.5px solid rgba(178, 152, 115, 0.45)",
+                                bgcolor: "rgba(178, 152, 115, 0.08)",
+                                py: 1.4,
+                                borderRadius: "50px",
+                                fontFamily: "'Montserrat', sans-serif",
+                                fontWeight: 700,
+                                fontSize: "0.82rem",
+                                letterSpacing: "0.14em",
+                                textTransform: "uppercase",
+                                mb: 2.5,
+                                transition: "all 0.3s ease",
+                                "&:hover": {
+                                    bgcolor: "rgba(178, 152, 115, 0.22)",
+                                    borderColor: "#b29873",
+                                    color: "#ffffff",
+                                    transform: "translateY(-1px)",
+                                },
+                            }}
+                        >
+                            Login
                         </Button>
                         <Box sx={{ textAlign: "center" }}>
                             <Typography
